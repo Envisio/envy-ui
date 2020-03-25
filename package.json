@@ -1,0 +1,22 @@
+{
+  "name": "envy-ui",
+  "version": "1.0.0-beta.0",
+  "description": "UI Design System for Envisio Applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Envisio/envy-ui.git"
+  },
+  "author": "Eugene Goncharov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Envisio/envy-ui/issues"
+  },
+  "homepage": "https://github.com/Envisio/envy-ui#readme",
+  "devDependencies": {
+    "kss": "^3.0.0"
+  }
+}
