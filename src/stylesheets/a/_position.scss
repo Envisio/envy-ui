@@ -1,0 +1,5 @@
+@each $position in $a-positions {
+  .#{$uiA}-#{$position} {
+    @include a-position($position);
+  }
+}

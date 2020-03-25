@@ -1,0 +1,51 @@
+// Info
+//
+// Weight: 1270
+//
+// Styleguide Info
+
+.#{$uiInfo} {
+
+  $this: &;
+  $height-element: $space-step * 7;
+
+  @include flex();
+  align-items: center;
+  position: relative;
+
+  &__content {
+    border: $panel-border;
+    padding: $space-small $space-normal;
+    display: inline-block;
+    overflow: hidden;
+    flex: 1 1 100%;
+    line-height: 1.5;
+  }
+
+  &--condition {
+    #{$this}__content {
+      background-color: $condition;
+    }
+  }
+
+  &--line {
+    height: $height-element;
+    min-height: $height-element;
+    max-height: $height-element;
+    align-items: stretch;
+    #{$this}__content {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &:hover {
+      #{$this}__content {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: auto;
+        min-height: $height-element;
+        white-space: normal;
+      }
+    }
+  }
+}

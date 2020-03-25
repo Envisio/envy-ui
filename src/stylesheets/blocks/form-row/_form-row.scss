@@ -1,0 +1,66 @@
+// Form Row
+//
+// Weight: 1220
+//
+// Styleguide Form Row
+
+.#{$uiFormRow} {
+
+  $this: &;
+
+  @include flex(a-center);
+  margin-bottom: $form-row-margin-bottom;
+  align-self: flex-start;
+
+  &__label {
+    padding-right: $padding-small;
+    color: $default;
+    flex: 0 0 $base-form-label-min-width;
+    &--long {
+      flex-basis: $base-form-label-min-width + $base-form-margin-step;
+    }
+    &--xlong {
+      flex-basis: $base-form-label-min-width + (2 * $base-form-margin-step);
+    }
+    &--short {
+      flex-basis: $base-form-label-min-width - $base-form-margin-step;
+    }
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--column {
+    @include flex(column, a-start);
+    #{$this}__label {
+    padding-right: 0;
+    flex: 0 0 auto;
+    margin-bottom: $margin-small;
+    }
+  }
+
+  &--push-right {
+    padding-left: $base-form-label-min-width;
+  }
+
+  &--push-right-long {
+    padding-left: $base-form-label-min-width + $base-form-margin-step;
+  }
+
+  &--push-right-xlong {
+    padding-left: $base-form-label-min-width + (2 * $base-form-margin-step);
+  }
+
+  &--push-right-short {
+    padding-left: $base-form-label-min-width - $base-form-margin-step;
+  }
+
+  &--push-down {
+    padding-top: $base-form-margin-step;
+  }
+
+  &--height-fixed {
+    height: $label-fixed-height;
+  }
+}

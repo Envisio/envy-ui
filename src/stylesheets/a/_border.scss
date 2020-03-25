@@ -1,0 +1,13 @@
+@each $border in $a-borders {
+  @each $border-type-name, $border-value in $a-border-types {
+    .#{$uiA}-border#{$border}#{$border-type-name} {
+      @include a-border($border, $border-value);
+    }
+  }
+}
+
+@each $border-radius-name, $border-radius in $a-border-radiuses {
+  .#{$uiA}-border-radius#{$border-radius-name} {
+    @include a-border-radius($border-radius);
+  }
+}

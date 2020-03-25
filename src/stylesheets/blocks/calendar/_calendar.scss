@@ -1,0 +1,55 @@
+// Calendar
+//
+// Weight: 1150
+//
+// Styleguide Calendar
+
+.#{$uiCalendar} {
+
+  $this: &;
+
+  @include flex(wrap);
+  padding: 1px 0 0 1px;
+  width: 250px;
+
+  &__button {
+    @include flex(j-center, a-center);
+    margin: -1px 0 0 -1px;
+    width: 14.285714286%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border: 1px solid $plain-gray;
+    background-color: $gallery;
+    line-height: 1;
+    &:hover {
+      background-color: $switch-button-hover-bg-color;
+    }
+    &--#{$class-active} {
+      background-color: $brand-blue;
+      border-left-color: $brand-blue;
+      border-top-color: $brand-blue;
+      color: $white;
+      transition: background 0.5s, border 0.5s;
+      &:hover {
+        background-color: darken($switch-button-selected-bg-color, 5%);
+      }
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    #{$this}__button {
+      cursor: default;
+      opacity: $switch-button-selected-disabled-opacity;
+      box-shadow: none;
+    }
+  }
+
+  // &--small {
+  //   height: $switch-button-height - ($switch-button-height / 4);
+  //   #{$this}__button {
+  //     padding-left: $switch-button-padding - ($switch-button-padding / 3);
+  //     padding-right: $switch-button-padding - ($switch-button-padding / 3);
+  //   }
+  // }
+}

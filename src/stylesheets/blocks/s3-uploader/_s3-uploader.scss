@@ -1,0 +1,14 @@
+// Select
+//
+// Weight: 1260
+//
+// Styleguide S3 Uploader
+.#{$uiS3Uploader} {
+
+  $this: &;
+
+  padding: 3px;
+  border-radius: $card-border-radius;
+  border: 1px solid $border;
+
+}

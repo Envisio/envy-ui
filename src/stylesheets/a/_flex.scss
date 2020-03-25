@@ -1,0 +1,140 @@
+$flex-shortname: "-f";
+
+.#{$uiA}#{$flex-shortname} {
+  display: flex#{$a-important};
+}
+
+$flex-properties: (
+  "-j": "justify-content",
+  "-a": "align-items",
+  "-a-content": "align-content",
+  "-a-self": "align-self",
+  "-inline": "display",
+);
+
+$flex-properties-set: (
+  "-j": (
+    "-start": flex-start,
+    "-end": flex-end,
+    "-center": center,
+    "-space-between": space-between,
+    "-space-around": space-around
+  ),
+  "-a": (
+    "-start": flex-start,
+    "-end": flex-end,
+    "-center": center,
+    "-baseline": baseline,
+    "-stretch": stretch
+  ),
+  "-a-content": (
+    "-start": flex-start,
+    "-end": flex-end,
+    "-center": center,
+    "-normal": normal,
+    "-baseline": baseline,
+    "-stretch": stretch,
+    "-space-between": space-between,
+    "-space-around": space-around
+  ),
+  "-a-self": (
+    "-auto": auto,
+    "-normal": normal,
+    "-start": self-start,
+    "-end": self-end,
+    "-flex-start": flex-start,
+    "-flex-end": flex-end,
+    "-center": center,
+    "-baseline": baseline,
+    "-first-baseline": unquote("first baseline"),
+    "-last-baseline": unquote("last baseline"),
+    "-stretch": stretch,
+    "-safe": safe,
+    "-unsafe": unsafe
+  ),
+  "-inline": (
+    null: inline-flex
+  ),
+);
+
+@each $flex-property-shorthand, $flex-property in $flex-properties {
+  @each $flex-property-sub-shorthand, $flex-value in map-get($flex-properties-set, #{$flex-property-shorthand}) {
+    .#{$uiA}#{$flex-shortname}#{$flex-property-shorthand}#{$flex-property-sub-shorthand} {
+      #{$flex-property}: unquote("#{$flex-value}#{$a-important}");
+    }
+  }
+}
+
+$flex-set: (
+  "flex-wrap": (
+    wrap,
+    nowrap,
+    wrap-reverse
+  ),
+  "flex-direction": (
+    row,
+    row-reverse,
+    column,
+    column-reverse
+  ),
+  "display": inline-flex
+);
+
+@each $flex-property-name, $flex-property in $flex-set {
+  @each $flex-value in $flex-property {
+    .#{$uiA}#{$flex-shortname}-#{$flex-value} {
+      #{$flex-property-name}: unquote("#{$flex-value}#{$a-important}");
+    }
+  }
+}
+
+@for $flex-grow-value from 0 through 10 {
+  .#{$uiA}#{$flex-shortname}-g-#{$flex-grow-value} {
+    flex-grow: unquote("#{$flex-grow-value}") #{$a-important};
+  }
+}
+
+@for $flex-shrink-value from 0 through 10 {
+  .#{$uiA}#{$flex-shortname}-s-#{$flex-shrink-value} {
+    flex-shrink: unquote("#{$flex-shrink-value}") #{$a-important};
+  }
+}
+
+@each $flex-grow-value in (0, 1) {
+  @each $flex-shrink-value in (0, 1) {
+    @each $i in $a-iterate-list {
+      .#{$uiA}#{$flex-shortname}-#{$flex-grow-value}-#{$flex-shrink-value}-#{$i} {
+        flex: #{$flex-grow-value $flex-shrink-value px($i)}#{$a-important};
+      }
+      @if $i > 0 and $i < 101 {
+        .#{$uiA}#{$flex-shortname}-#{$flex-grow-value}-#{$flex-shrink-value}-#{$i}\% {
+          flex: #{$flex-grow-value $flex-shrink-value $i}%#{$a-important};
+        }
+      }
+      @if ($flex-grow-value == 0 and $flex-shrink-value == 0) {
+        .#{$uiA}#{$flex-shortname}-b-#{$i} {
+          flex-basis: px($i) #{$a-important};
+        }
+        @if $i > 0 and $i < 101 {
+          .#{$uiA}#{$flex-shortname}-b-#{$i}\% {
+            flex-basis: #{$i}%#{$a-important};
+          }
+        }
+      }
+    }
+    .#{$uiA}#{$flex-shortname}-#{$flex-grow-value}-#{$flex-shrink-value}-auto {
+      flex: #{$flex-grow-value $flex-shrink-value} auto#{$a-important};
+    }
+  }
+}
+
+@for $i from 0 through 10 {
+  @each $postfix in null, "-" {
+    @if $i == 0 and $postfix == "-" {}
+    @else {
+      .#{$uiA}#{$flex-shortname}-order-#{$i}#{$postfix} {
+        order: #{$postfix}#{$i}#{$a-important};
+      }
+    }
+  }
+}

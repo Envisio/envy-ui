@@ -1,0 +1,115 @@
+// Badge
+//
+// Weight: 1280
+//
+// Styleguide Badge
+
+/* stylelint-disable no-descending-specificity */
+
+.#{$uiBadge} {
+
+  $this: &;
+
+  $badge--default-font-size: $a-default-font-size - 3;
+  $badge--height-default: 25px;
+  $badge--height-small: 20px;
+  $badge--height-xsmall: 15px;
+  $badge--height-large: 30px;
+
+  @mixin badge__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
+    $border-color: if($bg-color == color("white"), color("plain-gray"), $bg-color);
+    background-color: $bg-color;
+    color: $text-color;
+    border: 1px solid $border-color;
+  }
+
+  font-size: $badge--default-font-size;
+  padding: 1px 10px;
+  display: inline-flex;
+  height: $badge--height-default;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  line-height: normal;
+  white-space: nowrap;
+
+  @include badge__make-container-color(color("white"), color("default"));
+
+  &--info {
+    @include badge__make-container-color(color("viking-blue"), color("white"));
+  }
+
+  &--ok {
+    @include badge__make-container-color(color("green"), color("white"));
+  }
+
+  &--error {
+    @include badge__make-container-color(color("major-disruption"), color("white"));
+  }
+
+  &--warning {
+    @include badge__make-container-color(color("overdue"), color("white"));
+  }
+
+  &--circle {
+    height: $badge--height-default;
+    width: $badge--height-default;
+    padding: 1px;
+    border-radius: 50%;
+  }
+
+  &--round {
+    border-radius: $badge--height-default / 2;
+  }
+
+  &--small {
+    height: $badge--height-small;
+    font-size: $badge--default-font-size - 3;
+    &#{$this}--round {
+      border-radius: $badge--height-small / 2;
+    }
+    &#{$this}--circle {
+      width: $badge--height-small;
+      min-width: $badge--height-small;
+      min-width: $badge--height-small;
+      padding: 1px;
+    }
+  }
+
+  &--xsmall {
+    height: $badge--height-xsmall;
+    font-size: $badge--default-font-size - 3;
+    &#{$this}--round {
+      border-radius: $badge--height-xsmall / 2;
+    }
+    &#{$this}--circle {
+      width: $badge--height-xsmall;
+      min-width: $badge--height-xsmall;
+      min-width: $badge--height-xsmall;
+      padding: 1px;
+    }
+  }
+
+  &--large {
+    font-size: $a-default-font-size;
+    height: $badge--height-large;
+    padding: 0 $space-large;
+
+    &#{$this}--round {
+        border-radius: $badge--height-large / 2;
+    }
+
+    &#{$this}--circle {
+      width: $badge--height-large;
+      min-width: $badge--height-large;
+      padding: 1px;
+    }
+  }
+
+  &--inline {
+    height: auto;
+    padding: 2px 5px;
+  }
+}
+
+/* stylelint-enable */

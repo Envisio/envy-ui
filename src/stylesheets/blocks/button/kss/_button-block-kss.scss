@@ -1,0 +1,14 @@
+// Button Block
+//
+// EDS Button is parent (block) and direct child (element) containers. [tabindex 0] is assigned to the block and [tabindex -1] is assigned to the element. EDS Button should have at least one modifier class, which is assigned to the block.
+//
+// Markup:
+// _button-block-kss.html
+//
+// .env-button--default - Default button style.
+//
+// Moddescription: EDS Button with --default modifier.
+//
+// Weight: 1
+//
+// Styleguide Button - Block

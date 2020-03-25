@@ -1,0 +1,55 @@
+$space-properties: ("p": "padding", "m": "margin");
+
+$space-directions: (null: null, "-top": "-top", "-right": "-right", "-bottom": "-bottom", "-left": "-left", "-x": "-left" "-right", "-y": "-top" "-bottom");
+
+$space-sizes: (null: $space-normal, "-auto": auto, "-small": $space-small, "-large": $space-large, "-none": 0);
+
+@each $property-namespace, $property in $space-properties {
+  @each $direction-namespace, $direction-rules in $space-directions {
+    @each $size-namespace, $size in $space-sizes {
+      @each $ng in $a-negative-list {
+        @if $ng == "-" and $property-namespace == "p" {}
+        @else {
+          @if $ng == "-" and $size-namespace == "-auto" {}
+          @else {
+            @if $ng == "-" and $size-namespace == "-none" {}
+            @else {
+              @if $size-namespace == "-auto" and $property-namespace == "p" {}
+              @else {
+                .#{$uiA}-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$ng} {
+                  @each $direction in $direction-rules {
+                    #{$property}#{$direction}: unquote("#{$ng}#{$size}#{$a-important}");
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $i in $a-iterate-list {
+  @each $property-namespace, $property in $space-properties {
+    @each $direction-namespace, $direction-rules in $space-directions {
+      @each $ng in $a-negative-list {
+        @if $ng == "-" and $property-namespace == "p" {}
+        @else {
+          .#{$uiA}-#{$property-namespace}#{$direction-namespace}-#{$i}#{$ng} {
+            @each $direction in $direction-rules {
+              #{$property}#{$direction}: #{$ng}px($i)#{$a-important};
+            }
+          }
+          @if $i > 0 and $i < 101 {
+            .#{$uiA}-#{$property-namespace}#{$direction-namespace}-#{$i}\%#{$ng} {
+              @each $direction in $direction-rules {
+                #{$property}#{$direction}: #{$ng}#{$i}%#{$a-important};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

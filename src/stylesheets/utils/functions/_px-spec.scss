@@ -1,0 +1,5 @@
+@include describe('The [px] function') {
+  @include it('returns pixels valued data from number') {
+    @include assert-equal(px(20), 20px);
+  }
+}

@@ -1,0 +1,71 @@
+/*-------------------------------------------------------------------
+General prefixes variables
+-------------------------------------------------------------------*/
+
+// General prefixes
+$gp: 'rcpa-';
+$gpOld: 'rc-pa-';
+$gpNew: 'env-';
+$uiGp: $gpNew;
+
+// [class*="#{$gp}"] {
+//   border: 2px dotted red !important;
+// }
+
+/*-------------------------------------------------------------------
+UI components names
+-------------------------------------------------------------------*/
+
+// Abstract Library
+$uiA:                     #{$gpNew}a; //a-***
+// Forms
+
+$uiForm:                  #{$gpNew}form;
+$uiFormRow:               #{$gpNew}form-row;
+
+// Table
+$uiTable:                 #{$gpNew}table;
+
+// Containers
+$uiCard:                  #{$gpNew}card;
+$uiPanel:                 #{$gpNew}panel;
+$uiInfo:                  #{$gpNew}info;
+
+// Buttons & controls
+// $uiPicklistOption:        #{$gp}picklist-option;
+// $uiInputCollapse:         #{$gp}input-collapse;
+$uiInputText:             #{$gpNew}input-text;
+$uiSelect:                #{$gpNew}select;
+$uiInputGroup:            #{$gpNew}input-group;
+$uiCheckbox:              #{$gpNew}checkbox;
+$uiButton:                #{$gpNew}button;
+$uiButtonSwitch:          #{$gpNew}button-switch;
+// $uiWrapperScroll:         #{$gp}wrapper-scroll;
+$uiCalendar:              #{$gpNew}calendar;
+$uiCollapser:             #{$gpNew}collapser;
+
+// Menus
+$uiMenuDropdown:          #{$gpNew}menu-dropdown;
+$uiMenuFolder:            #{$gp}menu-folder;
+
+// Specific Shared components
+$uiVisual:                #{$gpNew}visual;
+$uiShowOnHover:           #{$gpNew}show-on-hover;
+$uiFocus:                 #{$gpNew}focus;
+// $uiVisualHeader:          #{$gp}visual-header;
+
+// Icons
+$uiIconStack:             #{$gpNew}icon-stack;
+$uiIconSvg:               #{$gpNew}icon-svg;
+
+// Info Elements
+$uiBadge:                 #{$gpNew}badge;
+$uiAlert:                 #{$gpNew}alert;
+
+$uiLoader:                 #{$gpNew}loader;
+
+// Third party lib elements styling
+$uiAutosizeInput:         #{$gpNew}autosize-input;
+
+// Data Source components
+$uiS3Uploader:            #{$gpNew}s3-uploader;

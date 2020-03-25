@@ -1,0 +1,22 @@
+// Modifications of Checkbox
+//
+// Size of Checkbox is changed by direct font size context.
+//
+// Markup:
+// _checkbox-modifiers-kss.html
+//
+// .env-checkbox--check - Default size.
+// .env-checkbox--check.env-a-font-size-10 - Smaller size example, 10px font size context.
+// .env-checkbox--check.env-a-font-size-16 - Bigger size example, 16px font size context.
+// .env-checkbox--toggle - Default size.
+// .env-checkbox--toggle.env-a-font-size-10 - Smaller size example, 10px font size context.
+// .env-checkbox--toggle.env-a-font-size-16 - Bigger size example, 16px font size context.
+// .env-checkbox--radio - Default size.
+// .env-checkbox--radio.env-a-font-size-10 - Smaller size example, 10px font size context.
+// .env-checkbox--radio.env-a-font-size-16 - Bigger size example, 10px font size context.
+//
+// Moddescription: Size modification by ACSS font size mix. 6 states: [ ] [disabled] [checked] [checked disabled] [indeterminate] [indeterminate disabled]
+//
+// Weight: 3
+//
+// Styleguide Checkbox - Modifications of Checkbox

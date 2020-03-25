@@ -1,0 +1,30 @@
+// Select
+//
+// Weight: 1330
+//
+// Styleguide Show on Hover
+.#{$uiShowOnHover} {
+
+  $this: &;
+
+  &__content {
+    visibility: hidden;
+  }
+
+  &--link {
+    #{$this}__content {
+      color: $medium-gray;
+    }
+    &:hover {
+      #{$this}__content {
+        color: $brand-blue;
+      }
+    }
+  }
+
+  &:hover {
+    #{$this}__content {
+      visibility: visible;
+    }
+  }
+}

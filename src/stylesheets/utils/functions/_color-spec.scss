@@ -1,0 +1,5 @@
+@include test-module('The [color] function') {
+  @include test('returns brand-primary color value from Colors design tokens list') {
+    @include assert-equal(color("brand-primary"), #066a8d);
+  }
+}

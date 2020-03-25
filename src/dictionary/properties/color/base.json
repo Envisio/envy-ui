@@ -1,0 +1,255 @@
+{
+  "color": {
+    "brand-primary": {
+      "value": "#066a8d"
+    },
+    "new": {
+      "value": "#027ea2",
+      "comment": "very rare"
+    },
+    "brand-primary-alt": {
+      "value": "#007da5"
+    },
+    "brand-blue": {
+      "value": "#007ca0"
+    },
+    "blue": {
+      "value": "#007fa2",
+      "comment": "rare"
+    },
+    "dark-blue": {
+      "value": "#0856af",
+      "comment": "rare"
+    },
+    "completed": {
+      "value": "#1565C0"
+    },
+    "progress-bar": {
+      "value": "#1594c9",
+      "comment": "rare"
+    },
+    "light-blue": {
+      "value": "#71ade4"
+    },
+    "in-progress": {
+      "value": "#64B5F6"
+    },
+    "variable": {
+      "value": "#54b2ef",
+      "comment": "very rare"
+    },
+    "viking-blue": {
+      "value": "#51b6d4",
+      "comment": "very rare"
+    },
+    "cornflower-blue": {
+      "value": "#76bcd0"
+    },
+    "string": {
+      "value": "#80e5ff",
+      "comment": "very rare"
+    },
+    "pale-blue": {
+      "value": "#d3ebf3",
+      "comment": "very rare"
+    },
+    "paint-gray": {
+      "value": "#e0ebeb"
+    },
+    "black": {
+      "value": "#1b1b1b"
+    },
+    "discontinued": {
+      "value": "#36312d"
+    },
+    "default": {
+      "value": "#404040",
+      "comment": "default color for text"
+    },
+    "tab": {
+      "value": "#4b5253",
+      "comment": "rare"
+    },
+    "gray": {
+      "value": "#555555"
+    },
+    "darken-border": {
+      "value": "#757575",
+      "comment": "very rare"
+    },
+    "boulder": {
+      "value": "#777777",
+      "comment": "rare"
+    },
+    "medium-gray": {
+      "value": "#888888"
+    },
+    "brand-gray": {
+      "value": "#828387"
+    },
+    "status-pending": {
+      "value": "#8c8b8c"
+    },
+    "santas-gray": {
+      "value": "#979daa"
+    },
+    "nobel": {
+      "value": "#b7b7b7"
+    },
+    "plain-gray": {
+      "value": "#cccccc"
+    },
+    "border": {
+      "value": "#d1d4e4"
+    },
+    "gray-white": {
+      "value": "#e6e6e6",
+      "comment": "rare"
+    },
+    "gallery": {
+      "value": "#eeeeee"
+    },
+    "athens-gray": {
+      "value": "#f1f2f6"
+    },
+    "light-gray": {
+      "value": "#f1f2f7"
+    },
+    "alabaster": {
+      "value": "#f7f7f7",
+      "comment": "very rare"
+    },
+    "pale-gray": {
+      "value": "#f9f9fb"
+    },
+    "dark-white": {
+      "value": "#f9fafc",
+      "comment": "rare"
+    },
+    "off-white": {
+      "value": "#fcfcfe",
+      "comment": "very rare"
+    },
+    "white": {
+      "value": "#ffffff"
+    },
+    "off-green": {
+      "value": "#567225",
+      "comment": "rare"
+    },
+    "off-green-lighter": {
+      "value": "#769147",
+      "comment": "rare"
+    },
+    "green": {
+      "value": "#3c763d"
+    },
+    "on-track": {
+      "value": "#57a92b"
+    },
+    "apple-green": {
+      "value": "#4CC417"
+    },
+    "bright-apple-green": {
+      "value": "#00E676",
+      "comment": "very rare"
+    },
+    "light-green": {
+      "value": "#8bc63c",
+      "comment": "very rare"
+    },
+    "brand-green": {
+      "value": "#a2ce5d"
+    },
+    "column": {
+      "value": "#9bd067",
+      "comment": "rare"
+    },
+    "condition": {
+      "value": "#e2ebd4"
+    },
+    "formula": {
+      "value": "#99ffd6"
+    },
+    "potters-clay": {
+      "value": "#967132",
+      "comment": "very rare"
+    },
+    "overdue": {
+      "value": "#ff8a21"
+    },
+    "orange": {
+      "value": "#ffa500"
+    },
+    "yellow": {
+      "value": "#fbb41e"
+    },
+    "minor-disruption": {
+      "value": "#ffd700"
+    },
+    "new-time": {
+      "value": "#ffbb80",
+      "comment": "very rare"
+    },
+    "duration": {
+      "value": "#ffcc80",
+      "comment": "very rare"
+    },
+    "picklist": {
+      "value": "#ffdf80",
+      "comment": "very rare"
+    },
+    "banana-mania": {
+      "value": "#fbe1b1",
+      "comment": "very rare"
+    },
+    "datetime": {
+      "value": "#ffee80",
+      "comment": "very rare"
+    },
+    "date": {
+      "value": "#ffff80",
+      "comment": "very rare"
+    },
+    "vanilla": {
+      "value": "#ffffe3",
+      "comment": "very rare"
+    },
+    "purple-blue": {
+      "value": "#7f00ff"
+    },
+    "studio": {
+      "value": "#7946a0",
+      "comment": "very rare"
+    },
+    "upcoming": {
+      "value": "#8b65a1"
+    },
+    "number": {
+      "value": "#d0a9f7"
+    },
+    "red": {
+      "value": "#cc181e"
+    },
+    "major-disruption": {
+      "value": "#e30022"
+    },
+    "burgundy": {
+      "value": "#dd2c00"
+    },
+    "rose": {
+      "value": "#d9534f"
+    },
+    "light-red": {
+      "value": "#fe7e73"
+    },
+    "bool": {
+      "value": "#ff99bb",
+      "comment": "very rare"
+    },
+    "rose-fog": {
+      "value": "#ecc8c5",
+      "comment": "very rare"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+// Loader
+//
+// Weight: 1300
+//
+// Styleguide Loader
+
+/* stylelint-disable no-descending-specificity */
+
+.#{$uiLoader} {
+
+  $this: &;
+
+  $loader-color: color("plain-gray");
+  $preloader-font-size: 10;
+
+  &--bars, &--bars::before, &--bars::after {
+    // display: inline-flex;
+    // align-items: center;
+    background-color:$loader-color;
+    border: 1px solid darken($loader-color, 5%);
+    // margin-right:4px;
+    // margin-top: 6px;
+    height: 18px;
+    width: 6px;
+  }
+
+  &--bars {
+    animation-delay: 0.1s;
+    position: relative;
+    margin: 5px 15px;
+
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: loadingBar;
+    &::before, &::after  {
+      content: '';
+      position: absolute;
+      top: -1px;
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite;
+      animation-name: loadingBarBA;
+    }
+    &::before {
+      left: -10px;
+    }
+    &::after {
+      right: -10px;
+      animation-delay: 0.5s;
+    }
+  }
+
+  &--dots{
+    height:$preloader-font-size+px;
+    width:$preloader-font-size+px;
+    border-radius:100%;
+    background:$brand-green;
+    display:block;
+    position: relative;
+    animation:spin 2s ease infinite;
+    &:before, &:after{
+      content:'';
+      display:block;
+      position:absolute;
+      height:inherit;
+      width:inherit;
+      background:inherit;
+      border-radius:inherit;
+      animation:spin 2s ease infinite;
+    }
+    &:before{
+      left:-($preloader-font-size*1.1)+px;
+      background:color("brand-gray");
+    }
+    &:after{
+      left:($preloader-font-size*1.1)+px;
+      background: color("brand-blue");
+    }
+  }
+
+  @keyframes loadingBar {
+    0% {  transform: scaleY(1); }
+    50% { transform: scaleY(1.25); border-color:#d1d8e6; background-color:lighten($loader-color, 10%); }
+    100% { transform: scaleY(1); }
+  }
+
+  @keyframes loadingBarBA {
+    0% {  transform: scaleY(1.15); }
+    50% { transform: scaleY(0.85); border-color:#d1d8e6; background-color:lighten($loader-color, 10%); }
+    100% { transform: scaleY(1.15); }
+  }
+
+  @keyframes spin{
+    0%{
+      top:0;
+      -webkit-transform:rotate(0deg);
+              transform:rotate(0deg);
+    }
+    50%{
+      top:-($preloader-font-size*1.55)+px;
+      -webkit-transform:rotate(-180deg);
+              transform:rotate(-180deg);
+    }
+    100%{
+      top:0;
+      -webkit-transform:rotate(-360deg);
+              transform:rotate(-360deg);
+    }
+  }
+}
+
+/* stylelint-enable */

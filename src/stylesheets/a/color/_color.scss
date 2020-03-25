@@ -1,0 +1,25 @@
+@each $color-name, $color-value in $a-color {
+  .#{$uiA}-color-#{"" + $color-name} {
+    color: unquote("#{$color-value}#{$a-important}");
+  }
+
+  .#{$uiA}-color-hover-#{"" + $color-name}:hover {
+    color: unquote("#{$color-value}#{$a-important}");
+  }
+
+  .#{$uiA}-color-bg-#{"" + $color-name} {
+    background-color: unquote("#{$color-value}#{$a-important}");
+  }
+
+  .#{$uiA}-color-bg-hover-#{"" + $color-name}:hover {
+    background-color: unquote("#{$color-value}#{$a-important}");
+  }
+}
+
+.#{$uiA}-color-inherit {
+  color: unquote("inherit#{$a-important}");
+}
+
+.#{$uiA}-color-bg-inherit {
+  background-color: unquote("inherit#{$a-important}");
+}

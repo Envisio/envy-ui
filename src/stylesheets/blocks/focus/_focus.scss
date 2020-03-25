@@ -1,0 +1,42 @@
+// Focus
+//
+// Weight: 1340
+//
+// Styleguide Focus
+
+.#{$uiFocus} {
+
+  $this: &;
+
+  cursor: pointer;
+  outline: none;
+  &:hover, &:focus {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__content {
+    outline: none;
+    border: 1px solid transparent;
+  }
+
+  &__content-raw {
+    outline: none;
+  }
+
+  &--outside {
+    & > #{$this}__content {
+      @include a--focus;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    & > #{$this}__content, & > #{$this}__content-raw {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      @include a--focus;
+    }
+  }
+}

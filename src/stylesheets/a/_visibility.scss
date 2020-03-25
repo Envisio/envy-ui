@@ -1,0 +1,36 @@
+@for $i from 0 through 10 {
+  @if $i == 10 {
+    .#{$uiA}-opacity-none {
+      @include a-opacity($i);
+    }
+    .#{$uiA}-opacity-hover-none:hover {
+      @include a-opacity($i);
+    }
+  }
+  @else {
+    .#{$uiA}-opacity-#{$i} {
+      @include a-opacity($i);
+    }
+    .#{$uiA}-opacity-hover-#{$i}:hover {
+      @include a-opacity($i);
+    }
+  }
+}
+
+@each $overflow in $a-overflows {
+  .#{$uiA}-overflow-#{$overflow} {
+    overflow: #{$overflow}#{$a-important};
+  }
+  .#{$uiA}-overflow-x-#{$overflow} {
+    overflow-x: #{$overflow}#{$a-important};
+  }
+  .#{$uiA}-overflow-y-#{$overflow} {
+    overflow-y: #{$overflow}#{$a-important};
+  }
+}
+
+@each $visibility in $a-visibilities {
+  .#{$uiA}-visibility-#{$visibility} {
+    visibility: #{$visibility}#{$a-important};
+  }
+}

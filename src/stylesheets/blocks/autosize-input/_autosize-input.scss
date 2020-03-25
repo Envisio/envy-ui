@@ -1,0 +1,29 @@
+// Autosize Input
+//
+// Weight: 1180
+//
+// Styleguide Autosize Input
+
+.#{$uiAutosizeInput} {
+
+  $this: &;
+
+  &--clean {
+    > input {
+      border: 1px dotted currentColor;
+      background-color: transparent;
+      &:focus {
+        outline: 0;
+      };
+    }
+  }
+  // &[disabled], &[readonly], &--disabled {
+  //   background-color: color("gallery");
+  //   opacity: 1;
+  // }
+
+  // &[disabled], &--disabled
+  // fieldset[disabled] & {
+  //   cursor: $a-cursor-disabled;
+  // }
+}

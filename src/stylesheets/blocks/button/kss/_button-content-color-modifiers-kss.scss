@@ -1,0 +1,15 @@
+// Button Content Color Modifiers
+//
+// The modifiers assign button visual behavior to content of EDS Button. It is usually used together with --clean modifier. Typical use case: icon as a button.
+//
+// Markup:
+// _button-content-color-modifiers-kss.html
+//
+// .env-button--clean.env-button--link - Link style.
+// .env-button--clean.env-button--gray - Gray content button.
+//
+// Moddescription: Modifiers for 3 button states: [], [focused], [disabled].
+//
+// Weight: 5
+//
+// Styleguide Button - Content Color Modifiers

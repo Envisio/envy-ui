@@ -1,0 +1,13 @@
+@function color($color-name) {
+  @if map-has-key($a-color, $color-name) {
+    $color: map-get($a-color, $color-name);
+    @if type-of($color) == color {
+      @return $color;
+    } @else {
+      @error "Invalid color in color settings file: #{$color-name}";
+    }
+  } @else {
+    @error "Invalid color name for [color] function: #{$color-name}";
+  }
+  @error "Error in [color] function. Argument $color-name: #{$color-name}.";
+}

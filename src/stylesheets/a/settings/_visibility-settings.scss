@@ -1,0 +1,15 @@
+@mixin a-opacity($i: 5) {
+  opacity: unquote("#{$i / 10}#{$a-important}");
+}
+
+$a-overflows: visible, hidden, scroll, auto;
+
+@mixin a-overflow($i: visible) {
+  overflow: unquote("#{$i}#{$a-important}");
+}
+
+$a-visibilities: visible, hidden, collapse;
+
+@mixin a-visibility($i: visible) {
+  visibility: unquote("#{$i}#{$a-important}");
+}

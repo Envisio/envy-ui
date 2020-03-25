@@ -1,0 +1,36 @@
+// Form
+//
+// Weight: 1210
+//
+// Styleguide Form
+
+.#{$uiForm} {
+
+  $this: &;
+  font-size: $folder-menu-root-text-size1;
+
+  @include flex(stretch);
+  // margin-top: $panel-main-padding;
+  // margin-bottom: $panel-main-padding;
+  // height: calc(100% - #{$panel-main-padding * 2});
+
+  &--2-columns {
+    &::before {
+      content: "";
+      align-self: stretch;
+      margin: 0 30px;
+      border-left: $panel-border;
+      order: 1;
+    }
+  }
+
+  &__column {
+    @include flex(column);
+    flex: 1 1 auto;
+    @each $number in (0, 2, 5) {
+      &:nth-child(n+#{$number}) {
+        order: #{$number};
+      }
+    }
+  }
+}

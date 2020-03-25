@@ -1,0 +1,14 @@
+@media screen and (max-width: 1100px) {
+  .ow-settings-panel.env-panel > .env-button.env-a-sticky {
+    position: relative !important;
+  }
+}
+
+// PA Visual
+.highcharts-axis-title,
+.highcharts-axis-labels.highcharts-xaxis-labels text,
+.highcharts-axis-labels.highcharts-yaxis-labels text {
+  font-size: 11px !important;
+  color: #666666 !important;
+  fill: #666666 !important;
+}

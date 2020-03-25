@@ -1,0 +1,7 @@
+$shadows: ("-small": $card-shadow, null: $card-shadow1);
+
+@each $shadow-name, $shadow-value in $shadows {
+  .#{$uiA}-shadow#{$shadow-name} {
+    box-shadow: unquote("#{$shadow-value}#{$a-important}");
+  }
+}

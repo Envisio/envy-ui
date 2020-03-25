@@ -1,0 +1,74 @@
+// Button Switch
+//
+// Weight: 1130
+//
+// Styleguide Button Switch
+
+.#{$uiButtonSwitch} {
+
+  $this: &;
+  $this-button-padding: 10px;
+  $this-button-padding-small: 10px;
+  $this-button-height: 35px;
+  $this-button-height-small: 25px;
+
+  @include flex(stretch);
+  height: $this-button-height;
+
+  &__button {
+    background-color: $white;
+    padding-left: $this-button-padding;
+    padding-right: $this-button-padding;
+    border: $switch-button-border;
+    border-right: 0;
+    line-height: normal;
+    cursor: pointer;
+    &:first-child {
+      border-top-left-radius: $switch-button-radius;
+      border-bottom-left-radius: $switch-button-radius;
+      &#{$this}__button--active {
+        border-left-color: darken($switch-button-selected-bg-color, 5%);
+      }
+    }
+    &:last-child {
+      border-top-right-radius: $switch-button-radius;
+      border-bottom-right-radius: $switch-button-radius;
+      border-right: $switch-button-border;
+      &#{$this}__button--active {
+        border-right-color: darken($switch-button-selected-bg-color, 5%);
+      }
+    }
+    &:hover {
+      background-color: $switch-button-hover-bg-color;
+    }
+    &--active {
+      background-color: $switch-button-selected-bg-color;
+      color: $white;
+      transition: background 0.5s;
+      cursor: default;
+      border-top-color: darken($switch-button-selected-bg-color, 5%);
+      border-bottom-color: darken($switch-button-selected-bg-color, 5%);
+      &:hover {
+        background-color: $switch-button-selected-bg-color;
+        // background-color: darken($switch-button-selected-bg-color, 5%);
+      }
+    }
+  }
+
+  &--#{$class-disabled} {
+    pointer-events: none;
+    #{$this}__button {
+      cursor: default;
+      opacity: $switch-button-selected-disabled-opacity;
+      box-shadow: none;
+    }
+  }
+
+  &--small {
+    height: $this-button-height-small;
+    #{$this}__button {
+      padding-left: $this-button-padding-small;
+      padding-right: $this-button-padding-small;
+    }
+  }
+}

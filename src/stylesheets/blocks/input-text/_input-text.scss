@@ -1,0 +1,43 @@
+// Input Text
+//
+// Weight: 1160
+//
+// Styleguide Input Text
+
+.#{$uiInputText} {
+
+  $this: &;
+
+  display: flex;
+  height: $a-default-control-height;
+  padding: 0 10px;;
+  font-size: $a-default-font-size;
+  color: color("default");
+  background-color: color("white");
+  background-image: none;
+  border: $a-border-input;
+  border-radius: $a-default-border-radius;
+  transition: $a-focus-transition;
+
+  &:focus {
+    @include a--focus();
+  }
+
+  @extend %a-placeholder-text;
+
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  &[disabled], &[readonly], &--disabled {
+    background-color: color("gallery");
+    opacity: 1;
+  }
+
+  &[disabled], &--disabled
+  fieldset[disabled] & {
+    cursor: $a-cursor-disabled;
+  }
+}

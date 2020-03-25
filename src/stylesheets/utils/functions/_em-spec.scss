@@ -1,0 +1,5 @@
+@include describe('The [em] function') {
+  @include it('returns em value of the default pixel based argument') {
+    @include assert-equal(em(28), 2em);
+  }
+}

@@ -1,0 +1,21 @@
+// Card
+//
+// Weight: 1230
+//
+// Styleguide Card
+
+.#{$uiCard} {
+
+  $this: &;
+
+  border: 1px solid $border;
+  border-radius: $card-border-radius;
+  background-color: $white;
+  box-shadow: $card-shadow;
+
+  &--plain {
+    background-color: color("alabaster");
+    border: 1px solid darken(color("alabaster"), 5%);
+    box-shadow: none;
+  }
+}

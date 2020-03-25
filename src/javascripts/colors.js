@@ -1,0 +1,71 @@
+const color = {
+  brandPrimary: '#066a8d',
+  brandPrimaryAlt: '#007da5',
+  brandGreen: '#a2ce5d',
+  brandGray: '#828387',
+  brandBlue: '#007ca0',
+  brandBlueDark: '#005972',
+  darkBlue: '#0856af',
+  default: '#404040',
+  gray: '#595959',
+  darkGray: '#404040',
+  plainGray: '#cccccc',
+  emperorGray: '#555555',
+  santasGray: '#979daa',
+  paintGray: '#e0ebeb',
+  athensGray: '#f1f2f6',
+  lightGray: '#f1f2f7',
+  whiteGray: '#f5f5f5',
+  nobel: '#b7b7b7',
+  mediumGray: '#888888',
+  grayWhite: '#e6e6e6',
+  cornflowerBlue: '#76bcd0',
+  vikingBlue: '#51b6d4',
+  lightBlue: '#71ade4',
+  gallery: '#eeeeee',
+  black: '#1b1b1b',
+
+  rose: '#d9534f',
+  red: '#cc181e',
+  white: '#fff',
+  orange: '#ffa500',
+  paleBlue: '#d3ebf3',
+  mintBlue: '#066a8d',
+  yellow: '#fbb41e',
+  green: '#3c763d',
+  appleGreen: '#4CC417',
+
+  /* border Colour */
+  border: '#d1d4e4',
+
+  /* formula data type */
+  string: '#80e5ff',
+  number: '#d0a9f7',
+  bool: '#ff99bb',
+  date: '#ffff80',
+  picklist: '#ffdf80',
+  datetime: '#ffee80',
+  time: '#ffbb80',
+  duration: '#ffcc80',
+  formula: '#99ffd6',
+  condition: '#e2ebd4',
+  column: '#9bd067',
+  variable: '#54b2ef',
+
+  /* Indicator Colour */
+  progressBar: '#1594c9',
+  noUpdate: '#888888',
+  overdue: '#ff8a21',
+  inProgress: '#64B5F6',
+
+  /* Status Colour */
+  upcoming: '#8b65a1',
+  completed: '#1565C0',
+  discontinued: '#36312d',
+  onTrack: '#57a92b',
+  minorDisruption: '#ffd700',
+  majorDisruption: '#e30022',
+  statusPending: '#8c8b8c',
+};
+
+export default color;

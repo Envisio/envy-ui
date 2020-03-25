@@ -1,0 +1,33 @@
+{
+  "acss-color": {
+    "main-fragment": "color",
+    "value": "{color}",
+    "default-iterator": "{color}",
+    "description": "ACSS general color modifiers classes.",
+    "markup-file": "_a-rectangle-with-text-kss.html",
+    "default-markup-file": "_a-rectangle-with-text-kss.html",
+    "text-label": "ACSS Color",
+    "menu-weight": 100,
+    "fragments": [{
+      "content": "",
+      "description": "Color general modifier.",
+      "test-extension": "",
+      "menu": "Color"
+    }, {
+      "content": "-hover",
+      "description": "Color general modifier on hover state.",
+      "test-extension": ":hover",
+      "menu": "Color on hover"
+    }, {
+      "content": "-bg",
+      "description": "Background Color general modifier.",
+      "test-extension": "",
+      "menu": "Background color"
+    }, {
+      "content": "-bg-hover",
+      "description": "Background Color general modifier on hover state.",
+      "test-extension": ":hover",
+      "menu": "Background color on hover"
+    }]
+  }
+}

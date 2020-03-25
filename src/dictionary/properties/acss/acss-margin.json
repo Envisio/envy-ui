@@ -1,0 +1,62 @@
+{
+  "acss-m": {
+    "main-fragment": "m",
+    "value": "{acss-settings.iterate-list}",
+    "default-iterator": "{acss-settings.iterate-list}",
+    "description": "ACSS general margin modifiers classes.",
+    "markup-file": "_a-margin-kss.html",
+    "text-label": "ACSS Margin",
+    "menu-weight": 110,
+    "fragments": [{
+      "content": "",
+      "description": "All sides margin in default units (px).",
+      "menu": "Margin (px)",
+      "test-extension": "",
+      "number-extension": "{acss-settings.negative-extension}"
+    }, {
+      "content": "",
+      "description": "All sides margin in % units.",
+      "menu": "Margin (%)",
+      "test-extension": "",
+      "unit": "{acss-settings.unit.percent}",
+      "markup-file": "_a-margin-percent-kss.html",
+      "iterator": "{acss-settings.iterate-list-percent}"
+    }, {
+      "content": "-top",
+      "description": "Top side margin general modifier.",
+      "menu": "Margin top (px)",
+      "test-extension": "",
+      "number-extension": "{acss-settings.negative-extension}"
+    }, {
+      "content": "-right",
+      "description": "Right side margin general modifier.",
+      "menu": "Margin right (px)",
+      "test-extension": "",
+      "number-extension": "{acss-settings.negative-extension}"
+    }, {
+      "content": "-bottom",
+      "description": "Bottom side margin general modifier.",
+      "menu": "Margin bottom (px)",
+      "test-extension": "",
+      "number-extension": "{acss-settings.negative-extension}"
+    }, {
+      "content": "-left",
+      "description": "Left side margin general modifier.",
+      "menu": "Margin left (px)",
+      "test-extension": "",
+      "number-extension": "{acss-settings.negative-extension}"
+    }, {
+      "content": "-x",
+      "description": "Left and right side margin.",
+      "menu": "Margin left and right (px)",
+      "test-extension": "",
+      "number-extension": "{acss-settings.negative-extension}"
+    }, {
+      "content": "-y",
+      "description": "Top and bottom side margin (px)",
+      "test-extension": "",
+      "menu": "Margin left and right (px)",
+      "number-extension": "{acss-settings.negative-extension}"
+    }]
+  }
+}

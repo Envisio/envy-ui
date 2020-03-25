@@ -1,0 +1,17 @@
+{
+  "pre-post-fix": {
+    "general-prefix": {
+      "default": "env-",
+      "value": "{pre-post-fix.general-prefix.default}",
+      "comment": "General Prefix"
+    },
+    "acss-prefix": {
+      "_value": "a-",
+      "comment": "Prefix for ACSS Library"
+    },
+    "kss-postfix": {
+      "_value": "-kss",
+      "comment": "Postfix for Styleguide Documentation"
+    }
+  }
+}

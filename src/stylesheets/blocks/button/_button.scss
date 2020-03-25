@@ -1,0 +1,308 @@
+// Button
+//
+// Weight: 1120
+//
+// Styleguide Button
+
+/* stylelint-disable no-descending-specificity */
+
+.#{$uiButton} {
+
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+  }
+
+  $this: &;
+
+  $button--default-font-size: $a-default-font-size;
+  $button--height-default: em(35px, $button--default-font-size);
+  $button--height-small: em(25px, $button--default-font-size);
+  $button--height-xsmall: em(18px, $button--default-font-size);
+  $button--height-large: em(45px, $button--default-font-size);
+
+  $button--border-color-map: (
+    color("brand-primary-alt"): darken(color("brand-primary-alt"), 10%),
+    color("viking-blue"): darken(color("viking-blue"), 10%),
+    color("green"): darken(color("green"), 10%),
+    color("red"): darken(color("red"), 10%),
+    color("white"): color("plain-gray")
+  );
+
+  $button--focus-border-color-map: (
+    color("brand-primary-alt"): map-get($button--border-color-map, color("brand-primary-alt")),
+    color("viking-blue"): map-get($button--border-color-map, color("viking-blue")),
+    color("green"): map-get($button--border-color-map, color("green")),
+    color("white"): $a-color-focus
+  );
+
+  $button--focus-shadow-color-map: (
+    color("brand-primary-alt"): color("white"),
+    color("viking-blue"): color("white"),
+    color("green"): color("white"),
+    color("red"): color("white"),
+    color("white"): $a-color-focus
+  );
+
+  $button--focus-shadow-alpha-map: (
+    color("brand-primary-alt"): 0.4,
+    color("viking-blue"): 0.6,
+    color("green"): 0.4,
+    color("red"): 0.4,
+    color("white"): 0.3
+  );
+
+  $button--disable-colors-map: (
+    "content": color("nobel"),
+    "container": color("gray-white")
+  );
+
+  @mixin button--disable() {
+    cursor: default;
+    box-shadow: none;
+    opacity: 0.5;
+    filter: saturate(50%);
+  }
+
+  @mixin button__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
+    @include a-button--clean;
+    #{$this}__content {
+      background-color: $bg-color;
+      color: $text-color;
+      transition: background 0.3s;
+      border: 1px solid map-get($button--border-color-map, $bg-color);
+      &:hover {
+        background: darken($bg-color, 5%);
+        border-color: darken(map-get($button--border-color-map, $bg-color), 5%);
+      }
+    }
+    &:focus {
+      & > #{$this}__content {
+        @include a--focus(
+          true,
+          map-get($button--focus-border-color-map, $bg-color),
+          map-get($button--focus-shadow-color-map, $bg-color),
+          map-get($button--focus-shadow-alpha-map, $bg-color)
+        );
+      }
+    }
+    &--disabled, &[disabled] {
+      @include button--disable();
+      #{$this}__content, #{$this}__content:hover {
+        background-color: $bg-color;
+        color: $text-color;
+        border-color: map-get($button--border-color-map, $bg-color);
+      }
+    }
+  }
+
+  @mixin button__make-content-color($text-color: color("medium-gray"), $text-hover-color: color("gray")) {
+    color: $text-color;
+    &:hover {
+      color: $text-hover-color;
+    }
+    &#{$this}--disabled, &[disabled] {
+      @include button--disable();
+      #{$this}__content, #{$this}__content:hover {
+        color: $text-color;
+      }
+    }
+  }
+
+  @include flex();
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  font-size: $button--default-font-size;
+  &:hover, &:focus {
+    // color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__content {
+    display: flex;
+    width: 100%;
+    height: $button--height-default;
+    align-items: center;
+    justify-content: center;
+    padding: 0 $space-normal;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    line-height: normal;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    & > #{$this}__content {
+      @include a--focus;
+    }
+  }
+
+  &--link {
+    @include button__make-content-color(color("brand-primary"), color("brand-blue"));
+  }
+
+  &--gray {
+    @include button__make-content-color(color("medium-gray"), color("gray"));
+  }
+
+  &--clean {
+    @include a-button--clean;
+    &#{$this}--disabled, &[disabled] {
+      @include button--disable();
+    }
+  }
+
+  &--default {
+    @include button__make-container-color(color("white"), color("default"));
+  }
+
+  &--mint-blue {
+    @include button__make-container-color(color("brand-primary-alt"));
+  }
+
+  &--light-blue {
+    @include button__make-container-color(color("viking-blue"));
+  }
+
+  &--green {
+    @include button__make-container-color(color("green"));
+  }
+
+  &--red {
+    @include button__make-container-color(color("red"));
+  }
+
+  &--round-hover {
+    @include a-button--clean;
+    #{$this}__content {
+      min-height: $button--height-default;
+      min-width: $button--height-default;
+      padding: 0;
+      border-radius: 50%;
+      transition: background 0.3s;
+      &:hover {
+        background-color: color("white");
+      }
+    }
+    &:focus {
+      & > #{$this}__content {
+        @include a--focus;
+      }
+    }
+    &#{$this}--disabled, &[disabled] {
+      #{$this}__content {
+        &:hover {
+          background-color: inherit;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &--circle {
+    @include a-button--clean;
+    #{$this}__content {
+      width: $button--height-default;
+      padding: 0;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    &#{$this}--small {
+      width: $button--height-small;
+    }
+
+    &#{$this}--xsmall {
+      width: $button--height-xsmall;
+    }
+
+    &#{$this}--large {
+      width: $button--height-large;
+    }
+  }
+
+  &--round {
+    #{$this}__content {
+      border-radius: $button--height-default / 2;
+    }
+  }
+
+  &--small {
+    #{$this}__content {
+      height: $button--height-small;
+    }
+    &#{$this}--round {
+      #{$this}__content {
+        border-radius: $button--height-small / 2;
+      }
+    }
+  }
+
+  &--xsmall {
+    #{$this}__content {
+      font-size: 10px;
+      padding: 0 5px;
+      height: $button--height-xsmall;
+    }
+    &#{$this}--round {
+      #{$this}__content {
+        border-radius: $button--height-xsmall / 2;
+      }
+    }
+  }
+
+  &--large {
+    #{$this}__content {
+      height: $button--height-large;
+      padding: 0 $space-large;
+    }
+    &#{$this}--round {
+      #{$this}__content {
+        border-radius: $button--height-large / 2;
+      }
+    }
+  }
+
+  &--inline {
+    #{$this}__content {
+      height: auto;
+      padding: 2px 5px;
+    }
+  }
+
+  &--loading {
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      box-sizing: border-box;
+      position: absolute;
+      left: calc(50% - 10px);
+      top: calc(50% - 10px);
+      // transform-origin: center center;
+      // transform: translate(-50%, -50%);
+      backface-visibility: hidden;
+      border-radius: 50%;
+      border: .3em solid color("plain-gray");
+      border-left-color: transparent;
+      animation: 2s infinite linear spin;
+    }
+    > #{$this}__content {
+      opacity: 0.5;
+    }
+  }
+}
+
+/* stylelint-enable */

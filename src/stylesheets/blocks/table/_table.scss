@@ -1,0 +1,120 @@
+// Select
+//
+// Weight: 1200
+//
+// Styleguide Table
+
+@keyframes debounce-shift {
+  0%   {transform: translateX(100%); }
+  99%  {transform: translateX(100%); }
+  100% {transform: translateX(0); }
+}
+@keyframes opacity-shift {
+  0%   {opacity: 0; }
+  100% {opacity: 1; }
+}
+
+.#{$uiTable} {
+
+  $this: &;
+
+  @include flex(column);
+
+  &__header {
+    height: 50px;
+    @include flex();
+    flex: 0 0 50px;
+    background-color: color("alabaster");
+    padding: 5px 0;
+    border-top: $panel-border;
+    border-bottom: $panel-border;
+    overflow: hidden;
+  }
+
+  &__content {
+    padding-right: 10px;
+    overflow: hidden;
+    line-height: normal;
+    &--ellipsis-hover {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      &:hover {
+        width: auto;
+        display: flex;
+        align-items: center;
+        overflow: auto;
+        max-width: auto;
+        position: absolute;
+        background-color: inherit;
+        border-top: 1px solid transparent;
+        box-shadow: 2px 0 3px -1px rgba(0, 0, 0, 0.25);
+        height: 40px;
+        border-radius: 0 20px 20px 0;
+        z-index: 3;
+        padding-right: 25px;
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-top: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-right: 5px solid $plain-gray;
+          position: absolute;
+          top: 15px;
+          right:12px;
+        }
+      }
+    }
+  }
+
+  &__cell {
+    // border: 1px solid #999999;
+    @include flex(a-center);
+    height: 100%;
+    background-color: inherit;
+    overflow: hidden;
+    &--hidden {
+      flex: 1 1 0;
+      overflow: visible;
+      position: relative;
+      justify-content: flex-end;
+      min-width: 0;
+      #{$this}__content {
+        opacity: 0;
+        transform: translateX(100%);
+        display: none;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding-right: 0;
+        // padding-left: 10px;
+        background-color: inherit;
+      }
+    }
+  }
+
+  &__row {
+    @include flex();
+    border-bottom: $panel-border;
+    height: 40px;
+    flex: 0 0 40px;
+    overflow: hidden;
+    max-width: 100%;
+    &--active, &:hover {
+      background-color: $paint-gray;
+      #{$this}__cell--hidden {
+        #{$this}__content {
+          display: flex;
+          animation: debounce-shift .02s ease .2s 1 normal forwards,
+                     opacity-shift .3s ease 0.2s 1 normal forwards;
+        }
+      }
+    }
+  }
+}

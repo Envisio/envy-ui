@@ -1,0 +1,14 @@
+$a-sides: ( top, right, bottom, left );
+
+@each $i in $a-iterate-list {
+  @each $side in $a-sides {
+    .#{$uiA}-#{$side}-#{$i} {
+      #{$side}: px($i)#{$a-important};
+    }
+    @if $i > 0 and $i < 101 {
+      .#{$uiA}-#{$side}-#{$i}\% {
+        #{$side}: #{$i}%#{$a-important};
+      }
+    }
+  }
+}

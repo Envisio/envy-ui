@@ -1,0 +1,262 @@
+// .#{$uiA}-size-100\% {
+//   width: 100%#{$a-important};
+//   height: 100%#{$a-important};
+// }
+
+// .#{$uiA}-absolute-100\% {
+//   position: absolute#{$a-important};
+//   width: 100%#{$a-important};
+//   height: 100%#{$a-important};
+// }
+
+// .#{$uiA}-w-max-half {
+//   max-width: 50%#{$a-important};
+// }
+
+// .#{$uiA}-w-half {
+//   width: 50%#{$a-important};
+// }
+
+// .#{$uiA}-m-left-half {
+//   margin-left: 50%#{$a-important};
+// }
+
+// .#{$uiA}-m-left-half- {
+//   margin-left: -50%#{$a-important};
+// }
+
+// .#{$uiA}-m-left-full {
+//   margin-left: 100%#{$a-important};
+// }
+
+// .#{$uiA}-m-left-full- {
+//   margin-left: -100%#{$a-important};
+// }
+
+.#{$uiA}-nowrap {
+  white-space: nowrap#{$a-important};
+}
+
+.#{$uiA}-wrap {
+  white-space: normal#{$a-important};
+}
+
+.#{$uiA}-f-hover-wrap:hover {
+  flex-wrap: wrap#{$a-important};
+}
+
+.#{$uiA}-hide {
+  display: none#{$a-important};
+}
+
+.#{$uiA}-vanish {
+  position: fixed#{$a-important};
+  left: -99999px;
+  top: -99999px;
+  z-index: -999;
+  opacity: 0;
+}
+
+// .#{$uiA}-top-40 {
+//   top: 40px#{$a-important};
+// }
+
+// .#{$uiA}-top-0 {
+//   top: 0#{$a-important};
+// }
+
+// .#{$uiA}-bottom-40 {
+//   bottom: 40px#{$a-important};
+// }
+
+// .#{$uiA}-bottom-0 {
+//   bottom: 0#{$a-important};
+// }
+
+// .#{$uiA}-bottom-0 {
+//   bottom: 0#{$a-important};
+// }
+
+.#{$uiA}-animate-slide-in-right-2-enter, .#{$uiA}-animate-slide-in-right-2-appear {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.#{$uiA}-animate-slide-in-right-2-enter-active, .#{$uiA}-animate-slide-in-right-2-appear-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.#{$uiA}-animate-slide-in-right-2-exit {
+  opacity: 1;
+}
+
+.#{$uiA}-animate-slide-in-right-2-exit-active {
+  opacity: 0;
+  transition: opacity 200ms, transform 200ms;
+}
+
+.#{$uiA}-animate-slide-in-top-2-enter, .#{$uiA}-animate-slide-in-top-2-appear {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.#{$uiA}-animate-slide-in-top-2-enter-active, .#{$uiA}-animate-slide-in-top-2-appear-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.#{$uiA}-animate-slide-in-top-2-exit {
+  opacity: 1;
+}
+
+.#{$uiA}-animate-slide-in-top-2-exit-active {
+  opacity: 0;
+  transition: opacity 200ms, transform 200ms;
+}
+
+// .#{$uiA}-bold {
+//   font-weight: bold#{$a-important};
+// }
+
+// .#{$uiA}-italic {
+//   font-style: italic#{$a-important};
+// }
+
+.#{$uiA}-transition-5 {
+  transition: all 0.5s#{$a-important};
+}
+
+// .#{$uiA}-font-size-12 {
+//   font-size: 12px#{$a-important};
+// }
+
+// .#{$uiA}-font-size-15 {
+//   font-size: 15px#{$a-important};
+// }
+
+// .#{$uiA}-font-size-18 {
+//   font-size: 18px#{$a-important};
+// }
+
+.#{$uiA}-transform-rotate-180 {
+  transform: unquote("#{rotate(180deg)}#{$a-important}");
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.#{$uiA}-animate-rotate-360 {
+  animation: rotating 2s linear infinite#{$a-important};
+}
+
+// .#{$uiA}-overflow-hidden {
+//   overflow: hidden#{$a-important};
+// }
+
+.#{$uiA}-inline-block {
+  display: inline-block#{$a-important};
+}
+
+.#{$uiA}-cursor-default {
+  cursor: default#{$a-important};
+}
+
+.#{$uiA}-cursor-off {
+  pointer-events: none#{$a-important};
+}
+
+.#{$uiA}-cursor-hover-pointer:hover {
+  cursor: pointer#{$a-important};
+}
+
+.#{$uiA}-transform-scale-2 {
+  transform: scale(2);
+}
+
+.#{$uiA}-translate-y-3- {
+  transform: translateY(-3px);
+}
+
+.#{$uiA}-transform-origin-left-top {
+  transform-origin: left top;
+}
+
+.#{$uiA}-font-size-95\% {
+  font-size: 95%#{$a-important};
+}
+
+.#{$uiA}-font-size-90\% {
+  font-size: 90%#{$a-important};
+}
+
+.#{$uiA}-f-br {
+  height: 0;
+  width: 100%;
+  content: '\A';
+}
+
+.#{$uiA}-f-1-gap {
+  &:before {
+    content: "";
+    order: 1;
+    flex: 0 0 20px;
+    height: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    height: 0;
+  }
+  to {
+    height: 20px; /* your line height here */
+  }
+}
+/* .#{$uiA}-animate-slide-down-500-enter, .#{$uiA}-animate-slide-down-500-appear, .#{$uiA}-animate-slide-down-50-enter, .#{$uiA}-animate-slide-down-50-appear {
+  opacity: 0;
+  transition: max-height 0.4s ease-in, opacity .3s ease-in;
+  max-height: 0;
+  // transition: max-height 1900ms;
+}
+
+.#{$uiA}-animate-slide-down-500-enter-active, .#{$uiA}-animate-slide-down-500-appear-active {
+  // max-height: auto;
+  opacity: 1;
+  max-height: 500px;
+}
+
+.#{$uiA}-animate-slide-down-50-enter-active, .#{$uiA}-animate-slide-down-50-appear-active {
+  // max-height: auto;
+  opacity: 1;
+  max-height: 50px;
+}
+
+.#{$uiA}-animate-slide-down-500-exit {
+  opacity: 1;
+  transition: max-height .4s ease-out, opacity .3s ease-in;
+  max-height: 500px;
+  // max-height: 0;
+  // transition: max-height 1900ms;
+}
+
+.#{$uiA}-animate-slide-down-50-exit {
+  opacity: 1;
+  transition: max-height .4s ease-out, opacity .3s ease-in;
+  max-height: 50px;
+  // max-height: 0;
+  // transition: max-height 1900ms;
+}
+
+.#{$uiA}-animate-slide-down-500-exit-active, .#{$uiA}-animate-slide-down-50-exit-active {
+  max-height: 0;
+  opacity: 0;
+} */

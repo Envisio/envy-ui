@@ -1,0 +1,100 @@
+$a-text-aligns: left, right, center, justify;
+
+@mixin a-text-ellipsis {
+  display: inline-block#{$a-important};
+  white-space: nowrap#{$a-important};
+  overflow: hidden#{$a-important};
+  max-width: 100%#{$a-important};
+  text-overflow: ellipsis#{$a-important};
+}
+
+@mixin a-text-bold {
+  font-weight: bold#{$a-important};
+}
+
+@mixin a-text-italic {
+  font-style: italic#{$a-important};
+}
+
+@mixin a-line-height($i: 5) {
+  line-height: unquote("#{$i / 10}#{$a-important}");
+}
+
+@mixin a-font-size($i: 14) {
+  font-size: #{$i}px#{$a-important};
+}
+
+@mixin a-font-size-em($i: 10) {
+  font-size: #{$i / 10}em#{$a-important};
+}
+
+@mixin a-font-size-rem($i: 10) {
+  font-size: #{$i / 10}rem#{$a-important};
+}
+
+@mixin a-text-align($i: left) {
+  text-align: unquote("#{$i}#{$a-important}");
+}
+
+.#{$uiA}-text-ellipsis, .#{$uiA}-ellipsis {
+  @include a-text-ellipsis;
+}
+
+.#{$uiA}-bold {
+  @include a-text-bold;
+}
+
+.#{$uiA}-italic {
+  @include a-text-italic;
+}
+
+.#{$uiA}-text-default {
+  color: $default;
+  &:hover {
+    text-decoration: none;
+    color: $default;
+  }
+}
+
+.#{$uiA}-text-link {
+  color: $brand-blue;
+  &:hover {
+    color: darken(color("brand-blue"), 10%);
+    text-decoration: none;
+  }
+}
+
+@for $i from 5 through 15 {
+  .#{$uiA}-line-height-#{$i} {
+    @include a-line-height($i);
+  }
+}
+
+.#{$uiA}-line-height-normal {
+  line-height: normal;
+}
+
+@for $i from 5 through 36 {
+  .#{$uiA}-font-size-#{$i} {
+    @include a-font-size($i);
+  }
+
+  .#{$uiA}-font-size-em-#{$i} {
+    @include a-font-size-em($i);
+  }
+
+  .#{$uiA}-font-size-rem-#{$i} {
+    @include a-font-size-rem($i);
+  }
+}
+
+@each $a-text-align in $a-text-aligns {
+  .#{$uiA}-text-align-#{$a-text-align} {
+    @include a-text-align($a-text-align);
+  }
+}
+
+//TODO: Eugene should organize it correctly
+.#{$uiA}-font-family-default {
+  font-family: 'Source Sans Pro', Arial, sans-serif#{$a-important};
+}

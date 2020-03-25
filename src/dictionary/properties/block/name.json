@@ -1,0 +1,170 @@
+{
+  "block-name": {
+    "gp": {
+      "value": "{pre-post-fix.general-prefix.value}",
+      "comment": "{pre-post-fix.general-prefix.comment}"
+    },
+    "a": {
+      "value": "a",
+      "name": "ACSS",
+      "kss-weight": "500",
+      "comment": "{block-category.acss._value}"
+    },
+    "checkbox": {
+      "value": "checkbox",
+      "name": "Checkbox",
+      "kss-weight": "1010",
+      "comment": "{block-category.control._value}"
+    },
+    "button": {
+      "value": "button",
+      "name": "Button",
+      "kss-weight": "1020",
+      "comment": "{block-category.control._value}"
+    },
+    "button-switch": {
+      "value": "button-switch",
+      "name": "Button Switch",
+      "kss-weight": "1030",
+      "comment": "{block-category.control._value}"
+    },
+    "collapser": {
+      "value": "collapser",
+      "name": "Collapser",
+      "kss-weight": "1040",
+      "comment": "{block-category.control._value}"
+    },
+    "calendar": {
+      "value": "calendar",
+      "name": "Calendar",
+      "kss-weight": "1050",
+      "comment": "{block-category.control._value}"
+    },
+    "input-text": {
+      "value": "input-text",
+      "name": "Input Text",
+      "kss-weight": "1060",
+      "comment": "{block-category.input._value}"
+    },
+    "select": {
+      "value": "select",
+      "name": "Select",
+      "kss-weight": "1070",
+      "comment": "{block-category.input._value}"
+    },
+    "autosize-input": {
+      "value": "autosize-input",
+      "name": "Autosize Input",
+      "kss-weight": "1080",
+      "comment": "{block-category.input._value}"
+    },
+    "input-group": {
+      "value": "input-group",
+      "name": "Input Group",
+      "kss-weight": "1090",
+      "comment": "{block-category.input._value}"
+    },
+    "table": {
+      "value": "table",
+      "name": "Table",
+      "kss-weight": "1100",
+      "comment": "{block-category.table._value}"
+    },
+    "form": {
+      "value": "form",
+      "name": "Form",
+      "kss-weight": "1110",
+      "comment": "{block-category.form._value}"
+    },
+    "form-row": {
+      "value": "form-row",
+      "name": "Form Row",
+      "kss-weight": "1120",
+      "comment": "{block-category.form._value}"
+    },
+    "card": {
+      "value": "card",
+      "name": "Card",
+      "kss-weight": "1130",
+      "comment": "{block-category.container._value}"
+    },
+    "panel": {
+      "value": "panel",
+      "name": "Panel",
+      "kss-weight": "140",
+      "comment": "{block-category.container._value}"
+    },
+    "menu-dropdown": {
+      "value": "menu-dropdown",
+      "name": "Menu Dropdown",
+      "kss-weight": "1150",
+      "comment": "{block-category.menu._value}"
+    },
+    "menu-folder": {
+      "value": "menu-folder",
+      "name": "Menu Folder",
+      "kss-weight": "1160",
+      "comment": "{block-category.menu._value}"
+    },
+    "info": {
+      "value": "info",
+      "name": "Info",
+      "kss-weight": "1170",
+      "comment": "{block-category.info._value}"
+    },
+    "badge": {
+      "value": "badge",
+      "name": "Badge",
+      "kss-weight": "1180",
+      "comment": "{block-category.info._value}"
+    },
+    "alert": {
+      "value": "alert",
+      "name": "Alert",
+      "kss-weight": "1190",
+      "comment": "{block-category.info._value}"
+    },
+    "loader": {
+      "value": "loader",
+      "name": "Loader",
+      "kss-weight": "1200",
+      "comment": "{block-category.info._value}"
+    },
+    "icon-stack": {
+      "value": "icon-stack",
+      "name": "Icon Stack",
+      "kss-weight": "1210",
+      "comment": "{block-category.icon._value}"
+    },
+    "icon-svg": {
+      "value": "icon-svg",
+      "name": "Icon SVG",
+      "kss-weight": "1220",
+      "comment": "{block-category.icon._value}"
+    },
+    "show-on-hover": {
+      "value": "show-on-hover",
+      "name": "Show On Hover",
+      "kss-weight": "1230",
+      "comment": "{block-category.abstract._value}"
+    },
+    "focus": {
+      "value": "focus",
+      "name": "Focus",
+      "kss-weight": "1240",
+      "comment": "{block-category.abstract._value}"
+    },
+    "visual": {
+      "value": "visual",
+      "name": "Visual",
+      "kss-weight": "1250",
+      "comment": "{block-category.specific._value}"
+    },
+    "s3-uploader": {
+      "value": "s3-uploader",
+      "name": "S3 Uploader",
+      "kss-weight": "1260",
+      "comment": "{block-category.third-party._value}"
+    }
+  }
+}

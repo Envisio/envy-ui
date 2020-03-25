@@ -1,0 +1,142 @@
+// Menu Dropdown
+//
+// Weight: 1250
+//
+// Styleguide Menu Dropdown
+
+.#{$uiMenuDropdown} {
+
+  $this: &;
+
+  font-weight: normal;
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  font-size: $a-default-font-size;
+
+  &__button-content {
+    flex: 1 1 auto;
+    $font-size: 1.28em;
+    height: $font-size + 0.2em;
+    font-size: $font-size;
+    width: 100%;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 $space-normal;
+    border: 1px solid transparent;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    display: flex;
+    background-color: transparent;
+    border: 1px solid transparent;
+    width: $widget-menu-button-width;
+    border-radius: $border-radius-menu $border-radius-menu 0 0;
+    color: $medium-gray;
+    padding: 0;
+    // .rc-icon-container { // Eugene should fix this
+    //   color: inherit;
+    //   svg {
+    //     @include square-icon();
+    //   }
+    // }
+    &:hover {
+      color: $default;
+    }
+    &:focus {
+      outline: none;
+      & > #{$this}__button-content {
+        @include a--focus;
+      }
+    }
+  }
+
+  &--#{$class-active} {
+    #{$this}__button {
+      color: $widget-menu-color;
+      background-color: $widget-menu-bg-color;
+    }
+  }
+
+  &__items {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    // bottom: 0;
+    z-index: -1;
+    background-color: $widget-menu-bg-color;
+    border: 1px solid $widget-menu-bg-color;
+    border-radius: $border-radius-menu 0 $border-radius-menu $border-radius-menu;
+    // padding: $widget-menu-margins/4 0;
+  }
+  &__item {
+    display: block;
+    @include a-button--clean;
+    margin-top: $border-radius-menu;
+    margin-bottom: $border-radius-menu;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    color: $widget-menu-color;
+  }
+  &__button-item {
+    border: 1px solid transparent;
+    &:hover, &:focus {
+      background-color: $widget-menu-hover-bg-color
+    }
+    &:focus {
+      @include a--focus;
+    }
+    padding: $widget-menu-margins/1.5 $widget-menu-margins;
+  }
+
+  &--head-clean {
+    #{$this}__button {
+      border: 0;
+    }
+  }
+
+  &--light {
+    #{$this}__button {
+      // width: $widget-menu-light-button-width;
+      color: $medium-gray;
+      .rc-icon-container { // Eugene should fix this
+        svg {
+          @include square-icon();
+        }
+      }
+      &:hover {
+        color: $default;
+      }
+    }
+    &#{$this}--#{$class-active} {
+      #{$this}__button {
+        color: $widget-menu-light-color;
+        background-color: $widget-menu-light-bg-color;
+        border: 1px solid darken($widget-menu-light-bg-color, 5%);
+        border-bottom-color: $widget-menu-light-bg-color;
+        z-index: 2;
+      }
+    }
+    #{$this}__items {
+      background-color: $widget-menu-light-bg-color;
+      border: 1px solid darken($widget-menu-light-bg-color, 5%);
+      transform: translateY(-1px);
+      box-shadow: -1px 1px 0 0 rgba(0,0,0,0.1);
+    }
+    #{$this}__item {
+      color: lighten($widget-menu-light-color, 10%);
+      &:hover, &:focus, &:active {
+        color: lighten($widget-menu-light-color, 5%);
+        background-color: $widget-menu-light-hover-bg-color;
+      }
+    }
+  }
+
+}

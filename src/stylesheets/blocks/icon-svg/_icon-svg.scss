@@ -1,0 +1,29 @@
+// Icon SVG
+//
+// Weight: 1320
+//
+// Styleguide Icon SVG
+
+.#{$uiIconSvg} {
+
+  $this: &;
+
+  display: flex;
+
+  &::after {
+    content: '';
+    position: relative;
+    display: inline-block;
+  }
+
+  &--envisio {
+    &::after {
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtbmFtZT0iTGF5ZXIgMSIgdmlld0JveD0iMCAwIDguOTYgMTAuNiI+PHBhdGggZD0iTTEuNjkgOS4zM2MtLjI2LjA4My0uNTI1LS4wNTQtLjY4LS4yOGE2IDYgMCAwMS0uNzMtMS41QTUuODIgNS44MiAwIDAxNC4xLjI5IDUuOTQgNS45NCAwIDAxNS42Ni4wMmMuODEzIDAgLjgxMyAxLjIyIDAgMS4yMmE0LjM2IDQuMzYgMCAwMC0xLjIzLjE5IDQuNjEgNC42MSAwIDAwLTIuNDIgNi45OC42LjYgMCAwMS0uMTcuODQuNTUuNTUgMCAwMS0uMTUuMDgiIGZpbGw9IiM3YzdhN2EiLz48cGF0aCBkPSJNNS44OSAxMC41NmMtMS41OS0uMzAyLTIuODg2LTEuNDk1LTMuMzctMy4wNGE0LjI4IDQuMjggMCAwMS0uMDktMi4xQTQuMzcgNC4zNyAwIDAxNC4xNiAyLjdhLjYzLjYzIDAgMDEuODYuMTQuNjEuNjEgMCAwMS0uMTQuODUgMy4xNyAzLjE3IDAgMDAtMS4yNyAyIDMuMjIgMy4yMiAwIDAwLjA4IDEuNTEgMy4xOCAzLjE4IDAgMDA0LjM5IDEuOTIuNjMuNjMgMCAwMS44Mi4yOS42MS42MSAwIDAxLS4zLjgxIDQuMzUgNC4zNSAwIDAxLTIuNzEuMzQiIGZpbGw9IiMxMjgwYTgiLz48cGF0aCBkPSJNNS45NSA2LjkxYy0uMzIuMDA2LS42MTUtLjMtLjYyLS42MmEuNjUuNjUgMCAwMS42Mi0uNjUgMS42MyAxLjYzIDAgMDAxLjA3LS40OCAxLjYxIDEuNjEgMCAwMC40MS0xLjEyYy4wMS0uMzM0LS4xLS42Ni0uMzEtLjkyYS42My42MyAwIDAxLjE0LS44My42OS42OSAwIDAxLjQxLS4xNS42MS42MSAwIDAxLjQ3LjIzYy4zNzkuNDc3LjU4IDEuMDcuNTcgMS42OGEyLjgzIDIuODMgMCAwMS0uNTMgMS42MyAyLjQ1IDIuNDUgMCAwMS0uMjkuMzUgMi44NSAyLjg1IDAgMDEtMS45NC44OCIgZmlsbD0iIzliY2I0YyIvPjwvc3ZnPg==');
+      width: 1.2em;
+      height: 1.25em;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+}
