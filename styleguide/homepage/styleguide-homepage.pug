@@ -1,0 +1,213 @@
+include ./from-dictionary/color/_color.pug
+include ./_variables.pug
+include ./_mixin.pug
+
++cardBlock('section-color-palette.html', 'Color Palette')
+  each colorClass in colorClasses
+    span.env-a-m-small.env-a-w-30.env-a-h-30(class=`env-a-color-bg-${colorClass}`)
+
++cardBlockAcss(['color', 'margin', 'padding'], 'ACSS')
+  each acssKeyword in acssKeywords
+    span.env-a-m-small !{acssKeyword}
+
++section('Control')
+
++cardBlock('section-checkbox.html', 'Checkbox (uiCheckBox)')
+  each checkboxBaseClass in checkboxBaseClasses
+    input.env-a-vanish(type="checkbox" id=checkboxBaseClass)
+    label.env-checkbox.env-a-m-small(class=`${checkboxBaseClass}` for=checkboxBaseClass)
+
++cardBlock('section-button.html', 'Button (uiButton)')
+  each buttonBaseClass in buttonBaseClasses
+    .env-a-f.env-a-f-a-center(class='env-a-w-100%')
+      each buttonModClass in buttonModClasses
+        each buttonSizeClass in buttonSizeClasses
+          button.env-button.env-a-m-small(class=`${buttonBaseClass} ${buttonModClass} ${buttonSizeClass}`)
+            span.env-button__content
+              if buttonModClass == "env-button--circle"
+                +icon()
+              else
+                | Button
+
++cardBlock('section-button-switch.html', 'Button Switch (uiButtonSwitch)')
+  each buttonSwitchSizeClass in buttonSwitchSizeClasses
+    .env-a-f(class='env-a-f-100%')
+      each numberSet in [[1, 2], [1, 2, 3], [1, 2, 3, 4]]
+        .env-button-switch.env-a-m(class=buttonSwitchSizeClass)
+          each number in numberSet
+            button.env-button-switch__button(class=`${number===2 ? 'env-button-switch__button--active' : ''}` tabindex=`${number===2 ? '-1' : '0'}`)
+              != `Option&nbsp${number}`
+
++cardBlock('section-collapser.html', 'Collapser (uiCollapser)')
+  each collapserBaseClass in collapserBaseClasses
+    each collapserModClass in collapserModClasses
+      each collapserSizeClass in collapserSizeClasses
+        .env-collapser.env-a-m(class=`${collapserBaseClass} ${collapserModClass} ${collapserSizeClass}`)
+
++cardBlock('section-calendar.html', 'Calendar (uiCalendar)')
+  .env-calendar
+    each item, index in Array(31)
+      button.env-calendar__button(class=`${index == 15 ? 'env-calendar__button--active' : ''}`)
+        = index + 1
+
++section('Input')
+
++cardBlock('section-input-text.html', 'Input Text (uiInputText)')
+  input.env-input-text.env-a-m(placeholder='Input Text')
+  input.env-input-text.env-a-m(placeholder='Disabled Input Text' disabled=true)
+
++cardBlock('section-select.html', 'Select (uiSelect)')
+  select.env-select.env-a-m
+    option Option 1
+    option Option 2
+    option Option 3
+  select.env-select.env-a-m(disabled=true)
+    option Option 1
+    option Option 2
+    option Option 3
+
++cardBlock('section-autosize-input.html', 'Autosize Input')
+  .env-a-m Under Construction
+
++cardBlock('section-input-group.html', 'Input Group (uiInputGroup)', 'env-a-h-min-130')
+  .env-input-group.env-input-group--before.env-input-group--after.env-a-m-top-55-
+    .env-input-group__before
+      //- +icon()
+      .env-a-placeholder.env-a-w-15
+    input.env-input-group__input.env-input-text(type="text")
+    .env-input-group__dropdown
+      .env-a-placeholder.env-a-w-100.env-a-m-small
+      .env-a-placeholder.env-a-w-100.env-a-m-small
+      .env-a-placeholder.env-a-w-100.env-a-m-small
+    //- +icon('#cancel', 'env-input-group__after')
+    .env-input-group__after
+      .env-a-placeholder.env-a-w-15
+
+
++section('Table')
+
++cardBlock('section-table.html', 'Table (uiTable)')
+  .env-table
+    .env-table__header
+      each tablePlaceholderWidth in tablePlaceholderWidths
+        .env-table__cell
+          .env-table__content
+            .env-a-placeholder(class=`env-a-w-${tablePlaceholderWidth}`)
+    each item, index in Array(3)
+      .env-table__row
+        each tablePlaceholderWidth in tablePlaceholderWidths
+          .env-table__cell
+            .env-table__content
+              .env-a-placeholder(class=`env-a-w-${tablePlaceholderWidth}`)
+
++section('Form')
+
++cardBlock('section-form.html', 'Form (uiForm)')
+  .env-form.env-form--2-columns
+    .env-form__column
+      .env-a-placeholder.env-a-w-140.env-a-h-75
+    .env-form__column
+      .env-a-placeholder.env-a-w-90.env-a-h-75
+
++cardBlock('section-form-row.html', 'Form Row (uiFormRow)' )
+  each formRowBaseLabelClass, formRowBaseLabelClassIndex in formRowBaseLabelClassesData
+    label.env-form-row.env-form-row--full(class=formRowLabelShiftsClassesData[formRowLabelShiftClassIndex])
+      span.env-form-row__label(class=formRowBaseLabelClass)= formRowBaseLabelTextData[formRowBaseLabelClassIndex]
+      .env-a-placeholder
+  each formRowLabelShiftClass, formRowLabelShiftClassIndex in formRowLabelShiftsClassesData
+    label.env-form-row.env-form-row--full(class=formRowLabelShiftClass)
+      span.env-form-row__label= formRowBaseShiftedLabelTextData[formRowLabelShiftClassIndex]
+      .env-a-placeholder.env-a-w-min-25
+  label.env-form-row.env-form-row--full.env-form-row--column
+    span.env-form-row__label Column Form Row Label
+    .env-a-placeholder.env-a-w-min-25
+
++section('Container')
+
++cardBlock('section-card.html', 'Card (uiCard)')
+  .env-card.env-a-w-250.env-a-h-100.env-a-m
+  .env-card.env-card--plain.env-a-w-250.env-a-h-100.env-a-m
+
+
++cardBlock('section-panel.html', 'Panel (uiPanel)')
+  .env-a-m Under Construction
+
++section('Menu')
+
++cardBlock('section-menu-dropdown.html', 'Menu Dropdown (uiMenuDropdown)', 'env-a-h-min-140')
+  each modifierClass in ['', 'env-menu-dropdown--light']
+    .env-menu-dropdown.env-menu-dropdown--active.env-a-m-top-70-.env-a-m-left-100.env-a-m-right-60(class=modifierClass)
+      .env-menu-dropdown__button.env-menu-dropdown__button--active
+        .env-menu-dropdown__button-content
+          .env-a-placeholder.env-w-15.env-a-color-bg-plain-gray
+      .env-menu-dropdown__items
+        each item in Array(3)
+          .env-menu-dropdown__item.env-a-f
+            .env-a-placeholder.env-a-w-100.env-a-color-bg-plain-gray.env-a-m-x.env-a-m-y-5
+
++cardBlock('section-menu-folder.html', 'Menu Folder (uiMenuFolder)')
+  each modifierClass in ['', 'env-menu-folder--line', 'env-menu-folder--contrast']
+    .env-menu-folder.env-a-m-y-25(class=`env-a-w-100% ${modifierClass}`)
+      each menuItem, itemIndex in Array(4)
+        .env-menu-folder__button(class=`${itemIndex === 0 ? 'env-menu-folder__button--active' : ''}`)
+          .env-a-placeholder.env-a-w-100(class=`${itemIndex === 0 ? 'env-a-color-bg-plain-gray' : ''}`)
+      .env-menu-folder__button.env-menu-folder__button--close
+        .env-a-placeholder.env-a-w-15
+
++section('Info')
+
++cardBlock('section-info.html', 'Info (uiInfo)')
+  .env-a-m Under Construction
+
++cardBlock('section-badge.html', 'Badge (uiBadge)')
+  each badgeBaseClass in ['', 'env-badge--info', 'env-badge--ok', 'env-badge--error', 'env-badge--warning']
+    .env-a-f.env-a-f-a-center(class='env-a-w-100%')
+      each badgeShapeClass in ['', 'env-badge--round', 'env-badge--circle']
+        each badgeSizeClass in ['env-badge--xsmall', 'env-badge--small', '', 'env-badge--large']
+          .env-badge.env-a-m-small.env-a-f-0-0-auto(class=`${badgeBaseClass} ${badgeShapeClass} ${badgeSizeClass}`)
+              if badgeShapeClass == "env-badge--circle"
+                +icon()
+              else
+                | Badge Text
+
++cardBlock('section-alert.html', 'Alert (uiAlert)')
+  each alertBaseClass in ['', 'env-alert--ok', 'env-alert--error', 'env-alert--warning']
+    .env-alert.env-a-w-150.env-a-m-small(class=`${alertBaseClass} ${alertShapeClass} ${alertSizeClass}`)
+      | Alert Text
+      .env-alert__button
+        .env-a-placeholder.env-a-w-15
+
++cardBlock('section-loader.html', 'Loader (uiLoader)')
+  each loaderBaseClass in ['env-loader--bars env-a-m-right-50', 'env-loader--dots']
+    .env-loader(class=loaderBaseClass)
+
++section('Icon')
+
++cardBlock('section-icon-stack.html', 'Icon Stack (uiIconStack)')
+  .env-a-m Under Construction
+
++cardBlock('section-icon-svg.html', 'Icon SVG (uiIconSvg)')
+  each iconSvgBaseClass in ['env-icon-svg--envisio']
+    i.env-icon-svg(class=iconSvgBaseClass)
+
++section('Abstract')
+
++cardBlock('section-show-on-hover.html', 'Show on Hover (uiShowOnHover)')
+  .env-show-on-hover.env-a-f.env-a-m.env-a-color-bg-alabaster
+    .env-a-m.env-a-p On Hover
+    .env-show-on-hover__content.env-a-m.env-a-p Content
+
++cardBlock('section-focus.html', 'Focus (uiFocus)')
+  .env-a-f.env-a-m.env-focus(tabindex='0')
+    .env-focus__content.env-a-p Focus me
+
++section('Specific')
+
++cardBlock('section-visual.html', 'Visual (uiVisual)')
+  .env-a-m Coming Soon
+
++section('Third Party')
+
++cardBlock('section-s3-uploader.html', 'S3 Uploader (uiS3Uploader)')
+  .env-a-m Used with S3 uploader react component
+

@@ -1,0 +1,34 @@
+mixin cardBlock(link, title, minHight = 'env-a-h-min-75')
+  .env-a-f.env-a-f-a-center.env-a-m-top-25
+    a.env-button.env-button--clean.env-button--link.env-a-m-right-auto(tabindex='0' href=link)
+      .env-button__content.env-a-font-size-16 !{title}
+    //- button.env-button.env-button--clean.env-button--link.env-button--circle.env-js-homepage-collapser(tabindex='0')
+      .env-button__content(tabindex='-1')
+        .env-collapser
+
+  .env-a-f
+    .env-card.env-a-f.env-a-f-a-center.env-a-p-large.env-a-f-wrap.env-a-overflow-hidden.env-a-color-bg-hover-athens-gray(class=`env-a-w-max-100% env-a-w-100% ${minHight}`)
+      if block
+        block
+      .env-js-last-item-in-homepage-card
+
+mixin cardBlockAcss(acssElements = [], title, minHight = 'env-a-h-min-75')
+  .env-a-f.env-a-f-a-center.env-a-m-top-25
+    .env-a-m-right-auto.env-a-m-bottom-small.env-a-m-left
+      .env-a-font-size-16 !{title}
+  .env-a-f
+    .env-card.env-a-f.env-a-f-a-center.env-a-p-large.env-a-f-wrap.env-a-overflow-hidden.env-a-color-bg-hover-athens-gray(class=`env-a-w-max-100% env-a-w-100% ${minHight}`)
+      each acssElement in acssElements
+        - var capAcssElement = acssElement.charAt(0).toUpperCase() + acssElement.substring(1)
+        a.env-button.env-button--clean.env-button--link.env-a-m-small(tabindex='0' href=`section-acss-${acssElement}.html`)
+          .env-button__content !{capAcssElement};
+      .env-js-last-item-in-homepage-card
+
+mixin section(title)
+  span.env-a-f.env-a-f-a-center.env-a-font-size-20.env-a-m-top-75
+    span.env-a-m-right-large.env-a-color-medium-gray !{title}
+    span.env-a-f-1-1-auto.env-a-f.env-a-border-top-panel.env-a-h-1
+
+mixin icon(icon="#home", className="")
+  svg(viewBox="0 0 512 512" class=`kss-test-icon ${className}`)
+    use(xlink:href=icon)
