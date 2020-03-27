@@ -1,5 +1,5 @@
 import { uiGp } from './ui_names';
-export const pathToImages = 'http://app.envisio.localhost:3000/assets/corporate_v3/';
+// export const pathToImages = 'http://app.envisio.localhost:3000/assets/corporate_v3/';
 
 export const bsStyleFocusShadow = {
   control: (base, state) => ({
