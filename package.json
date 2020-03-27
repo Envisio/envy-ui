@@ -3,8 +3,35 @@
   "version": "1.0.0-beta.0",
   "description": "UI Design System for Envisio Applications",
   "main": "index.js",
+  "watch": {
+    "kss-run": {
+      "patterns": [
+        "./stylesheets",
+        "./styleguide/kss-assets",
+        "./styleguide/homepage"
+      ],
+      "extensions": [
+        "scss",
+        "html",
+        "hbs",
+        "md",
+        "pug",
+        "js"
+      ]
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "remove": "rm -r ../build",
+    "sass-styleguide": "./node_modules/.bin/node-sass --output-style compressed --include-path node_modules/ styleguide/kss-assets/kss.scss styleguide/kss-assets/kss.css",
+    "sass-envisio-ui": "./node_modules/.bin/node-sass --source-comments true --source-map-contents true --source-map true --include-path node_modules/ src/stylesheets/ui.scss build/css/ui.css",
+    "kss": "kss --config kss-config.json",
+    "css-lint": "stylelint ../**/*.css --version",
+    "kss-run": "npm run remove ; npm run sass-envisio-ui && npm run sass-styleguide && npm run render-styleguide-homepage && npm run kss && npm run css-lint",
+    "watch": "npm-watch",
+    "specificity": "./node_modules/.bin/css-reporter build/css/ui.css",
+    "render-styleguide-homepage": "./node_modules/.bin/pug styleguide/homepage/styleguide-homepage.pug --extension md --out styleguide/",
+    "deploy": "./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./build"
   },
   "repository": {
     "type": "git",
@@ -17,6 +44,17 @@
   },
   "homepage": "https://github.com/Envisio/envy-ui#readme",
   "devDependencies": {
-    "kss": "^3.0.0"
+    "css-reporter": "0.0.6",
+    "json-concat": "0.0.1",
+    "kss": "^3.0.0",
+    "node-sass": "^4.13.1",
+    "npm-watch": "^0.6.0",
+    "pug": "^2.0.4",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass-true": "^5.0.0",
+    "stylelint": "^13.2.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "surge": "^0.21.3",
+    "highlight.js": "^9.18.1"
   }
 }
