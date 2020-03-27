@@ -10,18 +10,20 @@
 @import 'from-dictionary/color/color-map';
 @import 'from-dictionary/color/color-kss';
 
-/* Utils */
-@import 'utils/variables';
-@import 'utils/placeholder';
-@import 'utils/mixin';
 @import 'utils/functions';
 @import 'utils/functions-specs';
+
+// Initial setting
+@import 'a/settings/settings';
+
+/* Utils */
+@import 'utils/variables';
+@import 'utils/mixin';
 
 /* Debug */
 @import 'utils/debug';
 
 // @import 'a/settings/color-settings';
-@import 'a/settings/settings';
 @import 'a/settings/filter-settings';
 @import 'a/settings/visibility-settings';
 @import 'a/settings/border-settings';

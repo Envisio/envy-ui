@@ -1,4 +1,4 @@
-@import '../../corporate_v3/core/components/mixin/mixin';
+// @import '../../corporate_v3/core/components/mixin/mixin';
 
 @mixin a-button--clean {
   border: 0;
@@ -6,8 +6,107 @@
 };
 
 @mixin a--focus ($inset: true, $color:$a-color-focus, $color-bg:$a-color-focus, $alpha: 0.3) {
-  // box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  @debug $color;
+  @debug $color-bg;
   border: 1px solid $color;
   box-shadow: if($inset, inset, null) 0 0 1px 3px rgba($color-bg, $alpha);
   outline: none;
+}
+
+@mixin a--focus-clean {
+  outline: none;
+  box-shadow: none;
+}
+
+@mixin a-placeholder-text {
+  &::placeholder {
+    color: color("medium-gray");
+  }
+}
+
+@mixin flexDirection($value) {
+  flex-direction: $value;
+}
+
+@mixin flexWrap($value) {
+  flex-wrap: $value;
+}
+
+@mixin alignItems($value) {
+  align-items: $value;
+}
+
+@mixin flexGrow($value) {
+  flex-grow: $value;
+}
+
+@mixin flex($params...) {
+  $display: flex;
+  @each $param in $params {
+    @if $param == inline-flex {
+      $display: inline-flex;
+    }
+  }
+  // display: -webkit-box;
+  // display: -ms-flexbox;
+  display: $display;
+  $flex-direction: (
+    row: row,
+    row-reverse: row-reverse,
+    column: column,
+    column-reverse: column-reverse
+  );
+  $justify-content: (
+    j-start : flex-start,
+    j-center: center,
+    j-end: flex-end,
+    space-between: space-between,
+    space-around: space-around,
+    space-evenly: space-evenly
+  );
+  $align-items: (
+    a-start: flex-start,
+    a-center: center,
+    a-end: flex-end,
+    stretch: stretch,
+  );
+  $align-content: (
+    a-content-start: flex-start,
+    a-content-center: center,
+    a-content-end: flex-end,
+    a-content-space-between: stretch,
+    a-content-space-around: space-around,
+    a-content-space-evenly: space-evenly,
+    a-content-stretch: stretch,
+  );
+  $flex-wrap: (
+    nowrap: nowrap,
+    wrap: wrap,
+    wrap-reverse: wrap-reverse
+  );
+  @each $param in $params {
+    @if map-has-key($flex-direction, $param) {
+      @include flexDirection(map-get($flex-direction, $param));
+    }
+    @if map-has-key($justify-content, $param) {
+      justify-content: map-get($justify-content, $param);
+    }
+    @if map-has-key($align-items, $param) {
+      @include alignItems(map-get($align-items, $param));
+    }
+    @if map-has-key($align-content, $param) {
+      align-content: map-get($align-content, $param);
+    }
+    @if map-has-key($flex-wrap, $param) {
+      @include flexWrap(map-get($flex-wrap, $param));
+    }
+  }
+}
+
+// process icons sizes (disputable)
+@mixin square-icon($delta: 0) {
+  width: $icon-base-size + $delta;
+  height: $icon-base-size + $delta;
+  min-width: $icon-base-size + $delta;
+  min-height: $icon-base-size + $delta;
 }

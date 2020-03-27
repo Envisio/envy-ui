@@ -11,7 +11,7 @@
   border: 1px solid $border;
   border-radius: $card-border-radius;
   background-color: $white;
-  box-shadow: $card-shadow;
+  box-shadow: $a-card-shadow;
 
   &--plain {
     background-color: color("alabaster");

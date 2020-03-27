@@ -127,7 +127,7 @@
   }
   @at-root input[type="checkbox"]:focus + #{$this} {
     outline: none;
-    @include a--focus;
+    @include a--focus();
   }
   &--disabled {
     @extend %ui-checkbox-disable-state-painter;

@@ -22,7 +22,7 @@
     @include a--focus();
   }
 
-  @extend %a-placeholder-text;
+  @include a-placeholder-text();
 
   // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
