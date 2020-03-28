@@ -17,6 +17,8 @@ function ScrollSpy (wrapper, opt) {
   this.init();
 }
 
+var KSS_HEADER_HEIGHT = 50;
+
 ScrollSpy.prototype.init = function () {
   this.contents = this.getContents();
   this.attachEvent();
@@ -42,7 +44,7 @@ ScrollSpy.prototype.attachEvent = function () {
 
   var scrollingTimer;
 
-  this.win.addEventListener('scroll', (function () {
+  document.getElementById('kss-main').addEventListener('scroll', (function () {
     if (scrollingTimer) {
       clearTimeout(scrollingTimer);
     }
@@ -112,7 +114,7 @@ ScrollSpy.prototype.isInView = function (el) {
     elTop = rect.top + scrollTop,
     elBottom = elTop + el.offsetHeight;
 
-  return (elTop < scrollBottom) && (elBottom > scrollTop);
+  return (elTop < (scrollBottom + KSS_HEADER_HEIGHT)) && (elBottom > (scrollTop + KSS_HEADER_HEIGHT));
 };
 
 ScrollSpy.prototype.markNav = function (elems) {

@@ -2,25 +2,58 @@
 //   Variables - Colors, Fonts, etc.
 // ------------------------------------------------------------------------------
 $kss-colors-background    : #fff;
+$kss-colors-brand         : #066a8d;
+$kss-colors-brand2        : #f1f2f6;
+
+$kss-colors-check-bg1     :#fefefe;
+$kss-colors-check-bg2     :#f2f2f2;
+
+$check-bg-size            : 20px;
+$kss-header-height        : 50px;
+$kss-light-border         : 1px solid #dddddd;
+
 
 $kss-colors-foreground    : #444;
-$kss-colors-heading       : #111;
+$kss-colors-heading       : #333333;
 $kss-colors-quotes        : #666;
+$kss-color-light-text     : #c2c2c2;
+$kss-color-outlined       : #00cc99;
+$kss-colors-lighter-text  : #aaaaaa;
 
-$kss-colors-link          : #0645ad;
-$kss-colors-link-visited  : #0645ad;
-$kss-colors-link-hover    : lighten($kss-colors-link, 20%);
+$kss-content-margin       : 15px;
+$kss-menu-padding         : 2px 5px;
+
+$kss-colors-link          : $kss-colors-brand ;
+$kss-colors-link-visited  : $kss-colors-brand ;
+$kss-colors-link-hover    : lighten($kss-colors-brand, 10%);
 $kss-colors-link-active   : #faa700;
 
-$kss-font-body            : Helvetica, 'Helvetica Neue', Arial, sans-serif;
+$kss-font-body            : 'Source Sans Pro', Helvetica, 'Helvetica Neue', Arial, sans-serif;
 $kss-font-code            : Menlo, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace;
 
-$kss-font-size            : 16px;
+$kss-font-size            : 14px;
 $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
 // ------------------------------------------------------------------------------
 // Wrap all of this builder's base HTML styling inside a .kss-style selector.
 // ------------------------------------------------------------------------------
+
+@mixin kss-tooltip {
+  font-size: 12px;
+  position: absolute;
+  z-index: 1;
+  border: solid 1px #666;
+  border-radius: 3px;
+  padding: 4px 8px 4px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+  margin-bottom: 5px;
+  background-color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.25s;
+  font-weight: normal;
+  color: $kss-colors-quotes;
+  line-height: 1.25;
+}
 
 .kss-style {
   color: $kss-colors-foreground;
@@ -54,18 +87,19 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     font-family: $kss-font-body;
     color: $kss-colors-heading;
     line-height: 1.15em;
+    font-weight: normal;
   }
 
   h4, h5, h6 {
     font-weight: bold;
   }
 
-  h1 { font-size: $kss-font-size * 2.5;   }
-  h2 { font-size: $kss-font-size * 2.25;  }
-  h3 { font-size: $kss-font-size * 2.125; }
-  h4 { font-size: $kss-font-size * 2;     }
-  h5 { font-size: $kss-font-size * 1.875; }
-  h6 { font-size: $kss-font-size * 1.75;  }
+  h1 { font-size: $kss-font-size * 2;   }
+  h2 { font-size: $kss-font-size * 1.65;  }
+  h3 { font-size: $kss-font-size * 1.5; }
+  h4 { font-size: $kss-font-size * 1.45;     }
+  h5 { font-size: $kss-font-size * 1.3; }
+  h6 { font-size: $kss-font-size * 1.15;  }
 
   blockquote {
     color: $kss-colors-quotes;
@@ -168,6 +202,46 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
   padding: 20px;
   background: #fff;
 
+  @mixin kss-test ($test-color: #dedede, $width: 20px, $height: 20px) {
+    width: $width;
+    height: $height;
+    background-color: $test-color;
+  }
+
+  .kss-test-flex {
+    display: flex;
+  }
+
+  .kss-test-icon {
+    height: 20px;
+    color: inherit;
+    fill: currentColor;
+  }
+
+  .kss-test-block-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  .kss-test-space {
+    display: flex;
+  }
+
+  .kss-test-block {
+    @include kss-test(#dedede, 100%, 10px);
+    border: 1px solid #cecece;
+  }
+
+  .kss-test-inline {
+    @include kss-test(#dedede, 10px, auto);
+    border: 1px solid #cecece;
+    display: flex;
+  }
+
+  .kss-test-item {
+    @include kss-test(#7f00ff);
+  }
+
   &.kss-fullscreen-mode {
     .kss-sidebar,
     .kss-section:not(.is-fullscreen),
@@ -181,15 +255,21 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
     .kss-main,
     .kss-sidebar {
+      margin-top: $kss-header-height;
       float: left;
       margin-right: -100%;
       box-sizing: border-box;
+      align-items: center;
     }
   }
 
   .kss-main {
     width: 100%;
-    margin: 0 auto;
+    margin: $kss-header-height auto 0;
+    position: relative;
+    height: calc(100vh - #{$kss-header-height});
+    overflow: auto;
+    z-index: -1;
 
     @media screen and (min-width: 769px) {
       width: 80%;
@@ -200,19 +280,15 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
   .kss-sidebar {
     border-bottom:1px solid #ddd;
+    background-color: $kss-colors-brand2;
 
     @media screen and (min-width: 769px) {
       position: fixed;
       width: 20%;
-      height: 100%;
+      height: calc(100% - #{$kss-header-height});
       overflow: auto;
-      padding: 0 10px 0 20px;
+      padding: 0 10px 0 5px;
       border-bottom: 0;
-      background-image: url(noise-low.png), -ms-radial-gradient(#fff, #eee);
-      background-image: url(noise-low.png), -o-radial-gradient(#fff, #eee);
-      background-image: url(noise-low.png), -webkit-radial-gradient(#fff, #eee);
-      background-image: url(noise-low.png), radial-gradient(#fff, #eee);
-      box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.7);
     }
   }
 }
@@ -225,55 +301,77 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
   .kss-doc-title {
     margin: 0;
+    font-size: 1em;
+    font-weight: normal;
 
     @media screen and (min-width: 769px) {
       font-size: 1.5em;
     }
   }
 
-  .kss-header,
+  .kss-header {
+    font-family: $kss-font-body;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: $kss-colors-brand;
+    height: $kss-header-height;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
   .kss-nav {
     @media screen and (min-width: 769px) {
-      margin-top: 2em;
+      margin-top: 2rem;
     }
   }
 
   .kss-nav__menu {
-    margin-top: ($kss-vertical-rhythm/2);
+    // margin-top: ($kss-vertical-rhythm/2);
     margin-bottom: ($kss-vertical-rhythm/2);
     padding: 0;
     list-style-type: none;
+    font-size: 1.2em;
   }
 
   .kss-nav__menu-item {
     display: inline-block;
     padding-right: $kss-vertical-rhythm;
+    padding: $kss-menu-padding;
 
     @media screen and (min-width: 769px) {
       display: list-item;
       padding-right: 0;
     }
+
   }
 
   .kss-nav__menu-link {
     position: relative;
     display: inline-block;
+    padding: $kss-menu-padding;
 
     &:before {
       @media screen and (min-width: 769px) {
         content: ' ';
         position: absolute;
-        left: -20px;
+        left: -25px;
         width: 0;
         height: 100%;
         background-color: rgba(#000, 0);
       }
     }
 
-    &.is-in-viewport:before {
-      background-color: #000;
-      width: 5px;
-      transition: background-color .4s, width .6s;
+    &.is-in-viewport {
+      &:before {
+        background-color: $kss-colors-brand;
+        width: 5px;
+        transition: background-color .4s, width .6s;
+      }
     }
   }
 
@@ -282,33 +380,35 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
     @media screen and (min-width: 769px) {
       display: block;
+      font-size: 0.85em;
       list-style-type: none;
       margin: 0;
       padding: 0;
+      padding-left: 10px;
 
       // @TODO: The ul is output even when there are no children. Fix this, so
       // we can put these :first-child and :last child styles back on the ul.
       li:first-child {
-        margin-top: 10px;
-        border-top: 1px solid #ccc;
-        padding: 10px 0 0;
+        // margin-top: 5px;
+        // border-top: 1px dotted $kss-colors-brand;
+        // padding: 5px 0 0 5px;
       }
 
       li:last-child {
-        margin-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-        padding: 0 0 10px;
+        // margin-bottom: 5px;
+        // border-bottom: 1px dotted $kss-colors-brand;
+        // padding: 0 0 5px 5px;
       }
     }
   }
 
   .kss-nav__ref {
-    color: #333;
-    font-weight: bold;
+    // color: #333;
 
-    &:after {
-      content: ' ';
-    }
+    // &:after {
+    //   content: ' ';
+    // }
+    display: none;
   }
   .kss-nav__ref-child {
     font-weight: normal;
@@ -323,6 +423,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
   .kss-section {
     margin-bottom: ($kss-vertical-rhythm * 2);
+    border-bottom: 1px dotted #cccccc;
 
     // "fullscreen" styles copied from Mozilla's default stylesheet.
     &.is-fullscreen {
@@ -349,6 +450,12 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
   .kss-title {
     margin-bottom: 0;
+    &.kss-title--level-2 {
+      // border-left: 1px solid $kss-colors-brand;
+      .kss-title__permalink {
+
+      }
+    }
   }
   .is-fullscreen .kss-title {
     margin-top: 0;
@@ -357,15 +464,20 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     display: block;
     font-size: $kss-font-size;
     line-height: $kss-font-size;
-    color: #666;
+    color: #666666;
 
     &:before {
-      content: 'Section ';
+      content: '';
+      display: inline-block;
+      height: $kss-font-size;
+      width: 1px;
+
     }
   }
   .kss-title__permalink {
     display: block;
-    color: #000;
+    font-weight: bold;
+    color: $kss-colors-brand;
     text-decoration: none;
 
     &:hover,
@@ -383,24 +495,26 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
   .kss-title__permalink-hash {
     display: none;
     color: #ccc;
+    font-weight: normal;
   }
 
   .kss-toolbar {
-    margin: 6px 0 24px;
+    margin: 0 0 0 6px;
     display: inline-block;
-    border: 1px solid #eee;
-    background-color: #f9f9f9;
-    border-right-color: #e0e0e0;
-    border-bottom-color: #e0e0e0;
+    margin-left: auto;
+    // border: 1px solid #eee;
+    // background-color: #f9f9f9;
+    // border-right-color: #e0e0e0;
+    // border-bottom-color: #e0e0e0;
     line-height: 1;
-    padding: 3px;
+    padding: 1px;
 
     a {
       box-sizing: content-box;
       display: inline-block;
       width: 16px;
       height: 16px;
-      padding: 3px;
+      padding: 0;
       vertical-align: top;
       // Tooltip wrapper styles:
       position: relative;
@@ -412,6 +526,13 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
       .kss-toolbar__icon-fill {
         fill: #ccc;
+      }
+
+      .kss-toolbar__bg-color-switcher {
+        width: 16px;
+        height: 16px;
+        border: solid 1px $kss-colors-lighter-text;
+        background-color: transparent;
       }
 
       svg.on {
@@ -427,23 +548,28 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
         }
       }
     }
+    .kss-toolbar__examples {
+      .kss-test-icon {
+        width: 25px;
+        color: $kss-color-light-text;
+        margin-top: -2px;
+      }
+    }
+  }
+  &.kss-examples-off .kss-toolbar__examples {
+    opacity: 0.5;
   }
   .kss-toolbar__tooltip {
-    position: absolute;
-    z-index: 1;
+    @include kss-tooltip;
     display: inline-block;
     bottom: 100%;
-    left: -10px;
-    margin-bottom: 5px;
-    border: solid 1px #666;
-    padding: 8px 10px 6px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+    right: -10px;
     white-space: nowrap;
-    color: #000;
-    background: #fff;
-    cursor: help;
-    opacity: 0;
-    transition: opacity 0.25s;
+    // color: #000;
+    // background: #fff;
+    // font-size: 12px;
+    // cursor: help;
+
     // Visually hidden
     height: 1px;
     width: 1px;
@@ -454,24 +580,34 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     // Solid grey triangle.
     &:before,
     &:after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 15px;
-      width: 0;
-      height: 0;
-      border-width: 7px 5px 0;
-      border-color: #666 transparent;
-      border-style: solid;
+      // content: '';
+      // position: absolute;
+      // bottom: -8px;
+      // right: 15px;
+      // width: 0;
+      // height: 0;
+      // border-width: 7px 5px 0;
+      // border-color: #666 transparent;
+      // border-style: solid;
     }
 
     // White triangle knock-out.
     &:after {
-      bottom: -6px;
-      border-top-color: #fff;
+      // bottom: -6px;
+      // border-top-color: #fff;
+    }
+    &.kss-toolbar__tooltip--bottom {
+      top: calc(100% + 10px);
+      height: 25px !important;
     }
   }
-  a:focus,
+  .kss-toolbar__bg-container {
+    border: 1px solid $kss-colors-lighter-text;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+  }
+  a:focus {}
   a:hover {
     > .kss-toolbar__tooltip {
       opacity: 1;
@@ -485,8 +621,8 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
   .is-fullscreen .kss-toolbar a[data-kss-fullscreen],
   &.kss-guides-mode .kss-toolbar a[data-kss-guides],
   &.kss-markup-mode .kss-toolbar a[data-kss-markup] {
-    border-color: #666;
-    background-color: #666;
+    border-color: #a9a9a9;
+    background-color: #a9a9a9;
 
     .kss-toolbar__icon-fill {
       fill: #fff;
@@ -527,7 +663,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
   }
 
   .kss-modifier__wrapper {
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     padding: 0 10px 10px;
   }
   .is-fullscreen .kss-modifier__wrapper {
@@ -541,14 +677,16 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
   }
   .kss-modifier__heading {
     margin: 0 -10px 10px -10px;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    padding: 5px 10px;
+    border-top: 1px solid #ccc;
     background-color: #eee;
     font-weight: bold;
+    display: flex;
+    color: $kss-colors-lighter-text;
   }
   .is-fullscreen .kss-modifier__heading {
     margin: 0 20px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid $kss-colors-lighter-text;
   }
   .kss-modifier__default-name {
     font-weight: bold;
@@ -559,25 +697,40 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     margin-right: 20px;
   }
   .kss-modifier__name {
-    float: left;
+    // float: left;
     padding-right: 10px;
     font-weight: bold;
+    cursor: default;
+    &:hover + .kss-modifier__description {
+      opacity: 1;
+    }
   }
   .is-fullscreen .kss-modifier__name {
     margin-left: 20px;
   }
+  .kss-modifier__description-block {
+    position: relative;
+    display: flex;
+    margin-top: 25px;
+  }
   .kss-modifier__description {
-    margin-bottom: ($kss-vertical-rhythm / 2);
+    // display: none;
+    @include kss-tooltip;
+    bottom: 100%;
+    left: 0;
   }
   .is-fullscreen .kss-modifier__description {
     margin-right: 20px;
   }
   .kss-modifier__example {
     clear: left;
-    border: 2px dashed transparent;
+    // border: 1px dashed transparent;
     position: relative; // Contain the example's absolute positioning.
     z-index: 0; // Establishes a local stacking context.
-    margin: -2px -2px ($kss-vertical-rhythm - 2px);
+    // margin: -2px -2px ($kss-vertical-rhythm - 2px);
+    padding: 10px;
+    font-family: $kss-font-body;
+
 
     &:last-child {
       margin-bottom: 0;
@@ -585,32 +738,60 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
   }
   &.kss-guides-mode .kss-modifier__example,
   &.kss-guides-mode .kss-modifier__example-footer {
-    &:before,
-    &:after {
-      z-index: -1;
-      box-sizing: border-box;
-      content: '';
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      border: 2px solid #000;
+    // &:before,
+    // &:after {
+    //   z-index: -1;
+    //   box-sizing: border-box;
+    //   content: '';
+    //   position: absolute;
+    //   width: 5px;
+    //   height: 5px;
+    //   border: 1px solid $kss-color-outlined;
+    // }
+  }
+  .kss-toolbar__checkers {
+    display: none;
+  }
+  &.kss-examples-off {
+    .kss-modifier__example {display: none !important;}
+  }
+  &.kss-guides-mode {
+    .kss-modifier__example {
+      background-color: $kss-colors-check-bg1;
+      background-image: linear-gradient(45deg, $kss-colors-check-bg2 25%, transparent 25%, transparent 75%, $kss-colors-check-bg2 75%, $kss-colors-check-bg2), linear-gradient(45deg, $kss-colors-check-bg2 25%, transparent 25%, transparent 75%, $kss-colors-check-bg2 75%, $kss-colors-check-bg2);
+      background-size: $check-bg-size $check-bg-size;
+      background-position: 0 0, $check-bg-size / 2 $check-bg-size / 2;
+
+      // &:before {
+      //   top: -5px;
+      //   left: -5px;
+      //   border-top: 0;
+      //   border-left: 0;
+      // }
+      // &:after {
+      //   top: -5px;
+      //   right: -5px;
+      //   border-top: 0;
+      //   border-right: 0;
+      // }
+    }
+    .kss-toolbar__checkers {
+      display: block;
+    }
+    .kss-toolbar__bg-container {
+      background-color: transparent;
     }
   }
-  &.kss-guides-mode .kss-modifier__example {
-    border-color: #000;
+  &.kss-guides-light-bg-mode {
+    .kss-modifier__example, .kss-toolbar__bg-container {
+      background-color: #eeeeee;
+    }
+  }
+  &.kss-guides-dark-bg-mode {
+    .kss-modifier__example, .kss-toolbar__bg-container {
+      background-color: #066a8d;
+    }
 
-    &:before {
-      top: -5px;
-      left: -5px;
-      border-top: 0;
-      border-left: 0;
-    }
-    &:after {
-      top: -5px;
-      right: -5px;
-      border-top: 0;
-      border-right: 0;
-    }
   }
   &.kss-guides-mode.kss-fullscreen-mode .kss-modifier__example {
     &:before {
@@ -665,6 +846,21 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     pre {
       margin: 0;
     }
+
+    .kss-markup__file-wrapper {
+      float: right;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .kss-markup__file {
+      color: $kss-color-light-text;
+      opacity: 0;
+    }
+    &:hover {
+      .kss-markup__file {
+        opacity: 1;
+      }
+    }
   }
 
   .kss-colors {
@@ -675,7 +871,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     justify-content: flex-start;
     align-items: stretch;
     flex-wrap: wrap;
-    margin: 0 -.5em;
+    margin: $kss-content-margin -.5em 0;
 
     > * {
       flex: 0 0 auto;
@@ -691,16 +887,18 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
   .kss-color {
     background: $kss-colors-background;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     margin: 0;
     padding: 0;
+    line-height: 1.2;
 
     &-figure {
-      height: 3em;
+      height: 4em;
+      border: $kss-light-border;
     }
 
     &-caption {
-      padding: .5em;
+      padding: .2em .4em .4em;
     }
 
     &-name {
@@ -720,7 +918,16 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
   }
 
   .kss-source {
+    opacity: 0;
     font-size: 80%;
+    text-align: right;
+    color: $kss-color-light-text;
+    code {
+      color: $kss-color-light-text;
+    }
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .kss-github {
