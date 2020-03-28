@@ -22,7 +22,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "remove": "rm -r ../build",
+    "remove": "rm -r build",
     "sass-styleguide": "./node_modules/.bin/node-sass --output-style compressed --include-path node_modules/ styleguide/kss-assets/kss.scss styleguide/kss-assets/kss.css",
     "sass-envisio-ui": "./node_modules/.bin/node-sass --source-comments true --source-map-contents true --source-map true --include-path node_modules/ src/stylesheets/ui.scss build/css/ui.css",
     "kss": "kss --config kss-config.json",
