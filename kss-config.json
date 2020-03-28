@@ -4,7 +4,7 @@
   ],
   "destination": "build/styleguide",
   "css": [
-    "css/ui.css"
+    "../css/ui.css"
   ],
   "homepage": "styleguide/styleguide-homepage.md",
   "builder": "styleguide",
