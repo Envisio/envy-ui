@@ -12,11 +12,9 @@
     this.bodyNode = document.getElementsByTagName('body')[0];
     // this.bodyNode.classList.add('kss-examples-on');
     this.bgModesClasses = ['kss-examples-off', 'kss-examples-on'];
-    console.log('init');
     this.currentClass = 0;
     // Initialize all guides toggle buttons.
     var elementList = document.querySelectorAll('a[data-kss-examples]');
-    console.log('---+++', elementList);
     for (var button of elementList) {
       button.onclick = self.showExamples.bind(self);
     }
@@ -26,8 +24,6 @@
   KssExamples.prototype.showExamples = function (e) {
     e.preventDefault();
 
-    console.log('---');
-
     if (this.currentClass < this.bgModesClasses.length - 1) {
       this.currentClass++;
     } else {
@@ -35,6 +31,7 @@
     }
 
     this.bodyNode.classList.toggle('kss-examples-off');
+    $('.kss-js-bg-example').toggleClass('env-a-hide');
     // this.bodyNode.classList.add(this.bgModesClasses[this.currentClass]);
   };
 
