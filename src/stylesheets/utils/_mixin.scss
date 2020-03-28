@@ -6,8 +6,8 @@
 };
 
 @mixin a--focus ($inset: true, $color:$a-color-focus, $color-bg:$a-color-focus, $alpha: 0.3) {
-  @debug $color;
-  @debug $color-bg;
+  // @debug $color;
+  // @debug $color-bg;
   border: 1px solid $color;
   box-shadow: if($inset, inset, null) 0 0 1px 3px rgba($color-bg, $alpha);
   outline: none;
