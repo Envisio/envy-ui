@@ -8,6 +8,7 @@
 .byebug_history
 /node_modules
 /typings
+/from-dictionary
 
 # Ignore build
 /build
