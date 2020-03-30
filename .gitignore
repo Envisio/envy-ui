@@ -20,4 +20,5 @@
 # Ignore SASS
 .sass-cache
 
+# Ignore generated homepage for SG
 styleguide-homepage.md
