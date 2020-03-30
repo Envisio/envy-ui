@@ -19,3 +19,5 @@
 
 # Ignore SASS
 .sass-cache
+
+styleguide-homepage.md
