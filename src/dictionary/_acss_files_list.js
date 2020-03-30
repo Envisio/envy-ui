@@ -1,8 +1,8 @@
-exports.acssFilesList = [
-  'properties/acss/acss-color.json',
-  'properties/acss/acss-margin.json',
-  'properties/acss/acss-padding.json',
-  'properties/acss/acss-width.json',
-  'properties/acss/acss-height.json',
+exports.acssFilesList = (pathToProp = '') => [
+  `${pathToProp}acss/acss-color.json`,
+  `${pathToProp}acss/acss-margin.json`,
+  `${pathToProp}acss/acss-padding.json`,
+  `${pathToProp}acss/acss-width.json`,
+  `${pathToProp}acss/acss-height.json`,
 ];
 
