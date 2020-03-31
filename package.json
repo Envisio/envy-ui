@@ -6,6 +6,7 @@
   "watch": {
     "run-all": {
       "patterns": [
+        ".src/dictionary",
         ".src/stylesheets",
         "./src/javascripts",
         "./src/styleguide"
