@@ -10,5 +10,6 @@
   "builder": "styleguide",
   "js": [
   ],
-  "custom": ["defaultmodifier", "moddescription"]
+  "custom": ["defaultmodifier", "moddescription"],
+  "title": "Envisio Style Guide"
 }
