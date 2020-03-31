@@ -303,7 +303,6 @@ function styleDictionaryRegistration() {
     name: 'scss/scss-variables-block-name',
     formatter(dictionary, config) {
       const header = fileHeader(this.options);
-      console.log(dictionary);
       const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
 
       // eslint-disable-next-line prefer-template
