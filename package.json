@@ -6,9 +6,9 @@
   "watch": {
     "run-all": {
       "patterns": [
-        "./stylesheets",
-        "./styleguide/kss-assets",
-        "./styleguide/homepage"
+        ".src/stylesheets",
+        "./src/javascripts",
+        "./src/styleguide"
       ],
       "extensions": [
         "scss",
@@ -16,7 +16,13 @@
         "hbs",
         "md",
         "pug",
-        "js"
+        "js",
+        "json"
+      ],
+      "ignore": [
+        "./src/stylesheets/from-dictinary",
+        "./src/javascripts/from-dictinary",
+        "./src/styleguide/homepage/from-dictionary"
       ]
     }
   },
