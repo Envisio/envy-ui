@@ -8,7 +8,6 @@
 .byebug_history
 /node_modules
 /typings
-/from-dictionary
 
 # Ignore build
 /build
@@ -22,3 +21,6 @@
 
 # Ignore generated homepage for SG
 styleguide-homepage.md
+
+# Ignore generated Dictionary files
+**/from-dictionary
