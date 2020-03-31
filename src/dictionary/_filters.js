@@ -1,4 +1,6 @@
-exports.filterForCategory = (name) => (prop) => prop.path[0] === name;
+exports.filterForCategory = (categoryNames) => (prop) => (
+  categoryNames.find(categoryName => prop.path[0] === categoryName)
+);
 
 exports.filterForFragmentAndUnits = (fragment, that) => {
   if (fragment.content !== that.filterForClassFragment) {
