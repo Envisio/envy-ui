@@ -1,9 +1,5 @@
 {
   "block-name": {
-    "gp": {
-      "value": "{pre-post-fix.general-prefix.value}",
-      "comment": "{pre-post-fix.general-prefix.comment}"
-    },
     "a": {
       "value": "a",
       "name": "ACSS",
