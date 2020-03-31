@@ -111,15 +111,15 @@ const makeTokenFolders = () => ({
             header: 'Block Names\n\nNames:',
             destination: '_block-name.scss',
             format: 'scss/scss-variables-block-name',
-            filter: filterForCategory('block-name'),
+            filter: filterForCategory(['block-name', 'pre-post-fix']),
           }, {
             destination: '_block-name-imports.scss',
             format: 'scss/scss-block-name-imports',
-            filter: filterForCategory('block-name'),
+            filter: filterForCategory(['block-name']),
           }, {
             destination: '_acss-imports.scss',
             format: 'scss/scss-acss-imports',
-            filter: filterForCategory('acss-import'),
+            filter: filterForCategory(['acss-import']),
             fragments: acssList,
           }, ..._.flatten(acssList.map((acssItem) => {
             const acssMainClassFragment = acssItem['main-fragment'];
@@ -138,7 +138,7 @@ const makeTokenFolders = () => ({
             return acssGroupArr.map((acssClassFragment, index) => ({
               destination: `_acss-${acssMainClassFragment}${acssClassFragment.content}${getUnitNameFromAlias(getFragmentUnit(acssMainClassFragment, acssClassFragment))}-kss.scss`,
               format: 'scss/acss-kss',
-              filter: filterForCategory(`acss-${acssMainClassFragment}`),
+              filter: filterForCategory([`acss-${acssMainClassFragment}`]),
               filterForClassFragment: acssClassFragment.content,
               filterForClassFragmentUnit: getUnitNameFromAlias(acssClassFragment.unit).replace('-', ''),
               menu: acssClassFragment.menu,
@@ -150,7 +150,7 @@ const makeTokenFolders = () => ({
             return acssGroupArr.map((acssClassFragment, index) => ({
               destination: `_acss-${acssMainClassFragment}-main-menu-kss.scss`,
               format: 'scss/acss-main-menu-kss',
-              filter: filterForCategory(`acss-${acssMainClassFragment}`),
+              filter: filterForCategory([`acss-${acssMainClassFragment}`]),
               filterForClassFragment: acssClassFragment.content,
             }));
           }))],
@@ -303,12 +303,14 @@ function styleDictionaryRegistration() {
     name: 'scss/scss-variables-block-name',
     formatter(dictionary, config) {
       const header = fileHeader(this.options);
-      const defaultPrefix = dictionary.properties['block-name'].gp.value;
+      console.log(dictionary);
+      const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
 
       // eslint-disable-next-line prefer-template
       return header +
       dictionary.allProperties
-        .map((prop) => (`$${prop.name}: "${prop.original.value === '{block-prefix.general-prefix.value}' ? '' : defaultPrefix}${prop.value}";${prop.comment ? ` // ${prop.comment}` : ''}`))
+        .filter((prop) => (prop.value !== defaultPrefix))
+        .map((prop) => (`$${prop.name}: "${defaultPrefix}${prop.value}";${prop.comment ? ` // ${prop.comment}` : ''}`))
         .join('\n')
         + '\n//\n// SCSS block names\n';
     },
@@ -349,7 +351,7 @@ function styleDictionaryRegistration() {
     name: 'js/js-variables-block-names',
     formatter(dictionary, config) {
       const header = fileHeader(this.options);
-      const defaultPrefix = dictionary.properties['block-name'].gp.value;
+      const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
 
       // eslint-disable-next-line prefer-template
       return header + `import getBlock from '../ui/get_block';\n\n` +
