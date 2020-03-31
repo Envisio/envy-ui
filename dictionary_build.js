@@ -390,9 +390,9 @@ jsonConcat({ src: acssFilesList(PROPERTIES_PATH), dest: null }, function(err, js
 });
 
 function removeCssDir() {
-  rimraf(SCSS_PATH, function rmScss() { console.log('removed SCSS dictinary output'); removeJsDir();});
+  rimraf(SCSS_PATH, function rmScss() { console.log('removed SCSS dictionary output'); removeJsDir();});
 }
 
 function removeJsDir() {
-  rimraf(JS_PATH, function rmJs() { console.log('removed JS dictinary output'); buildTokens(); });
+  rimraf(JS_PATH, function rmJs() { console.log('removed JS dictionary output'); buildTokens(); });
 }

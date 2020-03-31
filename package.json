@@ -21,8 +21,8 @@
         "json"
       ],
       "ignore": [
-        "./src/stylesheets/from-dictinary",
-        "./src/javascripts/from-dictinary",
+        "./src/stylesheets/from-dictionary",
+        "./src/javascripts/from-dictionary",
         "./src/styleguide/homepage/from-dictionary"
       ]
     }

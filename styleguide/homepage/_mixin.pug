@@ -1,4 +1,4 @@
-mixin cardBlock(link, title, minHight = 'env-a-h-min-75')
+mixin cardBlock(link, title, minHeight = 'env-a-h-min-75')
   .env-a-f.env-a-f-a-center.env-a-m-top-25
     a.env-button.env-button--clean.env-button--link.env-a-m-right-auto(tabindex='0' href=link)
       .env-button__content.env-a-font-size-16 !{title}
@@ -7,17 +7,17 @@ mixin cardBlock(link, title, minHight = 'env-a-h-min-75')
         .env-collapser
 
   .env-a-f
-    .env-card.env-a-f.env-a-f-a-center.env-a-p-large.env-a-f-wrap.env-a-overflow-hidden.env-a-color-bg-hover-athens-gray(class=`env-a-w-max-100% env-a-w-100% ${minHight}`)
+    .env-card.env-a-f.env-a-f-a-center.env-a-p-large.env-a-f-wrap.env-a-overflow-hidden.env-a-color-bg-hover-athens-gray(class=`env-a-w-max-100% env-a-w-100% ${minHeight}`)
       if block
         block
       .env-js-last-item-in-homepage-card
 
-mixin cardBlockAcss(acssElements = [], title, minHight = 'env-a-h-min-75')
+mixin cardBlockAcss(acssElements = [], title, minHeight = 'env-a-h-min-75')
   .env-a-f.env-a-f-a-center.env-a-m-top-25
     .env-a-m-right-auto.env-a-m-bottom-small.env-a-m-left
       .env-a-font-size-16 !{title}
   .env-a-f
-    .env-card.env-a-f.env-a-f-a-center.env-a-p-large.env-a-f-wrap.env-a-overflow-hidden.env-a-color-bg-hover-athens-gray(class=`env-a-w-max-100% env-a-w-100% ${minHight}`)
+    .env-card.env-a-f.env-a-f-a-center.env-a-p-large.env-a-f-wrap.env-a-overflow-hidden.env-a-color-bg-hover-athens-gray(class=`env-a-w-max-100% env-a-w-100% ${minHeight}`)
       each acssElement in acssElements
         - var capAcssElement = acssElement.charAt(0).toUpperCase() + acssElement.substring(1)
         a.env-button.env-button--clean.env-button--link.env-a-m-small(tabindex='0' href=`section-acss-${acssElement}.html`)
