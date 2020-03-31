@@ -70,7 +70,7 @@ const makeTokenFolders = () => ({
         },
         js: {
           transformGroup: 'js',
-          prefix: 'UI_COLOR',
+          prefix: 'UI',
           buildPath: `${JS_PATH}`,
           transforms: ['name/cti/constant'],
           files: [{
@@ -163,6 +163,7 @@ const makeTokenFolders = () => ({
           files: [{
             destination: 'block_name.js',
             format: 'js/js-variables-block-names',
+            filter: filterForCategory(['block-name', 'pre-post-fix']),
           }],
         },
       },
@@ -355,7 +356,7 @@ function styleDictionaryRegistration() {
       // eslint-disable-next-line prefer-template
       return header + `import getBlock from '../ui/get_block';\n\n` +
         dictionary.allProperties
-          .filter((prop) => prop.name !== 'general-prefix')
+          .filter((prop) => (prop.value !== defaultPrefix))
           .map((prop) => `export const ${prop.name} = getBlock('${prop['general-prefix'] || defaultPrefix}${prop.value}');${prop.comment ? ` // ${prop.comment}` : ''}`)
           .join('\n')
           + '\n//\n// JS block names\n';
