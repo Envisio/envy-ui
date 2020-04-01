@@ -3,6 +3,9 @@
   "version": "1.0.0-beta0",
   "description": "UI Design System for Envisio Applications",
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "watch": {
     "run-all": {
       "patterns": [
