@@ -43,7 +43,7 @@
     "dictionary": "node dictionary_build.js",
     "watch": "npm-watch",
     "specificity": "./node_modules/.bin/css-reporter build/css/ui.css",
-    "render-styleguide-homepage": "./node_modules/.bin/pug -O pug_options.js styleguide/homepage/styleguide-homepage.pug --extension md --out styleguide/",
+    "render-styleguide-homepage": "./node_modules/.bin/pug styleguide/homepage/styleguide-homepage.pug --extension md --out styleguide/",
     "deploy": "./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./build"
   },
   "repository": {
