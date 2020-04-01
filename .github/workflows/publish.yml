@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v2
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-        run: |
+      - run: |
           npm i
           npm run run-all
           npm publish
