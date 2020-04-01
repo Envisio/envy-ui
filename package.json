@@ -35,11 +35,12 @@
     "sass-envisio-ui-min": "./node_modules/.bin/node-sass --output-style compressed --include-path node_modules/ src/stylesheets/ui.scss build/css/ui.min.css",
     "kss": "kss --config kss-config.json",
     "css-lint": "stylelint build/css/**/*.css --version",
-    "run-all": "npm run remove ; npm run dictionary && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run kss && npm run css-lint",
+    "webpack": "webpack --config webpack.config.js",
+    "run-all": "npm run remove ; npm run dictionary && npm run webpack && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run kss && npm run css-lint",
     "dictionary": "node dictionary_build.js",
     "watch": "npm-watch",
     "specificity": "./node_modules/.bin/css-reporter build/css/ui.css",
-    "render-styleguide-homepage": "./node_modules/.bin/pug styleguide/homepage/styleguide-homepage.pug --extension md --out styleguide/",
+    "render-styleguide-homepage": "./node_modules/.bin/pug -O pug_options.js styleguide/homepage/styleguide-homepage.pug --extension md --out styleguide/",
     "deploy": "./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./build"
   },
   "repository": {
@@ -53,6 +54,10 @@
   },
   "homepage": "https://github.com/Envisio/envy-ui#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
     "css-reporter": "0.0.6",
     "highlight.js": "^9.18.1",
     "json-concat": "0.0.1",
@@ -67,6 +72,14 @@
     "style-dictionary": "^2.8.3",
     "stylelint": "^13.2.1",
     "stylelint-config-recommended": "^3.0.0",
-    "surge": "^0.21.3"
+    "surge": "^0.21.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "detect-browser": "^5.0.0",
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.2",
+    "sanitize-filename": "^1.6.3"
   }
 }
