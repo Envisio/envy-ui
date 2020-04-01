@@ -24,10 +24,10 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: npm run run-all
+      run: echo Run Envisio UI build process
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
-        echo Building process for
-        echo Envisio UI
+        echo npm i
+        echo npm run run-all
