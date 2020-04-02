@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
   entry: "./src/javascripts/ui.js",
   output: {
-    path: path.resolve(__dirname, "build/js"),
+    path: path.resolve(__dirname, "dist/js"),
     filename: "ui.min.js"
   },
   module: {

@@ -10,7 +10,7 @@
 /typings
 
 # Ignore build
-/build
+/dist
 
 # Ignore all logfiles and tempfiles.
 *.log

@@ -2,7 +2,7 @@
   "source": [
     "src/stylesheets"
   ],
-  "destination": "build/styleguide",
+  "destination": "dist/styleguide",
   "css": [
     "../css/ui.css"
   ],
