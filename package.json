@@ -1,6 +1,6 @@
 {
   "name": "envy-ui",
-  "version": "1.0.0-beta5",
+  "version": "1.0.0-beta7",
   "description": "UI Design System for Envisio Applications",
   "main": "./dist/ui.js",
   "files": [
@@ -66,7 +66,6 @@
     "highlight.js": "^9.18.1",
     "json-concat": "0.0.1",
     "kss": "^3.0.0",
-    "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
     "npm-watch": "^0.6.0",
     "pug": "^2.0.4",
@@ -85,6 +84,7 @@
     "detect-browser": "^5.0.0",
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.2",
+    "lodash": "^4.17.15",
     "sanitize-filename": "^1.6.3"
   }
 }
