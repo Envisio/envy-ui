@@ -1,8 +1,8 @@
 {
   "name": "envy-ui",
-  "version": "1.0.0-beta4",
+  "version": "1.0.0-beta5",
   "description": "UI Design System for Envisio Applications",
-  "main": "./dist/ui.min.js",
+  "main": "./dist/ui.js",
   "files": [
     "dist/js/**/*",
     "dist/css/**/*"
@@ -78,7 +78,8 @@
     "stylelint-config-recommended": "^3.0.0",
     "surge": "^0.21.3",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "detect-browser": "^5.0.0",

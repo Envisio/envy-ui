@@ -4,7 +4,7 @@ module.exports = {
   entry: "./src/javascripts/ui.js",
   output: {
     path: path.resolve(__dirname, "dist/js"),
-    filename: "ui.min.js"
+    filename: "ui.js"
   },
   module: {
     rules: [
