@@ -19,12 +19,12 @@ include ./_mixin.pug
 
 +cardBlock('section-button.html', 'Button (uiButton)')
   each buttonBaseClass in buttonBaseClasses
-    .env-a-f.env-a-f-a-center(class='env-a-w-100%')
+    div(class=`${uiA`f f-a-center w-100%`}`)
       each buttonModClass in buttonModClasses
         each buttonSizeClass in buttonSizeClasses
-          button.env-button.env-a-m-small(class=`${buttonBaseClass} ${buttonModClass} ${buttonSizeClass}`)
-            span.env-button__content
-              if buttonModClass == "env-button--circle"
+          button(class=`${uiButton`#${buttonBaseClass} #${buttonModClass} #${buttonSizeClass}`} ${uiA`m-small`}`)
+            span(class=`${uiButton`__content`}`)
+              if buttonModClass == '--circle'
                 +icon()
               else
                 | Button
