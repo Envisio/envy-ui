@@ -3,11 +3,11 @@ var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   externals: [nodeExternals()],
-  target: 'web',
-  entry: "./src/javascripts/ui.js",
+  entry: './src/javascripts/ui.js',
   output: {
     path: path.resolve(__dirname, "dist/js"),
-    filename: "ui.js"
+    filename: "ui.js",
+    libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
