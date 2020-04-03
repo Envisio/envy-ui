@@ -1,11 +1,11 @@
 import { eq, split, without, isEmpty, memoize, values } from 'lodash';
 
-import { $ui } from './ui_names';
+import { $uiA } from '../from-dictionary/block_raw_name';
 
 const _getClasses = (block, predicates, fragment, i) => {
   // console.log('block ', block);
   let thisBlock = block;
-  const isA = eq(thisBlock, $ui.A);
+  const isA = eq(thisBlock, $uiA);
   let isRawClasses = false;
   const classNames = fragment.split(/(?!\(.*)\s(?![^(]*?\))/g).reduce((acc, el) => {
     let classFragment = el;
@@ -58,7 +58,7 @@ const _getClasses = (block, predicates, fragment, i) => {
         classesString = (isA && !isRawClasses) ? `${thisBlock}${classFragment} ` : `${classFragment} `;
     }
 
-    if (eq(classesString, `${$ui.A} `)) {
+    if (eq(classesString, `${$uiA} `)) {
       classesString = '';
     }
 
