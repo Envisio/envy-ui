@@ -9,8 +9,9 @@
 /node_modules
 /typings
 
-# Ignore build
+# Ignore build and lib
 /dist
+/lib
 
 # Ignore all logfiles and tempfiles.
 *.log
