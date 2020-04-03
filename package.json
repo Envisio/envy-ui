@@ -1,11 +1,12 @@
 {
   "name": "envy-ui",
-  "version": "1.0.0-beta13",
+  "version": "1.0.0-beta21",
   "description": "UI Design System for Envisio Applications",
-  "main": "./dist/js/ui.js",
+  "main": "./lib/index.js",
   "files": [
     "dist/js/**/*",
-    "dist/css/**/*"
+    "dist/css/**/*",
+    "lib/**/*"
   ],
   "watch": {
     "run-all": {
@@ -33,19 +34,20 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "remove": "rm -r -f dist",
+    "remove": "rm -r -f dist lib",
     "sass-styleguide": "./node_modules/.bin/node-sass --output-style compressed --include-path node_modules/ styleguide/kss-assets/kss.scss styleguide/kss-assets/kss.css",
     "sass-envisio-ui": "./node_modules/.bin/node-sass --source-comments true --source-map-contents true --source-map true --include-path node_modules/ src/stylesheets/ui.scss dist/css/ui.css",
     "sass-envisio-ui-min": "./node_modules/.bin/node-sass --output-style compressed --include-path node_modules/ src/stylesheets/ui.scss dist/css/ui.min.css",
     "kss": "kss --config kss-config.json",
     "css-lint": "stylelint dist/css/**/*.css --version",
     "webpack": "webpack --config webpack.config.js",
-    "run-all": "npm run remove ; npm run dictionary && npm run webpack && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run kss && npm run css-lint",
+    "babel": "npx babel src/javascripts --out-dir lib",
+    "run-all": "npm run remove ; npm run dictionary && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run kss && npm run css-lint",
     "dictionary": "node dictionary_build.js",
     "watch": "npm-watch",
     "specificity": "./node_modules/.bin/css-reporter dist/css/ui.css",
-    "render-styleguide-homepage": "./node_modules/.bin/pug styleguide/homepage/styleguide-homepage.pug --extension md --out styleguide/",
-    "deploy": "./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./build"
+    "render-styleguide-homepage": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --out styleguide/",
+    "deploy": "./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist"
   },
   "repository": {
     "type": "git",
@@ -58,9 +60,12 @@
   },
   "homepage": "https://github.com/Envisio/envy-ui#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "css-reporter": "0.0.6",
     "highlight.js": "^9.18.1",
