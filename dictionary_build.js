@@ -164,6 +164,14 @@ const makeTokenFolders = () => ({
             destination: 'block_name.js',
             format: 'js/js-variables-block-names',
             filter: filterForCategory(['block-name', 'pre-post-fix']),
+          }, {
+            destination: 'block_raw_name.js',
+            format: 'js/js-variables-raw-names',
+            filter: filterForCategory(['block-name', 'pre-post-fix']),
+          }, {
+            destination: 'block_name.styleguide.js',
+            format: 'js/js-block-names-for-styleguide',
+            filter: filterForCategory(['block-name', 'pre-post-fix']),
           }],
         },
       },
@@ -324,8 +332,7 @@ function styleDictionaryRegistration() {
       // eslint-disable-next-line prefer-template
       return header +
       dictionary.allProperties
-        .filter((prop) => (prop.original.value !== '{pre-post-fix.general-prefix.value}'))
-        .map((prop) => ((`@import '../../${prop.original.value === 'a' ? '' : 'blocks/'}${prop.value}/index';`)))
+        .map((prop) => (`@import '../../${prop.value === 'a' ? '' : 'blocks/'}${prop.path[1]}/index';`))
         .join('\n')
         + '\n//\n// SCSS block name imports\n';
     },
@@ -357,8 +364,42 @@ function styleDictionaryRegistration() {
       return header + `import getBlock from '../ui/get_block';\n\n` +
         dictionary.allProperties
           .filter((prop) => (prop.value !== defaultPrefix))
-          .map((prop) => `export const ${prop.name} = getBlock('${prop['general-prefix'] || defaultPrefix}${prop.value}');${prop.comment ? ` // ${prop.comment}` : ''}`)
+          .map((prop) => `export const $${prop.name} = '${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}';\n`
+            + `export const ${prop.name} = getBlock('${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}');${prop.comment ? ` // ${prop.comment}` : ''}`)
           .join('\n')
+          + '\n//\n// JS block names\n';
+    },
+  });
+
+  StyleDictionaryPackage.registerFormat({
+    name: 'js/js-variables-raw-names',
+    formatter(dictionary, config) {
+      const header = fileHeader(this.options);
+      const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
+
+      // eslint-disable-next-line prefer-template
+      return header +
+        dictionary.allProperties
+          .filter((prop) => (prop.value !== defaultPrefix))
+          .map((prop) => `export const $${prop.name} = '${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}';${prop.comment ? ` // ${prop.comment}` : ''}`)
+          .join('\n')
+          + '\n//\n// JS block names\n';
+    },
+  });
+
+  StyleDictionaryPackage.registerFormat({
+    name: 'js/js-block-names-for-styleguide',
+    formatter(dictionary, config) {
+      const header = fileHeader(this.options);
+      const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
+
+      // eslint-disable-next-line prefer-template
+      return header + `{\n` +
+        dictionary.allProperties
+          .filter((prop) => (prop.value !== defaultPrefix))
+          .map((prop) => `${prop.name}: require('../../lib/index.js').${prop.name},`)
+          .join('\n')
+          + '\n}\n\n'
           + '\n//\n// JS block names\n';
     },
   });
