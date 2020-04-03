@@ -3,7 +3,7 @@ import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 import sanitizeFilename from 'sanitize-filename';
 
-import { uiGp, uiA, uiVisual } from '../ui';
+import { uiGp, uiA, uiVisual } from '../index';
 import { mimeTypes } from '../settings';
 
 export const uiHiddenContainerClass = `${uiGp}js-hidden-container`;
