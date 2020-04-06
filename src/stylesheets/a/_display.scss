@@ -1,0 +1,20 @@
+$a-display-properties: (
+  "-f": "flex",
+  "-f-inline": "flex",
+  "-block": "block",
+  "-inline": "inline",
+  "-inline-block": "inline-block",
+  "-hide": "none",
+  "-table": "table",
+  "-inline-table": "inline-table",
+  "-table-row": "table-row",
+  "-table-cell": "table-cell",
+  "-grid": "grid",
+  "-inline-grid": "inline-grid"
+);
+
+@each $display-property-shorthand, $display-property in $a-display-properties {
+  .#{$uiA}#{$display-property-shorthand} {
+    display: #{$display-property};
+  }
+}
