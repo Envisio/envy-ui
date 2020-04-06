@@ -463,6 +463,20 @@
         "value": 100
       }
     },
+    "display-properties": {
+      "f": "flex",
+      "f-inline": "flex",
+      "block": "block",
+      "inline": "inline",
+      "inline-block": "inline-block",
+      "hide": "none",
+      "table": "table",
+      "inline-table": "inline-table",
+      "table-row": "table-row",
+      "table-cell": "table-cell",
+      "grid": "grid",
+      "inline-grid": "inline-grid"
+    },
     "negative-extension": ["", "-"],
     "unit": {
       "none": "",
