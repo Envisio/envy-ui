@@ -2,6 +2,8 @@ include ./from-dictionary/color/_color.pug
 include ./_variables.pug
 include ./_mixin.pug
 
+p(class=uiA`text-align-right`) version: !{env.npm_package_version}
+
 +cardBlock('section-color-palette.html', 'Color Palette')
   each colorClass in colorClasses
     span.env-a-m-small.env-a-w-30.env-a-h-30(class=`env-a-color-bg-${colorClass}`)
