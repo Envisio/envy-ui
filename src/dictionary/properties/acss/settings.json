@@ -474,8 +474,8 @@
       "inline-table": "inline-table",
       "table-row": "table-row",
       "table-cell": "table-cell",
-      "grid": "grid",
-      "inline-grid": "inline-grid"
+      "g": "grid",
+      "g-inline": "inline-grid"
     },
     "negative-extension": ["", "-"],
     "unit": {
