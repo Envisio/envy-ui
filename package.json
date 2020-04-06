@@ -11,16 +11,15 @@
   "watch": {
     "run-all": {
       "patterns": [
-        ".src/dictionary",
-        ".src/stylesheets",
+        "./src/dictionary",
+        "./src/stylesheets",
         "./src/javascripts",
-        "./src/styleguide"
+        "./styleguide"
       ],
       "extensions": [
         "scss",
         "html",
         "hbs",
-        "md",
         "pug",
         "js",
         "json"
@@ -28,7 +27,7 @@
       "ignore": [
         "./src/stylesheets/from-dictionary",
         "./src/javascripts/from-dictionary",
-        "./src/styleguide/homepage/from-dictionary"
+        "./styleguide/homepage/from-dictionary"
       ]
     }
   },
