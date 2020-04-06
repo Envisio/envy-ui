@@ -1,10 +1,11 @@
-@import 'color/index';
+@import 'color';
+@import 'margin-padding';
+@import 'width-height';
+@import 'top-right-bottom-left';
+@import 'display';
 @import 'shadow';
 @import 'border';
 @import 'text';
-@import 'top-right-bottom-left/index';
-@import 'margin-padding/index';
-@import 'width-height';
 @import 'visibility';
 @import 'filter';
 @import 'z-index';
