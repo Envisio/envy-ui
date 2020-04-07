@@ -15,6 +15,6 @@ $a-display-properties: (
 
 @each $display-property-shorthand, $display-property in $a-display-properties {
   .#{$uiA}#{$display-property-shorthand} {
-    display: #{$display-property};
+    display: #{$display-property}#{$a-important};
   }
 }
