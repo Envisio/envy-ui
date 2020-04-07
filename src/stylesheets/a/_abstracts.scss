@@ -45,9 +45,9 @@
   flex-wrap: wrap#{$a-important};
 }
 
-.#{$uiA}-hide {
-  display: none#{$a-important};
-}
+// .#{$uiA}-hide {
+//   display: none#{$a-important};
+// }
 
 .#{$uiA}-vanish {
   position: fixed#{$a-important};
@@ -162,9 +162,9 @@
 //   overflow: hidden#{$a-important};
 // }
 
-.#{$uiA}-inline-block {
-  display: inline-block#{$a-important};
-}
+// .#{$uiA}-inline-block {
+//   display: inline-block#{$a-important};
+// }
 
 .#{$uiA}-cursor-default {
   cursor: default#{$a-important};

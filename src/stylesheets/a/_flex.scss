@@ -1,15 +1,14 @@
 $flex-shortname: "-f";
 
-.#{$uiA}#{$flex-shortname} {
-  display: flex#{$a-important};
-}
+// .#{$uiA}#{$flex-shortname} {
+//   display: flex#{$a-important};
+// }
 
 $flex-properties: (
   "-j": "justify-content",
   "-a": "align-items",
   "-a-content": "align-content",
-  "-a-self": "align-self",
-  "-inline": "display",
+  "-a-self": "align-self"
 );
 
 $flex-properties-set: (
@@ -51,10 +50,7 @@ $flex-properties-set: (
     "-stretch": stretch,
     "-safe": safe,
     "-unsafe": unsafe
-  ),
-  "-inline": (
-    null: inline-flex
-  ),
+  )
 );
 
 @each $flex-property-shorthand, $flex-property in $flex-properties {
@@ -76,8 +72,7 @@ $flex-set: (
     row-reverse,
     column,
     column-reverse
-  ),
-  "display": inline-flex
+  )
 );
 
 @each $flex-property-name, $flex-property in $flex-set {
