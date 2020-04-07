@@ -23,7 +23,7 @@ const buildList = [
   'block-name',
 ];
 
-function fileHeader(options, commentStyle) {
+function fileHeader(options, commentStyle = 'short') {
   var to_ret = '';
   // for backward compatibility we need to have the user explicitly hide them
   var showFileHeader = (options) ? options.showFileHeader : true;
