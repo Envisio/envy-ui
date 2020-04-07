@@ -1,0 +1,61 @@
+{
+  "acss-top-right-bottom-left": {
+    "main-fragment": "top-right-bottom-left",
+    "ignore-main-fragment": true,
+    "value": "{acss-settings.iterate-list}",
+    "default-iterator": "{acss-settings.iterate-list}",
+    "description": "ACSS general top, right, bottom, left modifiers classes.",
+    "text-label": "ACSS Top Right Bottom Left",
+    "menu-weight": 145,
+    "fragments": [{
+      "content": "-top",
+      "description": "Top position in default units (px).",
+      "markup-file": "_a-top-kss.html",
+      "menu": "Top (px)",
+      "test-extension": ""
+    }, {
+      "content": "-top",
+      "description": "Top position in %.",
+      "markup-file": "_a-top-kss.html",
+      "unit": "{acss-settings.unit.percent}",
+      "iterator": "{acss-settings.iterate-list-percent}",
+      "menu": "Top (%)"
+    }, {
+      "content": "-right",
+      "description": "Right position in default units (px).",
+      "markup-file": "_a-right-kss.html",
+      "menu": "Right (px)"
+    }, {
+      "content": "-right",
+      "description": "Right position in %.",
+      "markup-file": "_a-right-kss.html",
+      "unit": "{acss-settings.unit.percent}",
+      "iterator": "{acss-settings.iterate-list-percent}",
+      "menu": "Right (%)"
+    }, {
+      "content": "-bottom",
+      "description": "Bottom position in default units (px).",
+      "markup-file": "_a-bottom-kss.html",
+      "menu": "Bottom (px)"
+    }, {
+      "content": "-bottom",
+      "description": "Bottom position in %.",
+      "markup-file": "_a-bottom-kss.html",
+      "unit": "{acss-settings.unit.percent}",
+      "iterator": "{acss-settings.iterate-list-percent}",
+      "menu": "Bottom (%)"
+    }, {
+      "content": "-left",
+      "description": "Left position in default units (px).",
+      "markup-file": "_a-left-kss.html",
+      "menu": "Left (px)"
+    }, {
+      "content": "-left",
+      "description": "Left position in %.",
+      "markup-file": "_a-left-kss.html",
+      "unit": "{acss-settings.unit.percent}",
+      "iterator": "{acss-settings.iterate-list-percent}",
+      "menu": "Left (%)"
+    }]
+  }
+}
