@@ -38,7 +38,7 @@
     "sass-envisio-ui": "./node_modules/.bin/node-sass --source-comments true --source-map-contents true --source-map true --include-path node_modules/ src/stylesheets/ui.scss dist/css/ui.css",
     "sass-envisio-ui-min": "./node_modules/.bin/node-sass --output-style compressed --include-path node_modules/ src/stylesheets/ui.scss dist/css/ui.min.css",
     "kss": "kss --config kss-config.json",
-    "css-lint": "stylelint dist/css/**/*.css --version",
+    "css-lint": "stylelint dist/css/ui.css",
     "webpack": "webpack --config webpack.config.js",
     "babel": "npx babel src/javascripts --out-dir lib",
     "run-all": "npm run remove ; npm run dictionary && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run kss && npm run css-lint",
