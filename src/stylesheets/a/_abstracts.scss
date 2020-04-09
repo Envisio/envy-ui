@@ -33,14 +33,6 @@
 //   margin-left: -100%#{$a-important};
 // }
 
-.#{$uiA}-nowrap {
-  white-space: nowrap#{$a-important};
-}
-
-.#{$uiA}-wrap {
-  white-space: normal#{$a-important};
-}
-
 .#{$uiA}-f-hover-wrap:hover {
   flex-wrap: wrap#{$a-important};
 }
@@ -188,14 +180,6 @@
 
 .#{$uiA}-transform-origin-left-top {
   transform-origin: left top;
-}
-
-.#{$uiA}-font-size-95\% {
-  font-size: 95%#{$a-important};
-}
-
-.#{$uiA}-font-size-90\% {
-  font-size: 90%#{$a-important};
 }
 
 .#{$uiA}-f-br {
