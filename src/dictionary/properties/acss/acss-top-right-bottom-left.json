@@ -5,7 +5,7 @@
     "value": "{acss-settings.iterate-list}",
     "default-iterator": "{acss-settings.iterate-list}",
     "description": "ACSS general top, right, bottom, left modifiers classes.",
-    "text-label": "ACSS Top Right Bottom Left",
+    "text-label": "ACSS Top/Right/Bottom/Left",
     "menu-weight": 145,
     "fragments": [{
       "content": "-top",
