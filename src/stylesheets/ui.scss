@@ -27,7 +27,6 @@
 @import 'a/settings/filter-settings';
 @import 'a/settings/visibility-settings';
 @import 'a/settings/border-settings';
-@import 'a/settings/position-settings';
 
 /* Reset */
 @import 'reset/index';
@@ -75,9 +74,9 @@
 @import 'from-dictionary/block-name/block-name-imports';
 
 /* Abstracts */
-.a {
-  @import 'a/index';
-}
+// .a {
+//   @import 'a/index';
+// }
 
 /* Overwrites */
 @import 'overwrite/overwrite-pa';
