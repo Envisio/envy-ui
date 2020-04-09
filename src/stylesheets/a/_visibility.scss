@@ -1,3 +1,7 @@
+@mixin a-opacity($i: 5) {
+  opacity: unquote("#{$i / 10}#{$a-important}");
+}
+
 @for $i from 0 through 10 {
   @if $i == 10 {
     .#{$uiA}-opacity-none {

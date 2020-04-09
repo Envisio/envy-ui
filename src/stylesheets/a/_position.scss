@@ -1,3 +1,9 @@
+$a-positions: static, fixed, absolute, relative, sticky;
+
+@mixin a-position($position: static) {
+  position: #{$position}#{$a-important};
+}
+
 @each $position in $a-positions {
   .#{$uiA}-#{$position} {
     @include a-position($position);
