@@ -1,16 +1,18 @@
-@import 'color';
-@import 'margin-padding';
-@import 'width-height';
-@import 'top-right-bottom-left';
-@import 'display';
-@import 'text';
-@import 'shadow';
-@import 'border';
-@import 'visibility';
-@import 'filter';
-@import 'z-index';
-@import 'position';
-@import 'flex';
-@import 'animation';
-@import 'shapes';
-@import 'abstracts';
+.a {
+  @import 'color';
+  @import 'margin-padding';
+  @import 'width-height';
+  @import 'top-right-bottom-left';
+  @import 'display';
+  @import 'position';
+  @import 'text';
+  @import 'shadow';
+  @import 'border';
+  @import 'visibility';
+  @import 'filter';
+  @import 'z-index';
+  @import 'flex';
+  @import 'animation';
+  @import 'shapes';
+  @import 'abstracts';
+}
