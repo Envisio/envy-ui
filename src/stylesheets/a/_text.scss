@@ -36,31 +36,23 @@ $a-text-aligns: left, right, center, justify;
   text-align: unquote("#{$i}#{$a-important}");
 }
 
-.#{$uiA}-text-ellipsis, .#{$uiA}-ellipsis {
-  @include a-text-ellipsis;
-}
+@for $i from 5 through 36 {
+  .#{$uiA}-font-size-#{$i} {
+    @include a-font-size($i);
+  }
 
-.#{$uiA}-bold {
-  @include a-text-bold;
-}
+  .#{$uiA}-font-size-#{$i}em {
+    @include a-font-size-em($i);
+  }
 
-.#{$uiA}-italic {
-  @include a-text-italic;
-}
-
-.#{$uiA}-text-default {
-  color: $default;
-  &:hover {
-    text-decoration: none;
-    color: $default;
+  .#{$uiA}-font-size-#{$i}rem {
+    @include a-font-size-rem($i);
   }
 }
 
-.#{$uiA}-text-link {
-  color: $brand-blue;
-  &:hover {
-    color: darken(color("brand-blue"), 10%);
-    text-decoration: none;
+@each $font-size-percent in $a-font-size-percent {
+  .#{$uiA}-font-size-#{$font-size-percent}\% {
+    font-size: #{$font-size-percent}%#{$a-important};
   }
 }
 
@@ -71,21 +63,7 @@ $a-text-aligns: left, right, center, justify;
 }
 
 .#{$uiA}-line-height-normal {
-  line-height: normal;
-}
-
-@for $i from 5 through 36 {
-  .#{$uiA}-font-size-#{$i} {
-    @include a-font-size($i);
-  }
-
-  .#{$uiA}-font-size-em-#{$i} {
-    @include a-font-size-em($i);
-  }
-
-  .#{$uiA}-font-size-rem-#{$i} {
-    @include a-font-size-rem($i);
-  }
+  line-height: normal#{$a-important};
 }
 
 @each $a-text-align in $a-text-aligns {
@@ -94,7 +72,50 @@ $a-text-aligns: left, right, center, justify;
   }
 }
 
-//TODO: Eugene should organize it correctly
+// .#{$uiA}-font-size-95\% {
+//   font-size: 95%#{$a-important};
+// }
+
+// .#{$uiA}-font-size-90\% {
+//   font-size: 90%#{$a-important};
+// }
+
+.#{$uiA}-text-ellipsis, .#{$uiA}-ellipsis {
+  @include a-text-ellipsis;
+}
+
+.#{$uiA}-text-default {
+  color: color("default")#{$a-important};
+  &:hover {
+    text-decoration: none#{$a-important};
+    color: color("default")#{$a-important};
+  }
+}
+
+.#{$uiA}-text-link {
+  color: color("brand-blue")#{$a-important};
+  &:hover {
+    color: darken(color("brand-blue"), 10%)#{$a-important};
+    text-decoration: none#{$a-important};
+  }
+}
+
 .#{$uiA}-font-family-default {
   font-family: 'Source Sans Pro', Arial, sans-serif#{$a-important};
+}
+
+.#{$uiA}-nowrap {
+  white-space: nowrap#{$a-important};
+}
+
+.#{$uiA}-wrap {
+  white-space: normal#{$a-important};
+}
+
+.#{$uiA}-bold {
+  @include a-text-bold;
+}
+
+.#{$uiA}-italic {
+  @include a-text-italic;
 }
