@@ -1,0 +1,61 @@
+{
+  "acss-text": {
+    "main-fragment": "text",
+    "ignore-main-fragment": true,
+    "value": "{acss-settings.iterate-list}",
+    "markup-file": "_a-text-kss.html",
+    "default-iterator": "{acss-settings.iterate-list}",
+    "description": "ACSS classes related to text formatting",
+    "text-label": "ACSS Text/Font",
+    "menu-weight": 170,
+    "fragments": [{
+      "content": "-font-size",
+      "description": "Font size in default units (px).",
+      "markup-file": "_a-text-kss.html",
+      "iterator": "{acss-settings.font-size}",
+      "menu": "Font Size (px)"
+    }, {
+      "content": "-font-size",
+      "description": "Font size in em units.",
+      "markup-file": "_a-text-kss.html",
+      "unit": "{acss-settings.unit.em}",
+      "iterator": "{acss-settings.font-size}",
+      "menu": "Font Size (em)"
+    }, {
+      "content": "-font-size",
+      "description": "Font size in rem units.",
+      "markup-file": "_a-text-kss.html",
+      "unit": "{acss-settings.unit.rem}",
+      "iterator": "{acss-settings.font-size}",
+      "menu": "Font Size (rem)"
+    }, {
+      "content": "-font-size",
+      "description": "Font size in %.",
+      "markup-file": "_a-text-kss.html",
+      "unit": "{acss-settings.unit.percent}",
+      "iterator": "{acss-settings.font-size-percent}",
+      "menu": "Font Size (%)"
+    }, {
+      "content": "-line-height",
+      "description": "Line height.",
+      "markup-file": "_a-text-kss.html",
+      "unit": "{acss-settings.unit.none}",
+      "iterator": "{acss-settings.line-height}",
+      "menu": "Line Height"
+    }, {
+      "content": "-text-align",
+      "description": "Text align.",
+      "markup-file": "_a-text-kss.html",
+      "unit": "{acss-settings.unit.none}",
+      "iterator": "{acss-settings.text-align}",
+      "menu": "Text Align"
+    }, {
+      "content": "-text-align",
+      "description": "Text align.",
+      "markup-file": "_a-text-kss.html",
+      "unit": "{acss-settings.unit.none}",
+      "iterator": "{acss-settings.text-align}",
+      "menu": "Text Align"
+    }]
+  }
+}
