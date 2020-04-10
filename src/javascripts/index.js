@@ -80,4 +80,6 @@ export { default as makeMq } from './ui/make_mq';
 export { visualSettings } from './ui/ui_general_settings';
 export { default as exportImage } from './utils/export_image';
 
+export { default } from './react_components/scrollbar';
+
 export const { name: browserName } = detect();
