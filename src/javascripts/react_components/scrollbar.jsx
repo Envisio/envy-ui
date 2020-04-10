@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
 import ReactResizeDetector from 'react-resize-detector';
 
-import { ui, uiWrapperScroll } from '../ui';
+import { ui, uiWrapperScroll } from '../';
 
 export const ScrollValue = React.createContext(0);
 

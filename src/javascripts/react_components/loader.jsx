@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ui, uiLoader } from '../ui';
+import { ui, uiLoader } from '../';
 
 export default function Loader({ type, size }) {
   return (
