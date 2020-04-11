@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Scrollbar from '../react_components/scrollbar';
 
-import { ui, uiA } from '../ui';
+import { ui, uiA } from '../';
 
 export default function FlexScrollbarWrapper({
   children,

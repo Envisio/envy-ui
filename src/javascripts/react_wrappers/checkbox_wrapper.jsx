@@ -2,7 +2,7 @@ import React, { Component, Fragment, cloneElement, Children } from 'react';
 import PropTypes from 'prop-types';
 import ShortUniqueId from 'short-unique-id';
 
-import { ui, uiA, uiCheckbox } from '../ui';
+import { ui, uiA, uiCheckbox } from '../';
 
 const uid = new ShortUniqueId();
 
