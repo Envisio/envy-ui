@@ -72,14 +72,17 @@ export const getClassActive = (...params) => {
   return statement ? `${classFragment}active` : '';
 };
 
-export { uiGp } from './ui/ui_names';
+// export { uiGp } from './ui/ui_names';
 export { default as getBestPosition } from './ui/get_best_position';
 export { default as checkOverflow } from './ui/check_overflow';
 export { default as makeMq } from './ui/make_mq';
 // export const uiS3Uploader = getBlock($ui.S3Uploader);
 export { visualSettings } from './ui/ui_general_settings';
-export { default as exportImage } from './utils/export_image';
 
-export { default } from './react_components/scrollbar';
+export { default as Scrollbar} from './react_components/scrollbar';
 
 export const { name: browserName } = detect();
+
+export { default as CheckboxWrapper} from './react_wrappers/checkbox_wrapper';
+export { default as FlexScrollbarWrapper} from './react_wrappers/flex_scrollbar_wrapper';
+
