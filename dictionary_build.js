@@ -5,7 +5,6 @@ const jsonConcat = require('json-concat');
 
 const { filterForCategory, filterForFragmentAndUnits } = require('./src/dictionary/_filters.js');
 const { acssFilesList } = require('./src/dictionary/_acss_files_list.js');
-// const { acssList } = require('./_acss_list.js');
 let acssList = [];
 let tokenFolders;
 const { getFragmentIterator, getFragmentUnit, getUnitNameFromAlias, getMarkupFile } = require('./src/dictionary/_getters.js');
