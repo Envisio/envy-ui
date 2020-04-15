@@ -14,8 +14,6 @@ const JS_PATH = './src/javascripts/from-dictionary/';
 const PROPERTIES_PATH = './src/dictionary/properties/'
 const STYLEGUIDE_PUG_PATH = './styleguide/homepage/from-dictionary/';
 const COLOR = 'color';
-const PREFIX_BLOCK_NAME_JS = '$ui';
-const PREFIX_GENERAL_CSS = 'env-';
 
 const buildList = [
   COLOR,
@@ -123,16 +121,6 @@ const makeTokenFolders = () => ({
           }, ..._.flatten(acssList.map((acssItem) => {
             const acssMainClassFragment = acssItem['main-fragment'];
             const acssGroupArr = acssItem.fragments;
-            // console.log('++++++++++++++++++++++++++++++++++++++++',
-            // acssGroupArr.map((acssClassFragment, index) => ({
-            //   destination: `_acss-${acssMainClassFragment}${acssClassFragment.content}${getUnitNameFromAlias(getFragmentUnit(acssMainClassFragment, acssClassFragment))}-kss.scss`,
-            //   format: 'scss/acss-kss',
-            //   filter: filterForCategory(`acss-${acssMainClassFragment}`),
-            //   filterForClassFragment: acssClassFragment.content,
-            //   menu: acssClassFragment.menu,
-            //   weightCounter: index + 1,
-            //   }))
-            // );
 
             return acssGroupArr.map((acssClassFragment, index) => ({
               destination: `_acss-${acssMainClassFragment}${acssClassFragment.content}${getUnitNameFromAlias(getFragmentUnit(acssMainClassFragment, acssClassFragment))}-kss.scss`,
@@ -176,44 +164,7 @@ const makeTokenFolders = () => ({
       },
     },
   ],
-  // 'block-name-imports': [
-  //   {
-  //     source: [
-  //       '${PROPERTIES_PATH}block/*.json',
-  //     ],
-  //     include: [
-  //       `${PROPERTIES_PATH}${COLOR}/base.json`,
-  //     ],
-  //     platforms: {
-  //       scss: {
-  //         transformGroup: 'scss',
-  //         buildPath: `${SCSS_PATH}block-name/`,
-  //         files: [{
-  //           destination: '_block-name-imports.scss',
-  //           format: 'scss/scss-block-name-imports',
-  //         }],
-  //       },
-  //     },
-  //   },
-  // ],
-
 });
-
-// pre-defined formats, transforms and transform
-// eslint-disable-next-line no-console
-// console.log(StyleDictionaryPackage);
-
-// StyleDictionaryPackage.registerTransform({
-//   name: 'content/dqToSq',
-//   type: 'value',
-//   matcher: function(prop) {
-//     return prop.value.match(/"/g);
-//   },
-//   transformer: function(prop) {
-//       console.log('---------------------------------found');
-//       return prop.value.replace(/"/g, "'");
-//   }
-// });
 
 function styleDictionaryRegistration() {
 
@@ -230,7 +181,6 @@ function styleDictionaryRegistration() {
     name: 'scss/variables-color-pug',
     formatter(dictionary, config) {
       const header = this.header.split('\n').map(line => `${line}`).join('\n');
-      // console.log(dictionary.allProperties);
       // eslint-disable-next-line prefer-template
       return header + '\n' + '- var colorClasses = [' +
         dictionary.allProperties.map(prop => `"${prop.path[1]}"`).join(', ') + ']\n// -\n// - Styleguide homepage color-palette\n';
@@ -293,15 +243,6 @@ function styleDictionaryRegistration() {
       return `// ${header}` +
         '\n//' +
         setMainDescription(`${dictionaryMeat.description}`) +
-        // dictionary.allProperties.map(prop =>
-        //   prop.fragments
-        //     .filter((fragment) => fragment.content === this.filterForClassFragment)
-        //     .map((fragment) => {
-        //       return Object.keys(prop.value).map(colorName =>
-        //         `.env-a-${prop['main-fragment']}${fragment.content}-${colorName}${fragment['test-extension']}`)
-        //       .join('\n// ');
-        //     })
-        //   .join('\n// ')) +
           setWeight(dictionaryMeat['menu-weight']) +
           `\n// Styleguide ${header}\n`;
     },
