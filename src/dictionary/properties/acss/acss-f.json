@@ -1,0 +1,22 @@
+{
+  "acss-f": {
+    "main-fragment": "f",
+    "description": "ACSS classes related to Flexbox",
+    "value": "",
+    "text-label": "ACSS Flexbox",
+    "menu-weight": 155,
+    "fragments": [{
+      "content": "-j",
+      "description": "Justify content.",
+      "markup-file": "_a-f-kss.html",
+      "iterator": "{acss-settings.f-j}",
+      "menu": "Justify Content"
+    }, {
+      "content": "-a",
+      "description": "Align items.",
+      "markup-file": "_a-f-kss.html",
+      "iterator": "{acss-settings.f-a}",
+      "menu": "Align Items"
+    }]
+  }
+}

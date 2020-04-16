@@ -6,6 +6,7 @@ exports.acssFilesList = (pathToProp = '') => [
   `${pathToProp}acss/acss-height.json`,
   `${pathToProp}acss/acss-top-right-bottom-left.json`,
   `${pathToProp}acss/acss-display.json`,
+  `${pathToProp}acss/acss-f.json`,
   `${pathToProp}acss/acss-position.json`,
   `${pathToProp}acss/acss-text.json`,
 ];

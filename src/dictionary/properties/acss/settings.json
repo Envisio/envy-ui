@@ -465,7 +465,7 @@
     },
     "display-properties": {
       "f": "flex",
-      "f-inline": "flex",
+      "f-inline": "inline-flex",
       "block": "block",
       "inline": "inline",
       "inline-block": "inline-block",
@@ -566,6 +566,20 @@
       "absolute": "absolute",
       "relative": "relative",
       "sticky": "sticky"
+    },
+    "f-j": {
+      "start": "start",
+      "end": "end",
+      "center": "center",
+      "space-between": "space-between",
+      "space-around": "space-around"
+    },
+    "f-a": {
+      "start": "start",
+      "end": "end",
+      "center": "center",
+      "baseline": "baseline",
+      "stretch": "stretch"
     },
     "negative-extension": ["", "-"],
     "unit": {
