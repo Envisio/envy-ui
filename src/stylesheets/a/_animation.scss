@@ -43,11 +43,11 @@ $a-popup-name: "-animate-popup";
   }
 }
 
-$a-popup: transform 0.3s ease-out, opacity 0.3s ease-out;
+$a-popup: transform 0.2s ease-out, opacity 0.2s ease-out;
 
 .#{$uiA+$a-popup-name}-enter, .#{$uiA+$a-popup-name}-appear {
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 .#{$uiA+$a-popup-name}-enter-active, .#{$uiA+$a-popup-name}-appear-active {
   opacity: 1;
@@ -60,7 +60,7 @@ $a-popup: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 .#{$uiA+$a-popup-name}-exit-active {
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.95);
   transition: #{$a-popup};
 }
 
