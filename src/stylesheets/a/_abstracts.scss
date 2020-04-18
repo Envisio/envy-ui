@@ -69,45 +69,7 @@
 //   bottom: 0#{$a-important};
 // }
 
-.#{$uiA}-animate-slide-in-right-2-enter, .#{$uiA}-animate-slide-in-right-2-appear {
-  opacity: 0;
-  transform: translateX(-10px);
-}
 
-.#{$uiA}-animate-slide-in-right-2-enter-active, .#{$uiA}-animate-slide-in-right-2-appear-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 200ms, transform 200ms;
-}
-
-.#{$uiA}-animate-slide-in-right-2-exit {
-  opacity: 1;
-}
-
-.#{$uiA}-animate-slide-in-right-2-exit-active {
-  opacity: 0;
-  transition: opacity 200ms, transform 200ms;
-}
-
-.#{$uiA}-animate-slide-in-top-2-enter, .#{$uiA}-animate-slide-in-top-2-appear {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.#{$uiA}-animate-slide-in-top-2-enter-active, .#{$uiA}-animate-slide-in-top-2-appear-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 200ms, transform 200ms;
-}
-
-.#{$uiA}-animate-slide-in-top-2-exit {
-  opacity: 1;
-}
-
-.#{$uiA}-animate-slide-in-top-2-exit-active {
-  opacity: 0;
-  transition: opacity 200ms, transform 200ms;
-}
 
 // .#{$uiA}-bold {
 //   font-weight: bold#{$a-important};
