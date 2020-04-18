@@ -73,7 +73,7 @@ $slide-in-data: (
 );
 
 @each $slide-in-direction, $slide-in-value in $slide-in-data {
-  .#{$uiA}-animate-slide-in-#{$slide-in-direction}-2-enter, .#{$uiA}-animate-slide-in-right-2-appear {
+  .#{$uiA}-animate-slide-in-#{$slide-in-direction}-2-enter, .#{$uiA}-animate-slide-in-#{$slide-in-direction}-2-appear {
     opacity: 0;
     transform: $slide-in-value;
   }
