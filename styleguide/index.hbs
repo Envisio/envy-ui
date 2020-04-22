@@ -26,7 +26,8 @@
 </svg>
 
 <header class="kss-header">
-  <h1 class="kss-doc-title">{{options.title}}</h1>
+  {{!-- <h1 class="kss-doc-title">{{options.title}}</h1> --}}
+  <input class="env-input-text env-a-w-250" type="text" id="gsearchsimple" placeholder="Filter...">
   <span class="kss-toolbar">
     <a href="#kssref-{{referenceURI}}" data-kss-guides="true" class="kss-js-bg-example">
       <span class="kss-toolbar__tooltip kss-toolbar__tooltip--bottom">Switch Background</span>
@@ -53,6 +54,7 @@
   </span>
 </header>
 <div class="kss-sidebar kss-style">
+  <div id="localSearchSimple"></div>
   <nav class="kss-nav" aria-label="Style Guide">
     <ul class="kss-nav__menu">
       <li class="kss-nav__menu-item">
@@ -62,9 +64,9 @@
         </a>
       </li>
     {{#each menu}}
-      <li class="kss-nav__menu-item">
-        <a class="kss-nav__menu-link" href="section-{{referenceURI}}.html">
-          <span class="kss-nav__ref">{{referenceNumber}}</span><span class="kss-nav__name">{{header}}</span>
+      <li class="kss-nav__menu-item contsearch">
+        <a class="kss-nav__menu-link " href="section-{{referenceURI}}.html">
+          <span class="kss-nav__ref">{{referenceNumber}}</span><span class="kss-nav__name gsearch">{{header}}</span>
         </a>
         {{#if isActive}}
           {{#if children}}
@@ -292,7 +294,7 @@
 </main>
 
 <!-- SCRIPTS -->
-<script src="kss-assets/cash.min.js"></script>
+<script src="kss-assets/jquery-3.5.0.min.js"></script>
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
 {{!-- <script src="kss-assets/kss-fullscreen.js"></script> --}}
@@ -300,11 +302,16 @@
 <script src="kss-assets/kss-examples.js"></script>
 {{!-- <script src="kss-assets/kss-markup.js"></script> --}}
 <script src="kss-assets/kss-components-functionality.js"></script>
+<script src="kss-assets/filter-search-list-local/js-local-search.js"></script>
 <script>
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-child > li > a',
     className: 'is-in-viewport'
   });
+  $(function(){
+    $('#localSearchSimple').jsLocalSearch();
+  });
+
 {{!--   var kssFullScreen = new KssFullScreen({
     idPrefix: 'kss-fullscreen-',
     bodyClass: 'kss-fullscreen-mode',

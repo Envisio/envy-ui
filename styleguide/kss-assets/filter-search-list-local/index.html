@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>jQuery JsLocalSearch Plugin Examples</title>
+        <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+        <script src="JsLocalSearch.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css">
+        <style >
+body { background-color: #f7f7f7; }
+.container { margin: 150px auto; }
+            .mark {
+                background-color: #d7ffe7 !important
+            }
+
+            .mark .gsearch{
+                font-size: 20px
+            }
+
+
+            .unmark {
+                background-color: #e8e8e8 !important
+            }
+            .unmark .gsearch{
+                font-size: 10px
+            }
+
+            .si{
+                font-weight: bold;
+                color: red;
+            }
+
+            .simple{
+                padding: 10px;
+                margin: 10px;
+                background-color: #b9d5ec
+            }
+
+        </style>
+    </head>
+    <body><div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/other/filter-search-list-local.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+        <div class="container">
+            <h1>JsLocalSearch.js Plugin Examples</h1>
+            <hr>
+            <div class="col-lg-12">
+                <h2>Simple Example</h2>
+
+                <input type="text" id="gsearchsimple" class="form-control"  placeholder="Search...">
+                <BR>
+                <div class="contsearch simple" ><div class='gsearch'>Lorem ipsum dolor sit amet<br></div></div>
+                <div class="contsearch simple"  ><div class='gsearch'>Aenean tortor arcu, semper ac sodales nec<br></div></div>
+                <div class="contsearch simple" ><div class='gsearch'>Nunc hendrerit auctor enim<br></div></div>
+                <div class="contsearch simple" ><div class='gsearch'>Morbi lacinia porttitor risus quis lacinia</div></div>
+
+                <div id="localSearchSimple"></div>
+
+
+            <hr>
+</div>
+            <div class="col-lg-12">
+                <h2>Highlight Matched Items</h2>
+                    <div class='col-lg-12'>
+                        <input type="text" id="gsearch2" class="form-control"  placeholder="Search...">
+                        <BR>
+                        <div class="contsearch2 simple" ><div style="font-size:10px">AQUI NO BUSCA</div><div class='gsearch'>Lorem ipsum dolor sit amet<br></div></div>
+                        <div class="contsearch2 simple"  ><div class='gsearch'>Aenean tortor arcu, semper ac sodales nec<br></div></div>
+                        <div class="contsearch2 simple" ><div class='gsearch'>Nunc hendrerit auctor enim<br></div></div>
+                        <div class="contsearch2 simple" ><div class='gsearch'>Morbi lacinia porttitor risus quis lacinia</div></div>
+
+                        <div id="localSearchMark"></div>
+
+
+                    </div>
+</div>
+                    <div class="col-lg-12">
+                        <h2>Highlight Characters</h2>
+
+
+                        <div class='col-lg-12'>
+                            <input type="text" id="gsearch3" class="form-control"  placeholder="Search...">
+                            <BR>
+                            <div class="contsearch3 simple" ><div class='gsearch'>Lorem ipsum dolor sit amet<br></div></div>
+                            <div class="contsearch3 simple"  ><div class='gsearch'>Aenean tortor arcu, semper ac sodales nec<br></div></div>
+                            <div class="contsearch3 simple" ><div class='gsearch'>Nunc hendrerit auctor enim<br></div></div>
+                            <div class="contsearch3 simple" ><div class='gsearch'>Morbi lacinia porttitor risus quis lacinia</div></div>
+
+                            <div id="localSearch3"></div>
+
+                        </div>
+
+                    </div>
+
+
+ <div class="col-lg-12">
+                        <h2>Search Through Descriptions and Keywords</h2>
+
+
+                        <div class='col-lg-12'>
+                            <input type="text" id="gsearch4" class="form-control"  placeholder="Search...">
+                            <BR>
+                            <div class="contsearch4 simple" ><div style="font-size:10px">Aqui no se busca porque no esta entro de .gsearch</div><div class='gsearch'>Lorem ipsum dolor sit amet<br></div></div>
+                            <div class="contsearch4 simple">data-description="esto es una descripción" data-keywords="groso,modo,etc"<div class='gsearch' data-description="esto es una descripción" data-keywords="groso,modo,etc">Aenean tortor arcu, semper ac sodales nec<br></div></div>
+                            <div class="contsearch4 simple" ><div class='gsearch'>Nunc hendrerit auctor enim<br></div></div>
+                            <div class="contsearch4 simple" ><div class='gsearch'>Morbi lacinia porttitor risus quis lacinia</div></div>
+
+                            <div id="localSearch4"></div>
+
+                        </div>
+
+                    </div>
+                        <div class="col-lg-12">
+                            <h2>Show The Result</h2>
+
+
+                            <div class='col-lg-12'>
+                                <input type="text" id="gsearch8" class="form-control"  placeholder="Search...">
+                                <BR>
+                                <div class="contsearch8 simple" ><div style="font-size:10px">Aqui no se busca porque no esta entro de .gsearch</div><div class='gsearch'>Lorem ipsum dolor sit amet<br></div></div>
+                                <div class="contsearch8 simple"  ><div class='gsearch'>Aenean tortor arcu, semper ac sodales nec<br></div></div>
+                                <div class="contsearch8 simple" ><div class='gsearch'>Nunc hendrerit auctor enim<br></div></div>
+                                <div class="contsearch8 simple" ><div class='gsearch'>Morbi lacinia porttitor risus quis lacinia</div></div>
+
+                                <div id="localSearch8">Result: <span class="number">0</span> Of <span class="total">0</span></div>
+
+
+
+                            </div>
+                        </div>
+
+
+                            <script>$('#localSearchSimple').jsLocalSearch();</script>
+
+
+                            <script>$('#localSearchMark').jsLocalSearch(
+                                        {
+                                            "searchinput": "#gsearch2", //ya
+                                            "container": "contsearch2", //ya
+                                            "containersearch": "gsearch", //ya
+                                            "action": "Mark",
+                                            "actionok": "mark",
+                                            "actionko": "unmark",
+                                            "html_search": true,
+
+                                        });</script>
+
+                            <script>$('#localSearch3').jsLocalSearch(
+                                        {
+                                            "searchinput": "#gsearch3", //ya
+                                            "container": "contsearch3", //ya
+                                            "containersearch": "gsearch", //ya
+                                            "action": "Show",
+
+                                            "html_search": true,
+                                            "mark_text": "si"
+
+
+                                        });</script>
+
+                            <script>$('#localSearch4').jsLocalSearch(
+                                        {
+                                            "searchinput": "#gsearch4", //ya
+                                            "container": "contsearch4", //ya
+                                            "containersearch": "gsearch", //ya
+                                            "action": "Show",
+                                            "keyword_search": true,
+                                            "description_search": true,
+                                            "html_search": true,
+                                            "mark_text": "si"
+
+
+                                        });</script>
+
+
+
+
+                            <script>
+                                $('#localSearch6').jsLocalSearch(
+                                        {
+                                            "searchinput": "#gsearch6", //ya
+                                            "container": "contsearch6", //ya
+                                            "containersearch": "gsearch", //ya
+                                            "keyword_search": true,
+                                            "description_search": true,
+                                            "html_search": false,
+                                        });
+                            </script>
+
+                            <script>
+                                $('#localSearch8').jsLocalSearch(
+                                        {
+                                            "searchinput": "#gsearch8", //ya
+                                            "container": "contsearch8", //ya
+                                            "containersearch": "gsearch", //ya
+                                            "info": true,
+                                        });
+                            </script>
+
+
+                            <script>
+
+
+
+
+                                $('#localSearch').jsLocalSearch(
+                                        {
+                                            "searchinput": "#gsearch", //ya
+                                            "container": "container_search", //ya
+                                            "containersearch": "gsearch", //ya
+                                            "action": "Show",
+                                            "mincaracteres": 1, //ya
+                                            "info": true,
+                                            "keyword_search": true,
+                                            "description_search": true,
+                                            "html_search": true,
+                                            "mark_text": "si"
+
+                                        }
+
+                                );
+
+                                $('#localSearch2').jsLocalSearch(
+                                        {
+                                            "searchinput": "#gsearch2", //ya
+                                            "container": "container_search2", //ya
+                                            "containersearch": "gsearch", //ya
+                                            "action": "Mark",
+                                            "actionok": "mark",
+                                            "actionko": "unmark",
+                                            "mincaracteres": 1, //ya
+                                            "html_search": true,
+
+                                        }
+
+                                );
+
+                            </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+                            </body>
+                            </html>
