@@ -3,7 +3,6 @@ import { some, last } from 'lodash';
 const getBestPosition = ({
   x,
   y,
-  globalContainer,
   relativeElement,
   relativeElementGap = 0,
   containerSize,
@@ -19,19 +18,19 @@ const getBestPosition = ({
     y: last(y),
   };
 
-  if (!globalContainer || !relativeElement) {
+  if (!relativeElement) {
     return position;
   }
 
-  const globalContainerRect = globalContainer.getBoundingClientRect();
+  // const globalContainerRect = globalContainer.getBoundingClientRect();
   const relativeElementRect = relativeElement.getBoundingClientRect();
   const relativeElementRectHeight = relativeElementRect.bottom - relativeElementRect.top;
   const relativeElementRectWidth = relativeElementRect.right - relativeElementRect.left;
 
-  const topAvailableArea = relativeElementRect.top - globalContainerRect.top - relativeElementGap;
-  const bottomAvailableArea = globalContainerRect.bottom - relativeElementRect.bottom - relativeElementGap;
-  const leftAvailableArea = relativeElementRect.left - globalContainerRect.left - relativeElementGap;
-  const rightAvailableArea = globalContainerRect.right - relativeElementRect.right - relativeElementGap;
+  const topAvailableArea = relativeElementRect.top - 0 - relativeElementGap;
+  const bottomAvailableArea = document.documentElement.clientHeight - relativeElementRect.bottom - relativeElementGap;
+  const leftAvailableArea = relativeElementRect.left - 0 - relativeElementGap;
+  const rightAvailableArea = document.documentElement.clientWidth - relativeElementRect.right - relativeElementGap;
   const isTopVerticalCenterFit = topAvailableArea + (relativeElementRectHeight / 2) > containerSize.height / 2;
   const isBottomVerticalCenterFit = bottomAvailableArea + (relativeElementRectHeight / 2) > containerSize.height / 2;
   const isLeftHorizontalCenterFit = leftAvailableArea + (relativeElementRectWidth / 2) > containerSize.width / 2;
@@ -39,6 +38,11 @@ const getBestPosition = ({
 
   // console.log('leftAvailableArea ', leftAvailableArea, 'rightAvailableArea ', rightAvailableArea);
   // console.log('topAvailableArea ', topAvailableArea, 'bottomAvailableArea ', bottomAvailableArea);
+
+  position.left = relativeElementRect.left;
+  position.right = relativeElementRect.right;
+  position.bottom = relativeElementRect.bottom;
+  position.top = relativeElementRect.top;
 
   some(y, (currentY) => {
     switch (currentY) {
