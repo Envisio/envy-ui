@@ -316,7 +316,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     color: #ffffff;
     background-color: $kss-colors-brand;
     height: $kss-header-height;
-    padding-left: 16px;
+    padding-left: 10px;
     padding-right: 16px;
     width: 100%;
     position: fixed;
@@ -324,11 +324,11 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     left: 0;
   }
 
-  .kss-nav {
-    @media screen and (min-width: 769px) {
-      margin-top: 2rem;
-    }
-  }
+  // .kss-nav {
+  //   @media screen and (min-width: 769px) {
+  //     margin-top: 2rem;
+  //   }
+  // }
 
   .kss-nav__menu {
     // margin-top: ($kss-vertical-rhythm/2);
