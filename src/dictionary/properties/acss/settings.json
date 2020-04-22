@@ -581,6 +581,31 @@
       "baseline": "baseline",
       "stretch": "stretch"
     },
+    "f-a-content": {
+      "start": "start",
+      "end": "end",
+      "center": "center",
+      "normal": "normal",
+      "baseline": "baseline",
+      "stretch": "stretch",
+      "space-between": "space-between",
+      "space-around": "space-around"
+    },
+    "f-a-self": {
+      "auto": "auto",
+      "normal": "normal",
+      "start": "start",
+      "end": "end",
+      "flex-start": "flex-start",
+      "flex-end": "flex-end",
+      "center": "center",
+      "baseline": "baseline",
+      "first-baseline": "first-baseline",
+      "last-baseline": "last-baseline",
+      "stretch": "stretch",
+      "safe": "safe",
+      "unsafe": "unsafe"
+    },
     "negative-extension": ["", "-"],
     "unit": {
       "none": "",

@@ -17,6 +17,12 @@
       "markup-file": "_a-f-kss.html",
       "iterator": "{acss-settings.f-a}",
       "menu": "Align Items"
+    }, {
+      "content": "-a",
+      "description": "Align items.",
+      "markup-file": "_a-f-kss.html",
+      "iterator": "{acss-settings.f-a}",
+      "menu": "Align Items"
     }]
   }
 }
