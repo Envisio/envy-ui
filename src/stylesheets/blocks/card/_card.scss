@@ -10,12 +10,25 @@
 
   border: 1px solid $border;
   border-radius: $card-border-radius;
-  background-color: $white;
+  background-color: color("white");
   box-shadow: $a-card-shadow;
 
   &--plain {
     background-color: color("alabaster");
     border: 1px solid darken(color("alabaster"), 5%);
+    box-shadow: none;
+  }
+
+  &--brand-border {
+    border: 5px solid color("brand-primary");
+  }
+
+  &--brand {
+    background-color: color("brand-primary");
+    border: 1px solid darken(color("brand-primary"), 5%);
+  }
+
+  &--no-shadow {
     box-shadow: none;
   }
 }
