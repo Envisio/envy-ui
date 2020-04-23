@@ -339,6 +339,7 @@ function styleDictionaryRegistration() {
           .filter((prop) => (prop.value !== defaultPrefix))
           .map((prop) => `${prop.name}: require('../../lib/index.js').${prop.name},`)
           .join('\n')
+          + `\nuiMerge: require('../../lib/index.js').uiMerge,\n`
           + `\nenv: process.env\n}\n\n`
           + '\n//\n// JS block names\n';
     },
