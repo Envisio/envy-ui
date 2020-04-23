@@ -18,11 +18,17 @@
       "iterator": "{acss-settings.f-a}",
       "menu": "Align Items"
     }, {
-      "content": "-a",
-      "description": "Align items.",
-      "markup-file": "_a-f-kss.html",
-      "iterator": "{acss-settings.f-a}",
-      "menu": "Align Items"
+      "content": "-a-content",
+      "description": "Align content.",
+      "markup-file": "_a-f-multiline-kss.html",
+      "iterator": "{acss-settings.f-a-content}",
+      "menu": "Align Content"
+    }, {
+      "content": "-a-self",
+      "description": "Align self.",
+      "markup-file": "_a-f-child-kss.html",
+      "iterator": "{acss-settings.f-a-self}",
+      "menu": "Align Self"
     }]
   }
 }
