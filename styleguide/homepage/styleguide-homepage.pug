@@ -127,9 +127,10 @@ p(class=uiA`text-align-right`) version: !{env.npm_package_version}
 +section('Container')
 
 +cardBlock('section-card.html', 'Card (uiCard)')
-  .env-card.env-a-w-250.env-a-h-100.env-a-m
-  .env-card.env-card--plain.env-a-w-250.env-a-h-100.env-a-m
-
+  div(class=`${uiCard``} ${uiA`w-200 h-100 m`}`)
+  div(class=uiMerge([uiCard`--plain`, uiA`w-200 h-100 m`]))
+  div(class=uiMerge([uiCard`--brand`, uiA`w-200 h-100 m`]))
+  div(class=uiMerge([uiCard`--brand-border`, uiA`w-200 h-100 m`]))
 
 +cardBlock('section-panel.html', 'Panel (uiPanel)')
   .env-a-m Under Construction
