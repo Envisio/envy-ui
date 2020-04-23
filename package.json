@@ -1,6 +1,6 @@
 {
   "name": "envy-ui",
-  "version": "1.0.0-beta35",
+  "version": "1.0.0-beta36",
   "description": "UI Design System for Envisio Applications",
   "main": "./lib/index.js",
   "files": [
@@ -27,7 +27,8 @@
       "ignore": [
         "./src/stylesheets/from-dictionary",
         "./src/javascripts/from-dictionary",
-        "./styleguide/homepage/from-dictionary"
+        "./styleguide/homepage/from-dictionary",
+        "./src/stylesheets/a/kss/build"
       ]
     }
   },
@@ -41,11 +42,12 @@
     "css-lint": "stylelint dist/css/ui.css",
     "webpack": "webpack --config webpack.config.js",
     "babel": "npx babel src/javascripts --out-dir lib",
-    "run-all": "npm run remove ; npm run dictionary && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run kss && npm run css-lint",
+    "run-all": "npm run remove ; npm run dictionary && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss && npm run css-lint",
     "dictionary": "node dictionary_build.js",
     "watch": "npm-watch",
     "specificity": "./node_modules/.bin/css-reporter dist/css/ui.css",
-    "render-styleguide-homepage": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --out styleguide/",
+    "render-styleguide-homepage": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
+    "render-markups": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js src/stylesheets/a/kss/src/ --pretty --out src/stylesheets/a/kss/build/ && ./node_modules/.bin/prettier --write ./src/stylesheets/a/kss/build/",
     "deploy": "./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist"
   },
   "repository": {
@@ -72,6 +74,7 @@
     "kss": "^3.0.0",
     "node-sass": "^4.13.1",
     "npm-watch": "^0.6.0",
+    "prettier": "^2.0.5",
     "pug": "^2.0.4",
     "pug-cli": "^1.0.0-alpha6",
     "rimraf": "^3.0.2",
