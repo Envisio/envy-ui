@@ -45,10 +45,10 @@
     "run-all": "npm run remove ; npm run dictionary && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss && npm run css-lint",
     "dictionary": "node dictionary_build.js",
     "watch": "npm-watch",
-    "specificity": "./node_modules/.bin/css-reporter dist/css/ui.css",
+    "specificity": "./node_modules/.bin/specificity-graph dist/css/ui.css --output dist/styleguide/specificity",
     "render-styleguide-homepage": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
     "render-markups": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js src/stylesheets/a/kss/src/ --pretty --out src/stylesheets/a/kss/build/ && ./node_modules/.bin/prettier --write ./src/stylesheets/a/kss/build/",
-    "deploy": "./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist"
+    "deploy": "npm run specificity && ./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist"
   },
   "repository": {
     "type": "git",
@@ -79,6 +79,7 @@
     "pug-cli": "^1.0.0-alpha6",
     "rimraf": "^3.0.2",
     "sass-true": "^5.0.0",
+    "specificity-graph": "^0.1.7",
     "style-dictionary": "^2.8.3",
     "stylelint": "^13.2.1",
     "stylelint-config-recommended": "^3.0.0",
