@@ -31,4 +31,12 @@
   &--no-shadow {
     box-shadow: none;
   }
+
+  &--shadow-strong {
+    box-shadow: $a-card-shadow-strong;
+  }
+
+  &--shadow-xstrong {
+    box-shadow: $a-card-shadow-xstrong;
+  }
 }
