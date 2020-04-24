@@ -24,7 +24,8 @@ $card-padding: 10px;
 $font-color-for-disabled: color("plain-gray");
 
 $a-card-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
-$a-card-shadow1: 0px 1px 4px 0px rgba(0,0,0,0.3);
+$a-card-shadow-strong: 0px 1px 3px 1px rgba(0,0,0,0.15);
+$a-card-shadow-xstrong: 1px 2px 6px 2px rgba(0,0,0,0.15);
 
 $space-step: 5px;
 $space-normal: $space-step * 2;

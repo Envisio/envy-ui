@@ -1,4 +1,4 @@
-$shadows: ("-small": $a-card-shadow, null: $a-card-shadow1);
+$shadows: ("-small": $a-card-shadow, null: $a-card-shadow-strong);
 
 @each $shadow-name, $shadow-value in $shadows {
   .#{$uiA}-shadow#{$shadow-name} {
