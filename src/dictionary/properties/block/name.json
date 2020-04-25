@@ -84,10 +84,16 @@
       "kss-weight": "1130",
       "comment": "{block-category.container._value}"
     },
+    "overlay": {
+      "value": "overlay",
+      "name": "Overlay",
+      "kss-weight": "1135",
+      "comment": "{block-category.container._value}"
+    },
     "panel": {
       "value": "panel",
       "name": "Panel",
-      "kss-weight": "140",
+      "kss-weight": "1140",
       "comment": "{block-category.container._value}"
     },
     "menu-dropdown": {
