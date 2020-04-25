@@ -1,0 +1,43 @@
+// Overlay
+//
+// Weight: 1235
+//
+// Styleguide Overlay
+
+.#{$uiOverlay} {
+
+  $this: &;
+  position: relative;
+
+  > #{$this}__cover {
+    background-color: rgba(color("black"), .4);
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+  }
+
+  > #{$this}__content {
+      filter: opacity(50%) saturate(50%) brightness(130%);
+  }
+
+  &--blur {
+    > #{$this}__content {
+        filter: opacity(50%) saturate(50%) brightness(130%) blur(1px);
+    }
+  }
+
+  // &--x-gradient {
+  //   > #{$this}__cover {
+  //     background: linear-gradient(to right,
+  //       rgba(color("black"), .3),
+  //       rgba(color("black"), .45) 20%,
+  //       rgba(color("black"), .55) 45%,
+  //       rgba(color("black"), .55) 55%,
+  //       rgba(color("black"), .45) 80%,
+  //       rgba(color("black"), .3) 100%
+  //     );
+  //   }
+  // }
+}
