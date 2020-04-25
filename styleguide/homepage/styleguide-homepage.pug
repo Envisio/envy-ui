@@ -132,6 +132,17 @@ p(class=uiA`text-align-right`) version: !{env.npm_package_version}
   div(class=uiMerge([uiCard`--brand`, uiA`w-200 h-100 m`]))
   div(class=uiMerge([uiCard`--brand-border`, uiA`w-200 h-100 m`]))
 
++cardBlock('section-overlay.html', 'Overlay (uiOverlay)')
+  each overlayModifier in ['', '--blur']
+    div(class=uiMerge([uiOverlay`#${overlayModifier}`, uiA`w-300 h-125 m`]))
+      div(class=uiMerge([uiOverlay`__content`, uiA`m-bottom p`]))
+        span(class=uiMerge([uiA`m-bottom`]))
+          |  Text example under overlay
+        button(class=uiMerge([uiButton`--mint-blue`]))
+          span(class=uiMerge([uiButton`__content`]))
+            | Button example under overlay
+      div(class=uiMerge([uiOverlay`__cover`]))
+
 +cardBlock('section-panel.html', 'Panel (uiPanel)')
   .env-a-m Under Construction
 
