@@ -2,6 +2,11 @@ $a-sides: ( top, right, bottom, left );
 
 @each $i in $a-iterate-list {
   @each $side in $a-sides {
+    @if $i == 0 {
+      .#{$uiA}-#{$side} {
+        #{$side}: #{$i}#{$a-important};
+      }
+    }
     .#{$uiA}-#{$side}-#{$i} {
       #{$side}: px($i)#{$a-important};
     }

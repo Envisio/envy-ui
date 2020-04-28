@@ -222,7 +222,7 @@ function styleDictionaryRegistration() {
             .filter((fragment) => (filterForFragmentAndUnits(fragment, that)))
             .map((fragment) => {
               return Object.keys(getFragmentIterator(prop, fragment)).map((iteratorKey) =>
-                `.env-a${prop['ignore-main-fragment'] ? '' : '-' + prop['main-fragment']}${fragment.content}-${iteratorKey}${getFragmentUnit(prop, fragment)}${fragment['test-extension'] || ''}${setDescription(fragment.description)}`)
+                `.env-a${prop['ignore-main-fragment'] ? '' : '-' + prop['main-fragment']}${fragment.content}${iteratorKey === "null" ? '' : '-' + iteratorKey}${getFragmentUnit(prop, fragment)}${fragment['test-extension'] || ''}${setDescription(fragment.description)}`)
               .join('\n// ');
             })
           .join('\n// ')) +

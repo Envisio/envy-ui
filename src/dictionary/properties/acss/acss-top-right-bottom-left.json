@@ -21,6 +21,13 @@
       "iterator": "{acss-settings.iterate-list-percent}",
       "menu": "Top (%)"
     }, {
+      "content": "-top",
+      "description": "Top position shortcut for 0 value.",
+      "markup-file": "_a-top-kss.html",
+      "unit": "{acss-settings.unit.none}",
+      "iterator": "{acss-settings.null}",
+      "menu": "Top Shortcuts"
+    }, {
       "content": "-right",
       "description": "Right position in default units (px).",
       "markup-file": "_a-right-kss.html",
@@ -32,6 +39,13 @@
       "unit": "{acss-settings.unit.percent}",
       "iterator": "{acss-settings.iterate-list-percent}",
       "menu": "Right (%)"
+    }, {
+      "content": "-right",
+      "description": "Right position shortcut for 0 value.",
+      "markup-file": "_a-right-kss.html",
+      "unit": "{acss-settings.unit.none}",
+      "iterator": "{acss-settings.null}",
+      "menu": "Right Shortcuts"
     }, {
       "content": "-bottom",
       "description": "Bottom position in default units (px).",
@@ -45,6 +59,13 @@
       "iterator": "{acss-settings.iterate-list-percent}",
       "menu": "Bottom (%)"
     }, {
+      "content": "-bottom",
+      "description": "Bottom position shortcut for 0 value.",
+      "markup-file": "_a-bottom-kss.html",
+      "unit": "{acss-settings.unit.none}",
+      "iterator": "{acss-settings.null}",
+      "menu": "Bottom Shortcuts"
+    }, {
       "content": "-left",
       "description": "Left position in default units (px).",
       "markup-file": "_a-left-kss.html",
@@ -56,6 +77,13 @@
       "unit": "{acss-settings.unit.percent}",
       "iterator": "{acss-settings.iterate-list-percent}",
       "menu": "Left (%)"
+    }, {
+      "content": "-left",
+      "description": "Left position shortcut for 0 value.",
+      "markup-file": "_a-right-kss.html",
+      "unit": "{acss-settings.unit.none}",
+      "iterator": "{acss-settings.null}",
+      "menu": "Left Shortcuts"
     }]
   }
 }
