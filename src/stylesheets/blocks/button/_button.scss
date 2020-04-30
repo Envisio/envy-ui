@@ -8,12 +8,12 @@
 
 .#{$uiButton} {
 
-  @keyframes spin {
+  @keyframes button-loader-spin {
     from {
-        transform:rotate(0deg);
+        transform: rotate(0deg);
     }
     to {
-        transform:rotate(360deg);
+        transform: rotate(360deg);
     }
   }
 
@@ -37,6 +37,7 @@
     color("brand-primary-alt"): map-get($button--border-color-map, color("brand-primary-alt")),
     color("viking-blue"): map-get($button--border-color-map, color("viking-blue")),
     color("green"): map-get($button--border-color-map, color("green")),
+    color("red"): map-get($button--border-color-map, color("red")),
     color("white"): $a-color-focus
   );
 
@@ -90,6 +91,14 @@
         );
       }
     }
+
+    &:active {
+      & > #{$this}__content {
+        background: lighten($bg-color, 5%);
+        filter: contrast(130%);
+      }
+    }
+
     &--disabled, &[disabled] {
       @include button--disable();
       #{$this}__content, #{$this}__content:hover {
@@ -104,6 +113,12 @@
     color: $text-color;
     &:hover {
       color: $text-hover-color;
+    }
+    &:active {
+      & > #{$this}__content {
+        color: darken($text-hover-color, 5%);
+        filter: contrast(130%);
+      }
     }
     &#{$this}--disabled, &[disabled] {
       @include button--disable();
@@ -146,6 +161,8 @@
     }
   }
 
+  // Content color modifiers
+
   &--link {
     @include button__make-content-color(color("brand-primary"), color("brand-blue"));
   }
@@ -153,6 +170,8 @@
   &--gray {
     @include button__make-content-color(color("medium-gray"), color("gray"));
   }
+
+  // Container color modifiers
 
   &--clean {
     @include a-button--clean;
@@ -181,6 +200,50 @@
     @include button__make-container-color(color("red"));
   }
 
+  // Menu type modifier
+
+  &--menu, &--menu-top, &--menu-bottom {
+    & > #{$this}__content {
+      border-color: transparent;
+      justify-content: left;
+    }
+    &:hover, &:focus {
+      & > #{$this}__content {
+        background-color: color("pale-blue");
+      }
+    }
+    &:active {
+      & > #{$this}__content {
+        background-color: lighten(color("pale-blue"), 5%);
+      }
+    }
+    &:focus {
+      & > #{$this}__content {
+        border-color: lighten(color("viking-blue"), 20%);
+      }
+    }
+  }
+
+  &--menu {
+    & > #{$this}__content {
+      border-radius: 0;
+    }
+  }
+
+  &--menu-top {
+    & > #{$this}__content {
+      border-radius: 2px 2px 0 0;
+    }
+  }
+
+  &--menu-bottom {
+    & > #{$this}__content {
+      border-radius: 0 0 2px 2px;
+    }
+  }
+
+  // Round hover shape modifiers
+
   &--round-hover {
     @include a-button--clean;
     #{$this}__content {
@@ -208,6 +271,16 @@
     }
   }
 
+  // Round shape modifiers
+
+  &--round {
+    #{$this}__content {
+      border-radius: $button--height-default / 2;
+    }
+  }
+
+  // Circle shape modifiers
+
   &--circle {
     @include a-button--clean;
     #{$this}__content {
@@ -216,25 +289,9 @@
       border-radius: 50%;
       transition: background 0.3s;
     }
-
-    &#{$this}--small {
-      width: $button--height-small;
-    }
-
-    &#{$this}--xsmall {
-      width: $button--height-xsmall;
-    }
-
-    &#{$this}--large {
-      width: $button--height-large;
-    }
   }
 
-  &--round {
-    #{$this}__content {
-      border-radius: $button--height-default / 2;
-    }
-  }
+  // Size modifiers
 
   &--small {
     #{$this}__content {
@@ -243,6 +300,13 @@
     &#{$this}--round {
       #{$this}__content {
         border-radius: $button--height-small / 2;
+      }
+    }
+    &#{$this}--circle {
+      #{$this}__content {
+        padding: 0;
+        border-radius: $button--height-small / 2;
+        width: $button--height-small;
       }
     }
   }
@@ -258,6 +322,13 @@
         border-radius: $button--height-xsmall / 2;
       }
     }
+    &#{$this}--circle {
+      #{$this}__content {
+        border-radius: $button--height-xsmall / 2;
+        width: $button--height-xsmall;
+        padding: 0;
+      }
+    }
   }
 
   &--large {
@@ -270,7 +341,16 @@
         border-radius: $button--height-large / 2;
       }
     }
+    &#{$this}--circle {
+      #{$this}__content {
+        border-radius: $button--height-large / 2;
+        width: $button--height-large;
+        padding: 0;
+      }
+    }
   }
+
+  // Inline modifier
 
   &--inline {
     #{$this}__content {
@@ -279,28 +359,31 @@
     }
   }
 
+  // Loading modifier
+
   &--loading {
     position: relative;
-    &:after {
+    &::after {
       content: "";
-      display: block;
+      display: inline-block;
       width: 20px;
       height: 20px;
-      flex: 0 0 20px;
-      box-sizing: border-box;
       position: absolute;
       left: calc(50% - 10px);
       top: calc(50% - 10px);
-      // transform-origin: center center;
-      // transform: translate(-50%, -50%);
       backface-visibility: hidden;
       border-radius: 50%;
-      border: .3em solid color("plain-gray");
+      border: .3em solid rgba(color("light-gray"), .7);
       border-left-color: transparent;
-      animation: 2s infinite linear spin;
+      transform-origin: center center;
+      animation: button-loader-spin 2s infinite linear;
+    }
+    &#{$this}--clean::after, &#{$this}--default::after {
+      border-color: color("plain-gray");
+      border-left-color: transparent;
     }
     > #{$this}__content {
-      opacity: 0.5;
+      color: transparent !important;
     }
   }
 }

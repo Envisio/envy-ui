@@ -1,0 +1,20 @@
+// Button Loading State Modifiers
+//
+// Modifier for rounding left and right sides of button.
+//
+// Markup:
+// _button-loading-modifiers-kss.html
+//
+// .env-button--clean - Clean button without loading state.
+// .env-button--clean.env-button--loading - Make button container transparent and circle shape.
+// .env-button--default.env-button--loading - "Default" style button and circle shape.
+// .env-button--mint-blue.env-button--loading - Mint blue button and circle shape.
+// .env-button--light-blue.env-button--loading - Light blue button and circle shape.
+// .env-button--green.env-button--loading - Green button and circle shape.
+// .env-button--red.env-button--loading - Red button and circle shape.
+//
+// Moddescription: Modifiers for different sizes and 3 button states: [], [focused], [disabled].
+//
+// Weight: 20
+//
+// Styleguide Button - Loading State Modifiers
