@@ -57,31 +57,46 @@
     color("white"): 0.3
   );
 
-  $button--disable-colors-map: (
-    "content": color("nobel"),
-    "container": color("gray-white")
-  );
+  // $button--disable-colors-map: (
+  //   "content": color("nobel"),
+  //   "container": color("gray-white")
+  // );
 
   @mixin button--disable() {
-    cursor: default;
+    cursor: default !important;
     box-shadow: none;
     opacity: 0.5;
     filter: saturate(50%);
   }
+
+  // @mixin button--inactive() {
+  //   cursor: default;
+  //   box-shadow: none;
+  // }
 
   @mixin button__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
     @include a-button--clean;
     #{$this}__content {
       background-color: $bg-color;
       color: $text-color;
-      transition: background 0.3s;
       border: 1px solid map-get($button--border-color-map, $bg-color);
-      &:hover {
-        background: darken($bg-color, 5%);
-        border-color: darken(map-get($button--border-color-map, $bg-color), 5%);
+      // &:hover {
+        //   background: darken($bg-color, 5%);
+        //   border-color: darken(map-get($button--border-color-map, $bg-color), 5%);
+        // }
+      }
+
+    &:not(#{$this}--inactive) {
+      transition: background 0.3s;
+      #{$this}__content {
+        &:hover {
+          background: darken($bg-color, 5%);
+          border-color: darken(map-get($button--border-color-map, $bg-color), 5%);
+        }
       }
     }
-    &:focus {
+
+    &:focus:not(#{$this}--inactive) {
       & > #{$this}__content {
         @include a--focus(
           true,
@@ -92,7 +107,7 @@
       }
     }
 
-    &:active {
+    &:active:not(#{$this}--inactive) {
       & > #{$this}__content {
         background: lighten($bg-color, 5%);
         filter: contrast(130%);
@@ -107,6 +122,7 @@
         border-color: map-get($button--border-color-map, $bg-color);
       }
     }
+
   }
 
   @mixin button__make-content-color($text-color: color("medium-gray"), $text-hover-color: color("gray")) {
@@ -133,7 +149,7 @@
   padding: 0;
   cursor: pointer;
   font-size: $button--default-font-size;
-  &:hover, &:focus {
+  &:hover:not(#{$this}--inactive), &:focus:not(#{$this}--inactive) {
     // color: inherit;
     text-decoration: none;
     cursor: pointer;
@@ -154,7 +170,7 @@
     }
   }
 
-  &:focus {
+  &:focus:not(#{$this}--inactive) {
     outline: none;
     & > #{$this}__content {
       @include a--focus;
@@ -200,24 +216,34 @@
     @include button__make-container-color(color("red"));
   }
 
+  // Inactive
+
+  &--inactive {
+    cursor: default;
+    box-shadow: none;
+  }
+
   // Menu type modifier
 
   &--menu, &--menu-top, &--menu-bottom {
+    &:focus {
+      outline: none;
+    }
     & > #{$this}__content {
       border-color: transparent;
       justify-content: left;
     }
-    &:hover, &:focus {
+    &:hover:not(#{$this}--inactive):not([disabled]), &:focus:not(#{$this}--inactive):not([disabled]) {
       & > #{$this}__content {
         background-color: color("pale-blue");
       }
     }
-    &:active {
+    &:active:not(#{$this}--inactive):not([disabled]) {
       & > #{$this}__content {
         background-color: lighten(color("pale-blue"), 5%);
       }
     }
-    &:focus {
+    &:focus:not(#{$this}--inactive):not([disabled]) {
       & > #{$this}__content {
         border-color: lighten(color("viking-blue"), 20%);
       }
@@ -264,7 +290,6 @@
     &#{$this}--disabled, &[disabled] {
       #{$this}__content {
         &:hover {
-          background-color: inherit;
           background-color: transparent;
         }
       }
