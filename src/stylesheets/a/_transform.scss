@@ -1,0 +1,19 @@
+.#{$uiA}-translate-x-50\%- {
+  transform: translateX(-50%);
+}
+
+.#{$uiA}-transform-scale-2 {
+  transform: scale(2);
+}
+
+.#{$uiA}-translate-y-3- {
+  transform: translateY(-3px);
+}
+
+.#{$uiA}-transform-origin-left-top {
+  transform-origin: left top;
+}
+
+.#{$uiA}-transform-rotate-180 {
+  transform: unquote("#{rotate(180deg)}#{$a-important}");
+}
