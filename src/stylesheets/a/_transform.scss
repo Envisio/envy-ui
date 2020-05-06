@@ -1,19 +1,46 @@
+// ACSS Transform
+//
+// Transform modifiers.
+//
+// Markup:
+// _a-transform-kss.html
+//
+// .env-a-translate-x-50%- - Transform X-Tranaslate -50%.
+// .env-a-translate-y-50%- - Transform Y-Tranaslate -50%.
+// .env-a-translate-y-3- - Transform Y Tranaslate -3px.
+// .env-a-transform-scale-2 - Transform Scale 2X.
+// .env-a-transform-origin-left-top.env-a-transform-rotate-180 - Transform origin left top.
+// .env-a-transform-rotate-180 - Transform rotate 180 deg.
+//
+// Moddescription: Modifiers.
+//
+// Defaultmodifier: true
+//
+// Weight: 500
+//
+// Styleguide ACSS Transform
+
+
 .#{$uiA}-translate-x-50\%- {
-  transform: translateX(-50%);
+  transform: translateX(-50%)#{$a-important};
+}
+
+.#{$uiA}-translate-y-50\%- {
+  transform: translateY(-50%)#{$a-important};
 }
 
 .#{$uiA}-transform-scale-2 {
-  transform: scale(2);
+  transform: scale(2)#{$a-important};
 }
 
 .#{$uiA}-translate-y-3- {
-  transform: translateY(-3px);
+  transform: translateY(-3px)#{$a-important};
 }
 
 .#{$uiA}-transform-origin-left-top {
-  transform-origin: left top;
+  transform-origin: left top#{$a-important};
 }
 
 .#{$uiA}-transform-rotate-180 {
-  transform: unquote("#{rotate(180deg)}#{$a-important}");
+  transform: rotate(180deg)#{$a-important};
 }
