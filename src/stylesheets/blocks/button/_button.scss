@@ -309,6 +309,7 @@
 
   &--circle {
     @include a-button--clean;
+    border-radius: 50%;
     #{$this}__content {
       width: $button--height-default;
       padding: 0;
