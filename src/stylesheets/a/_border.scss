@@ -1,3 +1,21 @@
+$a-borders: null, "-top", "-right", "-bottom", "-left";
+$a-border-types: ("-none": 0, "-panel": solid 1px $border, "-1-s-transparent": 1px solid transparent);
+
+$a-border-radiuses: (null: 3px, "-none": 0, "-half": 50%, "-5": 5px, "-10": 10px, "-15": 15px, "-20": 20px);
+
+@mixin a-border($border: null, $border-value: map-get($a-border-types, "-panel")) {
+  border#{$border}: unquote("#{$border-value}#{$a-important}");
+}
+
+@mixin a-border-radius($border-radius: map-get($a-border-radiuses, null)) {
+  border-radius: unquote("#{$border-radius}#{$a-important}");
+}
+
+//TODO: Eugene should clean this
+.#{$uiA}-border-radius-50\% {
+  border-radius: 50%#{$a-important};
+}
+
 @each $border in $a-borders {
   @each $border-type-name, $border-value in $a-border-types {
     .#{$uiA}-border#{$border}#{$border-type-name} {
