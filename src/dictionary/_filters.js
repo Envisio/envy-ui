@@ -15,6 +15,10 @@ exports.filterForFragmentAndUnits = (fragment, that) => {
     return true;
   }
 
+  if (fragment.unit === '-' && that.filterForClassFragmentUnit === 'negative') {
+    return true;
+  }
+
   if (fragment.unit === '' && that.filterForClassFragmentUnit === 'none') {
     return true;
   }
