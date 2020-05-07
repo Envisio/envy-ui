@@ -28,6 +28,12 @@
     }
   }
 
+  &--dark {
+    > #{$this}__cover {
+      background-color: rgba(color("black"), .6);
+    }
+  }
+
   // &--x-gradient {
   //   > #{$this}__cover {
   //     background: linear-gradient(to right,
