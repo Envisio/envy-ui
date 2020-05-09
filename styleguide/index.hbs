@@ -75,7 +75,14 @@
               <li class="kss-nav__menu-item">
                 <a class="kss-nav__menu-link" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
                   <span class="kss-nav__ref {{#if isGrandChild}}kss-nav__ref-child{{/if}}">{{referenceNumber}}</span>
-                  <span class="kss-nav__name">{{header}}</span>
+                  <span class="kss-nav__name env-a-f env-a-f-a-center">
+                    <span class="env-a-m-right-small env-a-line-height-11">
+                      {{header}}
+                    </span>
+                    {{#if retired}}
+                      <span class="env-badge env-badge--xsmall env-badge--error env-badge--circle">R</span>
+                    {{/if}}
+                  </span>
                 </a>
               </li>
             {{/each}}
@@ -119,7 +126,14 @@
                 {{/if}}
               </span>
             </span>
-            {{header}}
+            <span class="env-a-f env-a-f-a-center">
+              <span class="env-a-m-right">
+                {{header}}
+              </span>
+              {{#if retired}}
+                <span class="env-badge env-badge--small env-badge--error env-badge--round">RETIRED</span>
+              {{/if}}
+            </span>
           </a>
         </h{{depth}}>
 
