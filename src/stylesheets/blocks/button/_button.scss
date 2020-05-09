@@ -25,6 +25,22 @@
   $button--height-xsmall: em(18px, $button--default-font-size);
   $button--height-large: em(45px, $button--default-font-size);
 
+  $button--hover-color-map: (
+    color("brand-primary-alt"): darken(color("brand-primary-alt"), 7%),
+    color("viking-blue"): darken(color("viking-blue"), 7%),
+    color("green"): darken(color("green"), 5%),
+    color("red"): darken(color("red"), 5%),
+    color("white"): color("light-gray")
+  );
+
+  $button--active-color-map: (
+    color("brand-primary-alt"): saturate(color("brand-primary-alt"), 35%),
+    color("viking-blue"): saturate(color("viking-blue"), 25%),
+    color("green"): saturate(color("green"), 25%),
+    color("red"): saturate(color("red"), 25%),
+    color("white"): lighten(color("pale-blue"), 3%)
+  );
+
   $button--border-color-map: (
     color("brand-primary-alt"): darken(color("brand-primary-alt"), 10%),
     color("viking-blue"): darken(color("viking-blue"), 10%),
@@ -76,7 +92,8 @@
 
   @mixin button__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
     @include a-button--clean;
-    #{$this}__content {
+    & > #{$this}__content {
+      // transition-delay: -1s;
       background-color: $bg-color;
       color: $text-color;
       border: 1px solid map-get($button--border-color-map, $bg-color);
@@ -86,13 +103,12 @@
         // }
       }
 
-    &:not(#{$this}--inactive) {
-      transition: background 0.3s;
-      #{$this}__content {
-        &:hover {
-          background: darken($bg-color, 5%);
-          border-color: darken(map-get($button--border-color-map, $bg-color), 5%);
-        }
+    &:hover:not(#{$this}--inactive) {
+      & > #{$this}__content {
+        // transition: background 1s;
+        // transition-delay: -1s;
+        background-color: map-get($button--hover-color-map, $bg-color);
+        // border-color: darken(map-get($button--border-color-map, $bg-color), 5%);
       }
     }
 
@@ -109,14 +125,16 @@
 
     &:active:not(#{$this}--inactive) {
       & > #{$this}__content {
-        background: lighten($bg-color, 5%);
-        filter: contrast(130%);
+        // transition: background 1s;
+        // transition-delay: -1s;
+        background: map-get($button--active-color-map, $bg-color);
+        border-color: map-get($button--focus-border-color-map, $bg-color);
       }
     }
 
     &--disabled, &[disabled] {
       @include button--disable();
-      #{$this}__content, #{$this}__content:hover {
+      & > #{$this}__content, & > #{$this}__content:hover {
         background-color: $bg-color;
         color: $text-color;
         border-color: map-get($button--border-color-map, $bg-color);
@@ -138,7 +156,7 @@
     }
     &#{$this}--disabled, &[disabled] {
       @include button--disable();
-      #{$this}__content, #{$this}__content:hover {
+      & > #{$this}__content, & > #{$this}__content:hover {
         color: $text-color;
       }
     }
@@ -224,30 +242,11 @@
     outline: none;
   }
 
-  // Menu type modifier
+  // Menu modifier
 
   &--menu, &--menu-top, &--menu-bottom {
-    &:focus {
-      outline: none;
-    }
     & > #{$this}__content {
-      border-color: transparent;
-      justify-content: left;
-    }
-    &:hover:not(#{$this}--inactive):not([disabled]), &:focus:not(#{$this}--inactive):not([disabled]) {
-      & > #{$this}__content {
-        background-color: color("light-gray");
-      }
-    }
-    &:active:not(#{$this}--inactive):not([disabled]) {
-      & > #{$this}__content {
-        background-color: lighten(color("light-gray"), 5%);
-      }
-    }
-    &:focus:not(#{$this}--inactive):not([disabled]) {
-      & > #{$this}__content {
-        border-color: lighten(color("viking-blue"), 20%);
-      }
+      justify-content: start;
     }
   }
 
@@ -273,12 +272,12 @@
 
   &--round-hover {
     @include a-button--clean;
-    #{$this}__content {
+    & > #{$this}__content {
       min-height: $button--height-default;
       min-width: $button--height-default;
       padding: 0;
       border-radius: 50%;
-      transition: background 0.3s;
+      // transition: background 0.3s;
       &:hover {
         background-color: color("white");
       }
@@ -289,7 +288,7 @@
       }
     }
     &#{$this}--disabled, &[disabled] {
-      #{$this}__content {
+      & > #{$this}__content {
         &:hover {
           background-color: transparent;
         }
@@ -297,10 +296,60 @@
     }
   }
 
+  // Color hovers shape modifiers
+
+  &--hover {
+    &-white {
+      &:hover:not([disabled]):not(#{$this}--disabled) {
+        & > #{$this}__content {
+          background-color: color("white");
+        }
+      }
+      &:active:not([disabled]):not(#{$this}--disabled) {
+        & > #{$this}__content {
+          background-color: map-get($button--active-color-map, color("white"));
+        }
+      }
+    }
+    &-default {
+      &:hover:not([disabled]):not(#{$this}--disabled) {
+        & > #{$this}__content {
+          background-color: map-get($button--hover-color-map, color("white"));
+        }
+      }
+      &:active:not([disabled]):not(#{$this}--disabled) {
+        & > #{$this}__content {
+          background-color: map-get($button--active-color-map, color("white"));
+        }
+      }
+    }
+    &-menu {
+      &:hover:not([disabled]):not(#{$this}--disabled) {
+        & > #{$this}__content {
+          background-color: color("pale-blue");
+        }
+      }
+      &:active:not([disabled]):not(#{$this}--disabled) {
+        & > #{$this}__content {
+          background-color: darken(color("pale-blue"), 10%);
+        }
+      }
+    }
+
+
+    // &#{$this}--disabled, &[disabled] {
+    //   & > #{$this}__content {
+    //     &:hover {
+    //       background-color: transparent;
+    //     }
+    //   }
+    // }
+  }
+
   // Round shape modifiers
 
   &--round {
-    #{$this}__content {
+    & > #{$this}__content {
       border-radius: $button--height-default / 2;
     }
   }
@@ -310,27 +359,27 @@
   &--circle {
     @include a-button--clean;
     border-radius: 50%;
-    #{$this}__content {
+    & > #{$this}__content {
       width: $button--height-default;
       padding: 0;
       border-radius: 50%;
-      transition: background 0.3s;
+      // transition: background 0.3s;
     }
   }
 
   // Size modifiers
 
   &--small {
-    #{$this}__content {
+    & > #{$this}__content {
       height: $button--height-small;
     }
     &#{$this}--round {
-      #{$this}__content {
+      & > #{$this}__content {
         border-radius: $button--height-small / 2;
       }
     }
     &#{$this}--circle {
-      #{$this}__content {
+      & > #{$this}__content {
         padding: 0;
         border-radius: $button--height-small / 2;
         width: $button--height-small;
@@ -339,18 +388,18 @@
   }
 
   &--xsmall {
-    #{$this}__content {
+    & > #{$this}__content {
       font-size: 10px;
       padding: 0 5px;
       height: $button--height-xsmall;
     }
     &#{$this}--round {
-      #{$this}__content {
+      & > #{$this}__content {
         border-radius: $button--height-xsmall / 2;
       }
     }
     &#{$this}--circle {
-      #{$this}__content {
+      & > #{$this}__content {
         border-radius: $button--height-xsmall / 2;
         width: $button--height-xsmall;
         padding: 0;
@@ -359,17 +408,17 @@
   }
 
   &--large {
-    #{$this}__content {
+    & > #{$this}__content {
       height: $button--height-large;
       padding: 0 $space-large;
     }
     &#{$this}--round {
-      #{$this}__content {
+      & > #{$this}__content {
         border-radius: $button--height-large / 2;
       }
     }
     &#{$this}--circle {
-      #{$this}__content {
+      & > #{$this}__content {
         border-radius: $button--height-large / 2;
         width: $button--height-large;
         padding: 0;
@@ -409,7 +458,7 @@
       border-color: color("plain-gray");
       border-left-color: transparent;
     }
-    > #{$this}__content {
+    & > #{$this}__content {
       color: transparent !important;
     }
   }

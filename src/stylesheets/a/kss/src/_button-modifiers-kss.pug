@@ -1,0 +1,25 @@
+.kss-test-flex
+  // No state
+  button.env-button(class='{{modifier_class}}' tabindex='0')
+    div.env-button__content(tabindex='-1')
+      | Button
+  | &nbsp;
+  // Hover state
+  button.env-button.pseudo-class-hover(class='{{modifier_class}}' tabindex='0')
+    div.env-button__content(tabindex='-1')
+      | Button
+  | &nbsp;
+  // Focused state
+  button.env-button.pseudo-class-focus(class='{{modifier_class}}' tabindex='0')
+    div.env-button__content(tabindex='-1')
+      | Button
+  | &nbsp;
+  // Active state
+  button.env-button.pseudo-class-active(class='{{modifier_class}}' tabindex='0')
+    div.env-button__content(tabindex='-1')
+      | Button
+  | &nbsp;
+  // Disable state
+  button.env-button(class='{{modifier_class}}' disabled='' tabindex='0')
+    div.env-button__content(tabindex='-1')
+      | Button
