@@ -47,7 +47,7 @@
     "watch": "npm-watch",
     "specificity": "./node_modules/.bin/specificity-graph dist/css/ui.css --output dist/styleguide/specificity",
     "render-styleguide-homepage": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
-    "render-markups": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js src/stylesheets/a/kss/src/ --pretty --out src/stylesheets/a/kss/build/ && ./node_modules/.bin/prettier --write ./src/stylesheets/a/kss/build/",
+    "render-markups": "./node_modules/.bin/pug --pretty -O src/javascripts/from-dictionary/block_name.styleguide.js src/stylesheets/a/kss/src/ --out src/stylesheets/a/kss/build/",
     "deploy": "npm run specificity && ./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist"
   },
   "repository": {
@@ -74,7 +74,6 @@
     "kss": "^3.0.0",
     "node-sass": "^4.13.1",
     "npm-watch": "^0.6.0",
-    "prettier": "^2.0.5",
     "pug": "^2.0.4",
     "pug-cli": "^1.0.0-alpha6",
     "rimraf": "^3.0.2",
