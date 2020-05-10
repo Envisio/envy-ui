@@ -8,10 +8,49 @@
 
   $this: &;
 
+  @mixin status($color) {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      max-width: 5px;
+      min-width: 5px;
+      height: 100%;
+      border-radius: 2px 0 0 2px;
+      left: 0;
+      top: 0;
+      background-color: color($color);
+    }
+  }
+
   border: 1px solid $border;
   border-radius: $card-border-radius;
   background-color: color("white");
   box-shadow: $a-card-shadow;
+
+  &--status {
+    &-pending {
+      @include status("status-pending");
+    }
+    &-on-track {
+      @include status("on-track");
+    }
+    &-minor-disruption {
+      @include status("minor-disruption");
+    }
+    &-major-disruption {
+      @include status("major-disruption");
+    }
+    &-upcoming {
+      @include status("upcoming");
+    }
+    &-discontinued {
+      @include status("discontinued");
+    }
+    &-completed {
+      @include status("completed");
+    }
+  }
 
   &--plain {
     background-color: color("alabaster");
