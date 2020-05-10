@@ -82,6 +82,9 @@
                     {{#if retired}}
                       <span class="env-badge env-badge--xsmall env-badge--error env-badge--circle">R</span>
                     {{/if}}
+                    {{#if new}}
+                      <span class="env-badge env-badge--xsmall env-badge--ok env-badge--circle">N</span>
+                    {{/if}}
                   </span>
                 </a>
               </li>
@@ -132,6 +135,9 @@
               </span>
               {{#if retired}}
                 <span class="env-badge env-badge--small env-badge--error env-badge--round">RETIRED</span>
+              {{/if}}
+              {{#if new}}
+                <span class="env-badge env-badge--small env-badge--ok env-badge--round">{{new}}</span>
               {{/if}}
             </span>
           </a>
