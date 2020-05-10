@@ -300,36 +300,36 @@
 
   &--hover {
     &-white {
-      &:hover:not([disabled]):not(#{$this}--disabled) {
+      &:hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: color("white");
         }
       }
-      &:active:not([disabled]):not(#{$this}--disabled) {
+      &:active:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: map-get($button--active-color-map, color("white"));
         }
       }
     }
     &-default {
-      &:hover:not([disabled]):not(#{$this}--disabled) {
+      &:hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: map-get($button--hover-color-map, color("white"));
         }
       }
-      &:active:not([disabled]):not(#{$this}--disabled) {
+      &:active:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: map-get($button--active-color-map, color("white"));
         }
       }
     }
     &-menu {
-      &:hover:not([disabled]):not(#{$this}--disabled) {
+      &:hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: color("pale-blue");
         }
       }
-      &:active:not([disabled]):not(#{$this}--disabled) {
+      &:active:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: darken(color("pale-blue"), 10%);
         }
