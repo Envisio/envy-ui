@@ -34,7 +34,7 @@
   );
 
   $button--active-color-map: (
-    color("brand-primary-alt"): saturate(color("brand-primary-alt"), 35%),
+    color("brand-primary-alt"): lighten(color("brand-primary-alt"), 5%),
     color("viking-blue"): saturate(color("viking-blue"), 25%),
     color("green"): saturate(color("green"), 25%),
     color("red"): saturate(color("red"), 25%),
@@ -101,9 +101,9 @@
         //   background: darken($bg-color, 5%);
         //   border-color: darken(map-get($button--border-color-map, $bg-color), 5%);
         // }
-      }
+    }
 
-    &:hover:not(#{$this}--inactive) {
+    &#{$this}--hover:not(#{$this}--inactive), &:hover:not(#{$this}--inactive) {
       & > #{$this}__content {
         // transition: background 1s;
         // transition-delay: -1s;
@@ -112,7 +112,7 @@
       }
     }
 
-    &:focus:not(#{$this}--inactive) {
+    &#{$this}--focus:not(#{$this}--inactive), &:focus:not(#{$this}--inactive) {
       & > #{$this}__content {
         @include a--focus(
           true,
@@ -123,7 +123,7 @@
       }
     }
 
-    &:active:not(#{$this}--inactive) {
+    &#{$this}--active:not(#{$this}--inactive), &:active:not(#{$this}--inactive) {
       & > #{$this}__content {
         // transition: background 1s;
         // transition-delay: -1s;
@@ -132,7 +132,7 @@
       }
     }
 
-    &--disabled, &[disabled] {
+    &#{$this}--disabled, &[disabled] {
       @include button--disable();
       & > #{$this}__content, & > #{$this}__content:hover {
         background-color: $bg-color;
@@ -145,10 +145,10 @@
 
   @mixin button__make-content-color($text-color: color("medium-gray"), $text-hover-color: color("gray")) {
     color: $text-color;
-    &:hover {
+    &#{$this}--hover, &:hover {
       color: $text-hover-color;
     }
-    &:active {
+    &#{$this}--active, &:active {
       & > #{$this}__content {
         color: darken($text-hover-color, 5%);
         filter: contrast(130%);
@@ -167,7 +167,10 @@
   padding: 0;
   cursor: pointer;
   font-size: $button--default-font-size;
-  &:hover:not(#{$this}--inactive), &:focus:not(#{$this}--inactive) {
+  &--hover:not(#{$this}--inactive),
+  &:hover:not(#{$this}--inactive),
+  &--focus:not(#{$this}--inactive),
+  &:focus:not(#{$this}--inactive) {
     // color: inherit;
     text-decoration: none;
     cursor: pointer;
@@ -188,6 +191,7 @@
     }
   }
 
+  &--focus:not(#{$this}--inactive),
   &:focus:not(#{$this}--inactive) {
     outline: none;
     & > #{$this}__content {
@@ -300,11 +304,13 @@
 
   &--hover {
     &-white {
+      &#{$this}--hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive),
       &:hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: color("white");
         }
       }
+      &#{$this}--active:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive),
       &:active:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: map-get($button--active-color-map, color("white"));
@@ -312,11 +318,13 @@
       }
     }
     &-default {
+      &#{$this}--hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive),
       &:hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: map-get($button--hover-color-map, color("white"));
         }
       }
+      &#{$this}--active:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive),
       &:active:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: map-get($button--active-color-map, color("white"));
@@ -324,11 +332,13 @@
       }
     }
     &-menu {
+      &#{$this}--hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive),
       &:hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: color("pale-blue");
         }
       }
+      &#{$this}--active:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive),
       &:active:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
           background-color: darken(color("pale-blue"), 10%);
