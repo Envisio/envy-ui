@@ -19,6 +19,7 @@ export const ui = partial(_uiGeneric, _classNameWrapper);
 export const uiMerge = partial(_uiGeneric, _noWrapper);
 
 export * from './from-dictionary/block_name';
+export * from './react_select/rs_dropdown_menu';
 
 // // Abstract Library
 // export const uiA = getBlock($ui.A);
