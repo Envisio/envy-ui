@@ -332,6 +332,8 @@
       }
     }
     &-menu {
+      &#{$this}--focus:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive),
+      &:focus:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive),
       &#{$this}--hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive),
       &:hover:not([disabled]):not(#{$this}--disabled):not(#{$this}--inactive) {
         & > #{$this}__content {
