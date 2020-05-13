@@ -261,26 +261,32 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
       box-sizing: border-box;
       align-items: center;
     }
+    .kss-main {
+      height: calc(100vh - #{$kss-header-height});
+    }
   }
 
   .kss-main {
     width: 100%;
     margin: $kss-header-height auto 0;
     position: relative;
-    height: calc(100vh - #{$kss-header-height});
     overflow: auto;
     z-index: -1;
+    margin-top: 0;
 
     @media screen and (min-width: 769px) {
       width: 80%;
       margin-left: 20%;
       padding: 0 20px 0 30px;
+      margin-top: 50px;
     }
   }
 
   .kss-sidebar {
     border-bottom:1px solid #ddd;
     background-color: $kss-colors-brand2;
+    margin-top: 50px;
+    // padding-top: 10px;
 
     @media screen and (min-width: 769px) {
       position: fixed;
@@ -322,6 +328,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 2;
   }
 
   // .kss-nav {
@@ -332,8 +339,9 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
   .kss-nav__menu {
     // margin-top: ($kss-vertical-rhythm/2);
-    margin-bottom: ($kss-vertical-rhythm/2);
+    margin-bottom: 10px;
     padding: 0;
+    padding-top: 5px;
     list-style-type: none;
     font-size: 1.2em;
   }
