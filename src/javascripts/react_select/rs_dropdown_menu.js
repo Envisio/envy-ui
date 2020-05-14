@@ -4,7 +4,7 @@ import { UI_COLOR_PALE_BLUE } from '../index'
 console.log('>>>----------------------', UI_COLOR_PALE_BLUE)
 
 const jss = jssGlobal['@global'];
-jssCard = jss['.env-card'];
+const jssCard = jss['.env-card'];
 // const jssCardMod = jss['.env-card--shadow-strong']
 // const jssButton = jss['.env-button']
 
