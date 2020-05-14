@@ -1,0 +1,84 @@
+
+// sass-true testing
+@import 'sass-true/sass/_true.scss';
+
+// Blocks Names
+@import 'from-dictionary/block-name/block-name';
+
+// Tokens based variables
+@import 'from-dictionary/color/color';
+@import 'from-dictionary/color/color-map';
+@import 'from-dictionary/color/color-kss';
+
+@import 'utils/functions';
+@import 'utils/functions-specs';
+
+// Initial setting
+@import 'a/settings/settings';
+
+/* Utils */
+@import 'utils/variables';
+@import 'utils/mixin';
+
+/* Debug */
+@import 'utils/debug';
+
+// @import 'a/settings/color-settings';
+@import 'a/settings/filter-settings';
+@import 'a/settings/visibility-settings';
+// @import 'a/settings/border-settings';
+
+/* Reset */
+// @import 'reset/index';
+
+/* Blocks */
+// Forms
+// @import 'blocks/form';
+// @import 'blocks/form-row';
+//Table
+// @import 'blocks/table';
+// Containers
+// @import 'blocks/card';
+// @import 'blocks/panel';
+// @import 'blocks/info';
+// Buttons & controls
+// @import 'blocks/checkbox/index';
+// @import 'blocks/button/index';
+// @import 'blocks/button-switch';
+// @import 'blocks/collapser/index';
+// Inputs
+// @import 'blocks/input-text';
+// @import 'blocks/input-group';
+// @import 'blocks/select/index';
+// @import 'blocks/calendar';
+// Menus
+// @import 'blocks/menu-dropdown';
+// @import 'blocks/menu-folder';
+// Specific Shared components
+// @import 'blocks/visual';
+// @import 'blocks/show-on-hover';
+// @import 'blocks/focus';
+// Data Source components
+// @import 'blocks/s3-uploader';
+// Icons
+// @import 'blocks/icon-stack';
+// @import 'blocks/icon-svg';
+// Info Elements
+// @import 'blocks/badge/index';
+// @import 'blocks/alert/index';
+// Loader
+// @import 'blocks/loader/index';
+// Third party lib elements styling
+// @import 'blocks/autosize-input';
+
+@import 'blocks/card/index';
+@import 'blocks/button/index';
+
+/* Abstracts */
+// .a {
+//   @import 'a/index';
+// }
+
+/* Overwrites */
+// @import 'overwrite/overwrite-pa';
+// @import 'overwrite/overwrite-pl';
