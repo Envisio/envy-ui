@@ -54,7 +54,7 @@ export const rsDropdownMenu = ((jssCard, jssCardMod, jssButton, UI_COLOR_PALE_BL
       ...provided,
     })
   },
-  component: {
+  components: {
     IndicatorSeparator: () => null,
     Placeholder: () => null,
     SingleValue: () => null,
