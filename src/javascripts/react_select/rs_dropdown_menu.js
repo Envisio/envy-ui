@@ -7,7 +7,7 @@ const jss = jssGlobal['@global']
 
 export const rsDropdownMenu = ({
   jssCard: jss['.env-card'],
-  init: function () {
+  init: function (UI_COLOR_PALE_BLUE) {
     return {
       styles: {
         menu: (provided) => ({
@@ -70,4 +70,4 @@ export const rsDropdownMenu = ({
       }),
     }
   }
-}).init();
+}).init(UI_COLOR_PALE_BLUE);
