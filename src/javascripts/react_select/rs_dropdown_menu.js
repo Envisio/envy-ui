@@ -7,7 +7,6 @@ const jss = jssGlobal['@global']
 
 export const rsDropdownMenu = ({
   jssCard: jss['.env-card'],
-  UI_COLOR_PALE_BLUE,
   init: function () {
     return {
       styles: {
@@ -65,8 +64,8 @@ export const rsDropdownMenu = ({
         borderRadius: 3,
         colors: {
           ...theme.colors,
-          primary25: this.UI_COLOR_PALE_BLUE,
-          primary: this.UI_COLOR_PALE_BLUE,
+          primary25: UI_COLOR_PALE_BLUE,
+          primary: UI_COLOR_PALE_BLUE,
         },
       }),
     }
