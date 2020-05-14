@@ -1,12 +1,8 @@
 import jssGlobal from '../from-css/ui-jss';
 import { UI_COLOR_PALE_BLUE } from '../index'
 
-console.log('>>>----------------------', UI_COLOR_PALE_BLUE)
-
 const jss = jssGlobal['@global'];
 const jssCard = jss['.env-card'];
-// const jssCardMod = jss['.env-card--shadow-strong']
-// const jssButton = jss['.env-button']
 
 export const rsDropdownMenu = {
   styles: {
@@ -52,6 +48,8 @@ export const rsDropdownMenu = {
     }),
     option: (provided) => ({
       ...provided,
+      cursor: 'pointer',
+      paddingRight: '10px',
     })
   },
   components: {
@@ -59,7 +57,7 @@ export const rsDropdownMenu = {
     Placeholder: () => null,
     SingleValue: () => null,
   },
-  theme: theme => (console.log('rrttttttt', UI_COLOR_PALE_BLUE),{
+  theme: theme => ({
     ...theme,
     borderRadius: 3,
     colors: {
