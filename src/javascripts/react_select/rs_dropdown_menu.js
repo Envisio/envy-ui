@@ -49,7 +49,7 @@ export const rsDropdownMenu = {
     option: (provided) => ({
       ...provided,
       cursor: 'pointer',
-      paddingRight: '10px',
+      paddingRight: '25px',
     })
   },
   components: {
