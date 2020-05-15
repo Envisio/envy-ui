@@ -33,6 +33,7 @@ export const rsDropdownMenu = {
       ...provided,
       borderWidth: '0',
       boxShadow: '0',
+      backgroundColor: 'transparent',
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
