@@ -25,6 +25,9 @@
     &--short {
       flex-basis: $base-form-label-min-width - $base-form-margin-step;
     }
+    &--baseline {
+      align-self: baseline;
+    }
   }
 
   &--full {
@@ -62,5 +65,11 @@
 
   &--height-fixed {
     height: $label-fixed-height;
+  }
+
+  &--no-bootstrap {
+    label {
+      margin-bottom: 0;
+    }
   }
 }
