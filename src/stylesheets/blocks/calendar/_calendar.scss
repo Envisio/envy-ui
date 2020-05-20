@@ -4,6 +4,8 @@
 //
 // Styleguide Calendar
 
+/* stylelint-disable no-descending-specificity */
+
 .#{$uiCalendar} {
 
   $this: &;
@@ -12,14 +14,14 @@
   padding: 1px 0 0 1px;
   width: 250px;
 
-  &__button {
+  @mixin calendar__button() {
     @include flex(j-center, a-center);
     margin: -1px 0 0 -1px;
     width: 14.285714286%;
     padding-top: 4%;
     padding-bottom: 4%;
     border: 1px solid $plain-gray;
-    background-color: $gallery;
+
     line-height: 1;
     cursor: pointer;
     &--light {
@@ -51,6 +53,20 @@
     }
   }
 
+  &--light {
+    #{$this}__button {
+      background-color: color("white");
+      @include calendar__button;
+    }
+  }
+
+  &--default {
+    #{$this}__button {
+      background-color: $gallery;
+      @include calendar__button;
+    }
+  }
+
   &--disabled {
     pointer-events: none;
     #{$this}__button {
@@ -61,6 +77,8 @@
   }
 
 
+
+
   // &--small {
   //   height: $switch-button-height - ($switch-button-height / 4);
   //   #{$this}__button {
@@ -69,3 +87,5 @@
   //   }
   // }
 }
+
+/* stylelint-enable */
