@@ -25,9 +25,10 @@
     &--short {
       flex-basis: $base-form-label-min-width - $base-form-margin-step;
     }
-    &--baseline {
-      align-self: baseline;
-    }
+  }
+
+  &--baseline {
+    align-items: baseline;
   }
 
   &--full {
