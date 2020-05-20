@@ -21,8 +21,23 @@
     border: 1px solid $plain-gray;
     background-color: $gallery;
     line-height: 1;
+    cursor: pointer;
+    &--light {
+      background-color: color("white");
+    }
     &:hover {
-      background-color: $switch-button-hover-bg-color;
+      background-color: color("light-gray");
+    }
+    &:focus {
+      @include a--focus;
+    }
+    &:active {
+      background-color: lighten(color("pale-blue"), 3%);
+    }
+    &:disabled {
+      cursor: default;
+      opacity: $switch-button-selected-disabled-opacity;
+      box-shadow: none;
     }
     &--#{$class-active} {
       background-color: $brand-blue;
@@ -44,6 +59,7 @@
       box-shadow: none;
     }
   }
+
 
   // &--small {
   //   height: $switch-button-height - ($switch-button-height / 4);

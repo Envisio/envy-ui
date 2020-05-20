@@ -1,0 +1,5 @@
+<!-- Calendar -->
+div(class=`${uiCalendar``}`)
+  each item, index in Array(31)
+    button(class=`${uiCalendar`__button --active:${index == 10 }`} ${index == 18 ? 'pseudo-class-hover' : ''} ${index == 22 ? 'pseudo-class-focus' : ''} ${index == 25 ? 'pseudo-class-active' : ''} ${index == 14 ? 'env-calendar__button--disabled' : ''} {{modifier_class}}` disabled=(index == 8 ? 'disabled' : false))
+      = index + 1
