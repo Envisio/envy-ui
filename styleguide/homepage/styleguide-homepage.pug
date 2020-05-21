@@ -47,9 +47,9 @@ p(class=uiA`text-align-right`) version: !{env.npm_package_version}
         .env-collapser.env-a-m(class=`${collapserBaseClass} ${collapserModClass} ${collapserSizeClass}`)
 
 +cardBlock('section-calendar.html', 'Calendar (uiCalendar)')
-  .env-calendar
+  div(class=uiCalendar`--default`)
     each item, index in Array(31)
-      button.env-calendar__button(class=`${index == 15 ? 'env-calendar__button--active' : ''}`)
+      button(class=uiCalendar`__button --active:${index == 15}`)
         = index + 1
 
 +section('Input')
