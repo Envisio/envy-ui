@@ -39,4 +39,18 @@
   fieldset[disabled] & {
     cursor: $a-cursor-disabled;
   }
+
+  &--stack-left, &--stack-left:focus {
+    border-radius: $a-default-border-radius 0 0 $a-default-border-radius;
+    border-right: 0;
+  }
+
+  &--stack-right, &--stack-right:focus {
+    border-radius: 0 $a-default-border-radius $a-default-border-radius 0;
+  }
+
+  &--stack, &--stack:focus {
+    border-radius: 0;
+    border-right: 0;
+  }
 }
