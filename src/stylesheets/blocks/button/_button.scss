@@ -474,6 +474,54 @@
       color: transparent !important;
     }
   }
+
+  &--hover-remove-person {
+    &:focus:not([disabled]),
+    &:hover:not([disabled]) {
+      & > #{$this}__content {
+        position: relative;
+        border-color: color("red");
+        background-color: color("white");
+        color: transparent;
+        &::after {
+          content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48cGF0aCBmaWxsPSIjY2MxODFlIiBkPSJNNTgyLjYgMjQwbDU1LTU1YzMuMS0zLjEgMy4xLTguMiAwLTExLjNsLTExLjMtMTEuM2MtMy4xLTMuMS04LjItMy4xLTExLjMgMGwtNTUgNTUtNTUtNTVjLTMuMS0zLjEtOC4yLTMuMS0xMS4zIDBsLTExLjMgMTEuM2MtMy4xIDMuMS0zLjEgOC4yIDAgMTEuM2w1NSA1NS01NSA1NWMtMy4xIDMuMS0zLjEgOC4yIDAgMTEuM2wxMS4zIDExLjNjMy4xIDMuMSA4LjIgMy4xIDExLjMgMGw1NS01NSA1NSA1NWMzLjEgMy4xIDguMiAzLjEgMTEuMyAwbDExLjMtMTEuM2MzLjEtMy4xIDMuMS04LjIgMC0xMS4zbC01NS01NXpNMjI0IDI1NmM3MC43IDAgMTI4LTU3LjMgMTI4LTEyOFMyOTQuNyAwIDIyNCAwIDk2IDU3LjMgOTYgMTI4czU3LjMgMTI4IDEyOCAxMjh6bTAtMjI0YzUyLjkgMCA5NiA0My4xIDk2IDk2cy00My4xIDk2LTk2IDk2LTk2LTQzLjEtOTYtOTYgNDMuMS05NiA5Ni05NnptODkuNiAyNTZjLTI4LjcgMC00Mi41IDE2LTg5LjYgMTYtNDcuMSAwLTYwLjgtMTYtODkuNi0xNkM2MC4yIDI4OCAwIDM0OC4yIDAgNDIyLjRWNDY0YzAgMjYuNSAyMS41IDQ4IDQ4IDQ4aDM1MmMyNi41IDAgNDgtMjEuNSA0OC00OHYtNDEuNmMwLTc0LjItNjAuMi0xMzQuNC0xMzQuNC0xMzQuNHpNNDE2IDQ2NGMwIDguOC03LjIgMTYtMTYgMTZINDhjLTguOCAwLTE2LTcuMi0xNi0xNnYtNDEuNkMzMiAzNjUuOSA3Ny45IDMyMCAxMzQuNCAzMjBjMTkuNiAwIDM5LjEgMTYgODkuNiAxNiA1MC40IDAgNzAtMTYgODkuNi0xNiA1Ni41IDAgMTAyLjQgNDUuOSAxMDIuNCAxMDIuNFY0NjR6Ii8+PC9zdmc+");
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          position: absolute;
+          padding: 19% 12% 0% 17%;
+          right: 0;
+          top: 0;
+          color: color("red");
+          background-color: color("white");
+          border: 1px solid transparent;
+        }
+      }
+    }
+    &:focus:not([disabled]) {
+      & > #{$this}__content {
+        &::after {
+          @include a--focus(
+            true,
+            lighten(color("red"), 38%),
+            lighten(color("red"), 40%),
+            0.4
+          );
+        }
+      }
+    }
+    &:active:not([disabled]), &:active:focus:not([disabled]) {
+      & > #{$this}__content {
+        &::after {
+          background-color: lighten(color("red"), 40%)
+        }
+      }
+    }
+    // &#{$this}--large > #{$this}__content::after {
+    //   padding: 19% 14% 3% 19%;
+    // }
+  }
 }
 
 /* stylelint-enable */

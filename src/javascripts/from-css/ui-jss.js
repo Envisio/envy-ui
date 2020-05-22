@@ -507,6 +507,34 @@ export default {
     },
     '.env-button--loading > .env-button__content': {
       color: 'transparent !important'
+    },
+    '.env-button--hover-remove-person:focus:not([disabled]) > .env-button__content, .env-button--hover-remove-person:hover:not([disabled]) > .env-button__content': {
+      position: 'relative',
+      borderColor: '#cc181e',
+      backgroundColor: '#ffffff',
+      color: 'transparent'
+    },
+    '.env-button--hover-remove-person:focus:not([disabled]) > .env-button__content::after, .env-button--hover-remove-person:hover:not([disabled]) > .env-button__content::after': {
+      content: 'url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48cGF0aCBmaWxsPSIjY2MxODFlIiBkPSJNNTgyLjYgMjQwbDU1LTU1YzMuMS0zLjEgMy4xLTguMiAwLTExLjNsLTExLjMtMTEuM2MtMy4xLTMuMS04LjItMy4xLTExLjMgMGwtNTUgNTUtNTUtNTVjLTMuMS0zLjEtOC4yLTMuMS0xMS4zIDBsLTExLjMgMTEuM2MtMy4xIDMuMS0zLjEgOC4yIDAgMTEuM2w1NSA1NS01NSA1NWMtMy4xIDMuMS0zLjEgOC4yIDAgMTEuM2wxMS4zIDExLjNjMy4xIDMuMSA4LjIgMy4xIDExLjMgMGw1NS01NSA1NSA1NWMzLjEgMy4xIDguMiAzLjEgMTEuMyAwbDExLjMtMTEuM2MzLjEtMy4xIDMuMS04LjIgMC0xMS4zbC01NS01NXpNMjI0IDI1NmM3MC43IDAgMTI4LTU3LjMgMTI4LTEyOFMyOTQuNyAwIDIyNCAwIDk2IDU3LjMgOTYgMTI4czU3LjMgMTI4IDEyOCAxMjh6bTAtMjI0YzUyLjkgMCA5NiA0My4xIDk2IDk2cy00My4xIDk2LTk2IDk2LTk2LTQzLjEtOTYtOTYgNDMuMS05NiA5Ni05NnptODkuNiAyNTZjLTI4LjcgMC00Mi41IDE2LTg5LjYgMTYtNDcuMSAwLTYwLjgtMTYtODkuNi0xNkM2MC4yIDI4OCAwIDM0OC4yIDAgNDIyLjRWNDY0YzAgMjYuNSAyMS41IDQ4IDQ4IDQ4aDM1MmMyNi41IDAgNDgtMjEuNSA0OC00OHYtNDEuNmMwLTc0LjItNjAuMi0xMzQuNC0xMzQuNC0xMzQuNHpNNDE2IDQ2NGMwIDguOC03LjIgMTYtMTYgMTZINDhjLTguOCAwLTE2LTcuMi0xNi0xNnYtNDEuNkMzMiAzNjUuOSA3Ny45IDMyMCAxMzQuNCAzMjBjMTkuNiAwIDM5LjEgMTYgODkuNiAxNiA1MC40IDAgNzAtMTYgODkuNi0xNiA1Ni41IDAgMTAyLjQgNDUuOSAxMDIuNCAxMDIuNFY0NjR6Ii8+PC9zdmc+")',
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      position: 'absolute',
+      padding: '19% 12% 0% 17%',
+      right: '0',
+      top: '0',
+      color: '#cc181e',
+      backgroundColor: '#ffffff',
+      border: '1px solid transparent'
+    },
+    '.env-button--hover-remove-person:focus:not([disabled]) > .env-button__content::after': {
+      border: '1px solid #f6b0b2',
+      boxShadow: 'inset 0 0 1px 3px rgba(247, 185, 187, 0.4)',
+      outline: 'none'
+    },
+    '.env-button--hover-remove-person:active:not([disabled]) > .env-button__content::after, .env-button--hover-remove-person:active:focus:not([disabled]) > .env-button__content::after': {
+      backgroundColor: '#f7b9bb'
     }
   }
 };
