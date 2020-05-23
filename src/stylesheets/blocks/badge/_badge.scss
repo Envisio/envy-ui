@@ -15,6 +15,7 @@
   $badge--height-small: 20px;
   $badge--height-xsmall: 15px;
   $badge--height-large: 30px;
+  $badge--height-xlarge: 35px;
 
   @mixin badge__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
     $border-color: if($bg-color == color("white"), color("plain-gray"), $bg-color);
@@ -100,6 +101,22 @@
     &#{$this}--circle {
       width: $badge--height-large;
       min-width: $badge--height-large;
+      padding: 1px;
+    }
+  }
+
+  &--xlarge {
+    font-size: $a-default-font-size;
+    height: $badge--height-xlarge;
+    padding: 0 $space-large;
+
+    &#{$this}--round {
+        border-radius: $badge--height-xlarge / 2;
+    }
+
+    &#{$this}--circle {
+      width: $badge--height-large;
+      min-width: $badge--height-xlarge;
       padding: 1px;
     }
   }
