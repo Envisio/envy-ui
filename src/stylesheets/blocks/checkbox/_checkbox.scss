@@ -152,9 +152,9 @@
     &--toggle {
       @include a--focus(
         true,
-        darken(color("on-track"), 10%),
-        darken(color("on-track"), 10%),
-        0.4
+        color("green"),
+        color("white"),
+        0.25
       );
     }
     &--check {
