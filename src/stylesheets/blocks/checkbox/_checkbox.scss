@@ -51,9 +51,13 @@
     background-color: $white;
   }
   &--radio {
-    @include box($check-size + ($check-size / 8), $check-size + ($check-size / 8));
+    display: inline-block;
+    position: relative;
+    width: $check-size + 0.2em;
+    height: $check-size + 0.2em;
     border-radius: 50%;
     background-color: $white;
+    border: 1px solid color("plain-gray");
   }
   &--toggle {
     @include box($toggle-base-size * 2.2, $toggle-base-size, $santas-gray);
@@ -74,7 +78,7 @@
     }
   }
   @at-root input[type="checkbox"]:checked + #{$this} {
-    &--check, &--radio {
+    &--check {
       &::after {
         @include box($check-tick-base-size, $check-tick-base-size * 2, $on-track);
         content: "";
@@ -86,11 +90,17 @@
       }
     }
     &--radio {
+      border-color: color("on-track");
       &::after {
-        @include box($check-tick-base-size+ ($check-size / 6), ($check-tick-base-size + ($check-size / 6)) * 2, $on-track);
-        border-width: 0 2px 2px 0;
-        right: -0.5em;
-        top: -0.25em;
+        content: "";
+        position: absolute;
+        display: block;
+        background-color: color("on-track");
+        width: $check-size - 0.4em !important;
+        height: $check-size - 0.4em !important;
+        top: 0.2em;
+        left: 0.2em;
+        border-radius: 50%;
       }
     }
     &--toggle {
@@ -106,6 +116,12 @@
   @at-root input[type="checkbox"][disabled] + #{$this} {
     &--check, &--toggle, &--radio {
       @extend %ui-checkbox-disable-state-painter;
+    }
+    &--radio {
+      border-color: color("plain-gray") !important;
+      &:after {
+        background-color: color("plain-gray") !important;
+      }
     }
   }
 
@@ -129,6 +145,35 @@
     outline: none;
     @include a--focus();
   }
+
+  @at-root input[type="checkbox"]:focus:checked + #{$this} {
+    outline: none;
+    &--toggle {
+      @include a--focus(
+        true,
+        darken(color("on-track"), 10%),
+        darken(color("on-track"), 10%),
+        0.4
+      );
+    }
+    &--check {
+      @include a--focus(
+        true,
+        color("on-track"),
+        color("on-track"),
+        0.4
+      );
+    }
+    &--radio {
+      @include a--focus(
+        true,
+        color("on-track"),
+        color("on-track"),
+        0.4
+      );
+    }
+  }
+
   &--disabled {
     @extend %ui-checkbox-disable-state-painter;
   }
