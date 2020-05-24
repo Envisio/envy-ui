@@ -43,7 +43,7 @@ export default class CheckboxWrapper extends Component {
     return (
       Children.map(children, child => (
         <Fragment>
-          {cloneElement(child, { id: this.uid, ...ui(uiA`vanish`) })}
+          {cloneElement(child, { id: this.uid, ...ui(uiA`vanish inline-block`) })}
           <label
             {...ui([
               uiCheckbox`--toggle:${themeToggle} --check:${themeCheck} --radio:${themeRadio} --disabled:${child.props.disabled}`,
