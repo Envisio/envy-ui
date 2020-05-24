@@ -4,6 +4,8 @@
 //
 // Styleguide Button Switch
 
+/* stylelint-disable no-descending-specificity */
+
 .#{$uiButtonSwitch} {
 
   $this: &;
@@ -39,7 +41,22 @@
       }
     }
     &:hover {
-      background-color: $switch-button-hover-bg-color;
+      background-color: color("light-gray");
+    }
+    &:active {
+      background-color: lighten(color("pale-blue"), 3%);
+    }
+    &:disabled {
+      cursor: default;
+      opacity: $switch-button-selected-disabled-opacity;
+      box-shadow: none;
+    }
+    &:focus {
+      @include a--focus;
+      border-right-width: 0;
+    }
+    &:focus:last-child {
+      border-right-width: 1px;
     }
     &--active {
       background-color: $switch-button-selected-bg-color;
@@ -72,3 +89,5 @@
     }
   }
 }
+
+/* stylelint-enable */

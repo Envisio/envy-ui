@@ -1,0 +1,6 @@
+<!-- Button Switch -->
+- var switchButtonData = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6", "Option 7", "Option 8"]
+div(class=`${uiButtonSwitch``} {{modifier_class}}`)
+  each item, index in switchButtonData
+    button(class=`${uiButtonSwitch`__button --active:${index == 2 }`} ${index == 3 ? 'pseudo-class-hover' : ''} ${index == 5 ? 'pseudo-class-focus' : ''} ${index == 6 ? 'pseudo-class-active' : ''} ${index == 7 ? 'env-calendar__button--disabled' : ''}` disabled=(index == 8 ? 'disabled' : false))
+      = item
