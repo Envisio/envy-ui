@@ -40,7 +40,7 @@
         border-right-color: darken($switch-button-selected-bg-color, 5%);
       }
     }
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: color("light-gray");
     }
     &:active {
@@ -48,7 +48,7 @@
     }
     &:disabled {
       cursor: default;
-      opacity: $switch-button-selected-disabled-opacity;
+      color: color("plain-gray");
       box-shadow: none;
     }
     &:focus {
@@ -65,7 +65,7 @@
       cursor: default;
       border-top-color: darken($switch-button-selected-bg-color, 5%);
       border-bottom-color: darken($switch-button-selected-bg-color, 5%);
-      &:hover {
+      &:hover:not(:disabled) {
         background-color: $switch-button-selected-bg-color;
         // background-color: darken($switch-button-selected-bg-color, 5%);
       }
