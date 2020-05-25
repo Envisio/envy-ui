@@ -1,10 +1,10 @@
 $a-text-aligns: left, right, center, justify;
 
 @mixin a-text-ellipsis {
-  display: inline-block#{$a-important};
   white-space: nowrap#{$a-important};
   overflow: hidden#{$a-important};
   max-width: 100%#{$a-important};
+  min-width: 0;
   text-overflow: ellipsis#{$a-important};
 }
 
