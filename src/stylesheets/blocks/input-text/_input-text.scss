@@ -31,6 +31,10 @@
     border: 0;
   }
 
+  &::-ms-clear {
+    display: none;
+  }
+
   &[disabled], &[readonly], &--disabled {
     background-color: color("gallery");
     opacity: 1;
