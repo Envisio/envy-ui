@@ -76,6 +76,7 @@
     pointer-events: none;
     #{$this}__button {
       cursor: default;
+      color: color("plain-gray");
       opacity: $switch-button-selected-disabled-opacity;
       box-shadow: none;
     }
