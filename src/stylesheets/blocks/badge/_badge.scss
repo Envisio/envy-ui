@@ -85,7 +85,7 @@
     &#{$this}--circle {
       width: $badge--height-xsmall;
       min-width: $badge--height-xsmall;
-      padding: 1px;
+      padding: 0;
     }
   }
 
@@ -101,7 +101,7 @@
     &#{$this}--circle {
       width: $badge--height-large;
       min-width: $badge--height-large;
-      padding: 1px;
+      padding: 0;
     }
   }
 
@@ -115,9 +115,9 @@
     }
 
     &#{$this}--circle {
-      width: $badge--height-large;
+      width: $badge--height-xlarge;
       min-width: $badge--height-xlarge;
-      padding: 1px;
+      padding: 0;
     }
   }
 
