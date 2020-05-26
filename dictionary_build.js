@@ -95,6 +95,7 @@ const makeTokenFolders = () => ({
     {
       source: [
         `${PROPERTIES_PATH}${COLOR}/color-button.json`,
+        `${PROPERTIES_PATH}${COLOR}/base.json`,
       ],
       platforms: {
         scss: {

@@ -3,13 +3,16 @@
     "--mint-blue": {
       "default": {
         "color": {
-          "value": "#546666"
+          "value": "{color.white}"
         },
         "background-color": {
           "value": "#546666"
         },
         "border-color": {
-          "value": "#546666"
+          "value": "{color-button.--mint-blue.default.background-color}",
+          "functions": {
+            "value": "222%"
+          }
         }
       },
       "hover": {
