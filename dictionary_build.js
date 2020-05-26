@@ -92,6 +92,32 @@ const makeTokenFolders = () => ({
         },
       },
     },
+    {
+      source: [
+        `${PROPERTIES_PATH}${COLOR}/color-button.json`,
+      ],
+      platforms: {
+        scss: {
+          transformGroup: 'scss',
+          buildPath: `${SCSS_PATH}${COLOR}/`,
+          transforms: ['name/cti/kebab'],
+          files: [{
+            destination: '_color-button.scss',
+            format: 'scss/map-deep',
+          }],
+        },
+        js: {
+          transformGroup: 'js',
+          prefix: 'UI',
+          buildPath: `${JS_PATH}`,
+          transforms: ['name/cti/constant'],
+          files: [{
+            destination: 'color-button.js',
+            format: 'javascript/es6',
+          }],
+        },
+      },
+    },
   ],
   'block-name': [
     {

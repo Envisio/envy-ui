@@ -1,0 +1,38 @@
+{
+  "color-button": {
+    "--mint-blue": {
+      "default": {
+        "color": {
+          "value": "#546666"
+        },
+        "background-color": {
+          "value": "#546666"
+        },
+        "border-color": {
+          "value": "#546666"
+        }
+      },
+      "hover": {
+        "background-color": {
+          "value": "#546666"
+        }
+      },
+      "active": {
+        "background-color": {
+          "value": "#546666"
+        },
+        "border-color": {
+          "value": "#546666"
+        }
+      },
+      "focus": {
+        "background-color": {
+          "value": "#546666"
+        },
+        "border-color": {
+          "value": "#546666"
+        }
+      }
+    }
+  }
+}
