@@ -250,7 +250,7 @@
 
   &--menu, &--menu-top, &--menu-bottom {
     & > #{$this}__content {
-      justify-content: start;
+      justify-content: flex-start;
     }
   }
 

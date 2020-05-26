@@ -380,7 +380,7 @@ export default {
       outline: 'none'
     },
     '.env-button--menu > .env-button__content, .env-button--menu-top > .env-button__content, .env-button--menu-bottom > .env-button__content': {
-      justifyContent: 'start'
+      justifyContent: 'flex-start'
     },
     '.env-button--menu > .env-button__content': {
       borderRadius: '0'
