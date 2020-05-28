@@ -1,25 +1,30 @@
-.kss-test-flex
+div(class=uiA`f`)
   // No state
-  button.env-button(class='{{modifier_class}}' tabindex='0')
-    div.env-button__content(tabindex='-1')
+  button.env-button(class='{{modifier_class}}')
+    div.env-button__content
       | Button
   | &nbsp;
   // Hover state
-  button.env-button.pseudo-class-hover(class='{{modifier_class}}' tabindex='0')
-    div.env-button__content(tabindex='-1')
+  button.env-button.pseudo-class-hover(class='{{modifier_class}}')
+    div.env-button__content
       | Button
   | &nbsp;
   // Focused state
-  button.env-button.pseudo-class-focus(class='{{modifier_class}}' tabindex='0')
-    div.env-button__content(tabindex='-1')
+  button.env-button.pseudo-class-focus(class='{{modifier_class}}')
+    div.env-button__content
       | Button
   | &nbsp;
   // Active state
-  button.env-button.pseudo-class-active(class='{{modifier_class}}' tabindex='0')
-    div.env-button__content(tabindex='-1')
+  button.env-button.pseudo-class-active(class='{{modifier_class}}')
+    div.env-button__content
       | Button
   | &nbsp;
-  // Disable state
-  button.env-button(class='{{modifier_class}}' disabled='' tabindex='0')
-    div.env-button__content(tabindex='-1')
+  // Disabled state
+  button.env-button(class='{{modifier_class}}' disabled='')
+    div.env-button__content
+      | Button
+  | &nbsp;
+  // --inactive state
+  button(class=uiMerge([uiButton`--inactive`, '{{modifier_class}}']) tabindex="-1")
+    div(class=uiMerge([uiButton`__content`]))
       | Button
