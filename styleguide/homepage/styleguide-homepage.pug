@@ -225,3 +225,24 @@ p(class=uiA`text-align-right`) version: !{env.npm_package_version}
 +cardBlock('section-s3-uploader.html', 'S3 Uploader (uiS3Uploader)')
   .env-a-m Used with S3 uploader react component
 
++section('Examples')
+
++cardBlock('section-visual.html', 'Cards')
+  div(class=uiMerge([uiCard``, uiA`relative m-right`]))
+    div(class=uiA`w-300 h-200 m-top-25 m-x`)
+      | Card Content
+      br
+      | Without Submit Button
+    button(class=uiMerge([uiButton`--clean --small --circle --gray`, uiA`absolute top right`]))
+      span(class=uiMerge([uiButton`__content`]))
+        | X
+
+  div(class=uiMerge([uiCard``, uiA`relative`]))
+    div(class=uiA`w-300 h-200 m-top-25 m-x`)
+      | Card Content
+      br
+      | Without Submit Button
+    div(class=uiA`w-300 h-45 m-top-25 m-x`)
+    button(class=uiMerge([uiButton`--clean --small --circle --gray`, uiA`absolute top right`]))
+      span(class=uiMerge([uiButton`__content`]))
+        | X
