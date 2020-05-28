@@ -14,10 +14,13 @@ const JS_PATH = './src/javascripts/from-dictionary/';
 const PROPERTIES_PATH = './src/dictionary/properties/'
 const STYLEGUIDE_PUG_PATH = './styleguide/homepage/from-dictionary/';
 const COLOR = 'color';
+const SHAPE = 'shape';
+const BLOCK_NAME = 'block-name';
 
 const buildList = [
+  SHAPE,
   COLOR,
-  'block-name',
+  BLOCK_NAME,
 ];
 
 function fileHeader(options, commentStyle = 'short') {
@@ -96,6 +99,7 @@ const makeTokenFolders = () => ({
       source: [
         `${PROPERTIES_PATH}${COLOR}/color-button.json`,
         `${PROPERTIES_PATH}${COLOR}/base.json`,
+        `${PROPERTIES_PATH}${SHAPE}/base.json`,
       ],
       platforms: {
         scss: {
@@ -103,6 +107,8 @@ const makeTokenFolders = () => ({
           buildPath: `${SCSS_PATH}${COLOR}/`,
           transforms: ['name/cti/kebab'],
           files: [{
+            "mapName": "tokens-color-button",
+            filter: filterForCategory(['color-button']),
             destination: '_color-button.scss',
             format: 'scss/map-deep',
           }],
@@ -114,11 +120,40 @@ const makeTokenFolders = () => ({
           transforms: ['name/cti/constant'],
           files: [{
             destination: 'color-button.js',
+            filter: filterForCategory(['color-button']),
             format: 'javascript/es6',
           }],
         },
       },
     },
+  ],
+  shape: [
+    {
+      source: [
+        `${PROPERTIES_PATH}${SHAPE}/base.json`,
+      ],
+      platforms: {
+        scss: {
+          transformGroup: 'scss',
+          buildPath: `${SCSS_PATH}${SHAPE}/`,
+          transforms: ['name/cti/kebab'],
+          files: [{
+            destination: `_${SHAPE}.scss`,
+            format: 'scss/variables',
+          }],
+        },
+        js: {
+          transformGroup: 'js',
+          prefix: 'UI',
+          buildPath: `${JS_PATH}`,
+          transforms: ['name/cti/constant'],
+          files: [{
+            destination: `${SHAPE}.js`,
+            format: 'javascript/es6',
+          }],
+        },
+      },
+    }
   ],
   'block-name': [
     {
