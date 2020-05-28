@@ -43,14 +43,13 @@
     "css-lint": "stylelint dist/css/ui.css",
     "webpack": "webpack --config webpack.config.js",
     "babel": "npx babel src/javascripts --out-dir lib",
-    "run-all": "npm run remove ; npm run dictionary && npm run css-jss && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss && npm run css-lint",
+    "run-all": "npm run remove ; npm run dictionary && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss && npm run css-lint",
     "dictionary": "node dictionary_build.js",
     "watch": "npm-watch",
     "specificity": "./node_modules/.bin/specificity-graph dist/css/ui.css --output dist/styleguide/specificity",
     "render-styleguide-homepage": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
     "render-markups": "./node_modules/.bin/pug --pretty -O src/javascripts/from-dictionary/block_name.styleguide.js src/stylesheets/a/kss/src/ --out src/stylesheets/a/kss/build/",
-    "deploy": "npm run specificity && ./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist",
-    "css-jss": "./node_modules/.bin/node-sass --include-path node_modules/ src/stylesheets/ui-jss.scss src/javascripts/from-css/ui-jss.css && ./node_modules/.bin/jss convert src/javascripts/from-css/ui-jss.css -f js -e es6 > src/javascripts/from-css/ui-jss.js && rm -r -f src/javascripts/from-css/ui-jss.css"
+    "deploy": "npm run specificity && ./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist"
   },
   "repository": {
     "type": "git",
@@ -74,7 +73,7 @@
     "highlight.js": "^9.18.1",
     "json-concat": "0.0.1",
     "kss": "^3.0.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "npm-watch": "^0.6.0",
     "pug": "^2.0.4",
     "pug-cli": "^1.0.0-alpha6",
@@ -92,7 +91,6 @@
   "dependencies": {
     "detect-browser": "^5.0.0",
     "dom-to-image": "^2.6.0",
-    "jss-cli": "^6.0.0",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
