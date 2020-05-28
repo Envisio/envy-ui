@@ -16,11 +16,13 @@ const STYLEGUIDE_PUG_PATH = './styleguide/homepage/from-dictionary/';
 const COLOR = 'color';
 const SHAPE = 'shape';
 const BLOCK_NAME = 'block-name';
+const BLOCK = 'block';
 
 const buildList = [
   SHAPE,
   COLOR,
   BLOCK_NAME,
+  BLOCK,
 ];
 
 function fileHeader(options, commentStyle = 'short') {
@@ -95,32 +97,36 @@ const makeTokenFolders = () => ({
         },
       },
     },
+  ],
+  block: [
     {
       source: [
-        `${PROPERTIES_PATH}${COLOR}/color-button.json`,
+        `${PROPERTIES_PATH}${BLOCK}/**/*.json`,
+        `${PROPERTIES_PATH}${BLOCK}/name.json`,
         `${PROPERTIES_PATH}${COLOR}/base.json`,
+        `${PROPERTIES_PATH}${SHAPE}/base.json`,
         `${PROPERTIES_PATH}${SHAPE}/base.json`,
       ],
       platforms: {
         scss: {
           transformGroup: 'scss',
-          buildPath: `${SCSS_PATH}${COLOR}/`,
+          buildPath: `${SCSS_PATH}${BLOCK}/`,
           transforms: ['name/cti/kebab'],
           files: [{
-            "mapName": "tokens-color-button",
-            filter: filterForCategory(['color-button']),
-            destination: '_color-button.scss',
+            "mapName": "tokens-button",
+            filter: filterForCategory(['button']),
+            destination: '_button.scss',
             format: 'scss/map-deep',
           }],
         },
         js: {
           transformGroup: 'js',
           prefix: 'UI',
-          buildPath: `${JS_PATH}`,
+          buildPath: `${JS_PATH}${BLOCK}/`,
           transforms: ['name/cti/constant'],
           files: [{
-            destination: 'color-button.js',
-            filter: filterForCategory(['color-button']),
+            destination: 'button.js',
+            filter: filterForCategory(['button']),
             format: 'javascript/es6',
           }],
         },

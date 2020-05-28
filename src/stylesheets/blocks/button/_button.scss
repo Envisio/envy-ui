@@ -92,9 +92,9 @@
 
   @mixin make-button-state-from-token($state-fragment, $modifier, $state) {
     #{$state-fragment} > #{$this}__content {
-      $schema-color: map-deep-get($tokens-color-button, "color-button", $modifier, $state);
-      border-width: 1px;
-      border-style: solid;
+      $schema-color: map-deep-get($tokens-button, "button", $modifier, $state);
+      // border-width: 1px;
+      // border-style: solid;
       @each $element, $color-value in $schema-color {
         #{$element}: $color-value;
       }
