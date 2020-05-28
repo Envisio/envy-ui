@@ -1,0 +1,13 @@
+{
+  "shape": {
+    "border-radius": {
+      "value": "3px"
+    },
+    "border-radius-inner": {
+      "value": "2px"
+    },
+    "focus-box-shadow": {
+      "value": "inset 0 0 0 3px"
+    }
+  }
+}

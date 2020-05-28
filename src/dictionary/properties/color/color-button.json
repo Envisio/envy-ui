@@ -3,37 +3,61 @@
     "--mint-blue": {
       "default": {
         "color": {
-          "value": "{color.white}"
+          "value": "{color.white.value}"
         },
         "background-color": {
-          "value": "#546666"
+          "value": "{color.brand-primary-alt.value}"
         },
         "border-color": {
-          "value": "{color-button.--mint-blue.default.background-color}",
-          "functions": {
-            "value": "222%"
-          }
+          "value": "#006a8b",
+          "comment": "darken 5% from color.brand-primary-alt.value"
         }
       },
       "hover": {
         "background-color": {
-          "value": "#546666"
+          "value": "{color-button.--mint-blue.default.border-color.value}"
         }
       },
       "active": {
         "background-color": {
-          "value": "#546666"
-        },
-        "border-color": {
-          "value": "#546666"
+          "value": "#0090be",
+          "comment": "lighten 5% from color.brand-primary-alt.value"
         }
       },
       "focus": {
+        "border-color": {
+          "value": "{color-button.--mint-blue.default.border-color.value}"
+        },
+        "box-shadow": {
+          "value": "{shape.focus-box-shadow.value} rgba(255,255,255,0.4)"
+        }
+      },
+      "disabled": {
         "background-color": {
-          "value": "#546666"
+          "value": "{color-button.--mint-blue.default.background-color.value}"
         },
         "border-color": {
-          "value": "#546666"
+          "value": "{color-button.--mint-blue.default.border-color.value}"
+        },
+        "box-shadow": {
+          "value": "none"
+        },
+        "opacity": {
+          "value": "0.5"
+        },
+        "filter": {
+          "value": "saturate(50%)"
+        }
+      },
+      "inactive": {
+        "background-color": {
+          "value": "{color-button.--mint-blue.default.background-color.value}"
+        },
+        "border-color": {
+          "value": "{color-button.--mint-blue.default.border-color.value}"
+        },
+        "box-shadow": {
+          "value": "none"
         }
       }
     }
