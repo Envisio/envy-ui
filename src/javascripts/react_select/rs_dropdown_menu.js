@@ -1,8 +1,4 @@
-import jssGlobal from '../from-css/ui-jss';
 import { UI_COLOR_PALE_BLUE } from '../index'
-
-const jss = jssGlobal['@global'];
-const jssCard = jss['.env-card'];
 
 export const rsDropdownMenu = {
   styles: {
@@ -16,7 +12,10 @@ export const rsDropdownMenu = {
       marginBottom: '0',
       padding: '0',
       right: '0',
-      ...jssCard,
+      border: '1px solid #d1d4e4',
+      borderRadius: 3,
+      backgroundColor: '#ffffff',
+      boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.1)'
     }),
     indicatorSeparator: (provided) => ({
       ...provided,
