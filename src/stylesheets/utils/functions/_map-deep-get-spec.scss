@@ -1,0 +1,34 @@
+$test-map: (
+  "test-foo": (
+    "test-bar": (
+      "test-banana": (
+        color: red
+      )
+    )
+  )
+);
+
+$test-bar: (
+  "test-banana": (
+    color: red
+  )
+);
+
+$test-banana: (
+  color: red
+);
+
+@include test-module('The [map-deep-get] function') {
+  @include test('returns correct deep map value 1') {
+    @include assert-equal(
+      map-deep-get($test-map, "test-foo", "test-bar"),
+      $test-bar
+    );
+  }
+  @include test('returns correct deep map value 1') {
+    @include assert-equal(
+      map-deep-get($test-map, "test-foo", "test-bar", "test-banana"),
+      $test-banana
+    );
+  }
+}
