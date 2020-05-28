@@ -90,6 +90,32 @@
   //   box-shadow: none;
   // }
 
+  @mixin make-button-state-from-token($state-fragment, $modifier, $state) {
+    #{$state-fragment} > #{$this}__content {
+      $schema-color: map-deep-get($tokens-color-button, "color-button", $modifier, $state);
+      border-width: 1px;
+      border-style: solid;
+      @each $element, $color-value in $schema-color {
+        #{$element}: $color-value;
+      }
+    }
+  }
+
+  @mixin make-button-from-tokens($modifier) {
+    @include a-button--clean;
+    // & > #{$this}__content {
+      @include make-button-state-from-token("&", $modifier, "default");
+      @include make-button-state-from-token("&:hover", $modifier, "hover");
+      @include make-button-state-from-token("&:focus", $modifier, "focus");
+      @include make-button-state-from-token("&:active", $modifier, "active");
+      @include make-button-state-from-token("&[disabled]", $modifier, "disabled");
+      @include make-button-state-from-token("&#{$this}--inactive", $modifier, "inactive");
+    // }
+    // &:hover > #{$this}__content {
+    //   @include make-button-state-from-token($modifier, "hover")
+    // }
+  }
+
   @mixin button__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
     @include a-button--clean;
     & > #{$this}__content {
@@ -220,6 +246,10 @@
 
   &--default {
     @include button__make-container-color(color("white"), color("default"));
+  }
+
+  &--mint-blue-do-not-use-it {
+    @include make-button-from-tokens("--mint-blue");
   }
 
   &--mint-blue {
