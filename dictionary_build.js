@@ -102,10 +102,10 @@ const makeTokenFolders = () => ({
     {
       source: [
         `${PROPERTIES_PATH}${BLOCK}/**/*.json`,
-        `${PROPERTIES_PATH}${BLOCK}/name.json`,
-        `${PROPERTIES_PATH}${COLOR}/base.json`,
+        // `${PROPERTIES_PATH}${BLOCK}/name.json`,
+        `${PROPERTIES_PATH}${COLOR}/*.json`,
         `${PROPERTIES_PATH}${SHAPE}/base.json`,
-        `${PROPERTIES_PATH}${SHAPE}/base.json`,
+        // `${PROPERTIES_PATH}${SHAPE}/base.json`,
       ],
       platforms: {
         scss: {

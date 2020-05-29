@@ -1,0 +1,31 @@
+{
+  "button": {
+    "--link": {
+      "default": {
+        "color": {
+          "value": "{color.brand-primary.value}"
+        }
+      },
+      "hover": {
+        "color": {
+          "value": "{color.brand-blue.value}"
+        }
+      },
+      "active": {
+        "color": {
+          "value": "{color.progress-bar.value}"
+        }
+      },
+      "disabled": {
+        "color": {
+          "value": "{button.--link.default.color.value}"
+        }
+      },
+      "inactive": {
+        "color": {
+          "value": "{button.--link.default.color.value}"
+        }
+      }
+    }
+  }
+}

@@ -1,28 +1,28 @@
 {
   "button": {
-    "--mint-blue": {
+    "--green": {
       "default": {
         "color": {
           "value": "{color.white.value}"
         },
         "background-color": {
-          "value": "{color.brand-primary-alt.value}"
+          "value": "{color.green.value}"
         },
         "border": {
-          "color": "#006a8b",
-          "value": "{shape.border.value} {button.--mint-blue.default.border.color}",
-          "comment": "darken 5% from color.brand-primary-alt.value"
+          "color": "#336534",
+          "value": "{shape.border.value} {button.--green.default.border.color}",
+          "comment": "darken 5% from color.green.value"
         }
       },
       "hover": {
         "background-color": {
-          "value": "{button.--mint-blue.default.border.color}"
+          "value": "{button.--green.default.border.color}"
         }
       },
       "active": {
         "background-color": {
-          "value": "#0090be",
-          "comment": "lighten 5% from color.brand-primary-alt.value"
+          "value": "#268c28",
+          "comment": "saturate 25% from color.green.value"
         },
         "box-shadow": {
           "value": "none"
@@ -30,18 +30,18 @@
       },
       "focus": {
         "border-color": {
-          "value": "{button.--mint-blue.default.border.color}"
+          "value": "{button.--green.default.border.color}"
         },
         "box-shadow": {
-          "value": "{shape.focus-box-shadow.value} rgba(255,255,255,0.4)"
+          "value": "{shape.focus-box-shadow.value} rgba(255,255,255,0.3)"
         }
       },
       "disabled": {
         "background-color": {
-          "value": "{button.--mint-blue.default.background-color.value}"
+          "value": "{button.--green.default.background-color.value}"
         },
         "border-color": {
-          "value": "{button.--mint-blue.default.border.color}"
+          "value": "{button.--green.default.border.color}"
         },
         "box-shadow": {
           "value": "none"
@@ -58,10 +58,10 @@
       },
       "inactive": {
         "background-color": {
-          "value": "{button.--mint-blue.default.background-color.value}"
+          "value": "{button.--green.default.background-color.value}"
         },
         "border-color": {
-          "value": "{button.--mint-blue.default.border.color}"
+          "value": "{button.--green.default.border.color}"
         },
         "box-shadow": {
           "value": "none"

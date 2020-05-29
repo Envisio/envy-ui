@@ -1,0 +1,14 @@
+{
+  "color-default": {
+    "text": {
+      "value": "{color.default.value}"
+    },
+    "focus-border": {
+      "value": "{color.cornflower-blue.value}"
+    },
+    "focus-shadow": {
+      "value": "rgba(118, 188, 208, 0.3)",
+      "comment": "rgba from color.cornflower-blue.value"
+    }
+  }
+}
