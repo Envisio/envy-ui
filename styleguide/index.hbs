@@ -85,6 +85,9 @@
                     {{#if new}}
                       <span class="env-badge env-badge--xsmall env-badge--ok env-badge--circle">N</span>
                     {{/if}}
+                    {{#if updated}}
+                      <span class="env-badge env-badge--xsmall env-badge--warning env-badge--circle">U</span>
+                    {{/if}}
                   </span>
                 </a>
               </li>
@@ -138,6 +141,9 @@
               {{/if}}
               {{#if new}}
                 <span class="env-badge env-badge--small env-badge--ok env-badge--round">{{new}}</span>
+              {{/if}}
+              {{#if updated}}
+                <span class="env-badge env-badge--small env-badge--warning env-badge--round">{{updated}}</span>
               {{/if}}
             </span>
           </a>
