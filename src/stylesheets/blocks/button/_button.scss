@@ -233,14 +233,14 @@
 
   // Content color modifiers
 
-  &--link {
+  &--content-link {
     // @include button__make-content-color(color("brand-primary"), color("brand-blue"));
-    @include make-button-from-tokens("--link");
+    @include make-button-from-tokens("--content-link");
   }
 
-  &--gray {
+  &--content-gray {
     // @include button__make-content-color(color("medium-gray"), color("gray"));
-    @include make-button-from-tokens("--gray");
+    @include make-button-from-tokens("--content-gray");
   }
 
   // Container color modifiers

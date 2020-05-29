@@ -1,29 +1,29 @@
 {
   "button": {
-    "--link": {
+    "--content-gray": {
       "default": {
         "color": {
-          "value": "{color.brand-primary.value}"
+          "value": "{color.medium-gray.value}"
         }
       },
       "hover": {
         "color": {
-          "value": "{color.brand-blue.value}"
+          "value": "{color.gray.value}"
         }
       },
       "active": {
         "color": {
-          "value": "{color.progress-bar.value}"
+          "value": "{color.blue.value}"
         }
       },
       "disabled": {
         "color": {
-          "value": "{button.--link.default.color.value}"
+          "value": "{button.--content-gray.default.color.value}"
         }
       },
       "inactive": {
         "color": {
-          "value": "{button.--link.default.color.value}"
+          "value": "{button.--content-gray.default.color.value}"
         }
       }
     }
