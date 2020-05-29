@@ -84,6 +84,7 @@
     "stylelint": "^13.2.1",
     "stylelint-config-recommended": "^3.0.0",
     "surge": "^0.21.3",
+    "tape": "^5.0.1",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-node-externals": "^1.7.2"
