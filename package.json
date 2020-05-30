@@ -43,13 +43,14 @@
     "css-lint": "stylelint dist/css/ui.css",
     "webpack": "webpack --config webpack.config.js",
     "babel": "npx babel src/javascripts --out-dir lib",
-    "run-all": "npm run remove ; npm run dictionary && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss && npm run css-lint",
+    "run-all": "npm run remove ; npm run dictionary && npm run js-test && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss && npm run css-lint",
     "dictionary": "node dictionary_build.js",
-    "watch": "npm-watch",
+    "watch": "./node_modules/.bin/npm-watch",
     "specificity": "./node_modules/.bin/specificity-graph dist/css/ui.css --output dist/styleguide/specificity",
     "render-styleguide-homepage": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
     "render-markups": "./node_modules/.bin/pug --pretty -O src/javascripts/from-dictionary/block_name.styleguide.js src/stylesheets/a/kss/src/ --out src/stylesheets/a/kss/build/",
-    "deploy": "npm run specificity && ./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist"
+    "deploy": "npm run specificity && ./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist",
+    "js-test": "./node_modules/.bin/babel-tape-runner src/javascripts/ui/tests/get_block.development.test.js | faucet"
   },
   "repository": {
     "type": "git",
@@ -62,14 +63,16 @@
   },
   "homepage": "https://github.com/Envisio/envy-ui#readme",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
+    "babel-tape-runner": "^3.0.0",
     "css-reporter": "0.0.6",
+    "faucet": "0.0.1",
     "highlight.js": "^9.18.1",
     "json-concat": "0.0.1",
     "kss": "^3.0.0",
@@ -98,6 +101,6 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.13.1",
     "react-resize-detector": "^4.2.1",
-    "short-unique-id": "^2.0.6"
+    "short-unique-id": "^3.0.2"
   }
 }
