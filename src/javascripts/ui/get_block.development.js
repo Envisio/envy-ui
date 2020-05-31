@@ -3,7 +3,7 @@ import { eq, split, without, isEmpty, memoize, values } from 'lodash';
 import { $uiA } from '../from-dictionary/block_raw_name';
 
 const _getAcssClasses = (block, predicates, fragment, i) => {
-  // console.log('block ', block);
+
   let thisBlock = block;
   let isRawClasses = false;
   const classNames = fragment.split(/(?!\(.*)\s(?![^(]*?\))/g).reduce((acc, el) => {
@@ -41,7 +41,7 @@ const _getAcssClasses = (block, predicates, fragment, i) => {
     if (classFragmentsInBrackes) {
       // console.log('this fragments in brackets ', classFragmentsInBrackes[1]);
 
-      classFragment = _getClasses(block, [], classFragmentsInBrackes[1], 1);
+      classFragment = _getAcssClasses(block, [], classFragmentsInBrackes[1], 1);
       isRawClasses = true;
     }
 
@@ -57,11 +57,10 @@ const _getAcssClasses = (block, predicates, fragment, i) => {
   return classNames;
 };
 
-const _getBlockClasses = (block, predicates, fragment, i) => {
+const _getBlockClasses = (block, predicates, fragment, i, useElementAsBlock = false, element = '') => {
   // console.log('block ', block);
   let thisBlock = block;
-  const isA = eq(thisBlock, $uiA);
-  let isRawClasses = false;
+  let thisElement = element;
   const classNames = fragment.split(/(?!\(.*)\s(?![^(]*?\))/g).reduce((acc, el) => {
     let classFragment = el;
     let classFragmentArr = [];
@@ -97,28 +96,27 @@ const _getBlockClasses = (block, predicates, fragment, i) => {
     if (classFragmentsInBrackes) {
       // console.log('this fragments in brackets ', classFragmentsInBrackes[1]);
 
-      classFragment = _getClasses(block, [], classFragmentsInBrackes[1], 1);
-      isRawClasses = true;
+      classFragment = _getBlockClasses(block, [], classFragmentsInBrackes[1], 1, true, thisElement);
     }
 
     switch (classFragment.substr(0, 2)) {
       case ('__'):
         classesString = `${classFragment}`;
         thisBlock = `${thisBlock}${classesString}`;
+        thisElement = thisBlock;
         break;
       case ('--'):
+        if (useElementAsBlock) {
+          thisBlock = thisElement;
+        }
         classesString = ` ${thisBlock}${classFragment}`;
         break;
       default:
-        classesString = (isA && !isRawClasses) ? `${thisBlock}${classFragment} ` : `${classFragment} `;
-    }
-
-    if (eq(classesString, `${$uiA} `)) {
-      classesString = '';
+        classesString = `${classFragment} `;
     }
 
     return `${acc}${classesString}`;
-  }, (i === 0 && !isA) ? thisBlock : '');
+  }, (i === 0) ? thisBlock : '');
 
   return classNames;
 };
@@ -129,7 +127,7 @@ const getBlock = blockName => memoize(
     // console.log('I am running...------------------------------------------------------');
     const thisBlock = blockName;
 
-    classProcessor = (eq(blockName, $uiA)) ? _getAcssClasses : _getBlockClasses;
+    const classProcessor = (eq(blockName, $uiA)) ? _getAcssClasses : _getBlockClasses;
 
     return elements.reduce((acc, el, i) => `${acc} ${classProcessor(thisBlock, predicates, el, i)}`, '').trim().replace(/\s+/g, ' ');
   },
