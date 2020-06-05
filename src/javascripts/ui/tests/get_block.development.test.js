@@ -79,7 +79,7 @@ test('A passing test', (assert) => {
 
 assertList.forEach(({actual, expected, testInfo}) => {
   test(testInfo, (assert) => {
-    assert.comment('--------------------- ' + actual);
+    // assert.comment('--------------------- ' + actual);
     assert.equal(
       actual,
       expected,
