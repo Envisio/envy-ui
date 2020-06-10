@@ -291,25 +291,26 @@
 
   // Menu modifier
 
-  &--menu, &--menu-top, &--menu-bottom {
+  &--menu, &--menu-top, &--menu-bottom, &--menu-stack {
     & > #{$this}__content {
       justify-content: flex-start;
     }
   }
 
-  &--menu {
+  &--menu, &--menu-stack {
     & > #{$this}__content {
       border-radius: 0;
     }
   }
 
-  &--menu-top {
+  &--menu-top, &--first-child {
     & > #{$this}__content {
       border-radius: 2px 2px 0 0;
     }
   }
 
-  &--menu-bottom {
+
+  &--menu-bottom, &--menu-stack:last-child {
     & > #{$this}__content {
       border-radius: 0 0 2px 2px;
     }
