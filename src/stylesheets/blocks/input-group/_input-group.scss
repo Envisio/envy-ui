@@ -26,6 +26,7 @@
 
   &__after {
     flex: 0 0 $a-padding-input-icon;
+    @include flex(j-center);
   }
 
   &__dropdown {
