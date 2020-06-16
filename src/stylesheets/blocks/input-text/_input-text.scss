@@ -40,9 +40,10 @@
     opacity: 1;
   }
 
-  &[disabled], &--disabled
-  fieldset[disabled] & {
-    cursor: $a-cursor-disabled;
+  &[disabled], &--disabled {
+    fieldset[disabled] & {
+      cursor: $a-cursor-disabled;
+    }
   }
 
   &--stack-left, &--stack-left:focus {
@@ -57,5 +58,12 @@
   &--stack, &--stack:focus {
     border-radius: 0;
     border-right: 0;
+  }
+
+  &--error-border {
+    border-color: color("red");
+    &:focus {
+      @include a--focus(true, color("red"), color("red"), 0.2);
+    }
   }
 }
