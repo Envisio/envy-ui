@@ -348,48 +348,51 @@
 
   &--hover {
     &-white {
-      &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
-      &:hover:not([disabled]):not(#{$this}--disabled) {
-        & > #{$this}__content {
-          background-color: color("white");
-        }
-      }
-      &#{$this}--active:not([disabled]):not(#{$this}--disabled),
-      &:active:not([disabled]):not(#{$this}--disabled) {
-        & > #{$this}__content {
-          background-color: map-get($button--active-color-map, color("white"));
-        }
-      }
+      // &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
+      // &:hover:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: color("white");
+      //   }
+      // }
+      // &#{$this}--active:not([disabled]):not(#{$this}--disabled),
+      // &:active:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: map-get($button--active-color-map, color("white"));
+      //   }
+      // }
+      @include make-button-from-tokens("--hover-white");
     }
     &-default {
-      &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
-      &:hover:not([disabled]):not(#{$this}--disabled) {
-        & > #{$this}__content {
-          background-color: map-get($button--hover-color-map, color("white"));
-        }
-      }
-      &#{$this}--active:not([disabled]):not(#{$this}--disabled),
-      &:active:not([disabled]):not(#{$this}--disabled) {
-        & > #{$this}__content {
-          background-color: map-get($button--active-color-map, color("white"));
-        }
-      }
+      // &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
+      // &:hover:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: map-get($button--hover-color-map, color("white"));
+      //   }
+      // }
+      // &#{$this}--active:not([disabled]):not(#{$this}--disabled),
+      // &:active:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: map-get($button--active-color-map, color("white"));
+      //   }
+      // }
+      @include make-button-from-tokens("--hover-default");
     }
     &-menu {
-      &#{$this}--focus:not([disabled]):not(#{$this}--disabled),
-      &:focus:not([disabled]):not(#{$this}--disabled),
-      &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
-      &:hover:not([disabled]):not(#{$this}--disabled) {
-        & > #{$this}__content {
-          background-color: color("pale-blue");
-        }
-      }
-      &#{$this}--active:not([disabled]):not(#{$this}--disabled),
-      &:active:not([disabled]):not(#{$this}--disabled) {
-        & > #{$this}__content {
-          background-color: darken(color("pale-blue"), 10%);
-        }
-      }
+      // &#{$this}--focus:not([disabled]):not(#{$this}--disabled),
+      // &:focus:not([disabled]):not(#{$this}--disabled),
+      // &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
+      // &:hover:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: color("pale-blue");
+      //   }
+      // }
+      // &#{$this}--active:not([disabled]):not(#{$this}--disabled),
+      // &:active:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: darken(color("pale-blue"), 10%);
+      //   }
+      // }
+      @include make-button-from-tokens("--hover-menu");
     }
 
 

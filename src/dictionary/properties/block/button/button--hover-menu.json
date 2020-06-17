@@ -1,0 +1,61 @@
+{
+  "button": {
+    "--hover-menu": {
+      "default": {
+        "background-color": {
+          "value": "inherit"
+        },
+        "border": {
+          "value": "{shape.border.value} transparent"
+        }
+      },
+      "hover": {
+        "background-color": {
+          "value": "{color.pale-blue.value}"
+        }
+      },
+      "active": {
+        "background-color": {
+          "value": "#dff0f6",
+          "comment": "lighten 3% from color.pale-light"
+        }
+      },
+      "focus": {
+        "border-color": {
+          "value": "{color-default.focus-border.value}"
+        },
+        "box-shadow": {
+          "value": "{shape.focus-box-shadow.value} {color-default.focus-shadow.value}"
+        }
+      },
+      "disabled": {
+        "background-color": {
+          "value": "{button.--hover-menu.default.background-color.value}"
+        },
+        "box-shadow": {
+          "value": "none"
+        },
+        "opacity": {
+          "value": "0.7"
+        },
+        "cursor": {
+          "value": "default"
+        }
+      },
+      "inactive": {
+        "border": {
+          "value": "{button.--hover-menu.default.border.value}"
+        },
+        "background-color": {
+          "value": "{button.--hover-menu.default.background-color.value}"
+        },
+        "box-shadow": {
+          "value": "none"
+        },
+        "cursor": {
+          "value": "default"
+        }
+      }
+    }
+  }
+}
