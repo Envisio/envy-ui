@@ -13,13 +13,18 @@
     &::before {
       content: '';
       position: absolute;
-      max-width: 5px;
-      min-width: 5px;
+      max-width: $shape-width-status;
+      min-width: $shape-width-status;
       height: 100%;
-      border-radius: 2px 0 0 2px;
+      border-radius: $shape-border-radius-inner 0 0 $shape-border-radius-inner;
       left: 0;
       top: 0;
       background-color: color($color);
+    }
+    &#{$this}--brand-border {
+      &::before {
+        border-radius: ($shape-border-radius-inner - 1px) 0 0 ($shape-border-radius-inner - 1px);
+      }
     }
   }
 
