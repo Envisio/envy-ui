@@ -11,6 +11,9 @@
     },
     "border": {
       "value": "1px solid"
+    },
+    "width-status": {
+      "value": "7px"
     }
   }
 }
