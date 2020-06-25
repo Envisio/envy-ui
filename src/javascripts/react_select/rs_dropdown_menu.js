@@ -8,8 +8,8 @@ export const rsDropdownMenu = {
       minWidth: 'auto',
       position: 'absolute',
       display: 'flex',
-      marginTop: '0',
-      marginBottom: '0',
+      marginTop: '2px',
+      marginBottom: '2px',
       padding: '0',
       right: '0',
       border: '1px solid #d1d4e4',
@@ -32,6 +32,7 @@ export const rsDropdownMenu = {
       ...provided,
       borderWidth: '0',
       boxShadow: '0',
+      minHeight: 'auto',
       backgroundColor: 'transparent',
     }),
     dropdownIndicator: (provided) => ({
