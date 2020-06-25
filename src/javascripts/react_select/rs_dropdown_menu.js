@@ -50,6 +50,8 @@ export const rsDropdownMenu = {
       ...provided,
       cursor: 'pointer',
       paddingRight: '25px',
+      whiteSpace: 'nowrap',
+      flexWrap: 'nowrap',
     })
   },
   components: {
