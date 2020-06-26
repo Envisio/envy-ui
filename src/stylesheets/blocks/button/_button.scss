@@ -569,6 +569,9 @@
           border: 1px solid transparent;
         }
       }
+      & > #{$this}__status {
+        opacity: 0;
+      }
     }
     &:focus:not([disabled]) {
       & > #{$this}__content {
@@ -592,9 +595,6 @@
     // &#{$this}--large > #{$this}__content::after {
     //   padding: 19% 14% 3% 19%;
     // }
-    & > #{$this}__status {
-      opacity: 0;
-    }
   }
 }
 
