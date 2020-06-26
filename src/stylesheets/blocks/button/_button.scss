@@ -522,6 +522,30 @@
     }
   }
 
+  & > #{$this}__status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -15px;
+    transform: translateY(8px);
+    width: 20px;
+    flex: 0 0 20px;
+    height: 20px;
+    max-height: 20px;
+    min-height: 20px;
+    background-color: color("plain-gray");
+    border-radius: 9px;
+    font-size: 11px;
+    outline: none;
+    border: 1px solid color("white");
+  }
+
+  &[disabled], &--disabled {
+    > #{$this}__status {
+      cursor: default;
+    }
+  }
+
   &--hover-remove-person {
     &:focus:not([disabled]),
     &:hover:not([disabled]) {
