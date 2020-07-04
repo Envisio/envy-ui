@@ -1,7 +1,7 @@
 import React from 'react';
 import useResizeAware from 'react-resize-aware';
 
-export function useMediaQuery({md = 0, lg = 99999}) {
+export default function useMediaQuery({md = 0, lg = 99999}) {
   // const [resizeListener, sizes] = useResizeAware();
   // const { width } = sizes;
   // const mq = {
