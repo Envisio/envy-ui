@@ -44,6 +44,11 @@ const assertList = [
     testInfo: "f (f-b-30 f-s-1):f-0-0-40:${4 === 4} w-100%:w-50%:${false}"
   },
   {
+    actual: getBlock('env-a-')`(f-b-30 f-s-1):f-0-0-40:${4 === 4} w-100%:w-50%:${false}`,
+    expected: 'env-a-f-b-30 env-a-f-s-1 env-a-w-50%',
+    testInfo: "(f-b-30 f-s-1):f-0-0-40:${4 === 4} w-100%:w-50%:${false}"
+  },
+  {
     actual: getBlock('env-button')`--mint-blue --inactive:${4 === 4} --disabled:${false}`,
     expected: 'env-button env-button--mint-blue env-button--inactive',
     testInfo: "--mint-blue --inactive:${4 === 4} --disabled:${false}"
