@@ -10,7 +10,7 @@ export function useMediaQuery({md = 0, lg = 99999}) {
     mdMinus: width <= lg,
     mdPlus: width > md,
     lg: width > lg,
-  }
+  };
 
   return [resizeListener, mq];
 };
