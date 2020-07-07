@@ -2,8 +2,8 @@ import useResizeAware from 'react-resize-aware';
 
 export default function useMediaQuery({md = 0, lg = 99999}) {
   const [resizeListener, sizes] = useResizeAware();
-  console.log('resizeListener', resizeListener);
-  console.log('sizes', sizes);
+  // console.log('useMediaQuery resizeListener', resizeListener);
+  // console.log('useMediaQuery sizes', sizes);
   const { width } = sizes;
   const mq = {
     sm: width <= md,

@@ -50,7 +50,7 @@
     "render-styleguide-homepage": "./node_modules/.bin/pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
     "render-markups": "./node_modules/.bin/pug --pretty -O src/javascripts/from-dictionary/block_name.styleguide.js src/stylesheets/a/kss/src/ --out src/stylesheets/a/kss/build/",
     "deploy": "npm run specificity && ./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist",
-    "js-test": "./node_modules/.bin/babel-tape-runner src/javascripts/ui/tests/get_block.development.test.js | faucet"
+    "js-test": "./node_modules/.bin/babel-tape-runner src/javascripts/ui/tests/get_block.test.js | faucet"
   },
   "repository": {
     "type": "git",

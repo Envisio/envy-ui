@@ -1,4 +1,4 @@
-import getBlock from '../get_block.development'
+import getBlock from '../get_block'
 import test, { t } from 'tape';
 
 // const $uiA = 'env-a-'
