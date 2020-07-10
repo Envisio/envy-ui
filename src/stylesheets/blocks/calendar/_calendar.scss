@@ -20,7 +20,7 @@
     width: 14.285714286%;
     padding-top: 4%;
     padding-bottom: 4%;
-    border: 1px solid $plain-gray;
+    border: map-deep-get($tokens-button, "button", "--default", "default", "border");
 
     line-height: 1;
     cursor: pointer;
@@ -90,9 +90,6 @@
       box-shadow: none;
     }
   }
-
-
-
 
   // &--small {
   //   height: $switch-button-height - ($switch-button-height / 4);
