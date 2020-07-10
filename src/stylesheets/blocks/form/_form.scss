@@ -24,6 +24,10 @@
     }
   }
 
+  &--1-column {
+    flex-direction: column;
+  }
+
   &__column {
     @include flex(column);
     flex: 1 1 auto;
