@@ -1,4 +1,4 @@
-import { UI_COLOR_PALE_BLUE } from '../index'
+import { UI_COLOR_PALE_BLUE, UI_COLOR_PLAIN_GRAY } from '../index'
 
 export const rsSelect = {
   styles: {
@@ -28,17 +28,24 @@ export const rsSelect = {
       padding: '0',
       opacity: '0',
     }),
-    control: (provided) => ({
+    control: (provided, {isDisabled, isFocused}) => ({
       ...provided,
-      borderWidth: '0',
-      boxShadow: '0',
-      minHeight: 'auto',
-      backgroundColor: 'transparent',
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderColor: isFocused ? '#76bcd0' : `${UI_COLOR_PLAIN_GRAY}`,
+      borderRadius: '3px',
+      // padding: '0 10px',
+      boxShadow: isFocused ? 'inset 0 0 1px 3px rgba(118,188,208,0.3)' : '0',
+      minHeight: '35px',
+      // backgroundColor: 'transparent',
+      '&:focus': {
+        border: state.isFocused ? 0 : 0
+     }
     }),
-    dropdownIndicator: (provided) => ({
-      ...provided,
-      padding: '0',
-    }),
+    // dropdownIndicator: (provided) => ({
+    //   ...provided,
+    //   padding: '0',
+    // }),
     menuList: (provided) => ({
       ...provided,
       display: 'flex',
