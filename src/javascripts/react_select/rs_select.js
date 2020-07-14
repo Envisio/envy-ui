@@ -25,8 +25,8 @@ export const rsSelect = {
     }),
     indicatorContainer: (provided) => ({
       ...provided,
-      // marginTop: '4px',
-      // marginBottom: '4px',
+      marginTop: '0',
+      marginBottom: '0',
       height: '33px',
     }),
     valueContainer: (provided) => ({
@@ -41,8 +41,7 @@ export const rsSelect = {
       ...provided,
       borderWidth: '1px',
       borderStyle: 'solid',
-      borderColor: isFocused ? '#76bcd0' : `${UI_COLOR_PLAIN_GRAY}`,
-      borderColor: isFocused ? '#76bcd0' : `${UI_COLOR_PLAIN_GRAY}`,
+      borderColor: isFocused ? '#76bcd0 !important' : `${UI_COLOR_PLAIN_GRAY}`,
       borderRadius: '3px',
       // padding: '0 10px',
       boxShadow: isFocused ? 'inset 0 0 1px 3px rgba(118,188,208,0.3)' : '0',
@@ -52,6 +51,9 @@ export const rsSelect = {
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
+      width: '15px',
+      marginLeft: '4px',
+      marginRight: '4px',
       padding: '0',
     }),
     // menuList: (provided) => ({
@@ -74,6 +76,7 @@ export const rsSelect = {
     // IndicatorSeparator: () => null,
     // Placeholder: () => null,
     // SingleValue: () => null,
+    SingleValue: () => null,
   },
   theme: theme => ({
     ...theme,
