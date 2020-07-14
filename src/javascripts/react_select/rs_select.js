@@ -38,9 +38,6 @@ export const rsSelect = {
       boxShadow: isFocused ? 'inset 0 0 1px 3px rgba(118,188,208,0.3)' : '0',
       minHeight: '35px',
       // backgroundColor: 'transparent',
-      '&:focus': {
-        border: state.isFocused ? 0 : 0
-     }
     }),
     // dropdownIndicator: (provided) => ({
     //   ...provided,
