@@ -19,11 +19,19 @@ export const rsSelect = {
     }),
     indicatorSeparator: (provided) => ({
       ...provided,
-      marginTop: '4px',
-      marginBottom: '4px',
+      // marginTop: '4px',
+      // marginBottom: '4px',
+      height: '33px',
+    }),
+    indicatorContainer: (provided) => ({
+      ...provided,
+      // marginTop: '4px',
+      // marginBottom: '4px',
+      height: '33px',
     }),
     valueContainer: (provided) => ({
       ...provided,
+      height: '33px',
       // border: '0',
       // maxWidth: '0',
       // padding: '0',
@@ -42,18 +50,18 @@ export const rsSelect = {
       maxHeight: '35px',
       // backgroundColor: 'transparent',
     }),
-    // dropdownIndicator: (provided) => ({
-    //   ...provided,
-    //   padding: '0',
-    // }),
-    menuList: (provided) => ({
+    dropdownIndicator: (provided) => ({
       ...provided,
-      display: 'flex',
-      flexDirection: 'column',
-      margin: '0',
       padding: '0',
-      overflow: 'hidden',
     }),
+    // menuList: (provided) => ({
+    //   ...provided,
+    //   display: 'flex',
+    //   flexDirection: 'column',
+    //   margin: '0',
+    //   padding: '0',
+    //   overflow: 'hidden',
+    // }),
     option: (provided) => ({
       ...provided,
       cursor: 'pointer',
