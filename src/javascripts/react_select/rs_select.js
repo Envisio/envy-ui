@@ -23,10 +23,10 @@ export const rsSelect = {
     // }),
     valueContainer: (provided) => ({
       ...provided,
-      border: '0',
-      maxWidth: '0',
-      padding: '0',
-      opacity: '0',
+      // border: '0',
+      // maxWidth: '0',
+      // padding: '0',
+      // opacity: '0',
     }),
     control: (provided, {isDisabled, isFocused}) => ({
       ...provided,
