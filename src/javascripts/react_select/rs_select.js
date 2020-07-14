@@ -17,10 +17,11 @@ export const rsSelect = {
       backgroundColor: '#ffffff',
       boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.1)'
     }),
-    // indicatorSeparator: (provided) => ({
-    //   ...provided,
-    //   display: 'none',
-    // }),
+    indicatorSeparator: (provided) => ({
+      ...provided,
+      marginTop: '4px',
+      marginBottom: '4px',
+    }),
     valueContainer: (provided) => ({
       ...provided,
       // border: '0',
@@ -33,10 +34,12 @@ export const rsSelect = {
       borderWidth: '1px',
       borderStyle: 'solid',
       borderColor: isFocused ? '#76bcd0' : `${UI_COLOR_PLAIN_GRAY}`,
+      borderColor: isFocused ? '#76bcd0' : `${UI_COLOR_PLAIN_GRAY}`,
       borderRadius: '3px',
       // padding: '0 10px',
       boxShadow: isFocused ? 'inset 0 0 1px 3px rgba(118,188,208,0.3)' : '0',
       minHeight: '35px',
+      maxHeight: '35px',
       // backgroundColor: 'transparent',
     }),
     // dropdownIndicator: (provided) => ({
