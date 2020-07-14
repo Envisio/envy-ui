@@ -11,7 +11,7 @@ export const rsSelect = {
       marginTop: '2px',
       marginBottom: '2px',
       padding: '0',
-      right: '0',
+      // right: '0',
       border: '1px solid #d1d4e4',
       borderRadius: 3,
       backgroundColor: '#ffffff',
