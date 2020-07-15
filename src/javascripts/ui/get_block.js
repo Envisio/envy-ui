@@ -94,7 +94,7 @@ const _getBlockClasses = (block, predicates, fragment, i, useElementAsBlock = fa
     const classFragmentsInBrackes = classFragment.match(/\(([^)]+)\)/);
 
     if (classFragmentsInBrackes) {
-      console.log('this fragments in brackets ', classFragmentsInBrackes[1]);
+      // console.log('this fragments in brackets ', classFragmentsInBrackes[1]);
 
       classFragment = _getBlockClasses(block, [], classFragmentsInBrackes[1], 1, thisElement ? true : false, thisElement);
     }
