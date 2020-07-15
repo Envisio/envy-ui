@@ -64,6 +64,11 @@ const assertList = [
     testInfo: "--mint-blue --inactive:--disabled:${4 === 3}"
   },
   {
+    actual: getBlock('env-button')`--ok (--mint-blue --inactive):${3 === 3}`,
+    expected: 'env-button env-button--ok env-button--mint-blue env-button--inactive',
+    testInfo: "--ok (--mint-blue --inactive):${3 === 3}"
+  },
+  {
     actual: getBlock('env-button')`__content --smart --long --inactive:--disabled:${4 === 3}`,
     expected: 'env-button__content env-button__content--smart env-button__content--long env-button__content--disabled',
     testInfo: "__content --long --inactive:--disabled:${4 === 3}"
