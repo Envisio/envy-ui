@@ -29,6 +29,10 @@
   transform: translateY(-50%)#{$a-important};
 }
 
+.#{$uiA}-translate-50\%- {
+  transform: translate(-50%, -50%)#{$a-important};
+}
+
 .#{$uiA}-transform-scale-2 {
   transform: scale(2)#{$a-important};
 }
