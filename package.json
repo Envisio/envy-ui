@@ -101,11 +101,12 @@
   "dependencies": {
     "detect-browser": "^5.0.0",
     "dom-to-image": "^2.6.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
     "react-custom-scrollbars": "^4.2.1",
     "react-resize-aware": "^3.0.1",
     "react-resize-detector": "^4.2.1",
+    "react-tooltip": "^4.2.7",
     "short-unique-id": "^1.1.1"
   }
 }
