@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 
 const Portal = ({ children, domId }) => {
   const mount = document.querySelectorAll(domId)[0] || document.getElementsByTagName('body')[0];

@@ -1,5 +1,6 @@
 import React from 'react';
 import Portal from 'react-dom';
+import PropTypes from 'prop-types';
 
 const Tooltip = ({ domId, ...props }) => {
 
