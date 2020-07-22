@@ -83,12 +83,13 @@ export { default as makeMq } from './ui/make_mq';
 // export const uiS3Uploader = getBlock($ui.S3Uploader);
 export { visualSettings } from './ui/ui_general_settings';
 
-export { default as Scrollbar} from './react_components/scrollbar';
+export { default as Scrollbar } from './react_components/scrollbar';
+export { default as Portal } from './react_components/portal';
+export { default as Tooltip } from './react_components/tooltip';
 
 export const { name: browserName } = detect();
 
-export { default as CheckboxWrapper} from './react_wrappers/checkbox_wrapper';
-export { default as FlexScrollbarWrapper} from './react_wrappers/flex_scrollbar_wrapper';
+export { default as CheckboxWrapper } from './react_wrappers/checkbox_wrapper';
+export { default as FlexScrollbarWrapper } from './react_wrappers/flex_scrollbar_wrapper';
 
-export { default as useMediaQuery} from './react_hooks/use_mq';
-
+export { default as useMediaQuery } from './react_hooks/use_mq';
