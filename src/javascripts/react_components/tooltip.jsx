@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 import Portal from './portal';
 
 const Tooltip = ({ domId, ...props }) => {
 
   return (
     <Portal domId={domId}>
-      <Tooltip
+      <ReactTooltip
         effect="solid"
         multiline
         {...props}
