@@ -15,10 +15,12 @@ const PROPERTIES_PATH = './src/dictionary/properties/'
 const STYLEGUIDE_PUG_PATH = './styleguide/homepage/from-dictionary/';
 const COLOR = 'color';
 const SHAPE = 'shape';
+const Z = 'z';
 const BLOCK_NAME = 'block-name';
 const BLOCK = 'block';
 
 const buildList = [
+  Z,
   SHAPE,
   COLOR,
   BLOCK_NAME,
@@ -105,6 +107,7 @@ const makeTokenFolders = () => ({
         // `${PROPERTIES_PATH}${BLOCK}/name.json`,
         `${PROPERTIES_PATH}${COLOR}/*.json`,
         `${PROPERTIES_PATH}${SHAPE}/base.json`,
+        `${PROPERTIES_PATH}${Z}/base.json`,
         // `${PROPERTIES_PATH}${SHAPE}/base.json`,
       ],
       platforms: {
@@ -155,6 +158,34 @@ const makeTokenFolders = () => ({
           transforms: ['name/cti/constant'],
           files: [{
             destination: `${SHAPE}.js`,
+            format: 'javascript/es6',
+          }],
+        },
+      },
+    }
+  ],
+  z: [
+    {
+      source: [
+        `${PROPERTIES_PATH}${Z}/base.json`,
+      ],
+      platforms: {
+        scss: {
+          transformGroup: 'scss',
+          buildPath: `${SCSS_PATH}${Z}/`,
+          transforms: ['name/cti/kebab'],
+          files: [{
+            destination: `_${Z}.scss`,
+            format: 'scss/variables',
+          }],
+        },
+        js: {
+          transformGroup: 'js',
+          prefix: 'UI',
+          buildPath: `${JS_PATH}`,
+          transforms: ['name/cti/constant'],
+          files: [{
+            destination: `${Z}.js`,
             format: 'javascript/es6',
           }],
         },
