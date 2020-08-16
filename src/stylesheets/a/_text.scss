@@ -119,3 +119,7 @@ $a-text-aligns: left, right, center, justify;
 .#{$uiA}-italic {
   @include a-text-italic;
 }
+
+.#{$uiA}-font-weight-normal {
+  font-weight: normal#{$a-important};
+}
