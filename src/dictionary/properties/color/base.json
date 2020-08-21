@@ -250,6 +250,10 @@
     "rose-fog": {
       "value": "#ecc8c5",
       "comment": "very rare"
+    },
+    "transparent": {
+      "value": "transparent",
+      "comment": "transparent"
     }
   }
 }
