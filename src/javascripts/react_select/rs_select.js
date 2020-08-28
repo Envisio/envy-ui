@@ -64,9 +64,9 @@ export const rsSelect = {
     //   padding: '0',
     //   overflow: 'hidden',
     // }),
-    option: (provided) => ({
+    option: (provided, {isDisabled, isFocused}) => ({
       ...provided,
-      cursor: 'pointer',
+      cursor: isDisabled ? 'default' : 'pointer',
       paddingRight: '25px',
       whiteSpace: 'nowrap',
       flexWrap: 'nowrap',
