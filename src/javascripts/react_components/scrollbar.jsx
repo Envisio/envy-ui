@@ -7,7 +7,12 @@ import { ui, uiWrapperScroll } from '../';
 
 export const ScrollValue = React.createContext(0);
 
-export default function Scrollbar({ children, ...rest }) {
+export default function Scrollbar({ children, disable, ...rest }) {
+
+  if (disable) {
+    return {childeren}
+  }
+
   return (
     <ReactResizeDetector
       handleWidth
@@ -34,4 +39,9 @@ export default function Scrollbar({ children, ...rest }) {
 
 Scrollbar.propTypes = {
   children: PropTypes.node.isRequired,
+  disable: PropTypes.bool,
+};
+
+Scrollbar.defaultProp = {
+  disable: false,
 };
