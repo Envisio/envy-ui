@@ -121,6 +121,10 @@
   cursor: default#{$a-important};
 }
 
+.#{$uiA}-cursor-grab {
+  cursor: grab#{$a-important};
+}
+
 .#{$uiA}-cursor-off {
   pointer-events: none#{$a-important};
 }
