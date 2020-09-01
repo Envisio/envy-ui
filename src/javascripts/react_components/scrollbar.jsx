@@ -10,7 +10,7 @@ export const ScrollValue = React.createContext(0);
 export default function Scrollbar({ children, disable, ...rest }) {
 
   if (disable) {
-    return {childeren}
+    return childeren
   }
 
   return (
