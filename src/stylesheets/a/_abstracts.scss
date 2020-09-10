@@ -133,6 +133,10 @@
   cursor: pointer#{$a-important};
 }
 
+.#{$uiA}-outline-none {
+  outline: none#{$a-important};
+}
+
 .#{$uiA}-f-br {
   height: 0;
   width: 100%;
