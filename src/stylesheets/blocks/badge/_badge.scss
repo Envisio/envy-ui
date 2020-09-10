@@ -52,6 +52,30 @@
     @include badge__make-container-color(color("overdue"), color("white"));
   }
 
+  &--status {
+    &-pending {
+      @include badge__make-container-color(color("status-pending"), color("white"));
+    }
+    &-on-track {
+      @include badge__make-container-color(color("on-track"), color("white"));
+    }
+    &-minor-disruption {
+      @include badge__make-container-color(color("minor-disruption"), color("white"));
+    }
+    &-major-disruption {
+      @include badge__make-container-color(color("major-disruption"), color("white"));
+    }
+    &-upcoming {
+      @include badge__make-container-color(color("upcoming"), color("white"));
+    }
+    &-discontinued {
+      @include badge__make-container-color(color("discontinued"), color("white"));
+    }
+    &-completed {
+      @include badge__make-container-color(color("completed"), color("white"));
+    }
+  }
+
   &--circle {
     height: $badge--height-default;
     width: $badge--height-default;
