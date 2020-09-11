@@ -8,6 +8,7 @@
 // .env-a-shadow - Default shadow.
 // .env-a-shadow-strong - Strong Shadow.
 // .env-a-shadow-xstrong - Extra Strong Shadow.
+// .env-a-shadow-none - No Shadow.
 //
 // Moddescription: Modifiers.
 //
@@ -17,7 +18,7 @@
 //
 // Styleguide ACSS Shadow
 
-$shadows: (null: $a-card-shadow, "-strong": $a-card-shadow-strong, "-xstrong": $a-card-shadow-xstrong);
+$shadows: (null: $a-card-shadow, "-strong": $a-card-shadow-strong, "-xstrong": $a-card-shadow-xstrong, "-none": "none");
 
 @each $shadow-name, $shadow-value in $shadows {
   .#{$uiA}-shadow#{$shadow-name} {
