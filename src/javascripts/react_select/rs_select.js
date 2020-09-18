@@ -19,15 +19,17 @@ export const rsSelect = {
     }),
     indicatorSeparator: (provided) => ({
       ...provided,
-      marginTop: '0',
-      marginBottom: '0',
-      height: '33px',
+      marginTop: '2px',
+      marginBottom: '2px',
+      height: '29px',
+      color: `${UI_COLOR_PLAIN_GRAY}`
     }),
     indicatorContainer: (provided) => ({
       ...provided,
       marginTop: '0',
       marginBottom: '0',
       height: '33px',
+
     }),
     valueContainer: (provided) => ({
       ...provided,
@@ -52,8 +54,8 @@ export const rsSelect = {
     dropdownIndicator: (provided) => ({
       ...provided,
       width: '15px',
-      marginLeft: '4px',
-      marginRight: '4px',
+      marginLeft: '6px',
+      marginRight: '6px',
       padding: '0',
     }),
     // menuList: (provided) => ({
