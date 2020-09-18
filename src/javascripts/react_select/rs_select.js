@@ -24,6 +24,10 @@ export const rsSelect = {
       height: '25px',
       color: `${UI_COLOR_PLAIN_GRAY}`
     }),
+    menuList: (provided) => ({
+      ...provided,
+      width: 100%,
+    }),
     indicatorContainer: (provided) => ({
       ...provided,
       marginTop: '0',
