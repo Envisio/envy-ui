@@ -5,7 +5,7 @@ export const rsSelect = {
     menu: (provided) => ({
       ...provided,
       width: 'auto',
-      minWidth: 'auto',
+      minWidth: '100%',
       position: 'absolute',
       display: 'flex',
       marginTop: '2px',
