@@ -26,14 +26,13 @@ export const rsSelect = {
     }),
     menuList: (provided) => ({
       ...provided,
-      width: 100%,
+      width: '100%',
     }),
     indicatorContainer: (provided) => ({
       ...provided,
       marginTop: '0',
       marginBottom: '0',
       height: '33px',
-
     }),
     valueContainer: (provided) => ({
       ...provided,
