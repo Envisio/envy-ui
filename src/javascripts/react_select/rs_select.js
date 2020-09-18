@@ -19,9 +19,9 @@ export const rsSelect = {
     }),
     indicatorSeparator: (provided) => ({
       ...provided,
-      marginTop: '2px',
-      marginBottom: '2px',
-      height: '29px',
+      marginTop: '4px',
+      marginBottom: '4px',
+      height: '25px',
       color: `${UI_COLOR_PLAIN_GRAY}`
     }),
     indicatorContainer: (provided) => ({
