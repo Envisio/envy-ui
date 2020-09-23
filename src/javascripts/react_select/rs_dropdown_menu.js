@@ -7,7 +7,7 @@ export const rsDropdownMenu = {
       width: 'auto',
       minWidth: 'auto',
       position: 'absolute',
-      display: 'flex',
+      // display: 'flex',
       marginTop: '2px',
       marginBottom: '2px',
       padding: '0',
