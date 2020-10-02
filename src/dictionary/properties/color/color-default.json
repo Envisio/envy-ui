@@ -9,6 +9,9 @@
     "focus-shadow": {
       "value": "rgba(118, 188, 208, 0.3)",
       "comment": "rgba from color.cornflower-blue.value"
+    },
+    "border": {
+      "value": "{color.border.value}"
     }
   }
 }
