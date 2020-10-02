@@ -86,6 +86,34 @@ const makeTokenFolders = () => ({
     }, {
       source: [
         `${PROPERTIES_PATH}${COLOR}/base.json`,
+        `${PROPERTIES_PATH}${COLOR}/color-default.json`,
+      ],
+      platforms: {
+        scss: {
+          transformGroup: 'scss',
+          buildPath: `${SCSS_PATH}${COLOR}/`,
+          transforms: ['name/cti/kebab'],
+          files: [{
+            destination: '_color-default.scss',
+            filter: filterForCategory(['color-default']),
+            format: 'scss/variables',
+          }],
+        },
+        js: {
+          transformGroup: 'js',
+          prefix: 'UI',
+          buildPath: `${JS_PATH}`,
+          transforms: ['name/cti/constant'],
+          files: [{
+            destination: 'color-default.js',
+            filter: filterForCategory(['color-default']),
+            format: 'javascript/es6',
+          }],
+        },
+      },
+    }, {
+      source: [
+        `${PROPERTIES_PATH}${COLOR}/base.json`,
       ],
       platforms: {
         scss: {
