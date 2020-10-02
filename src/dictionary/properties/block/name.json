@@ -84,6 +84,12 @@
       "kss-weight": "1130",
       "comment": "{block-category.container._value}"
     },
+    "bottom-toolbar": {
+      "value": "bottom-toolbar",
+      "name": "Bottom Toolbar",
+      "kss-weight": "1133",
+      "comment": "{block-category.container._value}"
+    },
     "overlay": {
       "value": "overlay",
       "name": "Overlay",
