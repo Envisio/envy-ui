@@ -17,7 +17,6 @@
   display: flex;
   padding: 0 10px;
   align-items: center;
-  border-bottom: 10px solid color('brand-primary');
   &--push-right {
     padding-left: $base-form-label-min-width + ((10px / 14px) * 1rem);
   }
