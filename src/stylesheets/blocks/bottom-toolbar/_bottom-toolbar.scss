@@ -8,8 +8,8 @@
 
   $this: &;
 
-  border-top: 1px solid $color-default-border;
-  background-color: color("gallery");
+  border-top: 1px solid color('brand-primary');
+  background-color: color("paint-gray");
   box-shadow: 0px -3px 3px 0 rgba(0,0,0,0.05);
   height: 65px;
   width: 100%;
