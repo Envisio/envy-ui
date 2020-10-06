@@ -91,7 +91,7 @@ export const rsSelect = {
     colors: {
       ...theme.colors,
       primary25: UI_COLOR_PALE_BLUE,
-      primary: 'b2d4ff',
+      primary: '#b2d4ff',
     },
   }),
 };
