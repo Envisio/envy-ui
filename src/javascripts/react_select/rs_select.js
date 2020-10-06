@@ -1,4 +1,5 @@
 import { UI_COLOR_PALE_BLUE, UI_COLOR_PLAIN_GRAY } from '../index'
+import { UI_COLOR_DEFAULT } from '../from-dictionary/color';
 
 export const rsSelect = {
   styles: {
@@ -69,9 +70,10 @@ export const rsSelect = {
     //   padding: '0',
     //   overflow: 'hidden',
     // }),
-    option: (provided, {isDisabled, isFocused}) => ({
+    option: (provided, {isDisabled, isFocused, isSelected}) => ({
       ...provided,
       cursor: isDisabled ? 'default' : 'pointer',
+      color: UI_COLOR_DEFAULT,
       paddingRight: '25px',
       whiteSpace: 'nowrap',
       flexWrap: 'nowrap',
@@ -89,7 +91,7 @@ export const rsSelect = {
     colors: {
       ...theme.colors,
       primary25: UI_COLOR_PALE_BLUE,
-      primary: UI_COLOR_PALE_BLUE,
+      primary: 'b2d4ff',
     },
   }),
 };
