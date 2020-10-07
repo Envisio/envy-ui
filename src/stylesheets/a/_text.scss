@@ -123,3 +123,7 @@ $a-text-aligns: left, right, center, justify;
 .#{$uiA}-font-weight-normal {
   font-weight: normal#{$a-important};
 }
+
+.#{$uiA}-text-underline {
+  text-decoration: underline#{$a-important};
+}
