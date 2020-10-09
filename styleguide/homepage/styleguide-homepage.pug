@@ -132,6 +132,9 @@ p(class=uiA`text-align-right`) version: !{env.npm_package_version}
   div(class=uiMerge([uiCard`--brand`, uiA`w-200 h-100 m`]))
   div(class=uiMerge([uiCard`--brand-border`, uiA`w-200 h-100 m`]))
 
++cardBlock('bottom-toolbar.html', 'Bottom Toolbar (uiBottomToolbar)')
+  div(class=uiMerge([uiBottomToolbar``]))
+
 +cardBlock('section-overlay.html', 'Overlay (uiOverlay)')
   each overlayModifier in ['', '--blur']
     div(class=uiMerge([uiOverlay`#${overlayModifier}`, uiA`w-300 h-125 m`]))
