@@ -14,7 +14,7 @@
 
   &__label {
     padding-right: $padding-small;
-    color: $default;
+    color: $color-default-label;
     flex: 0 0 $base-form-label-min-width;
     &--long {
       flex-basis: $base-form-label-min-width + $base-form-margin-step;
