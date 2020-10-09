@@ -12,6 +12,9 @@
     },
     "border": {
       "value": "{color.border.value}"
+    },
+    "label": {
+      "value": "{color.darken-border.value}"
     }
   }
 }
