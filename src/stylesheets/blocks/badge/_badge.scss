@@ -24,7 +24,7 @@
     border: 1px solid $border-color;
   }
 
-  font-size: $badge--default-font-size;
+  font-size: $badge--default-font-size + 1;
   padding: 1px 10px;
   display: inline-flex;
   height: $badge--height-default;
@@ -89,7 +89,7 @@
 
   &--small {
     height: $badge--height-small;
-    font-size: $badge--default-font-size - 3;
+    font-size: $badge--default-font-size - 1;
     &#{$this}--round {
       border-radius: $badge--height-small / 2;
     }
@@ -102,7 +102,7 @@
 
   &--xsmall {
     height: $badge--height-xsmall;
-    font-size: $badge--default-font-size - 3;
+    font-size: $badge--default-font-size - 2;
     &#{$this}--round {
       border-radius: $badge--height-xsmall / 2;
     }
