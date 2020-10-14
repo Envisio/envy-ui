@@ -8,6 +8,7 @@
 // .env-a-translate-x-50%- - Transform X-Tranaslate -50%.
 // .env-a-translate-y-50%- - Transform Y-Tranaslate -50%.
 // .env-a-translate-y-3- - Transform Y Tranaslate -3px.
+// .env-a-translate-y-5- - Transform Y Tranaslate -5px.
 // .env-a-transform-scale-2 - Transform Scale 2X.
 // .env-a-transform-origin-left-top.env-a-transform-rotate-180 - Transform origin left top.
 // .env-a-transform-rotate-180 - Transform rotate 180 deg.
@@ -39,6 +40,10 @@
 
 .#{$uiA}-translate-y-3- {
   transform: translateY(-3px)#{$a-important};
+}
+
+.#{$uiA}-translate-y-5- {
+  transform: translateY(-5px)#{$a-important};
 }
 
 .#{$uiA}-transform-origin-left-top {
