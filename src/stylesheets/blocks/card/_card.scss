@@ -28,6 +28,40 @@
     }
   }
 
+  @mixin bubble($color: color("white"), $position-vertical: "top", $position-horizontal: "left") {
+    $tick-size: 15px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      display: flex;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: $tick-size + 2px 0 0 $tick-size + 2px;
+      border-color: transparent transparent transparent $color-default-border;
+      top: -$tick-size - 2px;
+      left: calc(25% - 1px);
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      display: flex;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: $tick-size 0 0 $tick-size;
+      border-color: transparent transparent transparent color("white");
+      top: -$tick-size;
+      left: 25%;
+    }
+    // &#{$this}--brand-border {
+    //   &::before {
+    //     border-radius: ($shape-border-radius-inner - 1px) 0 0 ($shape-border-radius-inner - 1px);
+    //   }
+    // }
+  }
+
   border: 1px solid $border;
   border-radius: $card-border-radius;
   background-color: color("white");
@@ -82,5 +116,9 @@
 
   &--shadow-xstrong {
     box-shadow: $a-card-shadow-xstrong;
+  }
+
+  &--bubble-top-left {
+    @include bubble();
   }
 }
