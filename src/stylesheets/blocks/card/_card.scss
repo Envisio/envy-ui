@@ -31,6 +31,7 @@
   @mixin bubble($color: color("white"), $position-vertical: "top", $position-horizontal: "left") {
     $tick-size: 15px;
     position: relative;
+    margin-top: $tick-size;
     &::before {
       content: "";
       position: absolute;
