@@ -60,7 +60,7 @@
       @include badge__make-container-color(color("on-track"), color("white"));
     }
     &-minor-disruption {
-      @include badge__make-container-color(color("minor-disruption"), color("white"));
+      @include badge__make-container-color(color("minor-disruption"), color("default"));
     }
     &-major-disruption {
       @include badge__make-container-color(color("major-disruption"), color("white"));
