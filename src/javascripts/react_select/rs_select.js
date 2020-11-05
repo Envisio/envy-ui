@@ -78,7 +78,7 @@ export const rsSelect = {
       whiteSpace: 'nowrap',
       flexWrap: 'nowrap',
     }),
-    MultiValueContainer: (provided) => ({
+    mltiValueContainer: (provided) => ({
       ...provided,
       flexWrap: 'nowrap',
     })
