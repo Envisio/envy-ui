@@ -38,6 +38,7 @@ export const rsSelect = {
     valueContainer: (provided) => ({
       ...provided,
       height: '33px',
+      flexWrap: 'nowrap',
       // border: '0',
       // maxWidth: '0',
       // padding: '0',
@@ -78,7 +79,7 @@ export const rsSelect = {
       whiteSpace: 'nowrap',
       flexWrap: 'nowrap',
     }),
-    mltiValueContainer: (provided) => ({
+    multiValueContainer: (provided) => ({
       ...provided,
       flexWrap: 'nowrap',
     })
