@@ -79,6 +79,7 @@ export const rsSelect = {
       flexWrap: 'nowrap',
     }),
     MultiValueContainer: (provided) => ({
+      ...provided,
       flexWrap: 'nowrap',
     })
   },
