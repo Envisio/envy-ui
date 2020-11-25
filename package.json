@@ -73,7 +73,7 @@
     "babel-tape-runner": "^3.0.0",
     "css-reporter": "0.0.6",
     "faucet": "0.0.1",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.1.2",
     "json-concat": "0.0.1",
     "kss": "^3.0.0",
     "node-sass": "^4.14.1",
