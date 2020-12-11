@@ -1,6 +1,6 @@
-$a-z-index-top: 9999;
+$z-top: $z-top;
 
-$a-z-indexes: ("auto": auto, "0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "1-": -1, "2-": -2, "3-": -3, "4-": -4, "5-": -5, "top": $a-z-index-top, "top-1": $a-z-index-top - 1, "top-2": $a-z-index-top - 2, "top-3": $a-z-index-top - 3, "top-4": $a-z-index-top - 4, "top-5": $a-z-index-top - 5);
+$a-z-indexes: ("auto": auto, "0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "1-": -1, "2-": -2, "3-": -3, "4-": -4, "5-": -5, "top": $z-top, "top-1": $z-top - 1, "top-2": $z-top - 2, "top-3": $z-top - 3, "top-4": $z-top - 4, "top-5": $z-top - 5);
 
 @mixin a-z-index($z-index: map-get($a-border-types, "auto")) {
   z-index: unquote("#{$z-index}#{$a-important}");
