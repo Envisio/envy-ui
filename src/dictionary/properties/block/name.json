@@ -84,6 +84,12 @@
       "kss-weight": "1130",
       "comment": "{block-category.container._value}"
     },
+    "modal": {
+      "value": "modal",
+      "name": "Modal",
+      "kss-weight": "1131",
+      "comment": "{block-category.container._value}"
+    },
     "bottom-toolbar": {
       "value": "bottom-toolbar",
       "name": "Bottom Toolbar",
