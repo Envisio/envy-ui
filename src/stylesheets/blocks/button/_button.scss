@@ -243,6 +243,11 @@
     @include make-button-from-tokens("--content-gray");
   }
 
+  &--content-inverse {
+    // @include button__make-content-color(color("medium-gray"), color("gray"));
+    @include make-button-from-tokens("--content-inverse");
+  }
+
   // Container color modifiers
 
   &--clean {

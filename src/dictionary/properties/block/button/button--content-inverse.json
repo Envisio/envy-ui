@@ -1,0 +1,31 @@
+{
+  "button": {
+    "--content-inverse": {
+      "default": {
+        "color": {
+          "value": "{color.gray-white.value}"
+        }
+      },
+      "hover": {
+        "color": {
+          "value": "{color.white.value}"
+        }
+      },
+      "active": {
+        "color": {
+          "value": "{color.white.value}"
+        }
+      },
+      "disabled": {
+        "color": {
+          "value": "{color.plain-gray.value}"
+        }
+      },
+      "inactive": {
+        "color": {
+          "value": "{button.--content-gray.default.color.value}"
+        }
+      }
+    }
+  }
+}
