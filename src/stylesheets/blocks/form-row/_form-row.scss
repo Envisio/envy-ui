@@ -25,6 +25,10 @@
     &--short {
       flex-basis: $base-form-label-min-width - $base-form-margin-step;
     }
+    &--free {
+      flex-basis: auto;
+      padding-right: $padding;
+    }
   }
 
   &--baseline {
