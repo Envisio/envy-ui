@@ -60,7 +60,7 @@
     border-right: 0;
   }
 
-  &--error-border {
+  &--error {
     border-color: color("red");
     // background-color: lighten(color("light-red"), 25%);
     &::placeholder {
