@@ -62,6 +62,13 @@
 
   &--error-border {
     border-color: color("red");
+    // background-color: lighten(color("light-red"), 25%);
+    &::placeholder {
+      color: color("red");
+      font-weight: 600;
+      font-style: italic;
+      opacity: 0.5;
+    }
     &:focus {
       @include a--focus(true, color("red"), color("red"), 0.2);
     }
