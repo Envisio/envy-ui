@@ -53,4 +53,11 @@
     border-radius: 0;
     border-right: 0;
   }
+
+  &--error {
+    border-color: color("red");
+    &:focus {
+      @include a--focus(true, color("red"), color("red"), 0.2);
+    }
+  }
 }
