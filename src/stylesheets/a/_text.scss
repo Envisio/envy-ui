@@ -116,6 +116,14 @@ $a-text-aligns: left, right, center, justify;
   @include a-text-bold;
 }
 
+.#{$uiA}-bold {
+  @include a-text-bold;
+}
+
+.#{$uiA}-semibold {
+  font-weight: 600;
+}
+
 .#{$uiA}-italic {
   @include a-text-italic;
 }
