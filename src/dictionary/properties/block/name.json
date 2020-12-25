@@ -90,6 +90,12 @@
       "kss-weight": "1131",
       "comment": "{block-category.container._value}"
     },
+    "view": {
+      "value": "view",
+      "name": "View",
+      "kss-weight": "1132",
+      "comment": "{block-category.container._value}"
+    },
     "bottom-toolbar": {
       "value": "bottom-toolbar",
       "name": "Bottom Toolbar",
