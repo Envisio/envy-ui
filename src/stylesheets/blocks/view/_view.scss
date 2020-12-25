@@ -12,7 +12,7 @@
   display: flex;
   height: 100%;
 
-  #{$this}__header {
+  &__header {
     position: relative;
     border-bottom: $shape-border $color-default-border;
     display: flex;
@@ -21,12 +21,12 @@
     padding-left: 10px;
   }
 
-  #{$this}__main-wrapper1 {
+  &__main-wrapper1 {
    flex: 1 1 auto;
    position: relative;
   }
 
-  #{$this}__main-wrapper2 {
+  &__main-wrapper2 {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -34,7 +34,7 @@
     height: 100%;
    }
 
-  #{$this}__main {
+  &__main {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
