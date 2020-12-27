@@ -21,6 +21,6 @@
     padding-left: $base-form-label-min-width + ((10px / 14px) * 1rem);
   }
   &--push-right-long {
-    padding-left: $base-form-label-min-width + 2 * ((10px / 14px) * 1rem);
+    padding-left: $base-form-label-min-width + $base-form-margin-step + ((10px / 14px) * 1rem);
   }
 }
