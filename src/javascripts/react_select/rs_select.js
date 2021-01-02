@@ -33,9 +33,11 @@ export const rsSelect = {
       ...provided,
       marginTop: '0',
       marginBottom: '0',
-      paddingTop: '3px',
-      paddingBottom: '3px',
       height: '33px',
+    }),
+    indicatorContainer: (provided) => ({
+      ...provided,
+      padding: '4px',
     }),
     valueContainer: (provided) => ({
       ...provided,
