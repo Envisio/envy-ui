@@ -35,7 +35,7 @@ export const rsSelect = {
       marginBottom: '0',
       height: '33px',
     }),
-    indicatorContainer: (provided) => ({
+    clearIndicator: (provided) => ({
       ...provided,
       padding: '4px',
     }),
