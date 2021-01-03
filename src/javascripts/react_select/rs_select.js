@@ -1,7 +1,11 @@
-import { UI_COLOR_PALE_BLUE, UI_COLOR_PLAIN_GRAY } from '../index'
-import { UI_COLOR_DEFAULT } from '../from-dictionary/color';
+import {
+  UI_COLOR_PALE_BLUE,
+  UI_COLOR_PLAIN_GRAY,
+  UI_COLOR_DEFAULT,
+  UI_COLOR_RED,
+} from '../from-dictionary/color';
 
-export const rsSelect = {
+export const rsSelect = ({ showError = false }) => ({
   styles: {
     menu: (provided) => ({
       ...provided,
@@ -52,10 +56,10 @@ export const rsSelect = {
       ...provided,
       borderWidth: '1px',
       borderStyle: 'solid',
-      borderColor: isFocused ? '#76bcd0 !important' : `${UI_COLOR_PLAIN_GRAY}`,
+      borderColor: showError ? UI_COLOR_RED : (isFocused ? '#76bcd0 !important' : `${UI_COLOR_PLAIN_GRAY}`),
       borderRadius: '3px',
       // padding: '0 10px',
-      boxShadow: isFocused ? 'inset 0 0 1px 3px rgba(118,188,208,0.3)' : '0',
+      boxShadow: isFocused ? `inset 0 0 1px 3px rgba(${showError ? '118,188,008,0.3' : '118,188,208,0.3'})` : '0',
       minHeight: '35px',
       maxHeight: '35px',
       // backgroundColor: 'transparent',
@@ -103,25 +107,25 @@ export const rsSelect = {
       primary: '#b2d4ff',
     },
   }),
-};
-
-export const rsSelectPlus = ({ showError }) => ({
-  styles: {
-    ...rsSelect.styles,
-    control: (provided, {isDisabled, isFocused}) => ({
-      ...provided,
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      borderColor: showError ? 'red' : (isFocused ? '#76bcd0 !important' : UI_COLOR_PLAIN_GRAY),
-      borderRadius: '3px',
-      // padding: '0 10px',
-      boxShadow: isFocused ? `inset 0 0 1px 3px rgba(${showError ? '118,188,008,0.3' : '118,188,208,0.3'})` : '0',
-      minHeight: '35px',
-      maxHeight: '35px',
-      // backgroundColor: 'transparent',
-    }),
-  },
-  theme : {
-    ...rsSelect.theme,
-  },
 });
+
+// export const rsSelectPlus = ({ showError }) => ({
+//   styles: {
+//     ...rsSelect.styles,
+//     control: (provided, {isDisabled, isFocused}) => ({
+//       ...provided,
+//       borderWidth: '1px',
+//       borderStyle: 'solid',
+//       borderColor: showError ? 'red' : (isFocused ? '#76bcd0 !important' : UI_COLOR_PLAIN_GRAY),
+//       borderRadius: '3px',
+//       // padding: '0 10px',
+//       boxShadow: isFocused ? `inset 0 0 1px 3px rgba(${showError ? '118,188,008,0.3' : '118,188,208,0.3'})` : '0',
+//       minHeight: '35px',
+//       maxHeight: '35px',
+//       // backgroundColor: 'transparent',
+//     }),
+//   },
+//   theme : {
+//     ...rsSelect.theme,
+//   },
+// });
