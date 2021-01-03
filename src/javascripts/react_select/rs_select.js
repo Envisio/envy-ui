@@ -104,3 +104,24 @@ export const rsSelect = {
     },
   }),
 };
+
+export const rsSelectPlus = ({ showError }) => ({
+  styles: {
+    ...rsSelect.styles,
+    control: (provided, {isDisabled, isFocused}) => ({
+      ...provided,
+      borderWidth: '1px',
+      borderStyle: 'solid',
+      borderColor: showError ? 'red' : (isFocused ? '#76bcd0 !important' : UI_COLOR_PLAIN_GRAY),
+      borderRadius: '3px',
+      // padding: '0 10px',
+      boxShadow: isFocused ? `inset 0 0 1px 3px rgba(${showError ? '118,188,008,0.3' : '118,188,208,0.3'})` : '0',
+      minHeight: '35px',
+      maxHeight: '35px',
+      // backgroundColor: 'transparent',
+    }),
+  },
+  theme : {
+    ...rsSelect.theme,
+  },
+});
