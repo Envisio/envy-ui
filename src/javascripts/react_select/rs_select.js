@@ -45,7 +45,8 @@ export const rsSelect = ({ showError = false, reflowMultiSelect = false } = {}) 
     }),
     valueContainer: (provided) => ({
       ...provided,
-      height: '33px',
+      height: reflowMultiSelect ? 'auto' : '33px',
+      minHeight: '33px',
       flexWrap: reflowMultiSelect ? 'wrap' : 'nowrap',
       // border: '0',
       // maxWidth: '0',
