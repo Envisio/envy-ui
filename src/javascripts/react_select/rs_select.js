@@ -5,7 +5,7 @@ import {
   UI_COLOR_RED,
 } from '../from-dictionary/color';
 
-export const rsSelect = ({ showError = false } = {}) => ({
+export const rsSelect = ({ showError = false, reflowMultiSelect = flase } = {}) => ({
   styles: {
     menu: (provided) => ({
       ...provided,
@@ -26,7 +26,7 @@ export const rsSelect = ({ showError = false } = {}) => ({
       ...provided,
       marginTop: '4px',
       marginBottom: '4px',
-      height: '25px',
+      height: reflowMultiSelect ? 'auto' : '25px', //this
       color: `${UI_COLOR_PLAIN_GRAY}`
     }),
     menuList: (provided) => ({
@@ -46,7 +46,7 @@ export const rsSelect = ({ showError = false } = {}) => ({
     valueContainer: (provided) => ({
       ...provided,
       height: '33px',
-      flexWrap: 'nowrap',
+      flexWrap: reflowMultiSelect ? 'wrap' : 'nowrap',
       // border: '0',
       // maxWidth: '0',
       // padding: '0',
@@ -61,7 +61,7 @@ export const rsSelect = ({ showError = false } = {}) => ({
       // padding: '0 10px',
       boxShadow: isFocused ? `inset 0 0 1px 3px rgba(${showError ? '118,188,008,0.3' : '118,188,208,0.3'})` : '0',
       minHeight: '35px',
-      maxHeight: '35px',
+      maxHeight: reflowMultiSelect ? 'auto' : '35px',
       // backgroundColor: 'transparent',
     }),
     dropdownIndicator: (provided) => ({
