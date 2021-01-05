@@ -5,7 +5,7 @@ import {
   UI_COLOR_RED,
 } from '../from-dictionary/color';
 
-export const rsSelect = ({ showError = false, reflowMultiSelect = flase } = {}) => ({
+export const rsSelect = ({ showError = false, reflowMultiSelect = false } = {}) => ({
   styles: {
     menu: (provided) => ({
       ...provided,
