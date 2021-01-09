@@ -60,7 +60,7 @@ export const rsSelect = ({ showError = false, reflowMultiSelect = false } = {}) 
       borderColor: showError ? UI_COLOR_RED : (isFocused ? '#76bcd0 !important' : `${UI_COLOR_PLAIN_GRAY}`),
       borderRadius: '3px',
       // padding: '0 10px',
-      boxShadow: isFocused ? `inset 0 0 1px 3px rgba(${showError ? '118,188,008,0.3' : '118,188,208,0.3'})` : '0',
+      boxShadow: isFocused ? `inset 0 0 1px 3px rgba(${showError ? '204, 24, 30, 0.2' : '118,188,208,0.3'})` : '0',
       minHeight: '35px',
       maxHeight: reflowMultiSelect ? 'auto' : '35px',
       // backgroundColor: 'transparent',
