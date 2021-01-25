@@ -10,7 +10,7 @@
 
   display: flex;
   height: $a-default-control-height;
-  padding: 0 10px;;
+  padding: 0 10px;
   font-size: $a-default-font-size;
   color: color("default");
   background-color: color("white");
@@ -43,6 +43,23 @@
   &[disabled], &--disabled {
     fieldset[disabled] & {
       cursor: $a-cursor-disabled;
+    }
+  }
+
+  &--small {
+    height: 25px;
+  }
+
+  &--plain {
+    border-color: transparent;
+    background-color: transparent;
+    padding: 0 10px;
+    &:hover {
+      background-color: color("gallery");
+    }
+    &[disabled], &[readonly], &--disabled {
+      background-color: transparent;
+      color: color("plain-gray");
     }
   }
 
