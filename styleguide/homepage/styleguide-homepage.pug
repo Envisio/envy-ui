@@ -95,6 +95,11 @@ p(class=uiA`text-align-right`) version: !{env.npm_package_version}
         .env-table__cell
           .env-table__content
             .env-a-placeholder(class=`env-a-w-${tablePlaceholderWidth}`)
+    .env-table__subheader
+      each tablePlaceholderWidth in tablePlaceholderWidths
+        .env-table__cell
+          .env-table__content
+            .env-a-placeholder(class=`env-a-w-${tablePlaceholderWidth}`)
     each item, index in Array(3)
       .env-table__row
         each tablePlaceholderWidth in tablePlaceholderWidths

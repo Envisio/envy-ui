@@ -31,6 +31,15 @@
     overflow: hidden;
   }
 
+  &__subheader {
+    @include flex();
+    flex: 0 0 auto;
+    background-color: color("pale-gray");
+    padding: 5px 0;
+    border-bottom: $panel-border;
+    overflow: hidden;
+  }
+
   &__content {
     padding-right: 10px;
     overflow: hidden;
