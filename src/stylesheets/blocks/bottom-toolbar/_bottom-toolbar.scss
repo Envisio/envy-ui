@@ -17,9 +17,17 @@
   display: flex;
   padding: 0 10px;
   align-items: center;
+
+  &--plain {
+    background-color: transparent;
+    border-top-color: color('border');
+    box-shadow: none;
+  }
+
   &--push-right {
     padding-left: $base-form-label-min-width + ((10px / 14px) * 1rem);
   }
+
   &--push-right-long {
     padding-left: $base-form-label-min-width + $base-form-margin-step + ((10px / 14px) * 1rem);
   }
