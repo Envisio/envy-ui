@@ -79,6 +79,7 @@
   &--circle {
     height: $badge--height-default;
     width: $badge--height-default;
+    min-width: $badge--height-default;
     padding: 1px;
     border-radius: 50%;
   }
