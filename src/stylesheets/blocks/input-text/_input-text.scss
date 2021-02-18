@@ -19,7 +19,7 @@
   border-radius: $a-default-border-radius;
   transition: $a-focus-transition;
 
-  &:focus {
+  &:focus, &--focus {
     @include a--focus();
   }
 
