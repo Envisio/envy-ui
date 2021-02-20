@@ -1,5 +1,12 @@
 $a-borders: null, "-top", "-right", "-bottom", "-left";
-$a-border-types: ("-none": 0, "-panel": solid 1px $color-default-border, "-panel-3": solid 3px $color-default-border, "-1-s-transparent": 1px solid transparent);
+$a-border-types: (
+  "-none": 0,
+  "-panel": solid 1px $color-default-border,
+  "-light": dotted 1px $color-default-border,
+  "-panel-3": solid 3px $color-default-border,
+  "-current-3": solid 3px currentColor,
+  "-1-s-transparent": 1px solid transparent
+);
 
 $a-border-radiuses: (null: 3px, "-none": 0, "-half": 50%, "-5": 5px, "-10": 10px, "-15": 15px, "-20": 20px);
 
