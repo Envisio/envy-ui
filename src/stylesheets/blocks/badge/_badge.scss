@@ -36,6 +36,15 @@
 
   @include badge__make-container-color(color("white"), color("default"));
 
+  &--data {
+    font-size: 13px;
+    height: 22px;
+    width: 22px;
+    flex: 0 0 22px;
+    border-radius: 0;
+    border: 2px solid currentColor;
+  }
+
   &--info {
     @include badge__make-container-color(color("viking-blue"), color("white"));
   }
