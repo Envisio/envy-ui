@@ -8,6 +8,13 @@
 
   $this: &;
 
+  @mixin alert__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
+    $border-color: if($bg-color == color("white"), color("gray-white"), darken($bg-color, 5%));
+    background-color: $bg-color;
+    color: $text-color;
+    border: 1px solid $border-color;
+  }
+
   @mixin status($color) {
     position: relative;
     &::before {
@@ -152,5 +159,9 @@
 
   &--bubble-top-left {
     @include bubble();
+  }
+
+  &--alert-warning {
+    @include alert__make-container-color(lighten(color("picklist"), 15%), color("potters-clay"));
   }
 }
