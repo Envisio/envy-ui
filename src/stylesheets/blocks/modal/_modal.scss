@@ -59,7 +59,7 @@
 
   #{$this}__header {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     position: relative;
     width: 100%;
@@ -70,7 +70,7 @@
     border-radius: $shape-border-radius $shape-border-radius 0 0;
     color: color("athens-gray");
     margin-top: 0;
-    padding: 0 10px;
+    padding-left: 10px;
     &--alert {
       background-color: color("rose");
       border-bottom: $shape-border darken(color("rose"), 15%);
@@ -96,6 +96,6 @@
     min-height: 55px;
     background-color: color("gallery");
     border-radius: 0 0 $shape-border-radius $shape-border-radius;
-    padding: 0 10px;
+    padding-left: 10px;
   }
 }
