@@ -130,6 +130,14 @@
     padding-left: 10px;
   }
 
+  &--elements {
+    display: flex;
+    flex-direction: column;
+    & > #{$this}__header, & > #{$this}__footer {
+      flex: 0 0 auto;
+    }
+  }
+
   &--plain {
     background-color: color("alabaster");
     border: 1px solid darken(color("alabaster"), 5%);
@@ -163,9 +171,6 @@
 
   &--alert-warning {
     @include alert__make-container-color(lighten(color("picklist"), 15%), color("potters-clay"));
-    #{$this}__content {
-      min-height: auto;
-    }
     #{$this}__footer {
       border-top-color: darken(color("picklist"), 5%);
     }
