@@ -65,7 +65,9 @@
 
   &--stack-left, &--stack-left:focus {
     border-radius: $a-default-border-radius 0 0 $a-default-border-radius;
-    border-right: 0;
+    &:not(#{$this}--plain) {
+      border-right: 0;
+    }
   }
 
   &--stack-right, &--stack-right:focus {
@@ -74,7 +76,9 @@
 
   &--stack, &--stack:focus {
     border-radius: 0;
-    border-right: 0;
+    &:not(#{$this}--plain) {
+      border-right: 0;
+    }
   }
 
   &--error {
