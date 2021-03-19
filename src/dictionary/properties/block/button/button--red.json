@@ -6,10 +6,10 @@
           "value": "{color.white.value}"
         },
         "background-color": {
-          "value": "{color.red.value}"
+          "value": "{color.rose.value}"
         },
         "border": {
-          "color": "#ac1419",
+          "color": "#d5423d",
           "value": "{shape.border.value} {button.--red.default.border.color}",
           "comment": "darken 7% from color.red.value"
         }
@@ -21,7 +21,7 @@
       },
       "active": {
         "background-color": {
-          "value": "#e52329",
+          "value": "#dc6460",
           "comment": "lighten 10% from color.red.value"
         },
         "box-shadow": {
