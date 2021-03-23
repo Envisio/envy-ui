@@ -20,7 +20,7 @@ export default function Scrollbar({ children, disable, ...rest }) {
       render={({
         width,
         height,
-      }) => (
+      }) => (console.log(`width ${width} / height ${height}`),
         <Scrollbars
           style={{
             width,
