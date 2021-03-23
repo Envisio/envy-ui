@@ -10,7 +10,7 @@ export const ScrollValue = React.createContext(0);
 
 export default function Scrollbar({ children, disable, ...rest }) {
 
-  const { width, height, ref } = useResizeDetector();
+  // const { width, height, ref } = useResizeDetector();
 
   if (disable) {
     return children;
