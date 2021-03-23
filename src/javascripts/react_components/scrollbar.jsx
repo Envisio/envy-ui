@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
-import ReactResizeDetector from 'react-resize-detector';
+import ReactResizeDetector, { useResizeDetector } from 'react-resize-detector';
+import ResizeObserver from 'react-resize-detector/build/withPolyfill';
 
 import { ui, uiWrapperScroll } from '../';
 
 export const ScrollValue = React.createContext(0);
 
 export default function Scrollbar({ children, disable, ...rest }) {
+
+  const { width, height, ref } = useResizeDetector();
 
   if (disable) {
     return children;
@@ -17,14 +20,15 @@ export default function Scrollbar({ children, disable, ...rest }) {
     <ReactResizeDetector
       handleWidth
       handleHeight
-      render={({
+    >
+      {({
         width,
         height,
       }) => (console.log(`width ${width} / height ${height}`),
         <Scrollbars
           style={{
-            width,
-            height,
+            width: `${width}px`,
+            height: `${height}px`,
           }}
           hideTracksWhenNotNeeded
           {...ui(uiWrapperScroll)}
@@ -33,7 +37,7 @@ export default function Scrollbar({ children, disable, ...rest }) {
           {children}
         </Scrollbars>
       )}
-    />
+    </ReactResizeDetector>
   );
 }
 
