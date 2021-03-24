@@ -27,8 +27,8 @@ export default function Scrollbar({ children, disable, ...rest }) {
       }) => (console.log(`width ${width} / height ${height}`),
         <Scrollbars
           style={{
-            width: `${width}px`,
-            height: `${height}px`,
+            width,
+            height,
           }}
           hideTracksWhenNotNeeded
           {...ui(uiWrapperScroll)}
@@ -39,6 +39,29 @@ export default function Scrollbar({ children, disable, ...rest }) {
       )}
     </ReactResizeDetector>
   );
+  // return (
+  //   <ReactResizeDetector
+  //     handleWidth
+  //     handleHeight
+  //   >
+  //     {({
+  //       width,
+  //       height,
+  //     }) => (console.log(`width ${width} / height ${height}`),
+  //       <Scrollbars
+  //         style={{
+  //           width: `${width}px`,
+  //           height: `${height}px`,
+  //         }}
+  //         hideTracksWhenNotNeeded
+  //         {...ui(uiWrapperScroll)}
+  //         {...rest}
+  //       >
+  //         {children}
+  //       </Scrollbars>
+  //     )}
+  //   </ReactResizeDetector>
+  // );
 }
 
 Scrollbar.propTypes = {
