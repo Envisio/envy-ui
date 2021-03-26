@@ -10,7 +10,7 @@ import { ui, uiWrapperScroll } from '../';
 
 export const ScrollValue = React.createContext(0);
 
-export default function Scrollbars({ children, disable, ...rest }) {
+export default function Scrollbar({ children, disable, ...rest }) {
 
   // const { width, height, ref } = useResizeDetector();
 
@@ -26,7 +26,7 @@ export default function Scrollbars({ children, disable, ...rest }) {
       {({
         width,
         height,
-      }) => (console.log(`width ${width} / height ${height}`),
+      }) => (
         <Scrollbars
           style={{
             width,
@@ -50,7 +50,7 @@ export default function Scrollbars({ children, disable, ...rest }) {
   //       width,
   //       height,
   //     }) => (console.log(`width ${width} / height ${height}`),
-  //       <Scrollbars
+  //       <
   //         style={{
   //           width: `${width}px`,
   //           height: `${height}px`,
@@ -66,7 +66,7 @@ export default function Scrollbars({ children, disable, ...rest }) {
   // );
 }
 
-export function OverlayScrollbars({ children, options, options: { className }, disable, ...rest }) {
+export function OverlayScroll({ children, options, options: { className }, disable, ...rest }) {
 
   // const { width, height, ref } = useResizeDetector();
 
@@ -95,14 +95,14 @@ Scrollbar.defaultProp = {
   disable: false,
 };
 
-OverlayScrollbars.propTypes = {
+OverlayScroll.propTypes = {
   children: PropTypes.node.isRequired,
   disable: PropTypes.bool,
   options: PropTypes.object,
   className: PropTypes.string,
 };
 
-OverlayScrollbars.defaultProp = {
+OverlayScroll.defaultProp = {
   disable: false,
   options: {},
   className: '',
