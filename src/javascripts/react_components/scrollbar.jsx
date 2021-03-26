@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import OverlayScrollbars from 'overlayscrollbars';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import ReactResizeDetector, { useResizeDetector } from 'react-resize-detector';
 import ResizeObserver from 'react-resize-detector/build/withPolyfill';
@@ -8,7 +10,7 @@ import { ui, uiWrapperScroll } from '../';
 
 export const ScrollValue = React.createContext(0);
 
-export default function Scrollbar({ children, disable, ...rest }) {
+export default function Scrollbars({ children, disable, ...rest }) {
 
   // const { width, height, ref } = useResizeDetector();
 
@@ -64,6 +66,26 @@ export default function Scrollbar({ children, disable, ...rest }) {
   // );
 }
 
+export function OverlayScrollbars({ children, options, options: { className }, disable, ...rest }) {
+
+  // const { width, height, ref } = useResizeDetector();
+
+  if (disable) {
+    return children;
+  }
+
+  const updatedOptions = {...options, className: `${className} os-theme-light`};
+
+  return (
+    <OverlayScrollbarsComponent
+      options={updatedOptions}
+      {...rest}
+    >
+      {children}
+    </OverlayScrollbarsComponent>
+  );
+}
+
 Scrollbar.propTypes = {
   children: PropTypes.node.isRequired,
   disable: PropTypes.bool,
@@ -71,4 +93,17 @@ Scrollbar.propTypes = {
 
 Scrollbar.defaultProp = {
   disable: false,
+};
+
+OverlayScrollbars.propTypes = {
+  children: PropTypes.node.isRequired,
+  disable: PropTypes.bool,
+  options: PropTypes.object,
+  className: PropTypes.string,
+};
+
+OverlayScrollbars.defaultProp = {
+  disable: false,
+  options: {},
+  className: '',
 };
