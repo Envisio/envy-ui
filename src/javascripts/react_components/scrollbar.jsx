@@ -66,7 +66,7 @@ export default function Scrollbar({ children, disable, ...rest }) {
   // );
 }
 
-export function OverlayScrollbars({ children, options, options: { className }, disable, ...rest }) {
+export function OverlayScroll({ children, options, options: { className }, disable, ...rest }) {
 
   // const { width, height, ref } = useResizeDetector();
 
@@ -95,14 +95,14 @@ Scrollbar.defaultProp = {
   disable: false,
 };
 
-OverlayScrollbars.propTypes = {
+OverlayScroll.propTypes = {
   children: PropTypes.node.isRequired,
   disable: PropTypes.bool,
   options: PropTypes.object,
   className: PropTypes.string,
 };
 
-OverlayScrollbars.defaultProp = {
+OverlayScroll.defaultProp = {
   disable: false,
   options: {},
   className: '',
