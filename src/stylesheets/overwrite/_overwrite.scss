@@ -1,0 +1,4 @@
+// Overwrite dark theme for Overlay Scrollbar
+.os-theme-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle {
+  background: rgba(0, 0, 0, 0.25);
+}
