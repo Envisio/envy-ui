@@ -86,6 +86,7 @@ export { default as makeMq } from './ui/make_mq';
 export { visualSettings } from './ui/ui_general_settings';
 
 export { default as Scrollbar } from './react_components/scrollbar';
+export { OverlayScroll } from './react_components/scrollbar';
 export { default as Portal } from './react_components/portal';
 export { default as Tooltip } from './react_components/tooltip';
 
