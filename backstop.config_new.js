@@ -116,8 +116,8 @@ module.exports = () => ({
       label = '',
       misMatchThreshold = '0.1',
       section = '',
-      onBeforeScript = "puppet/onBeforeCustom.js",
-      onReadyScript = "puppet/onBeforeCustom.js",
+      onBeforeScript = "puppet/onBefore.js",
+      onReadyScript = "puppet/onReady.js",
       viewports = getViewports({}),
     }) => (
       {
