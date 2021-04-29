@@ -52,7 +52,7 @@ $a-text-aligns: left, right, center, justify;
 
 @each $font-size-percent in $a-font-size-percent {
   .#{$uiA}-font-size-#{$font-size-percent}\% {
-    font-size: #{$font-size-percent}%#{$a-important};
+    font-size: #{$font-size-percent}#{'%'}#{$a-important};
   }
 }
 

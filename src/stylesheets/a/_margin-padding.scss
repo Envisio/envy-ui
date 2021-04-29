@@ -44,7 +44,7 @@ $space-sizes: (null: $space-normal, "-auto": auto, "-small": $space-small, "-lar
           @if $i > 0 and $i < 101 {
             .#{$uiA}-#{$property-namespace}#{$direction-namespace}-#{$i}\%#{$ng} {
               @each $direction in $direction-rules {
-                #{$property}#{$direction}: #{$ng}#{$i}%#{$a-important};
+                #{$property}#{$direction}: #{$ng}#{$i}#{'%'}#{$a-important};
               }
             }
           }
