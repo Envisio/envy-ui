@@ -2,8 +2,6 @@ import { eq, split, without, isEmpty, memoize, values } from 'lodash';
 
 import { $uiA } from '../from-dictionary/block_raw_name';
 
-console.log(`library++++++++++++++++++++++++++++++++++++${process.env.NODE_ENV}`);
-
 const _getAcssClasses = (block, predicates, fragment, i) => {
 
   let thisBlock = block;
