@@ -10,7 +10,7 @@ $a-sides: ( top, right, bottom, left );
     @each $ng in $a-negative-list {
       @if $ng != "-" or ( $ng == "-" and $i > 0 and $i < 101 ) {
         .#{$uiA}-#{$side}-#{$i}#{$ng} {
-          #{$side}: #{$ng}px($i)#{$a-important};
+          #{$side}: #{$ng}#{px($i)}#{$a-important};
         }
       }
     }

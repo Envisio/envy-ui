@@ -108,7 +108,7 @@ $flex-set: (
       }
       @if ($flex-grow-value == 0 and $flex-shrink-value == 0) {
         .#{$uiA}#{$flex-shortname}-b-#{$i} {
-          flex-basis: px($i) #{$a-important};
+          flex-basis: #{px($i)} #{$a-important};
         }
         @if $i > 0 and $i < 101 {
           .#{$uiA}#{$flex-shortname}-b-#{$i}\% {
