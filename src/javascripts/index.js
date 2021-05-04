@@ -96,3 +96,5 @@ export { default as CheckboxWrapper } from './react_wrappers/checkbox_wrapper';
 export { default as FlexScrollbarWrapper } from './react_wrappers/flex_scrollbar_wrapper';
 
 export { default as useMediaQuery } from './react_hooks/use_mq';
+
+export { default as uiTest } from './ui/ui_test';
