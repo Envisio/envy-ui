@@ -17,6 +17,31 @@
   $badge--height-large: 30px;
   $badge--height-xlarge: 35px;
 
+  @function svg-badge($color: color("white")) {
+    @return url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' %3E%3Cpath fill='#{encodecolor($color)}' d='M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z' %3E%3C/path%3E%3C/svg%3E");
+  }
+
+  @mixin badge__make-tag($text-color: color("white")) {
+    height: $badge--height-small;
+    font-size: $badge--default-font-size;
+    border-radius: $badge--height-small / 2;
+    position: relative;
+    padding: 0 10px 0 23px;
+    color: $text-color;
+    &::after {
+      content: svg-badge($text-color);
+      display: block;
+      width: 12px;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      margin: 2px 5px 0 7px;
+      left: 0;
+      top: 0;
+      border: 1px solid transparent;
+    }
+  }
+
   @mixin badge__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
     $border-color: if($bg-color == color("white"), color("plain-gray"), $bg-color);
     background-color: $bg-color;
@@ -158,6 +183,13 @@
   &--inline {
     height: auto;
     padding: 2px 5px;
+  }
+
+  &--tag {
+    @include badge__make-tag()
+  }
+  &--tag-light {
+    @include badge__make-tag(color("default"))
   }
 }
 
