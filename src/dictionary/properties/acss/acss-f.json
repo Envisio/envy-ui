@@ -29,6 +29,12 @@
       "markup-file": "_a-f-child-kss.html",
       "iterator": "{acss-settings.f-a-self}",
       "menu": "Align Self"
+    }, {
+      "content": "-gap",
+      "description": "Gap",
+      "markup-file": "_a-f-gap-kss.html",
+      "iterator": "{acss-settings.f-gap}",
+      "menu": "Gap"
     }]
   }
 }
