@@ -677,6 +677,13 @@
       "space-between": "space-between",
       "space-around": "space-around"
     },
+    "f-gap": {
+      "5": "5",
+      "10": "10",
+      "15": "15",
+      "20": "20",
+      "25": "25"
+    },
     "f-a": {
       "start": "start",
       "end": "end",
