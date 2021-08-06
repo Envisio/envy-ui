@@ -4,6 +4,8 @@ $flex-shortname: "-f";
 //   display: flex#{$a-important};
 // }
 
+$flex-gaps: (5, 10, 15, 20, 25);
+
 $flex-properties: (
   "-j": "justify-content",
   "-a": "align-items",
@@ -86,6 +88,12 @@ $flex-set: (
 @for $flex-grow-value from 0 through 10 {
   .#{$uiA}#{$flex-shortname}-g-#{$flex-grow-value} {
     flex-grow: unquote("#{$flex-grow-value}") #{$a-important};
+  }
+}
+
+@each $flex-gap-value in $flex-gaps {
+  .#{$uiA}#{$flex-shortname}-gap-#{$flex-gap-value} {
+    gap: px($flex-gap-value) #{$a-important};
   }
 }
 
