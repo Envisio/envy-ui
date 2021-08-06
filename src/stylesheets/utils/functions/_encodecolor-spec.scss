@@ -1,0 +1,5 @@
+@include test-module('The [encodecolor] function') {
+  @include test('returns escaped color # symbol %23') {
+    @include assert-equal(encodecolor(color("default")), '%23444444');
+  }
+}
