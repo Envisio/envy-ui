@@ -52,7 +52,9 @@
     "deploy": "npm run specificity && ./node_modules/.bin/surge --domain envisio-styleguide.surge.sh ./dist",
     "js-test": "./node_modules/.bin/babel-tape-runner src/javascripts/ui/tests/get_block.test.js | faucet",
     "backstop:exec-test": "concurrently \"http-server -a localhost -p 5000\" \"sleepms 2000 && node backstop.exec.js test; open-cli http://localhost:5000/backstop_data/html_report/\"",
-    "backstop:reference": "backstop reference --config=\"backstop.config.js\""
+    "backstop:reference": "backstop reference --config=\"backstop.config.js\"",
+    "start:styleguide": "npm run open-styleguide",
+    "open-styleguide": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/build\""
   },
   "repository": {
     "type": "git",
@@ -74,7 +76,7 @@
     "babel-loader": "^8.1.0",
     "babel-tape-runner": "^3.0.0",
     "backstopjs": "^5.3.0",
-    "concurrently": "^6.0.2",
+    "concurrently": "^6.2.1",
     "css-reporter": "0.0.6",
     "faucet": "0.0.1",
     "highlight.js": "^9.18.1",
