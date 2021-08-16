@@ -103,6 +103,14 @@
   }
 }
 
+@mixin a-text-ellipsis($min-width: 0) {
+  white-space: nowrap#{$a-important};
+  overflow: hidden#{$a-important};
+  max-width: 100%#{$a-important};
+  min-width: $min-width;
+  text-overflow: ellipsis#{$a-important};
+}
+
 // process icons sizes (disputable)
 @mixin square-icon($delta: 0) {
   width: $icon-base-size + $delta;
