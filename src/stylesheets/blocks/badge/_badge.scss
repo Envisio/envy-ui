@@ -191,6 +191,16 @@
   &--tag-light {
     @include badge__make-tag(color("default"))
   }
+
+  &--counter {
+    height: $badge--height-xsmall;
+    font-size: $badge--default-font-size;
+    font-weight: normal;
+    padding: 0 5px;
+    text-align: center;
+    min-width: 22px;
+    border-radius: $badge--height-xsmall / 2;
+  }
 }
 
 /* stylelint-enable */
