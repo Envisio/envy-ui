@@ -54,7 +54,7 @@
     "backstop:exec-test": "concurrently \"http-server -a localhost -p 5000\" \"sleepms 2000 && node backstop.exec.js test; open-cli http://localhost:5000/backstop_data/html_report/\"",
     "backstop:reference": "backstop reference --config=\"backstop.config.js\"",
     "start:styleguide": "npm run open-styleguide",
-    "open-styleguide": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/build\""
+    "open-styleguide": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/dist/styleguide/\""
   },
   "repository": {
     "type": "git",
