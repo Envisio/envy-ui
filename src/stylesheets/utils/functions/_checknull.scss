@@ -1,0 +1,7 @@
+@function checknull($string: null) {
+  @if $string == 'null' or $string == 'null' {
+    @return null
+  }
+
+  @return $string;
+}

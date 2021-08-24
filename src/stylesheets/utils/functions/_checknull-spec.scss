@@ -1,0 +1,17 @@
+@include describe('Check null string or null') {
+  @include it('returns null if param is "null"') {
+    @include assert-equal(checknull("null"), null);
+  }
+
+  @include it('returns null if param is null') {
+    @include assert-equal(checknull(null), null);
+  }
+
+  @include it('returns param "banana" if param is "banana"') {
+    @include assert-equal(checknull("banana"), "banana");
+  }
+
+  @include it('returns null if no param') {
+    @include assert-equal(checknull(), null);
+  }
+}
