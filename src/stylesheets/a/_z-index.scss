@@ -11,3 +11,7 @@ $a-z-indexes: ("auto": auto, "0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "1-
     @include a-z-index($z-index);
   }
 }
+
+.#{$uiA}-isolate {
+  isolation: isolate#{$a-important};
+}
