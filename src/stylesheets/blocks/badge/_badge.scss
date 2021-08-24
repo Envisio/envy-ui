@@ -200,6 +200,9 @@
     text-align: center;
     min-width: 22px;
     border-radius: $badge--height-xsmall / 2;
+    border-width: 0;
+    color: color("white");
+    background-color: desaturate(lighten(color("brand-primary"), 25%), 50%);
   }
 }
 
