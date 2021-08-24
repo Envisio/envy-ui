@@ -4,7 +4,16 @@ $flex-shortname: "-f";
 //   display: flex#{$a-important};
 // }
 
-$flex-gaps: (5, 10, 15, 20, 25);
+$flex-gaps: (
+  "-5": 5px,
+  "-small": 5px,
+  "-10": 10px,
+  null: 10px,
+  "-15": 15px,
+  "-large": 15px,
+  "-20": 20px,
+  "-25": 25px
+);
 
 $flex-properties: (
   "-j": "justify-content",
@@ -91,8 +100,8 @@ $flex-set: (
   }
 }
 
-@each $flex-gap-value in $flex-gaps {
-  .#{$uiA}#{$flex-shortname}-gap-#{$flex-gap-value} {
+@each $flex-gap-name, $flex-gap-value in $flex-gaps {
+  .#{$uiA}#{$flex-shortname}-gap#{checknull($flex-gap-name)} {
     gap: px($flex-gap-value) #{$a-important};
   }
 }
