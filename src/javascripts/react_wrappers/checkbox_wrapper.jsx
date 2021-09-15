@@ -38,6 +38,7 @@ export default class CheckboxWrapper extends Component {
       themeCheck,
       themeRadio,
       addClass,
+      id,
     } = this.props;
 
     return (
@@ -48,7 +49,7 @@ export default class CheckboxWrapper extends Component {
             {...ui([
               uiCheckbox`--toggle:${themeToggle} --check:${themeCheck} --radio:${themeRadio} --disabled:${child.props.disabled}`,
               addClass])}
-            htmlFor={this.uid}
+            htmlFor={id ? id : this.uid}
           />
         </Fragment>
       ))
