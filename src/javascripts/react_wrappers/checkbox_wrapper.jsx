@@ -28,9 +28,7 @@ export default class CheckboxWrapper extends Component {
   constructor(props) {
     super(props);
 
-    const { id } = props;
-
-    this.uid = id && uid.randomUUID(6);
+    this.uid = uid.randomUUID(6);
   }
 
   render() {
@@ -43,18 +41,22 @@ export default class CheckboxWrapper extends Component {
     } = this.props;
 
     return (
-      Children.map(children, child => (
-        <Fragment>
-          {cloneElement(child, { id: this.uid, ...ui(uiA`vanish inline-block`) })}
-          {console.log(child)}
-          <label
-            {...ui([
-              uiCheckbox`--toggle:${themeToggle} --check:${themeCheck} --radio:${themeRadio} --disabled:${child.props.disabled}`,
-              addClass])}
-            htmlFor={this.uid}
-          />
-        </Fragment>
-      ))
+      Children.map(children, child => {
+        const id = child?.props?.id && this.uid;
+        return (
+          <Fragment>
+            {cloneElement(child, { id, ...ui(uiA`vanish inline-block`) })}
+            {console.log(child)}
+            <label
+              {...ui([
+                uiCheckbox`--toggle:${themeToggle} --check:${themeCheck} --radio:${themeRadio} --disabled:${child.props.disabled}`,
+                addClass])}
+              htmlFor={id}
+            />
+            {console.log('id ',id)}
+          </Fragment>
+        );
+      })
     );
   }
 }
