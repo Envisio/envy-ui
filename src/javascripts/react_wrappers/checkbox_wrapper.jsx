@@ -52,7 +52,6 @@ export default class CheckboxWrapper extends Component {
                 addClass])}
               htmlFor={id}
             />
-            {console.log('id ',id)}
           </Fragment>
         );
       })
