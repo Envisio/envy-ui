@@ -43,6 +43,9 @@ export default class CheckboxWrapper extends Component {
     return (
       Children.map(children, child => {
         const id = child?.props?.id && this.uid;
+        {console.log('child ', child)}
+        {console.log('child.props ', child.props)}
+        {console.log('child.props.id ', child.props.id)}
         return (
           <Fragment>
             {cloneElement(child, { id, ...ui(uiA`vanish inline-block`) })}
