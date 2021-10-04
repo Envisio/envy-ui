@@ -40,6 +40,23 @@
     cursor: $a-cursor-disabled;
   }
 
+  &--small {
+    height: 25px;
+  }
+
+  &--plain {
+    border-color: transparent;
+    background-color: transparent;
+    padding: 0 10px;
+    &:hover {
+      background-color: color("gallery");
+    }
+    &[disabled], &[readonly], &--disabled {
+      background-color: transparent;
+      color: color("plain-gray");
+    }
+  }
+
   &--stack-left, &--stack-left:focus {
     border-radius: $a-default-border-radius 0 0 $a-default-border-radius;
     border-right: 0;
