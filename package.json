@@ -107,7 +107,8 @@
   },
   "peerDependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-select": "^5.1.0"
   },
   "dependencies": {
     "detect-browser": "^5.0.0",
