@@ -1,5 +1,6 @@
 import React from 'react';
 import { components } from 'react-select';
+import { take } from 'lodash';
 import {
   UI_COLOR_PALE_BLUE,
   UI_COLOR_PLAIN_GRAY,
