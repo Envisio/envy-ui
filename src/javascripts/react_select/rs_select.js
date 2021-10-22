@@ -1,3 +1,4 @@
+import React from 'react';
 import { components } from 'react-select';
 import {
   UI_COLOR_PALE_BLUE,
