@@ -1,3 +1,4 @@
+import { components } from 'react-select';
 import {
   UI_COLOR_PALE_BLUE,
   UI_COLOR_PLAIN_GRAY,
@@ -109,6 +110,55 @@ export const rsSelect = ({ showError = false, reflowMultiSelect = false } = {}) 
     },
   }),
 });
+
+export const rsMultiValueContainer = ({
+  children,
+  selectProps: { maxValuesToShow },
+  ...props
+}) => {
+  const {
+    getValue,
+    hasValue,
+  } = props;
+  const valuesCount = getValue().length;
+
+  if (!hasValue) {
+    return (
+      <components.ValueContainer {...props}>
+        {children}
+      </components.ValueContainer>
+    );
+  }
+
+  return (
+    <components.ValueContainer {...props}>
+      {take(children[0], maxValuesToShow)}
+      {valuesCount > maxValuesToShow ? (
+        <span className="env-a-m-x-small">
+          {`+${valuesCount - maxValuesToShow}`}
+        </span>
+      ) : ''}
+      {children[1]}
+    </components.ValueContainer>
+  );
+};
+
+export const rsMultiSelectOption = (props) => {
+  const { isSelected, ...reducedProps } = props;
+  const checkboxClass = 'env-checkbox env-checkbox--check';
+  return (
+    <components.Option {...reducedProps} {...ui([uiA`p-left`])}>
+      <span className="env-a-f env-a-font-weight-normal">
+        <span className="env-a-f-0-0-20 env-a-color-on-track">
+            <span
+              className={isSelected ? `${checkboxClass} --checked` : checkboxClass}
+            />
+        </span>
+        <span className="env-a-ellipsis">{reducedProps?.label}</span>
+      </span>
+    </components.Option>
+  );
+};
 
 // export const rsSelectPlus = ({ showError }) => ({
 //   styles: {
