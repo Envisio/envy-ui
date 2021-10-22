@@ -149,7 +149,10 @@ export const rsMultiSelectOption = (props) => {
   const { isSelected, ...reducedProps } = props;
   const checkboxClass = 'env-checkbox env-checkbox--check';
   return (
-    <components.Option {...reducedProps} {...ui([uiA`p-left`])}>
+    <components.Option
+      {...reducedProps}
+      className="env-a-p-left"
+    >
       <span className="env-a-f env-a-font-weight-normal">
         <span className="env-a-f-0-0-20 env-a-color-on-track">
             <span
