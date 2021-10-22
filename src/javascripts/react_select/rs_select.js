@@ -1,6 +1,7 @@
 import React from 'react';
 import { components } from 'react-select';
 import { take } from 'lodash';
+import { ui, uiA } from '../';
 import {
   UI_COLOR_PALE_BLUE,
   UI_COLOR_PLAIN_GRAY,
@@ -136,7 +137,7 @@ export const rsMultiValueContainer = ({
     <components.ValueContainer {...props}>
       {take(children[0], maxValuesToShow)}
       {valuesCount > maxValuesToShow ? (
-        <span className="env-a-m-x-small">
+        <span {...ui([uiA`m-x-small`])}>
           {`+${valuesCount - maxValuesToShow}`}
         </span>
       ) : ''}
@@ -151,15 +152,13 @@ export const rsMultiSelectOption = (props) => {
   return (
     <components.Option
       {...reducedProps}
-      className="env-a-p-left"
+      {...ui([uiA`p-left`])}
     >
-      <span className="env-a-f env-a-font-weight-normal">
-        <span className="env-a-f-0-0-20 env-a-color-on-track">
-            <span
-              className={isSelected ? `${checkboxClass} --checked` : checkboxClass}
-            />
-        </span>
-        <span className="env-a-ellipsis">{reducedProps?.label}</span>
+      <span {...ui([uiA`f f-a-center font-weight-normal`])}>
+        <span
+          className={isSelected ? `${checkboxClass} --checked` : checkboxClass}
+        />
+        <span {...ui([uiA`ellipsis`])}>{reducedProps?.label}</span>
       </span>
     </components.Option>
   );
