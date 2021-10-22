@@ -106,10 +106,10 @@
   },
   "peerDependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-select": "^5.1.0"
+    "react-dom": "^16.13.1"
   },
   "dependencies": {
+    "react-select": "^3.2.0",
     "detect-browser": "^5.0.0",
     "dom-to-image": "^2.6.0",
     "lodash": "^4.17.19",
