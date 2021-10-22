@@ -77,7 +77,7 @@
       transition: left 0.1s ease-in;
     }
   }
-  @at-root input[type="checkbox"]:checked + #{$this}, #{$this}#{$this}--checked {
+  @at-root input[type="checkbox"]:checked + #{$this}, #{$this}#{$this}--checked#{$this} {
     &--check {
       &::after {
         @include box($check-tick-base-size, $check-tick-base-size * 2, $on-track);
@@ -114,7 +114,7 @@
     }
   }
 
-  @at-root input[type="checkbox"][disabled] + #{$this}, #{$this}#{$this}--disabled {
+  @at-root input[type="checkbox"][disabled] + #{$this}, #{$this}#{$this}--disabled#{$this} {
     &--check, &--toggle, &--radio {
       @extend %ui-checkbox-disable-state-painter;
     }
@@ -126,7 +126,7 @@
     }
   }
 
-  @at-root input[type="checkbox"][disabled][checked] + #{$this}, #{$this}#{$this}--disabled#{$this}#{$this}--checked {
+  @at-root input[type="checkbox"][disabled][checked] + #{$this}, #{$this}#{$this}--disabled#{$this}#{$this}--checked#{$this} {
     &--toggle {
       border-color: color("plain-gray") !important;
       background-color: color("condition") !important;
@@ -136,7 +136,7 @@
     }
   }
 
-  @at-root input[type="checkbox"]:indeterminate + #{$this}, #{$this}#{$this}--indeterminate {
+  @at-root input[type="checkbox"]:indeterminate + #{$this}, #{$this}#{$this}--indeterminate#{$this} {
     &--check {
       &::after {
         content: "";
