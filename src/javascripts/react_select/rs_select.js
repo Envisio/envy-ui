@@ -1,7 +1,7 @@
 import React from 'react';
 import { components } from 'react-select';
 import { take } from 'lodash';
-import { ui, uiA } from '../';
+import { ui, uiA, uiCheckbox } from '../';
 import {
   UI_COLOR_PALE_BLUE,
   UI_COLOR_PLAIN_GRAY,
@@ -148,15 +148,14 @@ export const rsMultiValueContainer = ({
 
 export const rsMultiSelectOption = (props) => {
   const { isSelected, ...reducedProps } = props;
-  const checkboxClass = 'env-checkbox env-checkbox--check';
   return (
     <components.Option
       {...reducedProps}
       {...ui([uiA`p-left`])}
     >
-      <span {...ui([uiA`f f-a-center font-weight-normal`])}>
+      <span {...ui([uiA`f f-a-center f-gap font-weight-normal`])}>
         <span
-          className={isSelected ? `${checkboxClass} --checked` : checkboxClass}
+          {...ui([uiCheckbox`--check --checked:${isSelected}`])}
         />
         <span {...ui([uiA`ellipsis`])}>{reducedProps?.label}</span>
       </span>
