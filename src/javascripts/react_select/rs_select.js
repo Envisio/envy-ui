@@ -146,12 +146,14 @@ export const rsSelect = ({
       ...(tagStyle ? {
         minWidth: '50px',
         maxWidth: '175px',
+        borderRadius: '10px',
       } : {}),
     }),
     multiValueRemove: (provided) => ({
       ...provided,
       ...(tagStyle ? {
         flex: '0 0 auto',
+        borderRadius: '50%',
       } : {}),
     }),
   },
