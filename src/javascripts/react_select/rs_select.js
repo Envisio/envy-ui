@@ -1,13 +1,47 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { components } from 'react-select';
 import { take } from 'lodash';
 import { ui, uiA, uiCheckbox } from '../';
+import { contrastColor } from '../utils/contrast_color';
 import {
   UI_COLOR_PALE_BLUE,
   UI_COLOR_PLAIN_GRAY,
   UI_COLOR_DEFAULT,
   UI_COLOR_RED,
 } from '../from-dictionary/color';
+
+export function FullTag(props) {
+  const {
+    name,
+    color,
+    addClass,
+  } = props;
+
+  return (
+    <span
+      {...ui([uiBadge`--default`, uiA`w-max-100%`, addClass])}
+      style={{ backgroundColor: color, color: contrastColor(color) }}
+    >
+      <span {...ui([uiA`f-1-1-auto ellipsis`])}>
+        {name}
+      </span>
+    </span>
+  );
+}
+
+FullTag.propTypes = {
+  name: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  addClass: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.string,
+  ]),
+};
+
+FullTag.defaultProps = {
+  addClass: '',
+};
 
 export const rsSelect = ({ showError = false, reflowMultiSelect = false } = {}) => ({
   styles: {
@@ -146,6 +180,29 @@ export const rsMultiValueContainer = ({
   );
 };
 
+export const rsTagsMultiValueLabel = ({
+  data: {
+    label,
+    color,
+    ...data
+  },
+  ...props
+}) => (
+  <components.MultiValueLabel
+    data={{
+      label,
+      color,
+      ...data,
+    }}
+    {...props}
+  >
+    <FullTag
+      name={label}
+      color={color}
+    />
+  </components.MultiValueLabel>
+);
+
 export const rsMultiSelectOption = (props) => {
   const { isSelected, ...reducedProps } = props;
   return (
@@ -162,6 +219,38 @@ export const rsMultiSelectOption = (props) => {
     </components.Option>
   );
 };
+
+export const rsMultiSelectTagsOption = ({
+  isSelected,
+  label,
+  data: {
+    color,
+    ...data
+  },
+  ...props
+}) => (
+  <components.Option
+    label={label}
+    data={{
+      ...data,
+      color,
+    }}
+    {...props}
+    {...ui([uiA`p-left`])}
+  >
+    <span {...ui([uiA`f f-a-center f-gap font-weight-normal`])}>
+      <span
+        {...ui([uiCheckbox`--check --checked:${isSelected}`])}
+      />
+      <FullTag
+        name={label}
+        color={color}
+        addClass={uiA`w-max-300`}
+      />
+    </span>
+  </components.Option>
+
+);
 
 // export const rsSelectPlus = ({ showError }) => ({
 //   styles: {
