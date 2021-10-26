@@ -43,7 +43,11 @@ FullTag.defaultProps = {
   addClass: '',
 };
 
-export const rsSelect = ({ showError = false, reflowMultiSelect = false } = {}) => ({
+export const rsSelect = ({
+  showError = false,
+  reflowMultiSelect = false,
+  tagStyle = false,
+} = {}) => ({
   styles: {
     menu: (provided) => ({
       ...provided,
@@ -129,7 +133,27 @@ export const rsSelect = ({ showError = false, reflowMultiSelect = false } = {}) 
     multiValueContainer: (provided) => ({
       ...provided,
       flexWrap: 'nowrap',
-    })
+    }),
+    multiValueLabel: (provided) => ({
+      ...provided,
+      ...(tagStyle ? {
+        padding: '0',
+        paddingLeft: '0',
+      } : {}),
+    }),
+    multiValue: (provided) => ({
+      ...provided,
+      ...(tagStyle ? {
+        minWidth: '50px',
+        maxWidth: '175px',
+      } : {}),
+    }),
+    multiValueRemove: (provided) => ({
+      ...provided,
+      ...(tagStyle ? {
+        flex: '0 0 auto',
+      } : {}),
+    }),
   },
   components: {
     // IndicatorSeparator: () => null,
