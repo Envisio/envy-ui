@@ -20,7 +20,7 @@ export function FullTag(props) {
 
   return (
     <span
-      {...ui([uiBadge`--default`, uiA`w-max-100%`, addClass])}
+      {...ui([uiBadge`--tag-light:--tag:${contrastColor(color) === '#fff'}`, uiA`w-max-100%`, addClass])}
       style={{ backgroundColor: color, color: contrastColor(color) }}
     >
       <span {...ui([uiA`f-1-1-auto ellipsis`])}>
