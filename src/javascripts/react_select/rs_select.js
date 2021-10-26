@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { components } from 'react-select';
 import { take } from 'lodash';
-import { ui, uiA, uiCheckbox } from '../';
+import { ui, uiA, uiBadge, uiCheckbox } from '../';
 import { contrastColor } from '../utils/contrast_color';
 import {
   UI_COLOR_PALE_BLUE,
