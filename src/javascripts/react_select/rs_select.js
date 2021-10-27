@@ -11,6 +11,16 @@ import {
   UI_COLOR_RED,
 } from '../from-dictionary/color';
 
+const statusColors = {
+  'completed': '--status-completed',
+  'someDisruption': '--minor-disruption',
+  'majorDisruption': '--status-major-disruption',
+  'onTrack': '--status-on-track',
+  'upcoming': '--status-upcoming',
+  'statusPending': '--status-pending',
+  'discontinued': '--status-discontinued',
+};
+
 export function FullTag(props) {
   const {
     name,
@@ -22,6 +32,23 @@ export function FullTag(props) {
     <span
       {...ui([uiBadge`--tag:--tag-light:${contrastColor(color) === '#fff'}`, uiA`w-max-100%`, addClass])}
       style={{ backgroundColor: color, color: contrastColor(color) }}
+    >
+      <span {...ui([uiA`f-1-1-auto ellipsis`])}>
+        {name}
+      </span>
+    </span>
+  );
+}
+export function StatusTag(props) {
+  const {
+    value,
+    name,
+    addClass,
+  } = props;
+
+  return (
+    <span
+      {...ui([uiBadge`#${statusColors[value]}`, uiA`w-max-100%`, addClass])}
     >
       <span {...ui([uiA`f-1-1-auto ellipsis`])}>
         {name}
@@ -47,6 +74,7 @@ export const rsSelect = ({
   showError = false,
   reflowMultiSelect = false,
   tagStyle = false,
+  statusStyle = false,
 } = {}) => ({
   styles: {
     menu: (provided) => ({
@@ -136,23 +164,27 @@ export const rsSelect = ({
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      ...(tagStyle ? {
+      ...(tagStyle || statusStyle ? {
         padding: '0',
         paddingLeft: '0',
       } : {}),
     }),
     multiValue: (provided) => ({
       ...provided,
-      ...(tagStyle ? {
+      ...(tagStyle || statusStyle ? {
         minWidth: '50px',
         maxWidth: '175px',
+      } : {}),
+      ...(tagStyle ? {
         borderRadius: '10px',
       } : {}),
     }),
     multiValueRemove: (provided) => ({
       ...provided,
-      ...(tagStyle ? {
+      ...(tagStyle || statusStyle ? {
         flex: '0 0 auto',
+      } : {}),
+      ...(tagStyle ? {
         borderRadius: '50%',
       } : {}),
     }),
@@ -206,7 +238,7 @@ export const rsMultiValueContainer = ({
   );
 };
 
-export const rsTagsMultiValueLabel = ({
+export const rsTagMultiValueLabel = ({
   data: {
     label,
     color,
@@ -229,6 +261,29 @@ export const rsTagsMultiValueLabel = ({
   </components.MultiValueLabel>
 );
 
+export const rsStatusMultiValueLabel = ({
+  data: {
+    value,
+    label,
+    ...data
+  },
+  ...props
+}) => (
+  <components.MultiValueLabel
+    data={{
+      label,
+      value,
+      ...data,
+    }}
+    {...props}
+  >
+    <StatusTag
+      value={value}
+      name={label}
+    />
+  </components.MultiValueLabel>
+);
+
 export const rsMultiSelectOption = (props) => {
   const { isSelected, ...reducedProps } = props;
   return (
@@ -246,7 +301,7 @@ export const rsMultiSelectOption = (props) => {
   );
 };
 
-export const rsMultiSelectTagsOption = ({
+export const rsTagMultiSelectOption = ({
   isSelected,
   label,
   data: {
@@ -275,7 +330,37 @@ export const rsMultiSelectTagsOption = ({
       />
     </span>
   </components.Option>
+);
 
+export const rsStatusMultiSelectOption = ({
+  isSelected,
+  label,
+  value,
+  data: {
+    ...data
+  },
+  ...props
+}) => (
+  <components.Option
+    label={label}
+    value={value}
+    data={{
+      ...data,
+    }}
+    {...props}
+    {...ui([uiA`p-left`])}
+  >
+    <span {...ui([uiA`f f-a-center f-gap font-weight-normal`])}>
+      <span
+        {...ui([uiCheckbox`--check --checked:${isSelected}`])}
+      />
+      <StatusTag
+        name={label}
+        value={value}
+        addClass={uiA`w-max-300`}
+      />
+    </span>
+  </components.Option>
 );
 
 // export const rsSelectPlus = ({ showError }) => ({
