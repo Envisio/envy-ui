@@ -13,7 +13,7 @@ import {
 
 const statusColors = {
   'completed': '--status-completed',
-  'someDisruption': '--minor-disruption',
+  'someDisruption': '--status-minor-disruption',
   'majorDisruption': '--status-major-disruption',
   'onTrack': '--status-on-track',
   'upcoming': '--status-upcoming',
