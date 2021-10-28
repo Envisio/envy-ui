@@ -1,4 +1,16 @@
+import React from 'react';
+import { components } from 'react-select';
+import {
+  ui, uiButton,
+} from '../';
 import { UI_COLOR_PALE_BLUE } from '../index'
+
+// DotsDropdownIndicator.propTypes = { isFocused: PropTypes.bool.isRequired };
+
+// MenuOption.propTypes = {
+//   data: PropTypes.shape({ isAvailable: PropTypes.bool }).isRequired,
+//   label: PropTypes.string.isRequired,
+// };
 
 export const rsDropdownMenu = {
   styles: {
@@ -59,6 +71,47 @@ export const rsDropdownMenu = {
     IndicatorSeparator: () => null,
     Placeholder: () => null,
     SingleValue: () => null,
+    DropdownIndicator: ({ menuButtonContent = null }) => ({
+      isFocused,
+      ...props
+    }) => (
+      <components.DropdownIndicator
+        isFocused={isFocused}
+        {...props}
+        {...ui([
+          uiButton`--clean --content-gray --focus:${isFocused}`,
+        ])}
+      >
+        <span {...ui([uiButton`__content`])}>
+          {menuButtonContent}
+          {/* <FontAwesomeIcon
+            icon={['far', 'ellipsis-v']}
+            {...ui([uiA`font-size-20`])}
+          /> */}
+        </span>
+      </components.DropdownIndicator>
+    ),
+
+    Option: () => ({
+      data: {
+        isAvailable,
+        ...data
+      },
+      label,
+      ...props
+    }) => (isAvailable ? (
+      <components.Option
+        data={{
+          isAvailable,
+          ...data,
+        }}
+        label={label}
+        {...props}
+        isSelected={false}
+      >
+        <span>{label}</span>
+      </components.Option>
+    ) : '')
   },
   theme: theme => ({
     ...theme,
