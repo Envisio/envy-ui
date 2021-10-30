@@ -28,6 +28,7 @@
     position: relative;
     padding: 0 10px 0 23px;
     color: $text-color;
+    border-width: 0;
     &::after {
       content: svg-badge($text-color);
       display: block;
