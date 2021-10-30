@@ -27,3 +27,7 @@ export const contrastColor = (colorHex, threshold = 150) => {
 
   return rgbToYIQ(rgb) >= threshold ? '#000' : '#fff';
 };
+
+export const isTextLight = (color) => (
+  contrastColor(color) === '#fff'
+);
