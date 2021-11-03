@@ -83,7 +83,7 @@ export { default as getBestPosition } from './ui/get_best_position';
 export { default as checkOverflow } from './ui/check_overflow';
 export { default as makeMq } from './ui/make_mq';
 // export const uiS3Uploader = getBlock($ui.S3Uploader);
-export { visualSettings, statusModifiers } from './ui/ui_general_settings';
+export { visualSettings, statusModifiers, statusBgColors } from './ui/ui_general_settings';
 export { contrastColor, isTextLight } from './utils/contrast_color';
 
 export { default as Scrollbar } from './react_components/scrollbar';

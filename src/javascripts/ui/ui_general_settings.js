@@ -26,3 +26,13 @@ export const statusModifiers = {
   Upcoming: '--status-upcoming',
   'Status Pending': '--status-pending',
 };
+
+export const statusBgColors = {
+  Completed: 'color-bg-completed',
+  'On Track': 'color-bg-on-track',
+  'Some Disruption': 'color-bg-minor-disruption',
+  'Major Disruption': 'color-bg-major-disruption',
+  Discontinued: 'color-bg-discontinued',
+  Upcoming: 'color-bg-upcoming',
+  'Status Pending': 'color-bg-status-pending',
+};
