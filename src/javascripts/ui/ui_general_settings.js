@@ -23,6 +23,7 @@ export const statusModifiers = {
   'Some Disruption': '--status-minor-disruption',
   'Major Disruption': '--status-major-disruption',
   Discontinued: '--status-discontinued',
+  discontinued: '--status-discontinued',
   Upcoming: '--status-upcoming',
   'Status Pending': '--status-pending',
 };
@@ -33,6 +34,7 @@ export const statusBgColors = {
   'Some Disruption': 'color-bg-minor-disruption',
   'Major Disruption': 'color-bg-major-disruption',
   Discontinued: 'color-bg-discontinued',
+  discontinued: 'color-bg-discontinued',
   Upcoming: 'color-bg-upcoming',
   'Status Pending': 'color-bg-status-pending',
 };
