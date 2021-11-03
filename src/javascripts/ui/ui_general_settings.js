@@ -16,3 +16,13 @@ export const mimeTypes = {
   pdf: 'application/pdf',
   svg: 'image/svg+xml',
 };
+
+export const statusModifiers = {
+  Completed: '--status-completed',
+  'On Track': '--status-on-track',
+  'Some Disruption': '--status-minor-disruption',
+  'Major Disruption': '--status-major-disruption',
+  Discontinued: '--status-discontinued',
+  Upcoming: '--status-upcoming',
+  'Status Pending': '--status-pending',
+};
