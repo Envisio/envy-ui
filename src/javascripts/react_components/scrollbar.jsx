@@ -4,7 +4,7 @@ import OverlayScrollbars from 'overlayscrollbars';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import ReactResizeDetector, { useResizeDetector } from 'react-resize-detector';
-import ResizeObserver from 'react-resize-detector/build/withPolyfill';
+// import ResizeObserver from 'react-resize-detector/build/withPolyfill';
 
 import { ui, uiWrapperScroll } from '../';
 
