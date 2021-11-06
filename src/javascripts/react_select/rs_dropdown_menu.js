@@ -71,6 +71,11 @@ export const rsDropdownMenu = {
     IndicatorSeparator: () => null,
     Placeholder: () => null,
     SingleValue: () => null,
+  },
+  componentsAll: {
+    IndicatorSeparator: () => null,
+    Placeholder: () => null,
+    SingleValue: () => null,
     DropdownIndicator: ({ menuButtonContent = null }) => ({
       isFocused,
       ...props
@@ -91,7 +96,6 @@ export const rsDropdownMenu = {
         </span>
       </components.DropdownIndicator>
     ),
-
     Option: () => ({
       data: {
         isAvailable,
