@@ -115,6 +115,9 @@ $flex-set: (
   .#{$uiA}#{$flex-shortname}-gap-column#{checknull($flex-gap-name)} {
     column-gap: px($flex-gap-value) #{$a-important};
   }
+  .#{$uiA}#{$flex-shortname}-gap-row#{checknull($flex-gap-name)} {
+    row-gap: px($flex-gap-value) #{$a-important};
+  }
 }
 
 @for $flex-shrink-value from 0 through 10 {
