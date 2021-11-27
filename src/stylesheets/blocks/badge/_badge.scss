@@ -210,21 +210,8 @@
     @include counter_make()
   }
 
-  &--counter {
-    @include counter_make(color("medium-gray"), color("gallery"))
-  }
-
   &--counter-light {
-    height: $badge--height-xsmall;
-    font-size: $badge--default-font-size;
-    font-weight: normal;
-    padding: 0 5px;
-    text-align: center;
-    min-width: 22px;
-    border-radius: $badge--height-xsmall / 2;
-    border-width: 0;
-    color: color("white");
-    background-color: desaturate(lighten(color("brand-primary"), 25%), 50%);
+    @include counter_make(color("medium-gray"), color("gallery"))
   }
 }
 
