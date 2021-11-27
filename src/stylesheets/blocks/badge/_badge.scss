@@ -211,7 +211,7 @@
   }
 
   &--counter-light {
-    @include counter_make(color("medium-gray"), color("gallery"))
+    @include counter_make(color("gray"), color("gallery"))
   }
 }
 
