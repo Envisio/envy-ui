@@ -76,6 +76,12 @@ $a-text-aligns: left, right, center, justify;
   @include a-text-ellipsis;
 }
 
+.#{$uiA}-text-ellipsis-fr, .#{$uiA}-ellipsis-fr {
+  > .fr-view {
+    @include a-text-ellipsis;
+  }
+}
+
 .#{$uiA}-text-default {
   color: color("default")#{$a-important};
   &:hover {
