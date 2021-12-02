@@ -261,7 +261,7 @@ export const rsTagMultiValueLabel = ({
   </components.MultiValueLabel>
 );
 
-export const rsStatusSingleValueLabel = ({
+export const rsStatusSingleValue = ({
   data: {
     value,
     label,
@@ -269,7 +269,7 @@ export const rsStatusSingleValueLabel = ({
   },
   ...props
 }) => (
-  <components.SingleValueLabel
+  <components.SingleValue
     data={{
       label,
       value,
@@ -281,7 +281,7 @@ export const rsStatusSingleValueLabel = ({
       value={value}
       name={label}
     />
-  </components.SingleValueLabel>
+  </components.SingleValue>
 );
 
 export const rsStatusMultiValueLabel = ({
