@@ -261,6 +261,29 @@ export const rsTagMultiValueLabel = ({
   </components.MultiValueLabel>
 );
 
+export const rsStatusSingleValueLabel = ({
+  data: {
+    value,
+    label,
+    ...data
+  },
+  ...props
+}) => (
+  <components.SingleValueLabel
+    data={{
+      label,
+      value,
+      ...data,
+    }}
+    {...props}
+  >
+    <StatusTag
+      value={value}
+      name={label}
+    />
+  </components.SingleValueLabel>
+);
+
 export const rsStatusMultiValueLabel = ({
   data: {
     value,
@@ -381,7 +404,7 @@ export const rsStatusOption = ({
     {...props}
     {...ui([uiA`p-x`])}
   >
-    <span {...ui([uiA`f f-a-center font-weight-normal`])}>
+    <span {...ui([uiA`f f-a-center f-gap font-weight-normal`])}>
       <StatusTag
         name={label}
         value={value}
