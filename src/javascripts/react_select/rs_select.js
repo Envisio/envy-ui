@@ -363,6 +363,34 @@ export const rsStatusMultiSelectOption = ({
   </components.Option>
 );
 
+export const rsStatusOption = ({
+  isSelected,
+  label,
+  value,
+  data: {
+    ...data
+  },
+  ...props
+}) => (
+  <components.Option
+    label={label}
+    value={value}
+    data={{
+      ...data,
+    }}
+    {...props}
+    {...ui([uiA`p-x`])}
+  >
+    <span {...ui([uiA`f f-a-center font-weight-normal`])}>
+      <StatusTag
+        name={label}
+        value={value}
+        addClass={uiA`w-max-300`}
+      />
+    </span>
+  </components.Option>
+);
+
 // export const rsSelectPlus = ({ showError }) => ({
 //   styles: {
 //     ...rsSelect.styles,
