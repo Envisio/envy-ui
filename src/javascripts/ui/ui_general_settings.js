@@ -38,3 +38,14 @@ export const statusBgColors = {
   Upcoming: 'color-bg-upcoming',
   'Status Pending': 'color-bg-status-pending',
 };
+
+export const statusHexColors = {
+  Completed: color.completed,
+  'On Track': color.onTrack,
+  'Some Disruption': color.minorDisruption,
+  'Major Disruption': color.majorDisruption,
+  Discontinued: color.discontinued,
+  discontinued: color.discontinued,
+  Upcoming: color.upcoming,
+  'Status Pending': color.statusPending,
+};
