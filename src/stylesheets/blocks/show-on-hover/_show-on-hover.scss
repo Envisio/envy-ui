@@ -12,10 +12,28 @@
     visibility: hidden;
   }
 
+  &--highlight {
+    #{$this}__content {
+      visibility: visible;
+      color: $medium-gray;
+    }
+  }
+
   &--link {
     #{$this}__content {
       color: $medium-gray;
     }
+  }
+
+  &--highlight {
+    &:hover {
+      #{$this}__content {
+        color: color("viking-blue");
+      }
+    }
+  }
+
+  &--link {
     &:hover {
       #{$this}__content {
         color: $brand-blue;
