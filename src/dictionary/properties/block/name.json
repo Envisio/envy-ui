@@ -185,6 +185,12 @@
       "name": "S3 Uploader",
       "kss-weight": "1260",
       "comment": "{block-category.third-party._value}"
+    },
+    "range": {
+      "value": "range",
+      "name": "Range Slider",
+      "kss-weight": "1270",
+      "comment": "{block-category.input._value}"
     }
   }
 }

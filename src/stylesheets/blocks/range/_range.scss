@@ -1,0 +1,115 @@
+// Range
+//
+// Weight: 1270
+//
+// Styleguide Range
+
+.#{$uiRange} {
+
+  $this: &;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+
+  // $track-w: 12.5em;
+  $track-h: 5px;
+  $thumb-d: 15px;
+  $track-c: color("progress-bar");
+  // $dist: $track-w - $thumb-d;
+
+@mixin track() {
+	box-sizing: border-box;
+	// border: none;
+	// width: $track-w;
+  height: $track-h;
+	background: $track-c;
+  border-radius: .5*$track-h;
+  border: 1px solid color("brand-primary");
+}
+
+@mixin thumb() {
+	box-sizing: border-box;
+	border: 1px solid color("white");
+	width: $thumb-d; height: $thumb-d;
+	border-radius: 50%;
+	background: color("progress-bar");;
+}
+
+  input[type=range]#{$this}__range {
+    &, &::-webkit-slider-thumb {
+      -webkit-appearance: none
+    }
+
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    min-height: $thumb-d;
+    background: transparent;
+    font: inherit;
+
+    &::-webkit-slider-runnable-track {
+      @include track()
+    }
+    &::-moz-range-track { @include track }
+    &::-ms-track { @include track }
+
+    &::-webkit-slider-thumb {
+      margin-top: .5*($track-h - $thumb-d - 1px);
+      @include thumb
+    }
+    &::-moz-range-thumb { @include thumb }
+    &::-ms-thumb {
+      margin-top: 0;
+      @include thumb
+    }
+
+    &::-ms-tooltip { display: none }
+
+
+  //   background: transparent;
+  //   &, &::-webkit-slider-thumb {
+  //     -webkit-appearance: none
+  //   }
+  //   &::-webkit-slider-runnable-track,
+  //   &::-moz-range-track,
+  //   &::-ms-track {
+  //     box-sizing: border-box;
+  //     border: none;
+  //     height: 5px;
+  //     background-color: color("gray");
+  //   }
+
+  //   &::-webkit-slider-thumb,
+  //   &::-moz-range-thumb,
+  //   &::-ms-thumb {
+  //     box-sizing: border-box;
+  //     border: none;
+  //     width: 7px;
+  //     height: 7px;
+  //     border-radius: 50%;
+  //     background: #f90;
+  //   }
+  //   &:focus {
+  //     &::-webkit-slider-runnable-track,
+  //     &::-moz-range-track,
+  //     &::-ms-track {
+  //       @include a--focus();
+  //     }
+  //   }
+
+  // }
+  }
+  &:focus {
+    &::-webkit-slider-runnable-track,
+    &::-moz-range-track,
+    &::-ms-track {
+      @include a--focus();
+    }
+  }
+  #{$this}__label {
+    flex: 0 0 auto;
+    color: $color-default-label;
+    min-width: 40px;
+  }
+}
