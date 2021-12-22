@@ -191,6 +191,12 @@
       "name": "Range Slider",
       "kss-weight": "1270",
       "comment": "{block-category.input._value}"
+    },
+    "divider": {
+      "value": "divider",
+      "name": "Divider",
+      "kss-weight": "1280",
+      "comment": "{block-category.info._value}"
     }
   }
 }
