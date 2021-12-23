@@ -24,6 +24,12 @@
       "kss-weight": "1030",
       "comment": "{block-category.control._value}"
     },
+    "status-filter": {
+      "value": "status-filter",
+      "name": "Status Filter",
+      "kss-weight": "1035",
+      "comment": "{block-category.control._value}"
+    },
     "collapser": {
       "value": "collapser",
       "name": "Collapser",
