@@ -13,6 +13,13 @@
   @mixin filter-status($color) {
     position: relative;
     background-color: color($color);
+    @if $color == "minor-disruption" {
+      color: color("default");
+    } @else {
+      color: color("white");
+    }
+  }
+  @mixin filter-status-after($color) {
     &::after {
       content: '';
       position: absolute;
@@ -99,6 +106,29 @@
       }
     }
     &--active {
+      &#{$this}__button--status {
+        &-pending {
+          @include filter-status-after("status-pending");
+        }
+        &-on-track {
+          @include filter-status-after("on-track");
+        }
+        &-minor-disruption {
+          @include filter-status-after("minor-disruption");
+        }
+        &-major-disruption {
+          @include filter-status-after("major-disruption");
+        }
+        &-upcoming {
+          @include filter-status-after("upcoming");
+        }
+        &-discontinued {
+          @include filter-status-after("discontinued");
+        }
+        &-completed {
+          @include filter-status-after("completed");
+        }
+      }
       // background-color: $switch-button-selected-bg-color;
       // color: $white;
       // transition: background 0.5s;
