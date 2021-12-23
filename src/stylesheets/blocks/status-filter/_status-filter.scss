@@ -45,6 +45,8 @@
     padding-right: $this-button-padding;
     border: $border-status-filter;
     position: relative;
+    display: flex;
+    align-items: center;
     // border-right: 0;
     line-height: normal;
     cursor: pointer;
