@@ -11,12 +11,16 @@
   $this: &;
 
   @mixin filter-status($color) {
-    position: relative;
+    // position: relative;
     background-color: color($color);
     @if $color == "minor-disruption" {
       color: color("default");
     } @else {
       color: color("white");
+    }
+    &:hover:not(:disabled) {
+      background-color: lighten(color($color), 5%);
+      border: 1px solid darken(color($color), 5%);;
     }
   }
   @mixin filter-status-after($color) {
@@ -32,15 +36,16 @@
   }
 
   $this-button-padding: 5px;
-  $this-button-height: 20px;
+  $this-button-height: 25px;
   $border-status-filter: 1px solid color("white");
   $status-filter-radius: 0px;
 
-  @include flex(stretch);
-  height: $this-button-height;
+  // @include flex(stretch);
+  display: flex;
 
   &__button {
     // background-color: $white;
+    height: $this-button-height;
     padding-left: $this-button-padding;
     padding-right: $this-button-padding;
     border: $border-status-filter;
@@ -49,6 +54,7 @@
     align-items: center;
     // border-right: 0;
     line-height: normal;
+    padding-top: 2px;
     cursor: pointer;
     &:first-child {
       border-top-left-radius: $status-filter-radius;
@@ -65,9 +71,9 @@
       //   border-right-color: darken($switch-button-selected-bg-color, 5%);
       // }
     }
-    &:hover:not(:disabled) {
-      color: color("string");
-    }
+    // &:hover:not(:disabled) {
+    //   color: color("string");
+    // }
     &:active {
       color: lighten(color("string"), 3%);
     }
