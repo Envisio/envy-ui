@@ -294,6 +294,16 @@
     outline: none;
   }
 
+  // Muted
+
+  &--muted {
+    filter: grayscale(0.4);
+    border-color: color("athens-gray");
+    & > #{$this}__content {
+      filter: opacity(0.4) grayscale(0.8) brightness(0.9);
+    }
+  }
+
   // Menu modifier
 
   &--menu, &--menu-top, &--menu-bottom, &--menu-stack {
