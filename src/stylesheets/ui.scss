@@ -2,15 +2,13 @@
 // sass-true testing
 @import 'sass-true/sass/_true.scss';
 
-// 3rd party
-@import 'overlayscrollbars/css/OverlayScrollbars.css';
-
 // Blocks Names
 @import 'from-dictionary/block-name/block-name';
 
 // Tokens based variables
 @import 'from-dictionary/shape/shape';
 @import 'from-dictionary/z/z';
+@import 'from-dictionary/color/color-custom-properties';
 @import 'from-dictionary/color/color';
 @import 'from-dictionary/color/color-map';
 @import 'from-dictionary/color/color-default';
@@ -37,6 +35,11 @@
 
 /* Reset */
 @import 'reset/index';
+
+// 3rd party
+/* stylelint-disable */
+@import 'overlayscrollbars/css/OverlayScrollbars';
+/* stylelint-enable */
 
 /* Blocks */
 // Forms
