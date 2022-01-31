@@ -67,6 +67,9 @@ const makeTokenFolders = () => ({
             destination: '_color.scss',
             format: 'scss/variables',
           }, {
+            destination: '_color-custom-properties.scss',
+            format: 'css/variables',
+          }, {
             header: 'Color Palette\n\nColors:',
             destination: '_color-kss.scss',
             format: 'scss/variables-color-kss',
