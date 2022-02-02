@@ -1,11 +1,11 @@
 @function color-cp($color-name) {
   @if map-has-key($a-color, $color-name) {
     $color: var(--#{$color-name});
-    @if type-of($color) == color {
+    // @if type-of($color) == color {
       @return $color;
-    } @else {
-      @error "Invalid color in color settings file: #{$color-name}";
-    }
+    // } @else {
+      // @error "Invalid color in color settings file: #{$color-name}";
+    // }
   } @else {
     @error "Invalid color name for [color] function: #{$color-name}";
   }
