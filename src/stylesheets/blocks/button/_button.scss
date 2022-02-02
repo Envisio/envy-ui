@@ -529,7 +529,7 @@
       animation: button-loader-spin 2s infinite linear;
     }
     &#{$this}--clean::after, &#{$this}--default::after {
-      border-color: color("plain-gray");
+      border-color: color-cp("plain-gray");
       border-left-color: transparent;
     }
     & > #{$this}__content {
