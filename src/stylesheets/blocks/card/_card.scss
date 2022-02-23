@@ -148,6 +148,11 @@
     border: 2px solid color("brand-primary");
   }
 
+  &--muted {
+    filter: opacity(0.4) grayscale(0.8) brightness(0.9);
+    border-color: color("athens-gray");
+  }
+
   &--brand {
     background-color: color("brand-primary");
     border: 1px solid darken(color("brand-primary"), 5%);
