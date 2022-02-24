@@ -18,6 +18,7 @@
 $a-slide-down-heights-set: (50, 500);
 $a-sd-name: "-animate-slide-down-";
 $a-popup-name: "-animate-popup";
+$a-fadeout-name: "-animate-fadeout";
 
 @each $slide-down-height in $a-slide-down-heights-set {
   $a-sd-delta: $slide-down-height / 2000;
@@ -44,6 +45,7 @@ $a-popup-name: "-animate-popup";
 }
 
 $a-popup: transform 0.2s ease-out, opacity 0.2s ease-out;
+$a-fadeout: opacity 0.2s ease-out;
 
 .#{$uiA+$a-popup-name}-enter, .#{$uiA+$a-popup-name}-appear {
   opacity: 0;
@@ -62,6 +64,21 @@ $a-popup: transform 0.2s ease-out, opacity 0.2s ease-out;
   opacity: 0;
   transform: scale(0.95);
   transition: #{$a-popup};
+}
+
+.#{$uiA+$a-fadeout-name}-enter, .#{$uiA+$a-fadeout-name}-appear {
+  opacity: 1;
+}
+.#{$uiA+$a-fadeout-name}-enter-active, .#{$uiA+$a-fadeout-name}-appear-active {
+  opacity: 1;
+  transition: #{$a-fadeout};
+}
+.#{$uiA+$a-fadeout-name}-exit {
+  opacity: 1;
+}
+.#{$uiA+$a-fadeout-name}-exit-active {
+  opacity: 0;
+  transition: #{$a-fadeout};
 }
 
 
