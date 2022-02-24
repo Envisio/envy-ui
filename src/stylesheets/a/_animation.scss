@@ -18,7 +18,7 @@
 $a-slide-down-heights-set: (50, 500);
 $a-sd-name: "-animate-slide-down-";
 $a-popup-name: "-animate-popup";
-$a-fadeout-name: "-animate-fadein";
+$a-fadein-name: "-animate-fadein";
 
 @each $slide-down-height in $a-slide-down-heights-set {
   $a-sd-delta: $slide-down-height / 2000;
