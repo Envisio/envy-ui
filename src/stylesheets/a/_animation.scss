@@ -67,7 +67,7 @@ $a-fadein: opacity 0.2s ease-out;
 }
 
 .#{$uiA+$a-fadein-name}-enter, .#{$uiA+$a-fadein-name}-appear {
-  opacity: 1;
+  opacity: 0;
 }
 .#{$uiA+$a-fadein-name}-enter-active, .#{$uiA+$a-fadein-name}-appear-active {
   opacity: 1;
