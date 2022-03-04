@@ -24,14 +24,17 @@
   }
   &__button {
     border: 1px solid transparent;
+    display: flex;
+    align-items: center;
     background-color: transparent;
     padding-left: $folder-menu-button-padding;
     padding-right: $folder-menu-button-padding;
-    padding-bottom: $folder-menu-button-padding / 2;
-    padding-top: $folder-menu-button-padding / 2;
+/*     padding-bottom: $folder-menu-button-padding / 2;
+    padding-top: $folder-menu-button-padding / 2; */
+    height: 35px;
     border-top: $folder-menu-border;
     border-bottom: $folder-menu-border;
-    font-weight: bold;
+    font-weight: 600;
     color: $folder-menu-text-color;
     &:disabled {
       color: $font-color-for-disabled;
@@ -58,7 +61,7 @@
     }
   }
   &--contrast {
-    font-size: $folder-menu-root-text-size2;
+    // font-size: $folder-menu-root-text-size2;
     height: auto;
     margin: 0;
     &::before, &::after {
@@ -66,7 +69,7 @@
       min-width: 10px;
     }
     #{$this}__button {
-      font-size: 1em;
+      // font-size: 1em;
       line-height: 1;
       border-top: none;
       padding-top: $folder-menu-button-padding / 2;
