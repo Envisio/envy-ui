@@ -174,10 +174,12 @@ p(class=uiA`text-align-right`) version: !{env.npm_package_version}
   each modifierClass in ['', 'env-menu-folder--line', 'env-menu-folder--contrast']
     .env-menu-folder.env-a-m-y-25(class=`env-a-w-100% ${modifierClass}`)
       each menuItem, itemIndex in Array(4)
-        .env-menu-folder__button(class=`${itemIndex === 0 ? 'env-menu-folder__button--active' : ''}`)
-          .env-a-placeholder.env-a-w-100(class=`${itemIndex === 0 ? 'env-a-color-bg-plain-gray' : ''}`)
-      .env-menu-folder__button.env-menu-folder__button--close
-        .env-a-placeholder.env-a-w-15
+        button.env-menu-folder__button(class=`${itemIndex === 0 ? 'env-menu-folder__button--active' : ''}`)
+          span.env-menu-folder__content
+            .env-a-placeholder.env-a-w-100(class=`${itemIndex === 0 ? 'env-a-color-bg-plain-gray' : ''}`)
+      button.env-menu-folder__button.env-menu-folder__button--close
+        span.env-menu-folder__content
+          .env-a-placeholder.env-a-w-15
 
 +section('Info')
 
