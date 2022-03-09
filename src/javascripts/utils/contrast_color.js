@@ -1,5 +1,17 @@
 const rgbToYIQ = ({ r, g, b }) => ((r * 299) + (g * 587) + (b * 114)) / 1000;
 
+export const rgba2hex = (rgba) => {
+  rgba = rgba.match(
+    /^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i
+  );
+  return rgba && rgba.length === 4
+    ? "#" +
+        ("0" + parseInt(rgba[1], 10).toString(16)).slice(-2) +
+        ("0" + parseInt(rgba[2], 10).toString(16)).slice(-2) +
+        ("0" + parseInt(rgba[3], 10).toString(16)).slice(-2)
+    : "";
+}
+
 const hexToRgb = (hex) => {
   if (!hex || hex === undefined || hex === '') {
     return undefined;
