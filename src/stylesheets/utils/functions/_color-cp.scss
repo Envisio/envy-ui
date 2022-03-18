@@ -1,6 +1,6 @@
 @function color-cp($color-name) {
   @if map-has-key($a-color, $color-name) {
-    $color: var(--#{$color-name});
+    $color: var(--color-#{$color-name});
     // @if type-of($color) == color {
       @return $color;
     // } @else {
