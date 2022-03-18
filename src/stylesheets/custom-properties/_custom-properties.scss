@@ -1,0 +1,6 @@
+:root {
+  // colors
+  @each $color-name, $color-value in $a-color {
+    --color-#{$color-name}: #{$color-value};
+  }
+}
