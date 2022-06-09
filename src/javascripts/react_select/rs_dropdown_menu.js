@@ -57,7 +57,7 @@ export const rsDropdownMenu = {
       flexDirection: 'column',
       margin: '0',
       padding: '0',
-      overflow: 'hidden',
+      overflowX: 'hidden',
     }),
     option: (provided) => ({
       ...provided,
