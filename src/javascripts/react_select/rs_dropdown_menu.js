@@ -76,7 +76,7 @@ export const rsDropdownMenu = {
     IndicatorSeparator: () => null,
     Placeholder: () => null,
     SingleValue: () => null,
-    DropdownIndicator: ({ menuButtonContent = null }) => ({
+    DropdownIndicator: ({ menuButtonContent = null, isSmall = false, isCircle = false }) => ({
       isFocused,
       ...props
     }) => (
@@ -84,7 +84,7 @@ export const rsDropdownMenu = {
         isFocused={isFocused}
         {...props}
         {...ui([
-          uiButton`--clean --content-gray --focus:${isFocused}`,
+          uiButton`--clean --content-gray --focus:${isFocused} --circle:${isCircle} --small:${isSmall}`,
         ])}
       >
         <span {...ui([uiButton`__content`])}>
