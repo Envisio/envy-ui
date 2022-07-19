@@ -6,13 +6,16 @@ const getBestPosition = ({
   relativeElement,
   relativeElementGap = 0,
   containerSize,
+  debug = false,
 }) => {
-  // console.log('parameter x ', x);
-  // console.log('parameter y ', y);
-  // console.log('globalContainer ', globalContainer);
-  // console.log('relativeElement ', relativeElement);
-  // console.log('relativeElementGap ', relativeElementGap);
-  // console.log('containerSize ', containerSize);
+  if (debug) {
+    console.log('parameter x ', x);
+    console.log('parameter y ', y);
+    console.log('globalContainer ', globalContainer);
+    console.log('relativeElement ', relativeElement);
+    console.log('relativeElementGap ', relativeElementGap);
+    console.log('containerSize ', containerSize);
+  }
   const position = {
     x: last(x),
     y: last(y),
@@ -36,8 +39,10 @@ const getBestPosition = ({
   const isLeftHorizontalCenterFit = leftAvailableArea + (relativeElementRectWidth / 2) > containerSize.width / 2;
   const isRightHorizontalCenterFit = rightAvailableArea + (relativeElementRectWidth / 2) > containerSize.width / 2;
 
-  // console.log('leftAvailableArea ', leftAvailableArea, 'rightAvailableArea ', rightAvailableArea);
-  // console.log('topAvailableArea ', topAvailableArea, 'bottomAvailableArea ', bottomAvailableArea);
+  if (debug) {
+    console.log('leftAvailableArea ', leftAvailableArea, 'rightAvailableArea ', rightAvailableArea);
+    console.log('topAvailableArea ', topAvailableArea, 'bottomAvailableArea ', bottomAvailableArea);
+  }
 
   position.left = relativeElementRect.left;
   position.right = relativeElementRect.right;
