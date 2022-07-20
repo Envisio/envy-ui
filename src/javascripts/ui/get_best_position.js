@@ -11,7 +11,7 @@ const getBestPosition = ({
   if (debug) {
     console.log('parameter x ', x);
     console.log('parameter y ', y);
-    console.log('globalContainer ', globalContainer);
+    // console.log('globalContainer ', globalContainer);
     console.log('relativeElement ', relativeElement);
     console.log('relativeElementGap ', relativeElementGap);
     console.log('containerSize ', containerSize);
