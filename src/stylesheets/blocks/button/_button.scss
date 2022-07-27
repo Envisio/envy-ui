@@ -96,6 +96,10 @@
       @each $element, $color-value in $schema-color {
         #{$element}: $color-value;
       }
+      @if ($modifier == "--map") {
+        padding: 2.5px;
+        height: auto;
+      }
     }
   }
 
@@ -284,6 +288,17 @@
   &--red {
     @include make-button-from-tokens("--red");
     // @include button__make-container-color(color("red"));
+  }
+
+  &--map {
+    @include make-button-from-tokens("--map");
+    // & > #{$this}__content {
+    //   height: auto;
+    //   padding: 2.5px;
+    // }
+    // &:hover > #{$this}__content{
+    //   border: 1px solid color-cp("viking-blue");
+    // }
   }
 
   // Inactive

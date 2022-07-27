@@ -4,3 +4,13 @@ div(class=`${uiButtonSwitch``}`)
   each item, index in switchButtonData
     button(class=`${uiButtonSwitch`__button --active:${index == 2}`}`)
       = item
+br
+div(class=`${uiButtonSwitch`--light-blue --round`}`)
+  each item, index in switchButtonData
+    button(class=`${uiButtonSwitch`__button --active:${index == 2}`}`)
+      = item
+br
+div(class=`${uiButtonSwitch`--light-blue --round`}`)
+  each item, index in switchButtonData
+    button(class=`${uiButtonSwitch`__button --active:${index == 0 || index == 2}`}`)
+      = item

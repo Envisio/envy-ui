@@ -14,8 +14,13 @@
   $this-button-height: 35px;
   $this-button-height-small: 25px;
 
+  $switch-button-selected-light-blue-bg-color: color-cp("viking-blue");
+  $switch-button-selected-light-blue-outline-color: color-cp("viking-blue-darken-12");
+
+
   @include flex(stretch);
   height: $this-button-height;
+
 
   &__button {
     background-color: $white;
@@ -68,6 +73,41 @@
       &:hover:not(:disabled) {
         background-color: $switch-button-selected-bg-color;
         // background-color: darken($switch-button-selected-bg-color, 5%);
+      }
+    }
+  }
+
+  &--light-blue {
+    #{$this}__button {
+      &#{$this}__button--active {
+        background-color: $switch-button-selected-light-blue-bg-color;
+        border-top-color: $switch-button-selected-light-blue-outline-color;
+        border-bottom-color: $switch-button-selected-light-blue-outline-color;
+        &:first-child {
+          border-left-color: $switch-button-selected-light-blue-outline-color;
+        }
+        &:last-child {
+          border-right-color: $switch-button-selected-light-blue-outline-color;
+        }
+      }
+    }
+  }
+
+  &--round {
+    #{$this}__button {
+      &:first-child {
+        border-top-left-radius: $this-button-height / 2;
+        border-bottom-left-radius: $this-button-height / 2;
+        &#{$this}__button--active {
+          border-left-color: $switch-button-selected-light-blue-outline-color;
+        }
+      }
+      &:last-child {
+        border-top-right-radius: $this-button-height / 2;
+        border-bottom-right-radius: $this-button-height / 2;
+        &#{$this}__button--active {
+          border-right-color: $switch-button-selected-light-blue-outline-color;
+        }
       }
     }
   }
