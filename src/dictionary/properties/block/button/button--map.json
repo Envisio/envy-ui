@@ -10,7 +10,7 @@
         },
         "border": {
           "color": "{color.transparent.value}",
-          "value": "{shape.border.value} {button.--map.default.border.color}"
+          "value": "{shape.border-dashed.value} {button.--map.default.border.color}"
         }
       },
       "hover": {

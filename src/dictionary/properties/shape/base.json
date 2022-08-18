@@ -12,6 +12,9 @@
     "border": {
       "value": "1px solid"
     },
+    "border-dashed": {
+      "value": "1px dashed"
+    },
     "width-status": {
       "value": "7px"
     }
