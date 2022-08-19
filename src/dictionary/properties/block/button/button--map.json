@@ -6,7 +6,7 @@
           "value": "inherit"
         },
         "background-color": {
-          "value": "{color.transparent.value}"
+          "value": "{color.white.value}"
         },
         "border": {
           "color": "{color.transparent.value}",
@@ -20,16 +20,19 @@
       },
       "active": {
         "background-color": {
-          "value": "#36c5ef",
-          "comment": "saturate 25% from color.viking-blue.value"
+          "value": "#dff0f6",
+          "comment": "lighten 3% from color.pale-light"
         },
         "box-shadow": {
           "value": "none"
+        },
+        "border-color": {
+          "value":  "var(--color-viking-blue)"
         }
       },
       "focus": {
         "border-color": {
-          "value": "{button.--map.default.border.color}"
+          "value": "var(--color-viking-blue)"
         },
         "box-shadow": {
           "value": "{shape.focus-box-shadow.value} rgba(255,255,255,0.4)"
@@ -45,14 +48,11 @@
         "box-shadow": {
           "value": "none"
         },
-        "opacity": {
-          "value": "0.6"
-        },
         "filter": {
-          "value": "saturate(50%)"
+          "value": "saturate(90%) brightness(0.9) contrast(0.5)"
         },
-        "cursor": {
-          "value": "default"
+        "opacity": {
+          "value": "0.7"
         }
       },
       "inactive": {
