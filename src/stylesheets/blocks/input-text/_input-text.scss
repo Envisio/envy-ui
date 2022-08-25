@@ -63,6 +63,10 @@
     }
   }
 
+  &--round {
+    border-radius: $a-default-control-height/2;
+  }
+
   &--stack-left, &--stack-left:focus {
     border-radius: $a-default-border-radius 0 0 $a-default-border-radius;
     &:not(#{$this}--plain) {
