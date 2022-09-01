@@ -31,6 +31,9 @@
       border-radius: $a-default-border-radius;
       transition: $a-focus-transition;
       background-color: transparent;
+      overflow: hidden;
+      max-width: 100%;
+      text-overflow: ellipsis;
       &:focus {
         // outline: 0;
         // border: $a-border-input;
