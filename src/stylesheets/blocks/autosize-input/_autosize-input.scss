@@ -4,6 +4,8 @@
 //
 // Styleguide Autosize Input
 
+/* stylelint-disable no-descending-specificity */
+
 .#{$uiAutosizeInput} {
 
   $this: &;
@@ -17,6 +19,32 @@
       };
     }
   }
+  &--inline {
+    > input {
+      padding: 0 5px;
+      font-size: inherit;
+      color: inherit;
+      // background-color: color("white");
+      height: $a-default-control-height;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: $a-default-border-radius;
+      transition: $a-focus-transition;
+      background-color: transparent;
+      &:focus {
+        // outline: 0;
+        // border: $a-border-input;
+        @include a--focus();
+      };
+      &:hover {
+        border: 1px dotted color-cp("viking-blue");
+      }
+      &[disabled], &[readonly] {
+        background-color: color("gallery");
+        opacity: 1;
+      }
+    }
+  }
   // &[disabled], &[readonly], &--disabled {
   //   background-color: color("gallery");
   //   opacity: 1;
@@ -27,3 +55,5 @@
   //   cursor: $a-cursor-disabled;
   // }
 }
+
+/* stylelint-enable */

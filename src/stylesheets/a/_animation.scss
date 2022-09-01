@@ -113,6 +113,27 @@ $slide-in-data: (
   }
 }
 
+// .#{$uiA+$a-sd-name+$slide-down-height}-enter, .#{$uiA+$a-sd-name+$slide-down-height}-appear {
+//   width: 35px;
+//   transition: #{$a-slide-max-h};
+//   max-height: 0;
+//   overflow: hidden;
+// }
+// .#{$uiA+$a-sd-name+$slide-down-height}-enter-active, .#{$uiA+$a-sd-name+$slide-down-height}-appear-active {
+//   opacity: 1;
+//   max-height: #{$slide-down-height}px;
+// }
+// .#{$uiA+$a-sd-name+$slide-down-height}-exit {
+//   opacity: 1;
+//   transition: #{$a-slide-max-h};
+//   max-height: #{$slide-down-height}px;
+// }
+// .#{$uiA+$a-sd-name+$slide-down-height}-exit-active {
+//   max-height: 0;
+//   opacity: 0;
+// }
+
+
 // .#{$uiA}-animate-slide-in-top-2-enter, .#{$uiA}-animate-slide-in-top-2-appear {
 //   opacity: 0;
 //   transform: translateY(10px);
