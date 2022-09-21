@@ -203,6 +203,12 @@
       "name": "Divider",
       "kss-weight": "1280",
       "comment": "{block-category.info._value}"
+    },
+    "connector": {
+      "value": "connector",
+      "name": "Connector",
+      "kss-weight": "1290",
+      "comment": "{block-category.abstract._value}"
     }
   }
 }

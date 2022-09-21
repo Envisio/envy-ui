@@ -1,0 +1,38 @@
+// Connector
+//
+// Weight: 1290
+//
+// Styleguide Connector
+
+.#{$uiConnector} {
+
+  $this: &;
+
+  display: flex;
+  position: relative;
+
+  &::before {
+    content: '';
+    top: 50%;
+    height: 1px;
+    max-height: 1px;
+    width: 100%;
+    position: absolute;
+    border-top: 1px solid $color-default-border;
+  }
+
+  &::after {
+    content: '';
+    height: 100%;
+    max-width: 1px;
+    width: 1px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-left: 1px solid $color-default-border;
+  }
+
+  &--l::after {
+    height: 50%;
+  }
+}
