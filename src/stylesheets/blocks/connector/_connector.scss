@@ -32,7 +32,13 @@
     border-left: 1px solid $color-default-border;
   }
 
-  &--l::after {
+  &--l-top::after {
     height: 50%;
+  }
+
+  &--l-bottom::after {
+    height: 50%;
+    bottom: 0;
+    top: auto;
   }
 }
