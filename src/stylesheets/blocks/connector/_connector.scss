@@ -41,4 +41,12 @@
     bottom: 0;
     top: auto;
   }
+
+  &--i::before {
+    display: none;
+  }
+
+  &---::after {
+    display: none;
+  }
 }
