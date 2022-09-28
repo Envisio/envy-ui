@@ -33,13 +33,13 @@
   }
 
   &--l-top::after {
-    height: 50%;
-    top: 0;
+    height: calc(50% + 15px);
+    // top: ;
   }
 
   &--l-bottom::after {
     height: 50%;
-    bottom: 0;
+    bottom: -15px;
     top: auto;
   }
 
