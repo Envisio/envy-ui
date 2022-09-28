@@ -23,17 +23,18 @@
 
   &::after {
     content: '';
-    height: 100%;
+    height: calc(100% + 30px);
     max-width: 1px;
     width: 1px;
     position: absolute;
     left: 0;
-    top: 0;
+    top: -15%;
     border-left: 1px solid $color-default-border;
   }
 
   &--l-top::after {
     height: 50%;
+    top: 0;
   }
 
   &--l-bottom::after {
@@ -49,4 +50,5 @@
   &---::after {
     display: none;
   }
+
 }
