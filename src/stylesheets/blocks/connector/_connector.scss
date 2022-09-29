@@ -38,7 +38,7 @@
   }
 
   &--l-bottom::after {
-    height: 50%;
+    height: calc(50% + 15px);
     bottom: -15px;
     top: auto;
   }
