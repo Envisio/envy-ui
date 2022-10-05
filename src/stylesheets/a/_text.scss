@@ -129,3 +129,7 @@ $a-text-aligns: left, right, center, justify;
 .#{$uiA}-text-underline {
   text-decoration: underline#{$a-important};
 }
+
+.#{$uiA}-text-decoration-none {
+  text-decoration: none#{$a-important};
+}
