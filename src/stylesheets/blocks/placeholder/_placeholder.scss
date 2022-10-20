@@ -1,0 +1,44 @@
+// Placeholder
+//
+// Weight: 1360
+//
+// Styleguide Placeholder
+
+.#{$uiPlaceholder} {
+
+  $this: &;
+
+  $normal-height: 35px;
+  $small-height: 25px;
+  $xsmall-height: 10px;
+
+  display: block;
+  height: 35px;
+  width: 100%;
+  max-width: 100%;
+  background: color-cp("gallery");
+  border-radius: $a-default-border-radius;
+
+  &--small {
+    height: $small-height;
+  }
+
+  &--xsmall {
+    height: $xsmall-height;
+  }
+
+  &--round {
+    border-radius: $normal-height / 2;
+  }
+
+  &--small-round {
+    height: $small-height;
+    border-radius: $small-height / 2;
+  }
+
+  &--xsmall-round {
+    height: $xsmall-height;
+    border-radius: $xsmall-height / 2;
+  }
+
+}

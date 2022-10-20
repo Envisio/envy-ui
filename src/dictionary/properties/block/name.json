@@ -209,6 +209,12 @@
       "name": "Connector",
       "kss-weight": "1290",
       "comment": "{block-category.abstract._value}"
+    },
+    "placeholder": {
+      "value": "placeholder",
+      "name": "Placeholder",
+      "kss-weight": "1300",
+      "comment": "{block-category.abstract._value}"
     }
   }
 }
