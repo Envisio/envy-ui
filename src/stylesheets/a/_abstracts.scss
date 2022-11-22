@@ -152,6 +152,10 @@
   }
 }
 
+.#{$uiA}-empty-hide:empty {
+  display: none;
+}
+
 @keyframes slideIn {
   from {
     height: 0;
