@@ -45,7 +45,7 @@
         border-right-color: darken($switch-button-selected-bg-color, 5%);
       }
     }
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled, #{$this}__button--inactive) {
       background-color: color("light-gray");
     }
     &:active {
@@ -74,6 +74,9 @@
         background-color: $switch-button-selected-bg-color;
         // background-color: darken($switch-button-selected-bg-color, 5%);
       }
+    }
+    &--inactive {
+      cursor: default;
     }
   }
 
