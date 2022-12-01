@@ -30,4 +30,19 @@
     min-height: 1px;
     border-top: 1px solid color("variable");
   }
+
+  &--form {
+    gap: 0;
+    #{$this}__content {
+      color: color("gray");
+      margin-right: 5px;
+    }
+    &::after {
+      border-top: 1px dotted $color-default-border;
+    }
+    &::before {
+      max-width: 0;
+      min-width: 0;
+    }
+  }
 }
