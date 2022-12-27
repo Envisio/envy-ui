@@ -73,7 +73,7 @@
     height: $label-fixed-height;
   }
 
-  &--no-bootstrap {
+  &--no-bootstrap, &--clean {
     label {
       margin-bottom: 0;
     }
