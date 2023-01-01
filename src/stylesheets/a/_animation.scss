@@ -15,6 +15,13 @@
   animation-duration: 0.7s;
 }
 
+.#{$uiA}-animate-burnin-3 {
+  animation-name: burnin;
+  animation-iteration-count: 3;
+  animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+  animation-duration: 0.7s;
+}
+
 $a-slide-down-heights-set: (50, 500);
 $a-sd-name: "-animate-slide-down-";
 $a-popup-name: "-animate-popup";
