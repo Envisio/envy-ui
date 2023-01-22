@@ -41,4 +41,8 @@
     border-radius: $xsmall-height / 2;
   }
 
+  &--darken {
+    background: darken(color("gallery"), 5%);
+  }
+
 }
