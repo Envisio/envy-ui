@@ -40,19 +40,19 @@
       },
       "disabled": {
         "background-color": {
-          "value": "{button.--map.default.background-color.value}"
+          "value": "{color.white.value}"
         },
         "border-color": {
-          "value": "{button.--map.default.border.color}"
+          "value": "{color.transparent.value}"
         },
         "box-shadow": {
           "value": "none"
         },
         "filter": {
-          "value": "saturate(90%) brightness(0.9) contrast(0.5)"
+          "value": "brightness(1)"
         },
         "opacity": {
-          "value": "0.7"
+          "value": "1"
         }
       },
       "inactive": {
