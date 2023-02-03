@@ -164,3 +164,8 @@ $flex-set: (
     }
   }
 }
+
+.#{$uiA}-f-center {
+  align-items: center#{$a-important};
+  justify-content: center#{$a-important};
+}
