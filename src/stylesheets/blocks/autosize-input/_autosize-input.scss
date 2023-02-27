@@ -21,7 +21,7 @@
   }
   &--inline {
     > input {
-      padding: 0;
+      padding: 0 15px 0 0;
       font-size: inherit;
       color: inherit;
       // background-color: color("white");
@@ -34,6 +34,14 @@
       overflow: hidden;
       max-width: 100%;
       text-overflow: ellipsis;
+      &::after {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 2px;
+        content: "";
+        background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.4506 1.64824L13.3517 0.549316C12.9858 0.183105 12.5059 0 12.0261 0C11.5462 0 11.0663 0.183105 10.7001 0.549023L0.376492 10.8727L0.00442376 14.2189C-0.042451 14.6402 0.289481 15 0.701686 15C0.72776 15 0.753834 14.9985 0.780495 14.9956L4.12442 14.6262L14.4509 4.29961C15.1831 3.56748 15.1831 2.38037 14.4506 1.64824ZM3.69406 13.7309L0.96858 14.0329L1.27209 11.3033L9.00321 3.57217L11.4281 5.99707L3.69406 13.7309ZM13.788 3.63691L12.0908 5.33408L9.6659 2.90918L11.3631 1.21201C11.54 1.03506 11.7756 0.9375 12.0261 0.9375C12.2765 0.9375 12.5118 1.03506 12.689 1.21201L13.788 2.31094C14.1533 2.67656 14.1533 3.27129 13.788 3.63691Z' fill='%2376BCD0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.5 14.5C5.5 14.2239 5.72386 14 6 14H13.5C13.7761 14 14 14.2239 14 14.5C14 14.7761 13.7761 15 13.5 15H6C5.72386 15 5.5 14.7761 5.5 14.5Z' fill='%2376BCD0'/%3E%3C/svg%3E%0A");
+      }
       &:focus {
         // outline: 0;
         // border: $a-border-input;
