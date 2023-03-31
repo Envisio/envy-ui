@@ -28,19 +28,16 @@
     isolation: isolate;
     &::after {
       display: inline-flex;
-      position: absolute;
+      position: relative;
       top: 9px;
-      right: 1px;
-      width: 20px;
-      height: 20px;
+      // right: 1px;
+      width: 15px;
+      height: 15px;
       content: svg-edit-icon(color("cornflower-blue"));
     }
     &:has(input:focus) {
       &::after {
-        animation-name: burnin;
-        animation-iteration-count: infinite;
-        animation-timing-function: cubic-bezier(.5, 0, 1, 1);
-        animation-duration: 1.7s;
+        filter: brightness(0.85);
       }
     }
     &:has(input:hover) {

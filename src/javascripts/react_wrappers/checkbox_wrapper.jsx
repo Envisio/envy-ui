@@ -12,6 +12,7 @@ export default class CheckboxWrapper extends Component {
     themeToggle: PropTypes.bool,
     themeCheck: PropTypes.bool,
     themeRadio: PropTypes.bool,
+    indeterminate: PropTypes.bool,
     addClass: PropTypes.string,
     id: PropTypes.string,
   }
@@ -21,6 +22,7 @@ export default class CheckboxWrapper extends Component {
     themeToggle: false,
     themeCheck: false,
     themeRadio: false,
+    indeterminate: false,
     addClass: '',
     id: null,
   }
@@ -38,6 +40,7 @@ export default class CheckboxWrapper extends Component {
       themeCheck,
       themeRadio,
       addClass,
+      indeterminate,
     } = this.props;
 
     return (
@@ -48,7 +51,7 @@ export default class CheckboxWrapper extends Component {
             {cloneElement(child, { id, ...ui(uiA`vanish inline-block`) })}
             <label
               {...ui([
-                uiCheckbox`--toggle:${themeToggle} --check:${themeCheck} --radio:${themeRadio} --disabled:${child.props.disabled}`,
+                uiCheckbox`--toggle:${themeToggle} --check:${themeCheck} --radio:${themeRadio} --disabled:${child.props.disabled} --indeterminate:${indeterminate}`,
                 addClass])}
               htmlFor={id}
             />
