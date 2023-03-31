@@ -27,7 +27,8 @@
     position: relative;
     isolation: isolate;
     &::after {
-      display: inline-flex;
+      // display: inline-flex;
+      display: none;
       position: relative;
       top: 9px;
       // right: 1px;
