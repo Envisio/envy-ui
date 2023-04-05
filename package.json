@@ -110,10 +110,10 @@
   "peerDependencies": {
     "react": "^16.8.0 || 17.x || 18.x",
     "react-dom": "^16.13.1 || 17.x || 18.x",
-    "react-resize-aware": "^3.0.1",
     "prop-types": "^15.7.2"
   },
   "dependencies": {
+    "react-resize-aware": "^3.0.1",
     "detect-browser": "^5.0.0",
     "dom-to-image": "^2.6.0",
     "lodash": "^4.17.19",
