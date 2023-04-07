@@ -30,6 +30,7 @@
     border-right: 0;
     line-height: normal;
     cursor: pointer;
+    text-decoration: none;
     &:first-child {
       border-top-left-radius: $switch-button-radius;
       border-bottom-left-radius: $switch-button-radius;
@@ -63,6 +64,7 @@
     &:focus:last-child {
       border-right-width: 1px;
     }
+    @at-root a#{$this}__button--active,
     &--active {
       background-color: $switch-button-selected-bg-color;
       color: $white;
@@ -75,6 +77,8 @@
         // background-color: darken($switch-button-selected-bg-color, 5%);
       }
     }
+
+
     &--inactive {
       cursor: default;
     }
