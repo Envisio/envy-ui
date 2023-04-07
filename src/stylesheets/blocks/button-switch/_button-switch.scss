@@ -83,7 +83,7 @@
       cursor: default;
     }
   }
-
+  @at-root a#{$this}--light-blue,
   &--light-blue {
     #{$this}__button {
       &#{$this}__button--active {
