@@ -96,6 +96,10 @@
         &:last-child {
           border-right-color: $switch-button-selected-light-blue-outline-color;
         }
+        &:hover:not(:disabled) {
+          background-color: $switch-button-selected-light-blue-bg-color;
+          // background-color: darken($switch-button-selected-bg-color, 5%);
+        }
       }
     }
   }
