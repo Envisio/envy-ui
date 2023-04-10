@@ -19,6 +19,36 @@
     border: 1px solid $border-color;
   }
 
+  @mixin alert__make-form-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
+    // $border-color: if($bg-color == color("white"), color("gray-white"), darken($bg-color, 5%));
+    background-color: $bg-color;
+    color: $text-color;
+    border-width: 0;
+    // border: 1px solid $border-color;
+    font-size: 13px;
+    padding: 2.5px 5px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      width: 3px;
+      height: 3px;
+    }
+    &::after {
+      background-image: url("data:image/svg+xml,%3Csvg width='3' height='3' viewBox='0 0 3 3' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 3C1.65686 3 3 1.65686 3 0V3H0Z' fill='#{encodecolor($bg-color)}'/%3E%3C/svg%3E");
+      right: 0;
+    }
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='3' height='3' viewBox='0 0 3 3' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 3C1.34314 3 0 1.65686 0 0V3H3Z' fill='#{encodecolor($bg-color)}'/%3E%3C/svg%3E");
+      left: 0;
+    }
+  }
+
   font-size: $alert--default-font-size;
   padding: 10px 15px;
   line-height: normal;
@@ -37,6 +67,10 @@
 
   &--error {
     @include alert__make-container-color(lighten(color("light-red"), 15%), darken(color("red"), 10%));
+  }
+
+  &--error-form {
+    @include alert__make-form-container-color(lighten(color("light-red"), 15%), darken(color("red"), 15%));
   }
 
   &--warning {
