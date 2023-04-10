@@ -25,11 +25,12 @@
     color: $text-color;
     border-width: 0;
     // border: 1px solid $border-color;
-    font-size: 13px;
+    font-size: 12.5px;
     padding: 2.5px 5px;
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    line-height: normal;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     &::before, &::after {
