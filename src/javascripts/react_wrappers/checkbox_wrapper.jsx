@@ -2,7 +2,7 @@ import React, { Component, Fragment, cloneElement, Children } from 'react';
 import PropTypes from 'prop-types';
 import ShortUniqueId from 'short-unique-id';
 
-import { ui, uiA, uiCheckbox } from '../';
+import { ui, uiA, uiCheckboxLegacy } from '../';
 
 const uid = new ShortUniqueId();
 
@@ -51,7 +51,7 @@ export default class CheckboxWrapper extends Component {
             {cloneElement(child, { id, ...ui(uiA`vanish inline-block`) })}
             <label
               {...ui([
-                uiCheckbox`--toggle:${themeToggle} --check:${themeCheck} --radio:${themeRadio} --disabled:${child.props.disabled} --indeterminate:${indeterminate}`,
+                uiCheckboxLegacy`--toggle:${themeToggle} --check:${themeCheck} --radio:${themeRadio} --disabled:${child.props.disabled} --indeterminate:${indeterminate}`,
                 addClass])}
               htmlFor={id}
             />

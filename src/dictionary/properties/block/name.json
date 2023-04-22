@@ -6,16 +6,16 @@
       "kss-weight": "500",
       "comment": "{block-category.acss._value}"
     },
-    "checkbox-legacy": {
-      "value": "checkbox-legacy",
-      "name": "Checkbox-legacy",
-      "kss-weight": "1010",
-      "comment": "{block-category.control._value}"
-    },
     "checkbox": {
       "value": "checkbox",
       "name": "Checkbox",
       "kss-weight": "1011",
+      "comment": "{block-category.control._value}"
+    },
+    "checkbox-legacy": {
+      "value": "checkbox-legacy",
+      "name": "Checkbox-legacy",
+      "kss-weight": "1010",
       "comment": "{block-category.control._value}"
     },
     "button": {
