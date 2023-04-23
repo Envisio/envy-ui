@@ -1,0 +1,20 @@
+@mixin box($width: 1em, $height: 1em, $border-color: $santas-gray) {
+  display: inline-block;
+  position: relative;
+  width: $width !important;
+  min-width: $width !important;
+  height: $height !important;
+  min-height: $height !important;
+  border: 1px solid $border-color;
+}
+
+%ui-checkbox-disable-state-painter {
+  background-color: $gallery;
+  border-color: $plain-gray;
+  cursor: inherit;
+  box-shadow: none;
+  &::after {
+    border-color: $plain-gray !important;
+    background-color: $gallery;
+  }
+}
