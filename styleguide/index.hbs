@@ -72,7 +72,19 @@
     {{#each menu}}
       <li class="kss-nav__menu-item contsearch">
         <a class="kss-nav__menu-link " href="section-{{referenceURI}}.html">
-          <span class="kss-nav__ref">{{referenceNumber}}</span><span class="kss-nav__name gsearch">{{header}}</span>
+          <span class="kss-nav__ref">{{referenceNumber}}</span>
+          <span class="env-a-f env-a-f-a-center env-a-f-gap-small">
+            <span class="kss-nav__name gsearch">{{header}}
+            {{#if retired}}
+              <span class="env-badge env-badge--small env-badge--error env-badge--circle">R</span>
+            {{/if}}
+            {{#if new}}
+              <span class="env-badge env-badge--small env-badge--ok env-badge--circle">N</span>
+            {{/if}}
+            {{#if updated}}
+              <span class="env-badge env-badge--small env-badge--warning env-badge--circle">U</span>
+            {{/if}}
+          </span>
         </a>
         {{#if isActive}}
           {{#if children}}
