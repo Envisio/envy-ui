@@ -18,8 +18,11 @@
   $toggle-circle-size: $toggle-base-size + 0.15em;
   $toggle-fine-position: -0.15em;
 
-  margin: 0;
   appearance: none;
+
+  @at-root input[type="checkbox"]#{$this}, input[type="radio"]#{$this} {
+    margin: 0;
+  }
 
   &--check, &--toggle, &--radio {
     font-size: 12px;
