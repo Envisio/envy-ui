@@ -1,6 +1,7 @@
 import { isFunction, partial } from 'lodash';
 import { detect } from 'detect-browser';
 export { default as useResizeAware } from 'react-resize-aware';
+export { default as ellipsis } from 'smart-truncate';
 
 // import { $ui } from './ui/ui_names';
 // import getBlock from './ui/get_block';
