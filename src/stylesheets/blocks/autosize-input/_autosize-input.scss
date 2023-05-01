@@ -47,7 +47,7 @@
       }
     }
     > input {
-      z-index: 1;
+      // z-index: 1;
       padding: 0;
       // padding: 0 17px 0 2px;
       font-size: inherit;
@@ -64,6 +64,9 @@
       max-width: 100%;
       text-overflow: ellipsis;
       position: relative;
+      &:not([disabled]) {
+        border-bottom: 1px dashed color-cp("cornflower-blue");
+      }
       &:focus {
         // outline: 0;
         // border: $a-border-input;
@@ -73,8 +76,9 @@
         border: 1px dotted color-cp("viking-blue");
       }
       &[disabled], &[readonly] {
-        background-color: color("gallery");
-        opacity: 1;
+        border: 1px solid transparent;
+        // background-color: color("gallery");
+        // opacity: 1;
       }
     }
   }
