@@ -16,8 +16,7 @@ p(class=uiA`text-align-right`) version: !{env.npm_package_version}
 
 +cardBlock('section-checkbox.html', 'Checkbox (uiCheckBox)')
   each checkboxBaseClass in checkboxBaseClasses
-    input(class=uiA`vanish` type="checkbox" id=checkboxBaseClass)
-    label(class=`${uiCheckbox` #${checkboxBaseClass}`} ${uiA`m-small`}` for=checkboxBaseClass)
+    input(class=`${uiCheckbox` #${checkboxBaseClass}`} ${uiA`m-small`}` type="checkbox" id=checkboxBaseClass)
 
 +cardBlock('section-button.html', 'Button (uiButton)')
   each buttonBaseClass in buttonBaseClasses

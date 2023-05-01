@@ -49,7 +49,7 @@
     &:hover:not(:disabled, #{$this}__button--inactive) {
       background-color: color("light-gray");
     }
-    &:active {
+    &:active:not(:disabled, #{$this}__button--inactive) {
       background-color: lighten(color("pale-blue"), 3%);
     }
     &:disabled {
