@@ -14,7 +14,7 @@
 
   &__label {
     padding-right: $padding-small;
-    color: $color-default-label;
+    color: var(--color-default-label);
     flex: 0 0 $base-form-label-min-width;
     line-height: normal;
     &--long {
@@ -29,6 +29,9 @@
     &--free {
       flex-basis: auto;
       padding-right: $padding-normal;
+    }
+    &--disabled {
+      --color-default-label: var(--color-default-label-disabled);
     }
   }
 
