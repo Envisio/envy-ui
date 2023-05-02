@@ -1,1 +1,6 @@
-// @import '../../corporate_v3/core/variables.scss';
+/* stylelint-disable no-duplicate-selectors */
+:root {
+  --color-default-label: var(--color-darken-border);
+  --color-default-label-disabled: var(--color-nobel);
+}
+/* stylelint-enable no-duplicate-selectors */
