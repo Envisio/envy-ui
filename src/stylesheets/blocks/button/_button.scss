@@ -362,10 +362,23 @@
     }
   }
 
-
   &--menu-bottom, &--menu-stack:last-child {
     & > #{$this}__content {
       border-radius: 0 0 2px 2px;
+    }
+  }
+
+  &--menu-left {
+    & > #{$this}__content {
+      border-radius: 2px 0 0 2px;
+      border-right-color: transparent;
+    }
+  }
+
+  &--menu-right {
+    & > #{$this}__content {
+      border-radius: 0 2px 2px 0;
+      border-left-color: transparent;
     }
   }
 
