@@ -172,6 +172,10 @@
     box-shadow: none;
   }
 
+  &--no-border {
+    border: none;
+  }
+
   &--shadow-strong {
     box-shadow: $a-card-shadow-strong;
   }
