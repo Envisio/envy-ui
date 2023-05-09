@@ -76,6 +76,8 @@ export const rsSelect = ({
   reflowMultiSelect = false,
   tagStyle = false,
   statusStyle = false,
+  stackLeft = false,
+  stackRight = false,
 } = {}) => ({
   styles: {
     menu: (provided) => ({
@@ -130,6 +132,10 @@ export const rsSelect = ({
       borderStyle: 'solid',
       borderColor: showError ? `${UI_COLOR_RED} !important` : (isFocused ? '#76bcd0 !important' : `${UI_COLOR_PLAIN_GRAY}`),
       borderRadius: '3px',
+      borderRadiusTopLeft: stackRight ? '0' : '3px',
+      borderRadiusBottomLeft: stackRight ? '0' : '3px',
+      borderRadiusTopRight: stackLeft ? '0' : '3px',
+      borderRadiusBottomRight: stackLeft ? '0' : '3px',
       // padding: '0 10px',
       boxShadow: isFocused ? `inset 0 0 1px 3px rgba(${showError ? '204, 24, 30, 0.2' : '118,188,208,0.3'})` : '0',
       minHeight: '35px',
