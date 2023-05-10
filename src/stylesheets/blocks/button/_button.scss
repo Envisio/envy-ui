@@ -460,6 +460,23 @@
       // }
       @include make-button-from-tokens("--hover-menu");
     }
+    &-danger {
+      // &#{$this}--focus:not([disabled]):not(#{$this}--disabled),
+      // &:focus:not([disabled]):not(#{$this}--disabled),
+      // &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
+      // &:hover:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: color("pale-blue");
+      //   }
+      // }
+      // &#{$this}--active:not([disabled]):not(#{$this}--disabled),
+      // &:active:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: darken(color("pale-blue"), 10%);
+      //   }
+      // }
+      @include make-button-from-tokens("--hover-danger");
+    }
 
 
     // &#{$this}--disabled, &[disabled] {

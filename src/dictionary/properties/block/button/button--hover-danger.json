@@ -1,0 +1,70 @@
+{
+  "button": {
+    "--hover-danger": {
+      "default": {
+        "background-color": {
+          "value": "inherit"
+        },
+        "border": {
+          "value": "{shape.border.value} transparent"
+        }
+      },
+      "hover": {
+        "background-color": {
+          "value": "#f9d0d1",
+          "comment": "lighten 40% from color.red"
+        }
+      },
+      "active": {
+        "background-color": {
+          "value": "#ec5e63",
+          "comment": "lighten 20% from color.red"
+        },
+        "color": {
+          "value": "{color.white.value}"
+        }
+      },
+      "focus": {
+        "border-color": {
+          "value": "#d5423d",
+          "comment": "darken 7% from color.red.value"
+        },
+        "box-shadow": {
+          "value": "{shape.focus-box-shadow.value} #f9d0d1",
+          "comment": "lighten 45% from color.red"
+        },
+        "background-color": {
+          "value": "{button.--hover-danger.default.background-color.value}"
+        }
+      },
+      "disabled": {
+        "background-color": {
+          "value": "{button.--hover-danger.default.background-color.value}"
+        },
+        "box-shadow": {
+          "value": "none"
+        },
+        "opacity": {
+          "value": "0.7"
+        },
+        "cursor": {
+          "value": "default"
+        }
+      },
+      "inactive": {
+        "border": {
+          "value": "{button.--hover-danger.default.border.value}"
+        },
+        "background-color": {
+          "value": "{button.--hover-danger.default.background-color.value}"
+        },
+        "box-shadow": {
+          "value": "none"
+        },
+        "cursor": {
+          "value": "default"
+        }
+      }
+    }
+  }
+}
