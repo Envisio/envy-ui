@@ -13,6 +13,9 @@
         "background-color": {
           "value": "#f9d0d1",
           "comment": "lighten 40% from color.red"
+        },
+        "color": {
+          "value": "{color.red.value}"
         }
       },
       "active": {
@@ -29,12 +32,15 @@
           "value": "#d5423d",
           "comment": "darken 7% from color.red.value"
         },
+        "color": {
+          "value": "{color.red.value}"
+        },
         "box-shadow": {
-          "value": "{shape.focus-box-shadow.value} #f9d0d1",
-          "comment": "lighten 45% from color.red"
+          "value": "{shape.focus-box-shadow.value} #f4a2a5",
+          "comment": "lighten 35% from color.red"
         },
         "background-color": {
-          "value": "{button.--hover-danger.default.background-color.value}"
+          "value": "{button.--hover-danger.hover.background-color.value}"
         }
       },
       "disabled": {
