@@ -81,7 +81,7 @@ export const rsSelect = ({
   udjustedLabelLength = 0,
 } = {}) => ({
   styles: {
-    menu: (proviLed) => ({
+    menu: (provided) => ({
       ...provided,
       width: 'auto',
       minWidth: '100%',
