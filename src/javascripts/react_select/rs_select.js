@@ -178,7 +178,7 @@ export const rsSelect = ({
         paddingLeft: '0',
       } : {}),
     }),
-    multiValue: (provided) => ({
+    multiValue: (provided) => (console.log('provided----------', provided), {
       ...provided,
       ...(tagStyle || statusStyle ? {
         minWidth: '50px',
