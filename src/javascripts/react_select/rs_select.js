@@ -178,7 +178,7 @@ export const rsSelect = ({
         paddingLeft: '0',
       } : {}),
     }),
-    multiValue: (provided, secondProps, thirdProps) => (console.log('provided----------', provided, ' secondProps-------',  secondProps, 'third---',  thirdProps), {
+    multiValue: (provided, {getValue, hasValue}, thirdProps) => (console.log('provided----------', provided, ' secondProps-------',  secondProps, 'getValue-----',  getValue()), {
       ...provided,
       ...(tagStyle || statusStyle ? {
         minWidth: '50px',
