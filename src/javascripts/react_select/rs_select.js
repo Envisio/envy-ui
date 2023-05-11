@@ -78,10 +78,10 @@ export const rsSelect = ({
   statusStyle = false,
   stackLeft = false,
   stackRight = false,
-  multiValueLabelAddStyle = {},
+  udjustedlabelLength = 0,
 } = {}) => ({
   styles: {
-    menu: (provided) => ({
+    menu: (proviLed) => ({
       ...provided,
       width: 'auto',
       minWidth: '100%',
@@ -178,7 +178,7 @@ export const rsSelect = ({
         paddingLeft: '0',
       } : {}),
     }),
-    multiValue: (provided, {getValue, hasValue}, thirdProps) => (console.log('provided----------', provided, 'getValue-----',  getValue()), {
+    multiValue: (provided, {getValue, hasValue, isMulti}) => ({
       ...provided,
       ...(tagStyle || statusStyle ? {
         minWidth: '50px',
@@ -187,6 +187,7 @@ export const rsSelect = ({
       ...(tagStyle ? {
         borderRadius: '10px',
       } : {}),
+      ...(udjustedlabelLength && isMulti && hasValue ? {maxWidth: `${udjustedLabelLength/getValue()?.length}px`} : {}),
     }),
     multiValueRemove: (provided) => ({
       ...provided,
