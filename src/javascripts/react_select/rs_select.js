@@ -78,7 +78,7 @@ export const rsSelect = ({
   statusStyle = false,
   stackLeft = false,
   stackRight = false,
-  udjustedlabelLength = 0,
+  udjustedLabelLength = 0,
 } = {}) => ({
   styles: {
     menu: (proviLed) => ({
@@ -187,7 +187,7 @@ export const rsSelect = ({
       ...(tagStyle ? {
         borderRadius: '10px',
       } : {}),
-      ...(udjustedlabelLength && isMulti && hasValue ? {maxWidth: `${udjustedLabelLength/getValue()?.length}px`} : {}),
+      ...(udjustedLabelLength && isMulti && hasValue ? {maxWidth: `${udjustedLabelLength/getValue()?.length}px`} : {}),
     }),
     multiValueRemove: (provided) => ({
       ...provided,
