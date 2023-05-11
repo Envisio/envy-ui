@@ -78,6 +78,7 @@ export const rsSelect = ({
   statusStyle = false,
   stackLeft = false,
   stackRight = false,
+  multiValueLabelAddStyle = {},
 } = {}) => ({
   styles: {
     menu: (provided) => ({
@@ -171,6 +172,7 @@ export const rsSelect = ({
     }),
     multiValueLabel: (provided) => ({
       ...provided,
+      ...multiValueLabelAddStyle,
       ...(tagStyle || statusStyle ? {
         padding: '0',
         paddingLeft: '0',
