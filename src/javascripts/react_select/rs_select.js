@@ -172,7 +172,6 @@ export const rsSelect = ({
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      ...multiValueLabelAddStyle,
       ...(tagStyle || statusStyle ? {
         padding: '0',
         paddingLeft: '0',
