@@ -24,13 +24,13 @@ export const rsDropdownMenu = ({
       borderRadius: 3,
       backgroundColor: '#ffffff',
       boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.1)',
+      width: 'auto',
+      marginTop: '2px',
+      marginBottom: '2px',
+      minWidth: 'auto',
       ...(auto ? {} : {
         position: 'absolute',
-        marginTop: '2px',
-        marginBottom: '2px',
         right: '0',
-        width: 'auto',
-        minWidth: 'auto',
       })
     }),
     indicatorSeparator: (provided) => ({
