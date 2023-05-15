@@ -12,22 +12,26 @@ import { UI_COLOR_PALE_BLUE } from '../index'
 //   label: PropTypes.string.isRequired,
 // };
 
-export const rsDropdownMenu = {
+export const rsDropdownMenu = ({
+  auto = false,
+} = {}) => ({
   styles: {
     menu: (provided) => ({
       ...provided,
-      width: 'auto',
-      minWidth: 'auto',
-      position: 'absolute',
       // display: 'flex',
-      marginTop: '2px',
-      marginBottom: '2px',
       padding: '0',
-      right: '0',
       border: '1px solid #d1d4e4',
       borderRadius: 3,
       backgroundColor: '#ffffff',
-      boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.1)'
+      boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.1)',
+      ...(auto ? {} : {
+        position: 'absolute',
+        marginTop: '2px',
+        marginBottom: '2px',
+        right: '0',
+        width: 'auto',
+        minWidth: 'auto',
+      })
     }),
     indicatorSeparator: (provided) => ({
       ...provided,
@@ -126,4 +130,4 @@ export const rsDropdownMenu = {
       primary: UI_COLOR_PALE_BLUE,
     },
   }),
-};
+});
