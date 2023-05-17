@@ -26,6 +26,7 @@ $a-slide-down-heights-set: (50, 500);
 $a-sd-name: "-animate-slide-down-";
 $a-popup-name: "-animate-popup";
 $a-fadein-name: "-animate-fadein";
+$a-fadein-name-5: "-animate-fadein-5";
 
 @each $slide-down-height in $a-slide-down-heights-set {
   $a-sd-delta: $slide-down-height / 2000;
@@ -53,6 +54,7 @@ $a-fadein-name: "-animate-fadein";
 
 $a-popup: transform 0.2s ease-out, opacity 0.2s ease-out;
 $a-fadein: opacity 0.2s ease-out;
+$a-fadein-5: opacity 0.5s ease-out 0.3s, max-height 0.3s ease-out;
 
 .#{$uiA+$a-popup-name}-enter, .#{$uiA+$a-popup-name}-appear {
   opacity: 0;
@@ -86,6 +88,25 @@ $a-fadein: opacity 0.2s ease-out;
 .#{$uiA+$a-fadein-name}-exit-active {
   opacity: 0;
   transition: #{$a-fadein};
+}
+
+.#{$uiA+$a-fadein-name-5}-enter, .#{$uiA+$a-fadein-name-5}-appear {
+  opacity: 0;
+  max-height: 0;
+}
+.#{$uiA+$a-fadein-name-5}-enter-active, .#{$uiA+$a-fadein-name-5}-appear-active {
+  opacity: 1;
+  max-height: 50px;
+  transition: #{$a-fadein-5};
+}
+.#{$uiA+$a-fadein-name-5}-exit {
+  opacity: 1;
+  max-height: 50px;
+}
+.#{$uiA+$a-fadein-name-5}-exit-active {
+  opacity: 0;
+  max-height: 0;
+  transition: #{$a-fadein-5};
 }
 
 
