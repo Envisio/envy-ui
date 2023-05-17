@@ -54,7 +54,7 @@ $a-fadein-name-5: "-animate-fadein-5";
 
 $a-popup: transform 0.2s ease-out, opacity 0.2s ease-out;
 $a-fadein: opacity 0.2s ease-out;
-$a-fadein-5: opacity 0.5s ease-out, max-height 0.3s ease-out 0.5s;
+$a-fadein-5: opacity 0.3s ease-out 0.2s, max-height 0.2s ease-out 0.3s;
 
 .#{$uiA+$a-popup-name}-enter, .#{$uiA+$a-popup-name}-appear {
   opacity: 0;
