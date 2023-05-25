@@ -31,6 +31,22 @@
     border-top: 1px solid color("variable");
   }
 
+  &--left {
+    gap: 0;
+    #{$this}__content {
+      margin-right: 5px;
+    }
+    &::after {
+      border-top: 1px dotted $color-default-border;
+    }
+    &::before {
+      max-width: 0;
+      min-width: 0;
+    }
+  }
+
+  }
+
   &--form {
     gap: 0;
     #{$this}__content {
