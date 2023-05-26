@@ -2,7 +2,7 @@ import { useResizeDetector } from 'react-resize-detector';
 
 export default function useMediaQuery({md = 0, lg = 99999}) {
   const {width, ref} = useResizeDetector();
-  console.log('-----------------------------useMediaQuery resizeListener width', width);
+  console.log('-----------------------------useMediaQuery width', width);
   // console.log('useMediaQuery sizes', sizes);
   // const { width } = sizes;
   const mq = {
