@@ -1,6 +1,6 @@
 import { isFunction, partial } from 'lodash';
 import { detect } from 'detect-browser';
-export { default as useResizeDetector } from 'react-resize-detector';
+export { useResizeDetector } from 'react-resize-detector';
 // import useResizeDetector from 'react-resize-detector';
 export { default as ellipsis } from 'smart-truncate';
 
