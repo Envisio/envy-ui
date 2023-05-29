@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import OverlayScrollbars from 'overlayscrollbars';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { Scrollbars } from 'react-custom-scrollbars';
-import ReactResizeDetector, { useResizeDetector } from 'react-resize-detector';
+import ReactResizeDetector, { useResizeDetector } from 'react-resize-detector-old';
 // import ResizeObserver from 'react-resize-detector/build/withPolyfill';
 
 import { ui, uiWrapperScroll } from '../';
