@@ -290,6 +290,10 @@
     // @include button__make-container-color(color("red"));
   }
 
+  &--complete {
+    @include make-button-from-tokens("--complete");
+  }
+
   &--map {
     @include make-button-from-tokens("--map");
     // & > #{$this}__content {
