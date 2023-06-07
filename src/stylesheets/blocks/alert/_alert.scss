@@ -71,7 +71,7 @@
   }
 
   &--error-form {
-    @include alert__make-form-container-color(lighten(color("light-red"), 15%), darken(color("red"), 15%));
+    @include alert__make-form-container-color(color("red"), color("white"));
   }
 
   &--warning {
