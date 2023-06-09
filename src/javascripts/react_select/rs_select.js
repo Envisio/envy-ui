@@ -137,6 +137,7 @@ export const rsSelect = ({
       borderBottomLeftRadius: stackRight ? '0' : '3px',
       borderTopRightRadius: stackLeft ? '0' : '3px',
       borderBottomRightRadius: stackLeft ? '0' : '3px',
+      BorderRight: stackLeft ? '0' : '1px',
       // padding: '0 10px',
       boxShadow: isFocused ? `inset 0 0 1px 3px rgba(${showError ? '204, 24, 30, 0.2' : '118,188,208,0.3'})` : '0',
       minHeight: '35px',
