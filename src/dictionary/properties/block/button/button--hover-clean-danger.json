@@ -1,12 +1,12 @@
 {
   "button": {
-    "--hover-danger": {
+    "--hover-clean-danger": {
       "default": {
         "background-color": {
           "value": "inherit"
         },
         "border": {
-          "value": "{shape.border.value} {color.plain-gray.value}"
+          "value": "{shape.border.value} transparent"
         }
       },
       "hover": {
@@ -40,12 +40,12 @@
           "comment": "lighten 35% from color.red"
         },
         "background-color": {
-          "value": "{button.--hover-danger.hover.background-color.value}"
+          "value": "{button.--hover-clean-danger.hover.background-color.value}"
         }
       },
       "disabled": {
         "background-color": {
-          "value": "{button.--hover-danger.default.background-color.value}"
+          "value": "{button.--hover-clean-danger.default.background-color.value}"
         },
         "box-shadow": {
           "value": "none"
@@ -59,10 +59,10 @@
       },
       "inactive": {
         "border": {
-          "value": "{button.--hover-danger.default.border.value}"
+          "value": "{button.--hover-clean-danger.default.border.value}"
         },
         "background-color": {
-          "value": "{button.--hover-danger.default.background-color.value}"
+          "value": "{button.--hover-clean-danger.default.background-color.value}"
         },
         "box-shadow": {
           "value": "none"
