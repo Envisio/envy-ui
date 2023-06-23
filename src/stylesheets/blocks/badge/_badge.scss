@@ -26,7 +26,7 @@
     font-size: $badge--default-font-size;
     border-radius: $badge--height-small / 2;
     position: relative;
-    padding: 0 10px 0 23px;
+    padding: 0 9px 0 23px;
     color: $text-color;
     border-width: 0;
     &::after {
@@ -34,17 +34,17 @@
       mask-image: svg-badge();
       background-color: currentColor;
       mask-repeat: no-repeat;
-      mask-position: 5px 4px;
+      mask-position: 4px 4px;
       mask-size: 14px;
       display: block;
-      width: 12px;
+      width: 19px;
       height: 100%;
-      border-radius: 50%;
+      // border-radius: 50%;
       position: absolute;
-      margin: 3px 5px 0 7px;
+      margin: 0 5px 0 2px;
       left: 0;
       top: 0;
-      border: 1px solid transparent;
+      // border: 1px solid transparent;
     }
   }
 

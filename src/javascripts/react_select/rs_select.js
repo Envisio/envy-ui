@@ -9,6 +9,7 @@ import {
   UI_COLOR_PLAIN_GRAY,
   UI_COLOR_DEFAULT,
   UI_COLOR_RED,
+  UI_COLOR_WHITE,
 } from '../from-dictionary/color';
 
 const statusColors = {
@@ -187,6 +188,7 @@ export const rsSelect = ({
       ...(tagStyle ? {
         borderRadius: '12px',
         border: `1px solid ${UI_COLOR_PLAIN_GRAY}`,
+        backgroundColor: `${UI_COLOR_WHITE}`
       } : {}),
       ...(udjustedLabelLength && isMulti && hasValue ? {maxWidth: `${udjustedLabelLength/getValue()?.length}px`} : {}),
     }),
@@ -197,6 +199,10 @@ export const rsSelect = ({
       } : {}),
       ...(tagStyle ? {
         borderRadius: '50%',
+        borderTopLeftRadius: '0',
+        borderBottomLeftRadius: '0',
+        borderLeft: `1px dotted ${UI_COLOR_PLAIN_GRAY}`,
+        color: `${UI_COLOR_PLAIN_GRAY}`,
       } : {}),
     }),
   },
