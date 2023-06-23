@@ -24,11 +24,11 @@
   @mixin badge__make-tag($text-color: color("white")) {
     height: $badge--height-small;
     font-size: $badge--default-font-size;
-    border-radius: $badge--height-small / 2;
+    border-radius: 3px;
     position: relative;
     padding: 0 9px 0 23px;
     color: $text-color;
-    border-width: 0;
+    border-width: 1px solid color-cp("plain-gray");
     &::after {
       content: "";
       mask-image: svg-badge();
