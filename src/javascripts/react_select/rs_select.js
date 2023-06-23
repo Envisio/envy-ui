@@ -185,7 +185,8 @@ export const rsSelect = ({
         maxWidth: '175px',
       } : {}),
       ...(tagStyle ? {
-        borderRadius: '10px',
+        borderRadius: '12px',
+        border: `1px solid ${UI_COLOR_PLAIN_GRAY}`,
       } : {}),
       ...(udjustedLabelLength && isMulti && hasValue ? {maxWidth: `${udjustedLabelLength/getValue()?.length}px`} : {}),
     }),
