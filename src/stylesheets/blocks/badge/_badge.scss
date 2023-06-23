@@ -29,19 +29,23 @@
     padding: 0 10px 0 23px;
     color: $text-color;
     border-width: 0;
-    mask-image: svg-badge();
-    // &::after {
-    //   content: svg-badge($text-color);
-    //   display: block;
-    //   width: 12px;
-    //   height: 100%;
-    //   border-radius: 50%;
-    //   position: absolute;
-    //   margin: 3px 5px 0 7px;
-    //   left: 0;
-    //   top: 0;
-    //   border: 1px solid transparent;
-    // }
+    &::after {
+      content: "";
+      mask-image: svg-badge();
+      background-color: currentColor;
+      mask-repeat: no-repeat;
+      mask-position: 5px 4px;
+      mask-size: 14px;
+      display: block;
+      width: 12px;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      margin: 3px 5px 0 7px;
+      left: 0;
+      top: 0;
+      border: 1px solid transparent;
+    }
   }
 
   @mixin counter_make($text-color: color("white"), $bg-color: desaturate(lighten(color("brand-primary"), 25%), 50%)) {

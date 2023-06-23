@@ -31,10 +31,10 @@ export function FullTag(props) {
 
   return (
     <span
-      {...ui([uiBadge`--tag:--tag-light:${contrastColor(color) === '#fff'}`, uiA`w-max-100%`, addClass])}
-      style={{ backgroundColor: color, color: contrastColor(color) }}
+      {...ui([uiBadge`--tag`, uiA`w-max-100%`, addClass])}
+      style={{ color: color }}
     >
-      <span {...ui([uiA`f-1-1-auto ellipsis`])}>
+      <span {...ui([uiA`f-1-1-auto ellipsis color-default`])}>
         {name}
       </span>
     </span>
