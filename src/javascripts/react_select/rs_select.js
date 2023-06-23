@@ -186,7 +186,7 @@ export const rsSelect = ({
         maxWidth: '175px',
       } : {}),
       ...(tagStyle ? {
-        borderRadius: '12px',
+        borderRadius: '3px',
         border: `1px solid ${UI_COLOR_PLAIN_GRAY}`,
         backgroundColor: `${UI_COLOR_WHITE}`
       } : {}),
@@ -198,11 +198,14 @@ export const rsSelect = ({
         flex: '0 0 auto',
       } : {}),
       ...(tagStyle ? {
-        borderRadius: '50%',
+        // borderRadius: '50%',
         borderTopLeftRadius: '0',
         borderBottomLeftRadius: '0',
         borderLeft: `1px dotted ${UI_COLOR_PLAIN_GRAY}`,
         color: `${UI_COLOR_PLAIN_GRAY}`,
+        '&:hover': {
+          cursor: 'pointer',
+        }
       } : {}),
     }),
   },
