@@ -26,9 +26,9 @@
     font-size: $badge--default-font-size;
     border-radius: 3px;
     position: relative;
-    padding: 0 9px 0 23px;
-    color: $text-color;
-    border-width: 1px solid color-cp("plain-gray");
+    padding: 0 6px 0 23px;
+    // color: $text-color;
+    border: 1px solid color-cp("plain-gray");
     &::after {
       content: "";
       mask-image: svg-badge();
@@ -207,9 +207,9 @@
   &--tag {
     @include badge__make-tag()
   }
-  &--tag-light {
-    @include badge__make-tag(color("default"))
-  }
+  // &--tag-light {
+  //   @include badge__make-tag(color("default"))
+  // }
 
   &--counter {
     @include counter_make()
