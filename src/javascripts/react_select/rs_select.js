@@ -277,7 +277,7 @@ export const rsTagMultiValueLabel = ({
     <FullTag
       name={label}
       color={color}
-      addClass={uiMerge([uiA`border-none`])}
+      addClass={uiMerge([uiA`border-1-s-transparent`])}
     />
   </components.MultiValueLabel>
 );
