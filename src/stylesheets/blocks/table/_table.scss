@@ -116,7 +116,6 @@
     overflow: hidden;
     max-width: 100%;
     &--active, &:hover {
-      background-color: $paint-gray;
       #{$this}__cell--hidden {
         #{$this}__content {
           display: flex;
@@ -124,6 +123,12 @@
                      opacity-shift .3s ease 0.2s 1 normal forwards;
         }
       }
+    }
+    &:hover {
+      background-color: color-cp("paint-gray");
+    }
+    &--active {
+      background-color: lighten(color("pale-blue"), 3%);
     }
   }
 }
