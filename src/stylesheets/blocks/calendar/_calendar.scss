@@ -14,7 +14,63 @@
   padding: 1px 0 0 1px;
   width: 250px;
 
-  @mixin calendar__button() {
+  // @mixin calendar__button() {
+  //   @include flex(j-center, a-center);
+  //   margin: -1px 0 0 -1px;
+  //   width: 14.285714286%;
+  //   padding-top: 4%;
+  //   padding-bottom: 4%;
+  //   border: map-deep-get($tokens-button, "button", "--default", "default", "border");
+
+  //   line-height: 1;
+  //   cursor: pointer;
+  //   &--light {
+  //     background-color: color("white");
+  //   }
+  //   &:hover {
+  //     background-color: color("light-gray");
+  //   }
+  //   &:focus {
+  //     @include a--focus;
+  //   }
+  //   &:active {
+  //     background-color: lighten(color("pale-blue"), 3%);
+  //   }
+  //   &:disabled {
+  //     cursor: default;
+  //     opacity: $switch-button-selected-disabled-opacity;
+  //     box-shadow: none;
+  //   }
+  //   &--#{$class-active} {
+  //     background-color: $brand-blue;
+  //     border-left-color: $brand-blue;
+  //     border-top-color: $brand-blue;
+  //     color: $white;
+  //     transition: background 0.5s, border 0.5s;
+  //     &:hover {
+  //       background-color: darken($switch-button-selected-bg-color, 5%);
+  //     }
+  //   }
+
+  //   border-radius: 0;
+
+  //   &:nth-child(1) {
+  //     border-radius: 3px 0 0 0;
+  //   }
+  //   &:nth-child(7) {
+  //     border-radius: 0 3px 0 0;
+  //   }
+  //   &:nth-child(28), &:nth-child(31) {
+  //     border-radius: 0 0 3px 0;
+  //   }
+  //   &:nth-child(29) {
+  //     border-radius: 0 0 0 3px;
+  //   }
+  // }
+
+  @mixin calendar__button(
+      $active-background-color: color-cp("brand-blue"),
+      $active-hover-background-color: darken($switch-button-selected-bg-color, 5%)) {
     @include flex(j-center, a-center);
     margin: -1px 0 0 -1px;
     width: 14.285714286%;
@@ -24,16 +80,16 @@
 
     line-height: 1;
     cursor: pointer;
-    &--light {
-      background-color: color("white");
-    }
-    &:hover {
+    // &--light {
+
+    // }
+    &:hover:not(:disabled) {
       background-color: color("light-gray");
     }
     &:focus {
       @include a--focus;
     }
-    &:active {
+    &:active:not(:disabled) {
       background-color: lighten(color("pale-blue"), 3%);
     }
     &:disabled {
@@ -42,13 +98,13 @@
       box-shadow: none;
     }
     &--#{$class-active} {
-      background-color: $brand-blue;
-      border-left-color: $brand-blue;
-      border-top-color: $brand-blue;
+      background-color: $active-background-color;
+      border-left-color: $active-background-color;
+      border-top-color: $active-background-color;
       color: $white;
       transition: background 0.5s, border 0.5s;
       &:hover {
-        background-color: darken($switch-button-selected-bg-color, 5%);
+        background-color: $active-hover-background-color;
       }
     }
 
@@ -72,6 +128,13 @@
     #{$this}__button {
       background-color: color("white");
       @include calendar__button;
+    }
+  }
+
+  &--light-blue {
+    #{$this}__button {
+      background-color: color("white");
+      @include calendar__button(color-cp("viking-blue"), color-cp("viking-blue-darken-12"));
     }
   }
 
