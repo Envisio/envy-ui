@@ -38,13 +38,15 @@
     "remove": "rm -r -f dist lib",
     "sass-styleguide": "./node_modules/.bin/sass --style=compressed --load-path=node_modules/ styleguide/kss-assets/kss.scss styleguide/kss-assets/kss.css",
     "sass-envisio-ui": "./node_modules/.bin/sass --embed-sources --source-map  --load-path=node_modules/ src/stylesheets/ui.scss dist/css/ui.css",
+    "prefix": "./node_modules/.bin/postcss dist/css/ui.css --use autoprefixer -d dist/css/",
     "sass-envisio-ui-min": "./node_modules/.bin/sass --style=compressed --load-path=node_modules/ src/stylesheets/ui.scss dist/css/ui.min.css",
+    "prefix-min": "./node_modules/.bin/postcss dist/css/ui.min.css --use autoprefixer -d dist/css/",
     "kss": "kss --config kss-config.json",
     "css-lint": "stylelint dist/css/ui.css",
     "scss-lint": "stylelint src/stylesheets/**/*.scss",
     "webpack": "webpack --config webpack.config.js",
     "babel": "npx babel src/javascripts --out-dir lib",
-    "run-all": "npm run remove ; npm run dictionary && npm run js-test && npm run babel && npm run sass-envisio-ui && npm run sass-envisio-ui-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss && npm run css-lint",
+    "run-all": "npm run remove ; npm run dictionary && npm run js-test && npm run babel && npm run sass-envisio-ui && npm run css-lint && npm run prefix && npm run sass-envisio-ui-min && npm run prefix-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss",
     "dictionary": "node dictionary_build.js",
     "watch": "./node_modules/.bin/npm-watch",
     "specificity": "./node_modules/.bin/specificity-graph dist/css/ui.css --output dist/styleguide/specificity",
@@ -112,11 +114,14 @@
     "prop-types": "^15.7.2"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.14",
     "detect-browser": "^5.0.0",
     "dom-to-image": "^2.6.0",
     "lodash": "^4.17.19",
     "overlayscrollbars": "^1.13.1",
     "overlayscrollbars-react": "^0.2.2",
+    "postcss": "^8.4.26",
+    "postcss-cli": "^10.1.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-resize-detector": "^9.1.0",
     "react-resize-detector-old": "npm:react-resize-detector@^4.2.3",
@@ -124,5 +129,6 @@
     "react-tooltip": "^4.2.7",
     "short-unique-id": "^1.1.1",
     "smart-truncate": "^1.0.1"
-  }
+  },
+  "browserslist": "last 2 versions"
 }
