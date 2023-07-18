@@ -77,7 +77,7 @@ $a-text-aligns: left, right, center, justify;
 }
 
 .#{$uiA}-text-ellipsis-fr, .#{$uiA}-ellipsis-fr {
-  > .fr-view {
+  > .fr-view, > .fr-view > * {
     @include a-text-ellipsis;
   }
 }
