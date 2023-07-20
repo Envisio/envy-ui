@@ -16,16 +16,100 @@
     @return url('data:image/svg+xml,<svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.5714 2.25H14.2857C15.2325 2.25 16 3.00551 16 3.9375V7.5C16 7.77614 15.7761 8 15.5 8H15.3571C15.081 8 14.8571 7.77614 14.8571 7.5V6.75H1.14286V16.3125C1.14286 16.6226 1.39921 16.875 1.71429 16.875H5.5C5.77614 16.875 6 17.0989 6 17.375V17.5C6 17.7761 5.77614 18 5.5 18H1.71429C0.7675 18 0 17.2445 0 16.3125V3.9375C0 3.00551 0.7675 2.25 1.71429 2.25H3.42857V0.421875C3.42857 0.188895 3.62046 0 3.85714 0H4.14286C4.37954 0 4.57143 0.188895 4.57143 0.421875V2.25H11.4286V0.421875C11.4286 0.188895 11.6205 0 11.8571 0H12.1429C12.3795 0 12.5714 0.188895 12.5714 0.421875V2.25ZM14.2857 3.375H1.71429C1.39921 3.375 1.14286 3.62735 1.14286 3.9375V5.625H14.8571V3.9375C14.8571 3.62735 14.6008 3.375 14.2857 3.375Z" fill="%23404040"/><path d="M18 14.5C18 17.5376 15.5376 20 12.5 20C9.46243 20 7 17.5376 7 14.5C7 11.4624 9.46243 9 12.5 9C15.5376 9 18 11.4624 18 14.5Z" fill="%23FF8A21"/><path d="M13.6 17.3C13.6 17.9075 13.1075 18.4 12.5 18.4C11.8925 18.4 11.4 17.9075 11.4 17.3C11.4 16.6925 11.8925 16.2 12.5 16.2C13.1075 16.2 13.6 16.6925 13.6 17.3Z" fill="white"/><path d="M11.4 11.75C11.4 11.1425 11.8925 10.65 12.5 10.65C13.1075 10.65 13.6 11.1425 13.6 11.75V14.5C13.6 15.1075 13.1075 15.6 12.5 15.6C11.8925 15.6 11.4 15.1075 11.4 14.5V11.75Z" fill="white"/></svg>');
   }
 
-  @function svg-badge($color: color("white")) {
-    @return url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' %3E%3Cpath fill='#{encodecolor($color)}' d='M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z' %3E%3C/path%3E%3C/svg%3E");
+  @function svg-autosync-calendar() {
+    @return url("data:image/svg+xml,%3Csvg width='16' height='18' viewBox='0 0 16 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.5714 2.25H14.2857C15.2325 2.25 16 3.00551 16 3.9375V7.5C16 7.77614 15.7761 8 15.5 8H15.3571C15.081 8 14.8571 7.77614 14.8571 7.5V6.75H1.14286V16.3125C1.14286 16.6226 1.39921 16.875 1.71429 16.875H5.5C5.77614 16.875 6 17.0989 6 17.375V17.5C6 17.7761 5.77614 18 5.5 18H1.71429C0.7675 18 0 17.2445 0 16.3125V3.9375C0 3.00551 0.7675 2.25 1.71429 2.25H3.42857V0.421875C3.42857 0.188895 3.62046 0 3.85714 0H4.14286C4.37954 0 4.57143 0.188895 4.57143 0.421875V2.25H11.4286V0.421875C11.4286 0.188895 11.6205 0 11.8571 0H12.1429C12.3795 0 12.5714 0.188895 12.5714 0.421875V2.25ZM14.2857 3.375H1.71429C1.39921 3.375 1.14286 3.62735 1.14286 3.9375V5.625H14.8571V3.9375C14.8571 3.62735 14.6008 3.375 14.2857 3.375Z' fill='%23404040'/%3E%3C/svg%3E%0A");
   }
 
-  @mixin autosync() {
-    width: 1.4em;
-    min-width: 1.4em;
-    height: 1.45em;
-    min-height: 1.45em;
-    background-color: currentColor;
+  @function svg-autosync-icon($color: color("white")) {
+    @return url('data:image/svg+xml,<svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.88511 3.31862C7.21346 2.68973 6.34184 2.34499 5.41716 2.34581C3.75302 2.34727 2.31636 3.48831 1.91969 5.0711C1.89082 5.18632 1.78817 5.26769 1.66938 5.26769H0.43826C0.27717 5.26769 0.154795 5.12144 0.184594 4.96312C0.649451 2.49457 2.8168 0.627061 5.42042 0.627061C6.84802 0.627061 8.14445 1.18858 9.10102 2.10272L9.86833 1.3354C10.1932 1.01058 10.7485 1.24063 10.7485 1.70001V4.58019C10.7485 4.86496 10.5177 5.09581 10.2329 5.09581H7.35275C6.89337 5.09581 6.66331 4.54042 6.98814 4.21557L7.88511 3.31862ZM0.607922 6.81456H3.4881C3.94747 6.81456 4.17753 7.36995 3.85271 7.6948L2.95573 8.59177C3.62738 9.22068 4.49906 9.56542 5.42377 9.56458C7.08705 9.56308 8.52429 8.42282 8.92115 6.83931C8.95003 6.72409 9.05268 6.64273 9.17146 6.64273H10.4026C10.5637 6.64273 10.6861 6.78897 10.6563 6.94729C10.1914 9.4158 8.02405 11.2833 5.42042 11.2833C3.99283 11.2833 2.6964 10.7218 1.73983 9.80766L0.972512 10.575C0.647689 10.8998 0.0922969 10.6697 0.0922969 10.2104V7.33019C0.0922969 7.04541 0.323146 6.81456 0.607922 6.81456Z" fill="#{encodecolor($color)}"/></svg>');
+  }
+
+  @function svg-exclamation-icon($color: color("red")) {
+    @return url("data:image/svg+xml,%3Csvg width='11' height='12' viewBox='0 0 11 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5.5' cy='5.53314' r='5.5' fill='#{encodecolor($color)}'/%3E%3Ccircle cx='5.50002' cy='8.33315' r='1.1' fill='white'/%3E%3Cpath d='M4.40002 2.78317C4.40002 2.17565 4.89251 1.68317 5.50002 1.68317C6.10754 1.68317 6.60002 2.17565 6.60002 2.78317V5.53314C6.60002 6.14066 6.10754 6.63314 5.50002 6.63314C4.89251 6.63314 4.40002 6.14066 4.40002 5.53314V2.78317Z' fill='white'/%3E%3C/svg%3E%0A");
+  }
+
+
+  @function svg-sync-off-icon($color: color("medium-gray")) {
+    @return  url("data:image/svg+xml,%3Csvg width='11' height='12' viewBox='0 0 11 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.45117 1.58112C4.45117 1.09479 4.84546 0.700562 5.33179 0.700562C5.81799 0.700562 6.21228 1.09479 6.21228 1.58112V6.48364C6.21228 6.96997 5.81799 7.3642 5.33179 7.3642C4.84546 7.3642 4.45117 6.96997 4.45117 6.48364V1.58112ZM5.33179 11.2783C8.25403 11.2783 10.6229 8.90936 10.6229 5.98712C10.6229 3.81256 9.49304 2.01599 7.61755 1.20239C7.47437 1.14026 7.22693 1.13605 7.09802 1.27277C7.03528 1.33929 7.00964 1.41785 6.99976 1.48096C6.98938 1.54749 6.99658 1.5968 6.99658 1.5968V2.41888C6.99658 2.41888 6.99658 2.71417 7.09802 2.81964C7.18311 2.90814 7.19385 2.91498 7.2511 2.95135L7.29004 2.97632C8.27307 3.61707 8.92297 4.7262 8.92297 5.98712C8.92297 7.97052 7.31506 9.57837 5.33179 9.57837C3.34802 9.578 1.73999 7.96985 1.73999 5.98615C1.73999 4.72498 2.38989 3.6156 3.37317 2.97479L3.41211 2.94983C3.46936 2.91339 3.4801 2.90662 3.56519 2.81805C3.66663 2.71259 3.66663 2.41724 3.66663 2.41724V1.59497C3.66663 1.59497 3.69409 1.40765 3.56519 1.27087C3.43628 1.13416 3.18884 1.13837 3.04553 1.2005C1.1698 2.01428 0.0396729 3.81116 0.0396729 5.98615C0.0396729 8.90894 2.40906 11.2783 5.33179 11.2783Z' fill='#{encodecolor($color)}'/%3E%3C/svg%3E%0A");
+  }
+
+  @mixin icon-size($w: 1.4em, $h: 1.4em) {
+    width: $w;
+    min-width: $w;
+    height: $h;
+    min-height: $h;
+  }
+
+  @mixin autosync-calendar() {
+    @include icon-size(1.5em, 1.5em);
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      @include icon-size(1.5em, 1.5em);
+      mask-image: svg-autosync-calendar();
+      background-color: currentColor;
+      mask-repeat: no-repeat;
+      mask-position: left top;
+      mask-size: 80%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  @mixin autosync-icon($color: color("on-track"), $w: 0.9em, $h: 0.9em) {
+    &::after {
+      content: '';
+      display: block;
+      width: $w;
+      min-width: $w;
+      height: $h;
+      min-height: $h;
+      position: absolute;
+      top: 0.62em;
+      left: 0.55em;
+      background-image: svg-autosync-icon($color);
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  @mixin exclamation-icon($color: color("on-track"), $w: 0.9em, $h: 0.9em) {
+    &::after {
+      content: '';
+      display: block;
+      width: $w;
+      min-width: $w;
+      height: $h;
+      min-height: $h;
+      position: absolute;
+      top: 0.65em;
+      left: 0.55em;
+      background-image: svg-exclamation-icon($color);
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  @mixin sync-off-icon($color: color("medium-gray"), $w: 0.9em, $h: 0.9em) {
+    &::after {
+      content: '';
+      display: block;
+      width: $w;
+      min-width: $w;
+      height: $h;
+      min-height: $h;
+      position: absolute;
+      top: 0.65em;
+      left: 0.55em;
+      background-image: svg-sync-off-icon($color);
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
 
   @mixin autosync-2() {
@@ -78,23 +162,17 @@
   }
 
   &--autosync-on {
-    @include autosync();
-    &::after {
-      background-image: svg-calendar-on();
-      @include autosync-2();
-    }
+    @include autosync-calendar();
+    @include autosync-icon(color('on-track'), 0.9em, 0.9em);
+  }
+
+  &--autosync-error {
+    @include autosync-calendar();
+    @include exclamation-icon(color('red'), 0.9em, 0.9em);
   }
 
   &--autosync-off {
-    @include autosync();
-    mask-image: svg-badge();
-    // background-color: currentColor;
-    mask-repeat: no-repeat;
-    mask-position: center center;
-    mask-size: 14px;
-    // &::after {
-    //   // background-image: svg-calendar-off();
-    //   @include autosync-2();
-    // }
+    @include autosync-calendar();
+    @include sync-off-icon(color('nobel'), 0.9em, 0.9em);
   }
 }
