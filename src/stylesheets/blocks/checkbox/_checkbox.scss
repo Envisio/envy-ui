@@ -62,7 +62,7 @@
       transition: left 0.1s ease-in;
     }
   }
-  @at-root input[type="checkbox"]:checked#{$this}, #{$this}#{$this}--checked#{$this} {
+  @at-root input[type="checkbox"]:checked#{$this}, input[type="radio"]:checked#{$this}, #{$this}#{$this}--checked#{$this} {
     &--check {
       &::after {
         @include box($check-tick-base-size, $check-tick-base-size * 2, $on-track);
@@ -99,7 +99,7 @@
     }
   }
 
-  @at-root input[type="checkbox"][disabled]#{$this}, #{$this}#{$this}--disabled#{$this} {
+  @at-root input[type="checkbox"][disabled]#{$this}, input[type="radio"][disabled]#{$this}, #{$this}#{$this}--disabled#{$this} {
     &--check, &--toggle, &--radio {
       @extend %ui-checkbox-disable-state-painter;
     }
@@ -111,7 +111,7 @@
     }
   }
 
-  @at-root input[type="checkbox"][disabled][checked]#{$this}, #{$this}#{$this}--disabled#{$this}#{$this}--checked#{$this} {
+  @at-root input[type="checkbox"][disabled][checked]#{$this}, input[type="radio"][disabled][checked]#{$this}, #{$this}#{$this}--disabled#{$this}#{$this}--checked#{$this} {
     &--toggle {
       border-color: color("plain-gray") !important;
       background-color: color("condition") !important;
@@ -121,7 +121,7 @@
     }
   }
 
-  @at-root input[type="checkbox"]:indeterminate#{$this}, #{$this}#{$this}--indeterminate#{$this} {
+  @at-root input[type="checkbox"]:indeterminate#{$this}, input[type="radio"]:indeterminate#{$this}, #{$this}#{$this}--indeterminate#{$this} {
     &--check {
       &::after {
         content: "";
@@ -137,36 +137,40 @@
       }
     }
   }
-  @at-root input[type="checkbox"]:focus#{$this} {
-    outline: none;
-    @include a--focus();
+  @at-root input[type="checkbox"], input[type="radio"] {
+    &:focus#{$this} {
+      outline: none;
+      @include a--focus();
+    }
   }
 
-  @at-root input[type="checkbox"]:focus:checked#{$this} {
-    outline: none;
-    &--toggle {
-      @include a--focus(
-        true,
-        color("green"),
-        color("white"),
-        0.25
-      );
-    }
-    &--check {
-      @include a--focus(
-        true,
-        color("on-track"),
-        color("on-track"),
-        0.2
-      );
-    }
-    &--radio {
-      @include a--focus(
-        true,
-        color("on-track"),
-        color("on-track"),
-        0.3
-      );
+  @at-root input[type="checkbox"], input[type="radio"] {
+    &:focus:checked#{$this} {
+      outline: none;
+      &--toggle {
+        @include a--focus(
+          true,
+          color("green"),
+          color("white"),
+          0.25
+        );
+      }
+      &--check {
+        @include a--focus(
+          true,
+          color("on-track"),
+          color("on-track"),
+          0.2
+        );
+      }
+      &--radio {
+        @include a--focus(
+          true,
+          color("on-track"),
+          color("on-track"),
+          0.3
+        );
+      }
     }
   }
 
