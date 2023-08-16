@@ -290,6 +290,10 @@
     // @include button__make-container-color(color("red"));
   }
 
+  &--warning {
+    @include make-button-from-tokens("--warning");
+  }
+
   &--complete {
     @include make-button-from-tokens("--complete");
   }
