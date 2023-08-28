@@ -1,10 +1,12 @@
-// Input Group
+// Input Group Legacy
 //
-// Weight: 1190
+// Weight: 1191
 //
-// Styleguide Input Group
+// Retired:
+//
+// Styleguide Input Group Legacy
 
-.#{$uiInputGroup} {
+.#{$uiInputGroupLegacy} {
 
   $this: &;
 
@@ -22,19 +24,16 @@
 
   &__before {
     flex: 0 0 $a-padding-input-icon;
-    width: $a-padding-input-icon;
     @include flex(j-center);
   }
 
   &__after {
     flex: 0 0 $a-padding-input-icon;
-    width: $a-padding-input-icon;
     @include flex(j-center);
   }
 
   &__error {
     flex: 0 0 $a-padding-input-icon;
-    width: $a-padding-input-icon;
     @include flex(j-center);
   }
 
@@ -51,10 +50,9 @@
 
   &--before {
     #{$this}__before {
-      position: absolute;
-      left: 0;
+      margin-right: - $a-padding-input-icon;
       color: color("medium-gray");
-      // z-index: 1;
+      z-index: 1;
     }
     #{$this}__input {
       padding-left: $a-padding-input-icon;
@@ -66,8 +64,7 @@
       padding-right: $a-padding-input-icon;
     }
     #{$this}__after {
-      position: absolute;
-      right: 0;
+      margin-left: - $a-padding-input-icon;
     }
   }
 
@@ -76,23 +73,20 @@
       padding-right: $a-padding-input-icon;
     }
     #{$this}__error {
-      margin-left: 0;
+      margin-left: - $a-padding-input-icon;
       @include flex(j-center);
-      position: absolute;
-      right: 0;
     }
     &#{$this}--after {
       #{$this}__input {
         padding-right: $a-padding-input-icon * 2;
       }
       #{$this}__error {
-        right: $a-padding-input-icon;
+        margin-left: - $a-padding-input-icon * 2;
         @include flex(j-center);
-        position: absolute;
       }
-      // #{$this}__after {
-      //   margin-left: 0;
-      // }
+      #{$this}__after {
+        margin-left: 0;
+      }
     }
   }
 }

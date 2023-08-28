@@ -75,15 +75,15 @@ p(class=uiA`text-align-right`) version: !{env.npm_package_version}
 
 +cardBlock('section-input-group.html', 'Input Group (uiInputGroup)', 'env-a-h-min-130')
   .env-input-group.env-input-group--before.env-input-group--after.env-a-m-top-55-
-    .env-input-group__before
-      //- +icon()
-      .env-a-placeholder.env-a-w-15
     input.env-input-group__input.env-input-text(type="text")
     .env-input-group__dropdown
       .env-a-placeholder.env-a-w-100.env-a-m-small
       .env-a-placeholder.env-a-w-100.env-a-m-small
       .env-a-placeholder.env-a-w-100.env-a-m-small
     //- +icon('#cancel', 'env-input-group__after')
+    .env-input-group__before
+      //- +icon()
+      .env-a-placeholder.env-a-w-15
     .env-input-group__after
       .env-a-placeholder.env-a-w-15
 

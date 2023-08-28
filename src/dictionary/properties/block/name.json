@@ -72,6 +72,12 @@
       "kss-weight": "1090",
       "comment": "{block-category.input._value}"
     },
+    "input-group-legacy": {
+      "value": "input-group-legacy",
+      "name": "Input Group Legacy",
+      "kss-weight": "1091",
+      "comment": "{block-category.input._value}"
+    },
     "table": {
       "value": "table",
       "name": "Table",
