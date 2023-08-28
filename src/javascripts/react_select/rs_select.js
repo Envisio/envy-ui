@@ -35,7 +35,7 @@ export function FullTag(props) {
       {...ui([uiBadge`--tag`, uiA`w-max-100%`, addClass])}
       style={{ color: color }}
     >
-      <span {...ui([uiA`f-1-1-auto ellipsis color-default`])}>
+      <span {...ui([uiA`f-1-1-auto ellipsis color-default`])} style={{height: '1.1em'}}>
         {name}
       </span>
     </span>
