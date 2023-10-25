@@ -55,4 +55,29 @@
     visibility: hidden;
   }
 
+  &--normal {
+    height: 100%;
+    // &::before {
+    // }
+    &::after {
+      top: 0;
+      height: 100%;
+    }
+    &#{$this}--l-top {
+      height: 50%;
+      &::after {
+        height: 50%;
+        top: 0;
+      }
+    }
+    &#{$this}--l-bottom {
+      height: 50%;
+      &::after {
+        height: 50%;
+        bottom: 0;
+        top: auto;
+      }
+    }
+  }
+
 }
