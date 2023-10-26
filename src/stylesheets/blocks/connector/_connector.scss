@@ -79,5 +79,13 @@
       }
     }
   }
+  &--light {
+    &::before {
+      border-top: 1px dotted color-cp("cornflower-blue");
+    }
+    &::after {
+      border-left: 1px dotted color-cp("cornflower-blue");
+    }
+  }
 
 }
