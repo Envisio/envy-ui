@@ -83,6 +83,10 @@
   transition: all 0.5s#{$a-important};
 }
 
+.#{$uiA}-transition-none {
+  transition: unset#{$a-important};
+}
+
 // .#{$uiA}-font-size-12 {
 //   font-size: 12px#{$a-important};
 // }
