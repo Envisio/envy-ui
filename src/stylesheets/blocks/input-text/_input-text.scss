@@ -50,6 +50,10 @@
     height: 25px;
   }
 
+  &[type="number"] {
+    padding-right: 0;
+  }
+
   &--plain {
     border-color: transparent;
     background-color: transparent;
