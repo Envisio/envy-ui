@@ -27,3 +27,10 @@ jobs:
           project: './dist'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
+      - run: |
+          echo "current_version=$(echo $(npm view envy-ui version))" >> "$GITHUB_ENV"
+      - run: |
+          curl -X POST \
+          -H 'Content-type: application/json' \
+          --data '{ "type": "mrkdwn", "text": "`${{ env.current_version }}` of `${{ github.repository }}` released" }' \
+          ${{ secrets.SLACK_DEV_UI_CHANNEL_URL }}
