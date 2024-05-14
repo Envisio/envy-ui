@@ -1,0 +1,870 @@
+// Navigation
+//
+// Weight: 1310
+//
+// Styleguide Navigation
+
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable declaration-block-no-duplicate-properties */
+
+.#{$uiNavigation} {
+
+  $this: &;
+  $this-button: #{$this}__menu-button;
+  $this-toolbar: #{$this}__button-toolbar;
+
+  --navigation-font-size-default: 14;
+  --navigation-width-default: calc(300px / var(--navigation-font-size-default));
+  --navigation-width-collapsed: 55;
+
+  $navigation-color-background: color-cp("brand-blue");
+  $navigation-color-text-default: color-cp("dark-white");
+
+  $tokens-navigation-button: (
+  'button': (
+    // '--clean': (
+    //   'default': (
+    //     'border': $button-clean-default-border
+    //   ),
+    //   'focus': (
+    //     'border-color': $button-clean-focus-border-color,
+    //     'box-shadow': $button-clean-focus-box-shadow
+    //   ),
+    //   'disabled': (
+    //     'box-shadow': $button-clean-disabled-box-shadow,
+    //     'opacity': $button-clean-disabled-opacity,
+    //     'cursor': $button-clean-disabled-cursor
+    //   ),
+    //   'inactive': (
+    //     'border': $button-clean-inactive-border,
+    //     'box-shadow': $button-clean-inactive-box-shadow,
+    //     'cursor': $button-clean-inactive-cursor
+    //   )
+    // ),
+    // '--content-gray': (
+    //   'default': (
+    //     'color': $button-content-gray-default-color
+    //   ),
+    //   'hover': (
+    //     'color': $button-content-gray-hover-color
+    //   ),
+    //   'active': (
+    //     'color': $button-content-gray-active-color
+    //   ),
+    //   'disabled': (
+    //     'color': $button-content-gray-disabled-color
+    //   ),
+    //   'inactive': (
+    //     'color': $button-content-gray-inactive-color
+    //   )
+    // ),
+    // '--content-inverse': (
+    //   'default': (
+    //     'color': $button-content-inverse-default-color
+    //   ),
+    //   'hover': (
+    //     'color': $button-content-inverse-hover-color
+    //   ),
+    //   'active': (
+    //     'color': $button-content-inverse-active-color
+    //   ),
+    //   'disabled': (
+    //     'color': $button-content-inverse-disabled-color
+    //   ),
+    //   'inactive': (
+    //     'color': $button-content-inverse-inactive-color
+    //   )
+    // ),
+    // '--content-link': (
+    //   'default': (
+    //     'color': $button-content-link-default-color
+    //   ),
+    //   'hover': (
+    //     'color': $button-content-link-hover-color
+    //   ),
+    //   'active': (
+    //     'color': $button-content-link-active-color
+    //   ),
+    //   'disabled': (
+    //     'color': $button-content-link-disabled-color
+    //   ),
+    //   'inactive': (
+    //     'color': $button-content-link-inactive-color
+    //   )
+    // ),
+    // '--default': (
+    //   'default': (
+    //     'color': $button-default-default-color,
+    //     'background-color': $button-default-default-background-color,
+    //     'border': $button-default-default-border
+    //   ),
+    //   'hover': (
+    //     'background-color': $button-default-hover-background-color
+    //   ),
+    //   'active': (
+    //     'background-color': $button-default-active-background-color,
+    //     'border-color': $button-default-active-border-color,
+    //     'box-shadow': $button-default-active-box-shadow
+    //   ),
+    //   'focus': (
+    //     'border-color': $button-default-focus-border-color,
+    //     'box-shadow': $button-default-focus-box-shadow
+    //   ),
+    //   'disabled': (
+    //     'background-color': $button-default-disabled-background-color,
+    //     'border': $button-default-disabled-border,
+    //     'box-shadow': $button-default-disabled-box-shadow,
+    //     'opacity': $button-default-disabled-opacity,
+    //     'cursor': $button-default-disabled-cursor
+    //   ),
+    //   'inactive': (
+    //     'background-color': $button-default-inactive-background-color,
+    //     'border': $button-default-inactive-border,
+    //     'box-shadow': $button-default-inactive-box-shadow,
+    //     'cursor': $button-default-inactive-cursor
+    //   )
+    // ),
+    // '--green': (
+    //   'default': (
+    //     'color': $button-green-default-color,
+    //     'background-color': $button-green-default-background-color,
+    //     'border': $button-green-default-border
+    //   ),
+    //   'hover': (
+    //     'background-color': $button-green-hover-background-color
+    //   ),
+    //   'active': (
+    //     'background-color': $button-green-active-background-color,
+    //     'box-shadow': $button-green-active-box-shadow
+    //   ),
+    //   'focus': (
+    //     'border-color': $button-green-focus-border-color,
+    //     'box-shadow': $button-green-focus-box-shadow
+    //   ),
+    //   'disabled': (
+    //     'background-color': $button-green-disabled-background-color,
+    //     'border-color': $button-green-disabled-border-color,
+    //     'box-shadow': $button-green-disabled-box-shadow,
+    //     'opacity': $button-green-disabled-opacity,
+    //     'filter': $button-green-disabled-filter,
+    //     'cursor': $button-green-disabled-cursor
+    //   ),
+    //   'inactive': (
+    //     'background-color': $button-green-inactive-background-color,
+    //     'border-color': $button-green-inactive-border-color,
+    //     'box-shadow': $button-green-inactive-box-shadow,
+    //     'cursor': $button-green-inactive-cursor
+    //   )
+    // ),
+    // '--hover-default': (
+    //   'default': (
+    //     'background-color': $button-hover-default-default-background-color,
+    //     'border': $button-hover-default-default-border
+    //   ),
+    //   'hover': (
+    //     'background-color': $button-hover-default-hover-background-color
+    //   ),
+    //   'active': (
+    //     'background-color': $button-hover-default-active-background-color
+    //   ),
+    //   'focus': (
+    //     'border-color': $button-hover-default-focus-border-color,
+    //     'box-shadow': $button-hover-default-focus-box-shadow
+    //   ),
+    //   'disabled': (
+    //     'background-color': $button-hover-default-disabled-background-color,
+    //     'box-shadow': $button-hover-default-disabled-box-shadow,
+    //     'opacity': $button-hover-default-disabled-opacity,
+    //     'cursor': $button-hover-default-disabled-cursor
+    //   ),
+    //   'inactive': (
+    //     'border': $button-hover-default-inactive-border,
+    //     'background-color': $button-hover-default-inactive-background-color,
+    //     'box-shadow': $button-hover-default-inactive-box-shadow,
+    //     'cursor': $button-hover-default-inactive-cursor
+    //   )
+    // ),
+    // '--hover-menu': (
+    //   'default': (
+    //     'background-color': $button-hover-menu-default-background-color,
+    //     'border': $button-hover-menu-default-border
+    //   ),
+    //   'hover': (
+    //     'background-color': $button-hover-menu-hover-background-color
+    //   ),
+    //   'active': (
+    //     'background-color': $button-hover-menu-active-background-color
+    //   ),
+    //   'focus': (
+    //     'border-color': $button-hover-menu-focus-border-color,
+    //     'box-shadow': $button-hover-menu-focus-box-shadow
+    //   ),
+    //   'disabled': (
+    //     'background-color': $button-hover-menu-disabled-background-color,
+    //     'box-shadow': $button-hover-menu-disabled-box-shadow,
+    //     'opacity': $button-hover-menu-disabled-opacity,
+    //     'cursor': $button-hover-menu-disabled-cursor
+    //   ),
+    //   'inactive': (
+    //     'border': $button-hover-menu-inactive-border,
+    //     'background-color': $button-hover-menu-inactive-background-color,
+    //     'box-shadow': $button-hover-menu-inactive-box-shadow,
+    //     'cursor': $button-hover-menu-inactive-cursor
+    //   )
+    // ),
+    // '--hover-white': (
+    //   'default': (
+    //     'background-color': $button-hover-white-default-background-color,
+    //     'border': $button-hover-white-default-border
+    //   ),
+    //   'hover': (
+    //     'background-color': $button-hover-white-hover-background-color
+    //   ),
+    //   'active': (
+    //     'background-color': $button-hover-white-active-background-color
+    //   ),
+    //   'focus': (
+    //     'border-color': $button-hover-white-focus-border-color,
+    //     'box-shadow': $button-hover-white-focus-box-shadow
+    //   ),
+    //   'disabled': (
+    //     'background-color': $button-hover-white-disabled-background-color,
+    //     'box-shadow': $button-hover-white-disabled-box-shadow,
+    //     'opacity': $button-hover-white-disabled-opacity,
+    //     'cursor': $button-hover-white-disabled-cursor
+    //   ),
+    //   'inactive': (
+    //     'border': $button-hover-white-inactive-border,
+    //     'background-color': $button-hover-white-inactive-background-color,
+    //     'box-shadow': $button-hover-white-inactive-box-shadow,
+    //     'cursor': $button-hover-white-inactive-cursor
+    //   )
+    // ),
+    // '--light-blue': (
+    //   'default': (
+    //     'color': $button-light-blue-default-color,
+    //     'background-color': $button-light-blue-default-background-color,
+    //     'border': $button-light-blue-default-border
+    //   ),
+    //   'hover': (
+    //     'background-color': $button-light-blue-hover-background-color
+    //   ),
+    //   'active': (
+    //     'background-color': $button-light-blue-active-background-color,
+    //     'box-shadow': $button-light-blue-active-box-shadow
+    //   ),
+    //   'focus': (
+    //     'border-color': $button-light-blue-focus-border-color,
+    //     'box-shadow': $button-light-blue-focus-box-shadow
+    //   ),
+    //   'disabled': (
+    //     'background-color': $button-light-blue-disabled-background-color,
+    //     'border-color': $button-light-blue-disabled-border-color,
+    //     'box-shadow': $button-light-blue-disabled-box-shadow,
+    //     'opacity': $button-light-blue-disabled-opacity,
+    //     'filter': $button-light-blue-disabled-filter,
+    //     'cursor': $button-light-blue-disabled-cursor
+    //   ),
+    //   'inactive': (
+    //     'background-color': $button-light-blue-inactive-background-color,
+    //     'border-color': $button-light-blue-inactive-border-color,
+    //     'box-shadow': $button-light-blue-inactive-box-shadow,
+    //     'cursor': $button-light-blue-inactive-cursor
+    //   )
+    // ),
+    // '--map': (
+    //   'default': (
+    //     'color': $button-map-default-color,
+    //     'background-color': $button-map-default-background-color,
+    //     'border': $button-map-default-border
+    //   ),
+    //   'hover': (
+    //     'border-color': $button-map-hover-border-color
+    //   ),
+    //   'active': (
+    //     'background-color': $button-map-active-background-color,
+    //     'box-shadow': $button-map-active-box-shadow,
+    //     'border-color': $button-map-active-border-color
+    //   ),
+    //   'focus': (
+    //     'border-color': $button-map-focus-border-color,
+    //     'box-shadow': $button-map-focus-box-shadow
+    //   ),
+    //   'disabled': (
+    //     'background-color': $button-map-disabled-background-color,
+    //     'border-color': $button-map-disabled-border-color,
+    //     'box-shadow': $button-map-disabled-box-shadow,
+    //     'filter': $button-map-disabled-filter,
+    //     'opacity': $button-map-disabled-opacity
+    //   ),
+    //   'inactive': (
+    //     'background-color': $button-map-inactive-background-color,
+    //     'border-color': $button-map-inactive-border-color,
+    //     'box-shadow': $button-map-inactive-box-shadow,
+    //     'cursor': $button-map-inactive-cursor
+    //   )
+    // ),
+    '--mint-blue': (
+      'default': (
+        'color': color-cp("paint-gray"),
+        'background-color': $button-mint-blue-default-background-color,
+        'border': 1px solid transparent
+      ),
+      'hover': (
+        'color': color-cp("white"),
+        'background-color': $button-mint-blue-hover-background-color
+      ),
+      'active': (
+        'color': color-cp("white"),
+        'background-color': $button-mint-blue-active-background-color,
+        'box-shadow': $button-mint-blue-active-box-shadow
+      ),
+      'focus': (
+        'color': color-cp("white"),
+        'border-color': transparent,
+        'box-shadow': $button-mint-blue-focus-box-shadow
+      ),
+      'disabled': (
+        'background-color': $button-mint-blue-disabled-background-color,
+        'border-color': transparent,
+        'box-shadow': $button-mint-blue-disabled-box-shadow,
+        'opacity': $button-mint-blue-disabled-opacity,
+        'filter': $button-mint-blue-disabled-filter,
+        'cursor': $button-mint-blue-disabled-cursor
+      ),
+      'inactive': (
+        'background-color': $button-mint-blue-inactive-background-color,
+        'border-color': transparent,
+        'box-shadow': $button-mint-blue-inactive-box-shadow,
+        'cursor': $button-mint-blue-inactive-cursor
+      )
+    ),
+    '--toolbar': (
+      'default': (
+        'color': color-cp("paint-gray"),
+        'background-color': color("brand-primary"),
+        'border': 1px solid transparent,
+        'border-top': 4px solid darken(color("cornflower-blue"), 20%)
+      ),
+      'hover': (
+        'color': color-cp("white"),
+        'background-color': $button-mint-blue-hover-background-color,
+        'border-top': 4px solid darken(color("cornflower-blue"), 15%)
+      ),
+      'active': (
+        'color': color-cp("white"),
+        'background-color': $button-mint-blue-active-background-color,
+        'box-shadow': $button-mint-blue-active-box-shadow
+      ),
+      'focus': (
+        'color': color-cp("white"),
+        'border-color': transparent,
+        'box-shadow': $button-mint-blue-focus-box-shadow
+      ),
+      'disabled': (
+        'background-color': $button-mint-blue-disabled-background-color,
+        'border-color': transparent,
+        'box-shadow': $button-mint-blue-disabled-box-shadow,
+        'opacity': $button-mint-blue-disabled-opacity,
+        'filter': $button-mint-blue-disabled-filter,
+        'cursor': $button-mint-blue-disabled-cursor
+      ),
+      'inactive': (
+        'background-color': $button-mint-blue-inactive-background-color,
+        'border-color': transparent,
+        'box-shadow': $button-mint-blue-inactive-box-shadow,
+        'cursor': $button-mint-blue-inactive-cursor
+      )
+    )
+    // '--red': (
+    //   'default': (
+    //     'color': $button-red-default-color,
+    //     'background-color': $button-red-default-background-color,
+    //     'border': $button-red-default-border
+    //   ),
+    //   'hover': (
+    //     'background-color': $button-red-hover-background-color
+    //   ),
+    //   'active': (
+    //     'background-color': $button-red-active-background-color,
+    //     'box-shadow': $button-red-active-box-shadow
+    //   ),
+    //   'focus': (
+    //     'border-color': $button-red-focus-border-color,
+    //     'box-shadow': $button-red-focus-box-shadow
+    //   ),
+    //   'disabled': (
+    //     'background-color': $button-red-disabled-background-color,
+    //     'border-color': $button-red-disabled-border-color,
+    //     'box-shadow': $button-red-disabled-box-shadow,
+    //     'opacity': $button-red-disabled-opacity,
+    //     'filter': $button-red-disabled-filter,
+    //     'cursor': $button-red-disabled-cursor
+    //   ),
+    //   'inactive': (
+    //     'background-color': $button-red-inactive-background-color,
+    //     'border-color': $button-red-inactive-border-color,
+    //     'box-shadow': $button-red-inactive-box-shadow,
+    //     'cursor': $button-red-inactive-cursor
+    //   )
+    // )
+  ),
+  'button-icon': (
+    '--mint-blue': (
+      'default': (
+        'color': color-cp("paint-gray"),
+        // 'background-color': $button-mint-blue-default-background-color,
+        // 'border': 1px solid transparent
+      ),
+      'hover': (
+        'color': color-cp("white")
+        // 'background-color': $button-mint-blue-hover-background-color
+      ),
+      'active': (
+        'color': color-cp("white")
+        // 'background-color': $button-mint-blue-active-background-color,
+        // 'box-shadow': $button-mint-blue-active-box-shadow
+      ),
+      'focus': (
+        'color': color-cp("white")
+        // 'border-color': transparent,
+        // 'box-shadow': $button-mint-blue-focus-box-shadow
+      ),
+      'disabled': (
+        'color': color-cp("white")
+        // 'background-color': $button-mint-blue-disabled-background-color,
+        // 'border-color': transparent,
+        // 'box-shadow': $button-mint-blue-disabled-box-shadow,
+        // 'opacity': $button-mint-blue-disabled-opacity,
+        // 'filter': $button-mint-blue-disabled-filter,
+        // 'cursor': $button-mint-blue-disabled-cursor
+      ),
+      'inactive': (
+        'color': color-cp("white")
+        // 'background-color': $button-mint-blue-inactive-background-color,
+        // 'border-color': transparent,
+        // 'box-shadow': $button-mint-blue-inactive-box-shadow,
+        // 'cursor': $button-mint-blue-inactive-cursor
+      )
+    ),
+    '--toolbar': (
+      'default': (
+        'color': color-cp("paint-gray"),
+        // 'background-color': $button-mint-blue-default-background-color,
+        // 'border': 1px solid transparent
+      ),
+      'hover': (
+        'color': color-cp("white")
+        // 'background-color': $button-mint-blue-hover-background-color
+      ),
+      'active': (
+        'color': color-cp("white")
+        // 'background-color': $button-mint-blue-active-background-color,
+        // 'box-shadow': $button-mint-blue-active-box-shadow
+      ),
+      'focus': (
+        'color': color-cp("white")
+        // 'border-color': transparent,
+        // 'box-shadow': $button-mint-blue-focus-box-shadow
+      ),
+      'disabled': (
+        'color': color-cp("white")
+        // 'background-color': $button-mint-blue-disabled-background-color,
+        // 'border-color': transparent,
+        // 'box-shadow': $button-mint-blue-disabled-box-shadow,
+        // 'opacity': $button-mint-blue-disabled-opacity,
+        // 'filter': $button-mint-blue-disabled-filter,
+        // 'cursor': $button-mint-blue-disabled-cursor
+      ),
+      'inactive': (
+        'color': color-cp("white")
+        // 'background-color': $button-mint-blue-inactive-background-color,
+        // 'border-color': transparent,
+        // 'box-shadow': $button-mint-blue-inactive-box-shadow,
+        // 'cursor': $button-mint-blue-inactive-cursor
+      )
+    )
+  )
+);
+
+
+  display: flex;
+  flex-direction: column;
+  background-color: $navigation-color-background;
+  color: color-cp("dark-white");
+  // font-size: em(var(--navigation-font-size-default), var(--navigation-font-size-default));
+  width: 300px;
+
+  // @mixin make-button-state-from-token($state-fragment, $modifier, $state) {
+  //   #{$state-fragment} > #{$this-button}-content {
+  //     $schema-color: map-deep-get($tokens-button, "button", $modifier, $state);
+  //     @each $element, $color-value in $schema-color {
+  //       #{$element}: $color-value;
+  //     }
+  //   }
+  //   @debug $state-fragment;
+  //   #{$state-fragment} #{$this-button}-icon {
+  //     $schema-icon-color: map-deep-get($tokens-button-icon, "button-icon", $modifier, $state);
+  //     @each $element, $color-value in $schema-icon-color {
+  //       #{$element}: $color-value;
+  //     }
+  //   }
+  // }
+
+  @mixin make-navigation-button-from-tokens($modifier: '--mint-blue', $class-fragment: $this-button) {
+
+    $class-state-map: (
+      "&": "default",
+      "&:hover": "hover",
+      "&#{$class-fragment}--hover": "hover",
+      "&:focus": "focus",
+      "&#{$class-fragment}--focus": "focus",
+      "&:active": "active",
+      "&#{$class-fragment}--active": "active",
+      "&[disabled]": "disabled",
+      "&#{$class-fragment}--disabled": "disabled",
+      "&#{$class-fragment}--inactive": "inactive"
+    );
+
+    @include a-button--clean;
+
+    @each $mod, $state in $class-state-map {
+      @include make-navigation-button-state-from-token($mod, $modifier, $state, $class-fragment);
+    }
+
+  }
+
+  @mixin make-navigation-button-state-from-token($state-fragment, $modifier, $state, $class-fragment) {
+    #{$state-fragment} > #{$class-fragment}-content {
+
+      $schema-color: map-deep-get($tokens-navigation-button, "button", $modifier, $state);
+
+      @each $element, $color-value in $schema-color {
+        #{$element}: $color-value;
+      }
+    }
+    #{$state-fragment} #{$class-fragment}-icon {
+      $schema-icon-color: map-deep-get($tokens-navigation-button, "button-icon", $modifier, $state);
+      @each $element, $color-value in $schema-icon-color {
+        #{$element}: $color-value;
+      }
+    }
+  }
+
+  &--collapsed {
+    width: 55px;
+    max-width: 55px;
+    min-width: 55px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  &__menu-button {
+    // @include a-button--clean;
+    align-items: start;
+    padding: 0;
+    cursor: pointer;
+    // &--hover,
+    // &:hover,
+    &--focus,
+    &:focus {
+      outline: none;
+      & > #{$this}__menu-button-content {
+        @include a--focus;
+      }
+    }
+    @include make-navigation-button-from-tokens("--mint-blue", $this-button);
+  }
+
+  &__button-toolbar {
+    // @include a-button--clean;
+    align-items: start;
+    padding: 0;
+    cursor: pointer;
+    // &--hover,
+    // &:hover,
+    &--focus,
+    &:focus {
+      outline: none;
+      & > #{$this}__button-toolbar {
+        @include a--focus;
+      }
+    }
+    @include make-navigation-button-from-tokens("--toolbar", $this-toolbar);
+  }
+
+  &__menu-button--selected > &__menu-button-content {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      width: 5px;
+      height: 100%;
+      background-color: color("cornflower-blue");
+    }
+  }
+
+  &__button-toolbar-content {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 55px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 $space-normal 0 $space-large;
+
+    // border-top: 4px solid color("cornflower-blue");
+    // border-radius: 3px;
+    gap: 10px;
+    line-height: 1.15;
+    transition: color 0.15s ease-out, background-color 0.15s ease-out;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__menu-button-content {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 $space-normal 0 $space-large;
+
+    // border: 1px solid transparent;
+    // border-radius: 3px;
+    gap: 10px;
+    line-height: 1.15;
+    transition: color 0.15s ease-out, background-color 0.15s ease-out;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__menu-button-icon {
+    // padding-left: 5px;
+    // padding-right: 5px;
+    color: lighten(color("cornflower-blue"), 15%);
+  }
+
+  &__separator-light {
+    display: flex;
+    height: 1px;
+    max-height: 1px;
+    min-height: 1px;
+    border-top: 1px dotted color-cp("cornflower-blue");
+    margin: $space-small 0;
+  }
+
+  &__section-title {
+    display: flex;
+    min-height: 45px;
+    align-items: center;
+    padding: 0 $space-normal 0 $space-normal*2;
+    // max-height: 1px;
+    // min-height: 1px;
+    // border-top: 1px dotted color-cp("cornflower-blue");
+    // margin: $space-small 0;
+    color: lighten(color("cornflower-blue"), 10%);
+  }
+
+  // &__bottom-toolbar {
+
+  // }
+
+//   @mixin alert__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
+//     $border-color: if($bg-color == color("white"), color("gray-white"), darken($bg-color, 10%));
+//     background-color: $bg-color;
+//     color: $text-color;
+//     border: 1px solid $border-color;
+//   }
+
+//   @mixin status($color) {
+//     position: relative;
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       max-width: $shape-width-status;
+//       min-width: $shape-width-status;
+//       height: 100%;
+//       border-radius: $shape-border-radius-inner 0 0 $shape-border-radius-inner;
+//       left: 0;
+//       top: 0;
+//       background-color: color($color);
+//     }
+//     &#{$this}--brand-border {
+//       &::before {
+//         border-radius: ($shape-border-radius-inner - 1px) 0 0 ($shape-border-radius-inner - 1px);
+//       }
+//     }
+//   }
+
+//   @mixin bubble($color: color("white"), $position-vertical: "top", $position-horizontal: "left") {
+//     $tick-size: 15px;
+//     position: relative;
+//     margin-top: $tick-size;
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       display: flex;
+//       width: 0;
+//       height: 0;
+//       border-style: solid;
+//       border-width: $tick-size + 2px 0 0 $tick-size + 2px;
+//       border-color: transparent transparent transparent $color-default-border;
+//       top: -$tick-size - 2px;
+//       left: calc(25% - 1px);
+//     }
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       display: flex;
+//       width: 0;
+//       height: 0;
+//       border-style: solid;
+//       border-width: $tick-size 0 0 $tick-size;
+//       border-color: transparent transparent transparent color("white");
+//       top: -$tick-size;
+//       left: 25%;
+//     }
+//     // &#{$this}--brand-border {
+//     //   &::before {
+//     //     border-radius: ($shape-border-radius-inner - 1px) 0 0 ($shape-border-radius-inner - 1px);
+//     //   }
+//     // }
+//   }
+
+//   border: 1px solid $border;
+//   border-radius: $card-border-radius;
+//   background-color: color("white");
+//   box-shadow: $a-card-shadow;
+
+//   &--status {
+//     &-pending {
+//       @include status("status-pending");
+//     }
+//     &-on-track {
+//       @include status("on-track");
+//     }
+//     &-minor-disruption {
+//       @include status("minor-disruption");
+//     }
+//     &-major-disruption {
+//       @include status("major-disruption");
+//     }
+//     &-upcoming {
+//       @include status("upcoming");
+//     }
+//     &-discontinued {
+//       @include status("discontinued");
+//     }
+//     &-completed {
+//       @include status("completed");
+//     }
+//   }
+
+//   #{$this}__header {
+//     display: flex;
+//     // justify-content: center;
+//     align-items: center;
+//     position: relative;
+//     width: 100%;
+//     min-height: 55px;
+//     font-size: 16px;
+//     border-bottom: $shape-border $color-default-border;
+//     border-radius: $shape-border-radius $shape-border-radius 0 0;
+//     margin-top: 0;
+//     padding-left: 10px;
+//   }
+
+//   #{$this}__content {
+//     width: 100%;
+//     // min-height: 75px;
+//     overflow: auto;
+//     // padding: 15px 10px;
+//   }
+
+//   #{$this}__footer {
+//     border-top: $shape-border $color-default-border;
+//     display: flex;
+//     align-items: center;
+//     width: 100%;
+//     min-height: 55px;
+//     border-radius: 0 0 $shape-border-radius $shape-border-radius;
+//     padding-left: 10px;
+//   }
+
+//   &--elements {
+//     display: flex;
+//     flex-direction: column;
+//     & > #{$this}__header, & > #{$this}__footer {
+//       flex: 0 0 auto;
+//     }
+//   }
+
+//   &--plain {
+//     background-color: color("alabaster");
+//     border: 1px solid darken(color("alabaster"), 5%);
+//     box-shadow: none;
+//   }
+
+//   &--active {
+//     background-color: lighten(color("pale-blue"), 3%);
+//     border: 1px solid color("brand-primary");
+//   }
+
+//   &--selected {
+//     border: 1px solid color("brand-primary");
+//     box-shadow: 0px 0px 0px 3px color-cp("pale-blue");
+//   }
+
+//   &--brand-border {
+//     border: 2px solid color("brand-primary");
+//   }
+
+//   &--muted {
+//     filter: opacity(0.4) grayscale(0.8) brightness(0.9);
+//     border-color: color("athens-gray");
+//   }
+
+//   &--brand {
+//     background-color: color("brand-primary");
+//     border: 1px solid darken(color("brand-primary"), 5%);
+//   }
+
+//   &--no-shadow {
+//     box-shadow: none;
+//   }
+
+//   &--no-border {
+//     border: none;
+//   }
+
+//   &--shadow-strong {
+//     box-shadow: $a-card-shadow-strong;
+//   }
+
+//   &--shadow-xstrong {
+//     box-shadow: $a-card-shadow-xstrong;
+//   }
+
+//   &--bubble-top-left {
+//     @include bubble();
+//   }
+
+//   &--alert-warning {
+//     @include alert__make-container-color(lighten(color("picklist"), 15%), color("potters-clay"));
+//     #{$this}__footer {
+//       border-top-color: darken(color("picklist"), 5%);
+//     }
+//   }
+}
+
+/* stylelint-enable */

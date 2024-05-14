@@ -227,6 +227,12 @@
       "name": "Placeholder",
       "kss-weight": "1300",
       "comment": "{block-category.abstract._value}"
+    },
+    "navigation": {
+      "value": "navigation",
+      "name": "Navigation",
+      "kss-weight": "1310",
+      "comment": "{block-category.container._value}"
     }
   }
 }
