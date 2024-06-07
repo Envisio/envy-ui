@@ -241,6 +241,7 @@
   color: color-cp("dark-white");
   position: relative;
   width: 300px;
+  height: 100%;
   #{$this-transformation}:hover, &:has(#{$this-transformation}:hover) {
     #{$this-collapser}-content {
       background-color: color("brand-primary");
