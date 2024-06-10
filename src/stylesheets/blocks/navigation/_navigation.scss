@@ -43,17 +43,20 @@
       ),
       'hover': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-hover-background-color
+        'background-color': $button-mint-blue-hover-background-color,
+        'text-decoration': none
       ),
       'active': (
         'color': color-cp("white"),
         'background-color': $button-mint-blue-active-background-color,
-        'box-shadow': $button-mint-blue-active-box-shadow
+        'box-shadow': $button-mint-blue-active-box-shadow,
+        'text-decoration': none
       ),
       'focus': (
         'color': color-cp("white"),
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-focus-box-shadow
+        'box-shadow': $button-mint-blue-focus-box-shadow,
+        'text-decoration': none
       ),
       'disabled': (
         'background-color': $button-mint-blue-disabled-background-color,
@@ -61,34 +64,40 @@
         'box-shadow': $button-mint-blue-disabled-box-shadow,
         'opacity': $button-mint-blue-disabled-opacity,
         'filter': $button-mint-blue-disabled-filter,
-        'cursor': $button-mint-blue-disabled-cursor
+        'cursor': $button-mint-blue-disabled-cursor,
+        'text-decoration': none
       ),
       'inactive': (
         'background-color': $button-mint-blue-inactive-background-color,
         'border-color': transparent,
         'box-shadow': $button-mint-blue-inactive-box-shadow,
-        'cursor': $button-mint-blue-inactive-cursor
+        'cursor': $button-mint-blue-inactive-cursor,
+        'text-decoration': none
       )
     ),
     '--toolbar': (
       'default': (
         'color': color-cp("paint-gray"),
         'background-color': color("brand-primary"),
-        'border': 1px solid transparent
+        'border': 1px solid transparent,
+        'text-decoration': none
       ),
       'hover': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-hover-background-color
+        'background-color': $button-mint-blue-hover-background-color,
+        'text-decoration': none
       ),
       'active': (
         'color': color-cp("white"),
         'background-color': $button-mint-blue-active-background-color,
-        'box-shadow': $button-mint-blue-active-box-shadow
+        'box-shadow': $button-mint-blue-active-box-shadow,
+        'text-decoration': none
       ),
       'focus': (
         'color': color-cp("white"),
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-focus-box-shadow
+        'box-shadow': $button-mint-blue-focus-box-shadow,
+        'text-decoration': none
       ),
       'disabled': (
         'background-color': $button-mint-blue-disabled-background-color,
@@ -96,27 +105,35 @@
         'box-shadow': $button-mint-blue-disabled-box-shadow,
         'opacity': $button-mint-blue-disabled-opacity,
         'filter': $button-mint-blue-disabled-filter,
-        'cursor': $button-mint-blue-disabled-cursor
+        'cursor': $button-mint-blue-disabled-cursor,
+        'text-decoration': none
       ),
       'inactive': (
         'background-color': $button-mint-blue-inactive-background-color,
         'border-color': transparent,
         'box-shadow': $button-mint-blue-inactive-box-shadow,
-        'cursor': $button-mint-blue-inactive-cursor
+        'cursor': $button-mint-blue-inactive-cursor,
+        'text-decoration': none
       )
     ),
     '--filler': (
       'default': (
+        'text-decoration': none
       ),
       'hover': (
+        'text-decoration': none
       ),
       'active': (
+        'text-decoration': none
       ),
       'focus': (
+        'text-decoration': none
       ),
       'disabled': (
+        'text-decoration': none
       ),
       'inactive': (
+        'text-decoration': none
       )
     ),
     '--collapser': (
@@ -124,25 +141,31 @@
         'color': color-cp("paint-gray"),
         'background-color': color("brand-blue"),
         'border': 1px solid color("progress-bar"),
-        'box-shadow': 2px 2px 4px -2px rgba(0,0,0,0.62)
+        'box-shadow': 2px 2px 4px -2px rgba(0,0,0,0.62),
+        'text-decoration': none
       ),
       'hover': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-hover-background-color
+        'background-color': $button-mint-blue-hover-background-color,
+        'text-decoration': none
       ),
       'active': (
         'color': color-cp("white"),
         'background-color': $button-mint-blue-active-background-color,
-        'box-shadow': $button-mint-blue-active-box-shadow
+        'box-shadow': $button-mint-blue-active-box-shadow,
+        'text-decoration': none
       ),
       'focus': (
         'color': color-cp("white"),
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-focus-box-shadow
+        'box-shadow': $button-mint-blue-focus-box-shadow,
+        'text-decoration': none
       ),
       'disabled': (
+        'text-decoration': none
       ),
       'inactive': (
+        'text-decoration': none
       )
     )
   ),
