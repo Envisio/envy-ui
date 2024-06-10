@@ -330,6 +330,11 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    line-height: normal;
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
   }
 
   &__menu-button {
