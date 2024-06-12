@@ -12,6 +12,7 @@
   $this: &;
   $this-button: #{$this}__menu-button;
   $this-title: #{$this}__button-title;
+  $this-section-title-button: #{$this}__section-title-button;
   $this-toolbar: #{$this}__button-toolbar;
   $this-filler: #{$this}__button-filler;
   $this-collapser: #{$this}__button-collapser;
@@ -39,6 +40,46 @@
     '--mint-blue': (
       'default': (
         'color': color-cp("paint-gray"),
+        'background-color': $button-mint-blue-default-background-color,
+        'border': 1px solid transparent
+      ),
+      'hover': (
+        'color': color-cp("white"),
+        'background-color': $button-mint-blue-hover-background-color,
+        'text-decoration': none
+      ),
+      'active': (
+        'color': color-cp("white"),
+        'background-color': $button-mint-blue-active-background-color,
+        'box-shadow': $button-mint-blue-active-box-shadow,
+        'text-decoration': none
+      ),
+      'focus': (
+        'color': color-cp("white"),
+        'border-color': transparent,
+        'box-shadow': $button-mint-blue-focus-box-shadow,
+        'text-decoration': none
+      ),
+      'disabled': (
+        'background-color': $button-mint-blue-disabled-background-color,
+        'border-color': transparent,
+        'box-shadow': $button-mint-blue-disabled-box-shadow,
+        'opacity': $button-mint-blue-disabled-opacity,
+        'filter': $button-mint-blue-disabled-filter,
+        'cursor': $button-mint-blue-disabled-cursor,
+        'text-decoration': none
+      ),
+      'inactive': (
+        'background-color': $button-mint-blue-inactive-background-color,
+        'border-color': transparent,
+        'box-shadow': $button-mint-blue-inactive-box-shadow,
+        'cursor': $button-mint-blue-inactive-cursor,
+        'text-decoration': none
+      )
+    ),
+    '--section-title': (
+      'default': (
+        'color': lighten(color("cornflower-blue"), 10%),
         'background-color': $button-mint-blue-default-background-color,
         'border': 1px solid transparent
       ),
@@ -119,7 +160,7 @@
     ),
     '--toolbar': (
       'default': (
-        'color': color-cp("paint-gray"),
+        'color': lighten(color("cornflower-blue"), 10%),
         'background-color': color("brand-primary"),
         'border': 1px solid transparent,
         'text-decoration': none
@@ -213,6 +254,26 @@
   ),
   'button-icon': (
     '--mint-blue': (
+      'default': (
+        'color': color-cp("paint-gray")
+      ),
+      'hover': (
+        'color': color-cp("white")
+      ),
+      'active': (
+        'color': color-cp("white")
+      ),
+      'focus': (
+        'color': color-cp("white")
+      ),
+      'disabled': (
+        'color': color-cp("white")
+      ),
+      'inactive': (
+        'color': color-cp("white")
+      )
+    ),
+    '--section-title': (
       'default': (
         'color': color-cp("paint-gray")
       ),
@@ -433,6 +494,22 @@
     @include make-navigation-button-from-tokens("--mint-blue", $this-button);
   }
 
+  &__section-title-button {
+    align-items: start;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none !important;
+    // width: 100%;
+    &--focus,
+    &:focus {
+      outline: none;
+      & > #{$this}__section-title-button-content {
+        @include a--focus;
+      }
+    }
+    @include make-navigation-button-from-tokens("--section-title", $this-section-title-button);
+  }
+
   &__button-title {
     align-items: start;
     padding: 0;
@@ -481,7 +558,7 @@
   &__button-collapser {
     position: absolute;
     right: -5px;
-    bottom: 65px;
+    top: 40px;
     padding: 0;
     cursor: pointer;
     text-decoration: none !important;
@@ -586,6 +663,22 @@
     justify-content: flex-start;
     padding: 0 $space-normal 0 $space-large;
     gap: 10px;
+    line-height: normal;
+    transition: color 0.15s ease-out, background-color 0.15s ease-out;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__section-title-button-content {
+    display: flex;
+    position: relative;
+    // width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 $space-large 0 $space-large;
+    // gap: 10px;
     line-height: normal;
     transition: color 0.15s ease-out, background-color 0.15s ease-out;
     &:focus {
