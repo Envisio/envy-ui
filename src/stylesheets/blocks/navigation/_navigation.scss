@@ -556,7 +556,7 @@
 
   &__button-collapser {
     position: absolute;
-    right: -5px;
+    right: 5px;
     top: 40px;
     padding: 0;
     cursor: pointer;
@@ -621,7 +621,7 @@
     justify-content: center;
     width: $collapser--size;
     height: $collapser--size;
-    border-radius: 3px;
+    border-radius: 50%;
     padding: 0;
     &:focus {
       outline: none;
@@ -644,6 +644,7 @@
 
   &#{$this}--collapsed {
     #{$this-collapser} {
+      right: -5px;
       #{$this-collapser}-content {
         &::after {
           transform: var(--collapser-icon-transform-position);
