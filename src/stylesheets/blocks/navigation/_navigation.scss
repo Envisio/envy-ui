@@ -23,8 +23,8 @@
   $collapser-icon--size: 7px;
   $collapser-icon--color: color-cp("dark-white");
   $collapser-icon--width: 1px;
-  --collapser-icon-transform-position: translate(2px, 0) rotate(135deg);
-  --collapser-icon-animation-transform-position: translate(0, 0) rotate(135deg);
+  --collapser-icon-transform-position: translate(2px, -1px) rotate(135deg);
+  --collapser-icon-animation-transform-position: translate(0, -1px) rotate(135deg);
 
 
 
@@ -224,7 +224,6 @@
         'color': color-cp("paint-gray"),
         'background-color': color("brand-primary-alt"),
         'border': 1px solid color("progress-bar"),
-        'box-shadow': 2px 2px 4px -2px rgba(0,0,0,0.62),
         'text-decoration': none
       ),
       'hover': (
@@ -445,8 +444,8 @@
   }
 
   &--collapsed {
-    --collapser-icon-transform-position: translate(-1px, 0) rotate(-45deg);
-    --collapser-icon-animation-transform-position: translate(1px, 0) rotate(-45deg);
+    --collapser-icon-transform-position: translate(-1px, -1px) rotate(-45deg);
+    --collapser-icon-animation-transform-position: translate(1px, -1px) rotate(-45deg);
     width: var(--navigation-width-collapsed);
     max-width: var(--navigation-width-collapsed);
     min-width: var(--navigation-width-collapsed);
