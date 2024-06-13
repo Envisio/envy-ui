@@ -85,7 +85,7 @@
       ),
       'hover': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-hover-background-color,
+        'background-color': $button-mint-blue-default-background-color,
         'text-decoration': none
       ),
       'active': (
@@ -721,7 +721,7 @@
     padding: 10px 18px 10px 10px;
     background-color: #007DA5;
     border: 1px solid #007DA5;
-    border-radius: 0px;
+    border-radius: 3px;
     color: #9CCFDD;
     cursor: pointer;
     outline: none;
@@ -730,7 +730,7 @@
   &__select > select:focus {
     background: #0090be;
     border: 1px solid #007DA5;
-    border-radius: 0px;
+    border-radius: 3px;
   }
 
   &__select::after {
