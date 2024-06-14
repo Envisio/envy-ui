@@ -478,7 +478,9 @@
   }
 
   &__menu-button {
-    align-items: start;
+    display: flex;
+    align-items: center;
+    justify-content: start;
     padding: 0;
     cursor: pointer;
     text-decoration: none !important;
@@ -688,6 +690,11 @@
 
   &__menu-button-icon {
     color: lighten(color("cornflower-blue"), 15%);
+    display: flex;
+    flex: 0 0 25px;
+    height: 25px;
+    align-items: center;
+    justify-content: center;
   }
 
   &__separator-light {
