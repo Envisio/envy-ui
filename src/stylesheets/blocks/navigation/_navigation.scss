@@ -32,7 +32,11 @@
   --navigation-width-default: calc(300px / var(--navigation-font-size-default));
   --navigation-width-collapsed: 50px;
 
-  $navigation-color-background: color-cp("brand-primary-alt");
+  $navigation-color-background: color-cp("brand-primary");
+  $navigation-color-background-darken: darken(color("brand-primary"), 5%);
+  $navigation-color-background-lighten: lighten(color("brand-primary"), 5%);
+  $navigation-separator-light-border: 1px solid color("progress-bar");
+  $navigation-separator-xlight-border: 1px dotted color("progress-bar");
   $navigation-color-text-default: color-cp("dark-white");
 
   $tokens-navigation-button: (
@@ -40,17 +44,17 @@
     '--mint-blue': (
       'default': (
         'color': color-cp("paint-gray"),
-        'background-color': $button-mint-blue-default-background-color,
+        'background-color': $navigation-color-background,
         'border': 1px solid transparent
       ),
       'hover': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-hover-background-color,
+        'background-color': $navigation-color-background-darken,
         'text-decoration': none
       ),
       'active': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-active-background-color,
+        'background-color': $navigation-color-background-lighten,
         'box-shadow': $button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
@@ -80,17 +84,17 @@
     '--section-title': (
       'default': (
         'color': lighten(color("cornflower-blue"), 10%),
-        'background-color': $button-mint-blue-default-background-color,
+        'background-color': $navigation-color-background,
         'border': 1px solid transparent
       ),
       'hover': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-default-background-color,
+        'background-color': $navigation-color-background,
         'text-decoration': none
       ),
       'active': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-active-background-color,
+        'background-color': $navigation-color-background-lighten,
         'box-shadow': $button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
@@ -120,18 +124,18 @@
     '--title': (
       'default': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-default-background-color,
+        'background-color': $navigation-color-background,
         'border': 1px solid transparent,
-        'border-bottom': 1px solid color("progress-bar"),
+        'border-bottom': $navigation-separator-light-border,
       ),
       'hover': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-hover-background-color,
+        'background-color': $navigation-color-background-darken,
         'text-decoration': none
       ),
       'active': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-active-background-color,
+        'background-color': $navigation-color-background-lighten,
         'box-shadow': $button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
@@ -163,16 +167,17 @@
         'color': lighten(color("cornflower-blue"), 10%),
         'background-color': color("brand-primary"),
         'border': 1px solid transparent,
+        'border-top': $navigation-separator-light-border,
         'text-decoration': none
       ),
       'hover': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-hover-background-color,
+        'background-color': $navigation-color-background-darken,
         'text-decoration': none
       ),
       'active': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-active-background-color,
+        'background-color': $navigation-color-background-lighten,
         'box-shadow': $button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
@@ -222,18 +227,18 @@
     '--collapser': (
       'default': (
         'color': color-cp("paint-gray"),
-        'background-color': color("brand-primary-alt"),
+        'background-color': $navigation-color-background,
         'border': 1px solid color("progress-bar"),
         'text-decoration': none
       ),
       'hover': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-hover-background-color,
+        'background-color': $navigation-color-background-darken,
         'text-decoration': none
       ),
       'active': (
         'color': color-cp("white"),
-        'background-color': $button-mint-blue-active-background-color,
+        'background-color': $navigation-color-background-lighten,
         'box-shadow': $button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
@@ -384,15 +389,15 @@
   flex-direction: column;
   background-color: $navigation-color-background;
   color: color-cp("dark-white");
-  border-right: 1px solid $button-mint-blue-hover-background-color;
+  border-right: 1px solid $navigation-color-background-darken;
   z-index: 1;
   box-shadow: rgba(50, 50, 93, 0.35) 1px 0px 8px -2px, rgba(0, 0, 0, 0.5) 1px 0px 5px -3px;
   position: relative;
   width: 300px;
   height: 100%;
-  #{$this-transformation}:hover, &:has(#{$this-transformation}:hover) {
+  &:has(#{$this-transformation}:hover) {
     #{$this-collapser}-content {
-      background-color: color("brand-primary");
+      background-color: $navigation-color-background-darken;
       text-decoration: none;
       &::after {
         animation-name: show-intention;
@@ -702,7 +707,7 @@
     height: 1px;
     max-height: 1px;
     min-height: 1px;
-    border-top: 1px dotted color-cp("cornflower-blue");
+    border-top: $navigation-separator-xlight-border;
     margin: $space-small 0;
   }
 
@@ -726,8 +731,8 @@
     width: 100%;
     font-size: 14px;
     padding: 10px 18px 10px 10px;
-    background-color: #007DA5;
-    border: 1px solid #007DA5;
+    background-color: $navigation-color-background;
+    border: 1px solid $navigation-color-background;
     border-radius: 3px;
     color: #9CCFDD;
     cursor: pointer;
