@@ -6,6 +6,7 @@
 
 /* stylelint-disable no-descending-specificity */
 /* stylelint-disable declaration-block-no-duplicate-properties */
+/* stylelint-disable no-duplicate-selectors */
 
 .#{$uiNavigation} {
 
@@ -37,7 +38,8 @@
   $navigation-color-background-lighten: lighten(color("brand-primary"), 5%);
   $navigation-separator-light-border: 1px solid color("progress-bar");
   $navigation-separator-xlight-border: 1px dotted color("progress-bar");
-  $navigation-color-text-default: color-cp("dark-white");
+  $navigation-color-text-default: color-cp("paint-gray");
+  $navigation-color-text-secondary: lighten(color("cornflower-blue"), 10%);
 
   $tokens-navigation-button: (
   'button': (
@@ -83,7 +85,7 @@
     ),
     '--section-title': (
       'default': (
-        'color': lighten(color("cornflower-blue"), 10%),
+        'color': $navigation-color-text-secondary,
         'background-color': $navigation-color-background,
         'border': 1px solid transparent
       ),
@@ -164,7 +166,7 @@
     ),
     '--toolbar': (
       'default': (
-        'color': lighten(color("cornflower-blue"), 10%),
+        'color': color-cp("paint-gray"),
         'background-color': color("brand-primary"),
         'border': 1px solid transparent,
         'border-top': $navigation-separator-light-border,
@@ -432,12 +434,19 @@
   }
 
   @mixin make-navigation-button-state-from-token($state-fragment, $modifier, $state, $class-fragment) {
+    $active-button-list: "hover", "focus", "active";
     #{$state-fragment} > #{$class-fragment}-content {
 
       $schema-color: map-deep-get($tokens-navigation-button, "button", $modifier, $state);
 
       @each $element, $color-value in $schema-color {
         #{$element}: $color-value;
+      }
+      @if in_list($state, $active-button-list) {
+        @debug $state;
+        #{$this}__button-color-secondary {
+          color: inherit;
+        }
       }
     }
     #{$state-fragment} #{$class-fragment}-icon {
@@ -677,6 +686,10 @@
     }
   }
 
+  &__button-color-secondary {
+    color: $navigation-color-text-secondary;
+  }
+
   &__section-title-button-content {
     display: flex;
     position: relative;
@@ -718,7 +731,11 @@
     align-items: center;
     padding: 0 0 0 $space-large;
     align-items: center;
-    color: lighten(color("cornflower-blue"), 10%);
+    color: $navigation-color-text-secondary;
+  }
+
+  &__color-secondary {
+    color: $navigation-color-text-secondary;
   }
 
   &__select {
