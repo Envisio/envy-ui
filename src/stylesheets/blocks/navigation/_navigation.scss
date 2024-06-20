@@ -443,7 +443,7 @@
         #{$element}: $color-value;
       }
       @if in_list($state, $active-button-list) {
-        @debug $state;
+        // @debug $state;
         #{$this}__button-color-secondary {
           color: inherit;
         }
