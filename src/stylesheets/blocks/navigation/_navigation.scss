@@ -37,7 +37,7 @@
   $navigation-color-background-darken: darken(color("brand-primary"), 5%);
   $navigation-color-background-lighten: lighten(color("brand-primary"), 5%);
   $navigation-separator-light-border: 1px solid color("progress-bar");
-  $navigation-separator-xlight-border: 1px dotted color("progress-bar");
+  $navigation-separator-xlight-border: 1px dotted color("viking-blue-darken-12");
   $navigation-color-text-default: color-cp("paint-gray");
   $navigation-color-text-secondary: lighten(color("cornflower-blue"), 10%);
 
@@ -720,7 +720,7 @@
     height: 1px;
     max-height: 1px;
     min-height: 1px;
-    border-top: $navigation-separator-light-border;
+    border-top: $navigation-separator-xlight-border;
     margin: $space-small 0;
   }
 
