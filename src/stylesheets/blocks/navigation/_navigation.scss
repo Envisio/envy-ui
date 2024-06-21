@@ -35,7 +35,7 @@
 
   $navigation-color-background: color-cp("brand-primary");
   $navigation-color-background-darken: darken(color("brand-primary"), 5%);
-  $navigation-color-background-lighten: lighten(color("brand-primary"), 5%);
+  $navigation-color-background-lighten: lighten(color("blue"), 3%);
   $navigation-separator-light-border: 1px solid color("progress-bar");
   $navigation-separator-xlight-border: 1px dotted color("viking-blue-darken-12");
   $navigation-color-text-default: color-cp("paint-gray");
