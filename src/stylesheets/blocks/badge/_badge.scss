@@ -10,7 +10,7 @@
 
   $this: &;
 
-  $badge--default-font-size: $a-default-font-size - 3;
+  $badge--default-font-size: $a-default-font-size - 2;
   $badge--height-default: 25px;
   $badge--height-small: 20px;
   $badge--height-xsmall: 15px;
@@ -144,7 +144,7 @@
 
   &--small {
     height: $badge--height-small;
-    font-size: $badge--default-font-size - 1;
+    font-size: $badge--default-font-size;
     &#{$this}--round {
       border-radius: $badge--height-small / 2;
     }
