@@ -1,0 +1,95 @@
+// Avatar Group
+//
+// Weight: 1050
+//
+// Styleguide Avatar Group
+
+/* stylelint-disable no-descending-specificity */
+.#{$uiAvatarGroup} {
+
+  $this: &;
+
+  // @mixin alert__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
+  //   $border-color: if($bg-color == color("white"), color("gray-white"), darken($bg-color, 10%));
+  //   background-color: $bg-color;
+  //   color: $text-color;
+  //   border: 1px solid $border-color;
+  // }
+
+
+  // border: 1px solid $border;
+  // border-radius: $card-border-radius;
+  // background-color: color("white");
+  // box-shadow: $a-card-shadow;
+
+
+  display: flex;
+  position: relative;
+
+  // &.rtl {
+  //   direction: rtl;
+
+  //   .avatar:hover:not(:last-of-type) {
+  //     transform: translate(10px);
+  //   }
+  // }
+
+  > * {
+    position: relative;
+    margin-left: -12px;
+    transition: transform 0.3s ease;
+    // cursor: pointer;
+
+    &:hover:not(:last-child) {
+       transform: translate(-30%);
+    }
+  }
+
+  &--has-primary {
+    > *:first-child:hover {
+      transform: translate(-15%);
+    }
+    > *:nth-child(2) {
+      margin-left: -6px;
+    }
+  }
+
+  // .hidden-avatars {
+  //   width: $avatar-size;
+  //   height: $avatar-size;
+  //   border-radius: 50%;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   margin-left: 3px;
+  //   margin-right: 23px;
+  //   background-color: #2c303a;
+  //   color: #fff;
+  // }
+
+
+
+
+  // #{$this}__header {
+  // display: flex;
+  //   // justify-content: center;
+  //   align-items: center;
+  //   position: relative;
+  //   width: 100%;
+  //   min-height: 55px;
+  //   font-size: 16px;
+  //   border-bottom: $shape-border $color-default-border;
+  //   border-radius: $shape-border-radius $shape-border-radius 0 0;
+  //   margin-top: 0;
+  //   padding-left: 10px;
+  // }
+
+  // #{$this}__content {
+  //   width: 100%;
+  //   // min-height: 75px;
+  //   overflow: auto;
+  //   // padding: 15px 10px;
+  // }
+
+}
+/* stylelint-enable no-descending-specificity */

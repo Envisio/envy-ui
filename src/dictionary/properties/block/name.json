@@ -6,6 +6,12 @@
       "kss-weight": "500",
       "comment": "{block-category.acss._value}"
     },
+    "avatar-group": {
+      "value": "avatar-group",
+      "name": "Avatar Group",
+      "kss-weight": "1015",
+      "comment": "{block-category.container._value}"
+    },
     "checkbox": {
       "value": "checkbox",
       "name": "Checkbox",
