@@ -37,17 +37,24 @@
   > * {
     position: relative;
     margin-left: -12px;
-    transition: transform 0.3s ease;
+    transition: transform 0.15s ease;
     // cursor: pointer;
 
     &:hover:not(:last-child) {
-       transform: translate(-30%);
+       transform: translate(-15%) scale(115%);
     }
+    &:hover:last-child {
+      transform: scale(115%);
+   }
+  }
+
+  > *:first-child {
+    margin-left: 0;
   }
 
   &--has-primary {
     > *:first-child:hover {
-      transform: translate(-15%);
+      transform: translate(-7%) scale(115%);
     }
     > *:nth-child(2) {
       margin-left: -6px;
