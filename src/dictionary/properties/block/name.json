@@ -12,6 +12,12 @@
       "kss-weight": "1015",
       "comment": "{block-category.container._value}"
     },
+    "progress": {
+      "value": "progress",
+      "name": "Progress",
+      "kss-weight": "1017",
+      "comment": "{block-category.container._value}"
+    },
     "checkbox": {
       "value": "checkbox",
       "name": "Checkbox",
