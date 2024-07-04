@@ -13,7 +13,7 @@
     --progress-color-start: var(--progress-color); /* the progress color */
     --progress-color-end: #30a79f; /* the progress color */
     --progress-color-gradient: linear-gradient(90deg, var(--progress-color-start), var(--progress-color-end)); /* the progress color */
-    --progress-background: rgb(231, 231, 231);
+    --progress-background: #eeeeee;
     --progress-backround-dull: #e5e5e5;/* the background color */
     --progress-border: 1px solid #aaa;
     --progress-border-radius: 10em;
@@ -26,19 +26,19 @@
     // margin: 0 10px;
     height: 7px;
     border-radius: var(--progress-border-radius);
-    background: var(--progress-color-gradient);
+    background: var(--progress-background);
   // }
   &::-webkit-progress-bar {
     border-radius: var(--progress-border-radius);
-    background: var(--progress-color-gradient);
+    background: var(--progress-background);
   }
   &::-webkit-progress-value {
     border-radius: var(--progress-border-radius);
-    background: var(--progress-color);
+    background: var(--progress-color-gradient);
   }
   &::-moz-progress-bar {
     border-radius: var(--progress-border-radius);
-    background: var(--progress-color);
+    background: var(--progress-color-gradient);
   }
 
   &--placeholder {
@@ -46,6 +46,7 @@
     --progress-color-start : var(--progress-backround-dull);
     --progress-color-end : var(--progress-backround-dull);
     --progress-border: 1px solid var(--progress-backround-dull);
+    --progress-background: var(--progress-backround-dull);
     --progress-border-radius: 0;
     // &::-moz-progress-bar {
     //   border-radius: var(--progress-border-radius);
