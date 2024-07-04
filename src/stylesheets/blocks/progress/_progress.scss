@@ -9,74 +9,55 @@
   $this: &;
 
   // {
-    --color: rgb(77, 179, 52); /* the progress color */
-    --background: rgb(231, 231, 231); /* the background color */
+    --progress-color: #4fcac2; /* the progress color */
+    --progress-color-start: var(--progress-color); /* the progress color */
+    --progress-color-end: #30a79f; /* the progress color */
+    --progress-color-gradient: linear-gradient(90deg, var(--progress-color-start), var(--progress-color-end)); /* the progress color */
+    --progress-background: rgb(231, 231, 231);
+    --progress-backround-dull: #e5e5e5;/* the background color */
+    --progress-border: 1px solid #aaa;
+    --progress-border-radius: 10em;
 
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border: 1px solid #aaa;
+    border: var(--progress-border);
     // width: 200px;
     // margin: 0 10px;
     height: 7px;
-    border-radius: 10em;
-    background: var(--background);
+    border-radius: var(--progress-border-radius);
+    background: var(--progress-color-gradient);
   // }
   &::-webkit-progress-bar {
-    border-radius: 10em;
-    background: var(--background);
+    border-radius: var(--progress-border-radius);
+    background: var(--progress-color-gradient);
   }
   &::-webkit-progress-value {
-    border-radius: 10em;
-    background: var(--color);
+    border-radius: var(--progress-border-radius);
+    background: var(--progress-color);
   }
   &::-moz-progress-bar {
-    border-radius: 10em;
-    background: var(--color);
+    border-radius: var(--progress-border-radius);
+    background: var(--progress-color);
   }
 
-  // label {
-  //   font-size: 20px;
-  //   font-weight: bold;
-  //   display: block;
-  //   margin: 20px 0;
-  // }
-
-  // $normal-height: 35px;
-  // $small-height: 25px;
-  // $xsmall-height: 10px;
-
-  // display: block;
-  // height: 35px;
-  // width: 100%;
-  // max-width: 100%;
-  // background: color-cp("gallery");
-  // border-radius: $a-default-border-radius;
-
-  // &--small {
-  //   height: $small-height;
-  // }
-
-  // &--xsmall {
-  //   height: $xsmall-height;
-  // }
-
-  // &--round {
-  //   border-radius: $normal-height / 2;
-  // }
-
-  // &--small-round {
-  //   height: $small-height;
-  //   border-radius: $small-height / 2;
-  // }
-
-  // &--xsmall-round {
-  //   height: $xsmall-height;
-  //   border-radius: $xsmall-height / 2;
-  // }
-
-  // &--darken {
-  //   background: darken(color("gallery"), 5%);
-  // }
-
+  &--placeholder {
+    --progress-color : var(--progress-backround-dull);
+    --progress-color-start : var(--progress-backround-dull);
+    --progress-color-end : var(--progress-backround-dull);
+    --progress-border: 1px solid var(--progress-backround-dull);
+    --progress-border-radius: 0;
+    // &::-moz-progress-bar {
+    //   border-radius: var(--progress-border-radius);
+    //   background: var(--progress-backround-dull);
+    // }
+    // &::-webkit-progress-value {
+    //   border-radius: 10em;
+    //   background: var(--progress-backround-dull);
+    // }
+    // &::-webkit-progress-bar {
+    //   border-radius: 10em;
+    //   background: var(--progress-backround-dull);
+    // }
+  }
 }
