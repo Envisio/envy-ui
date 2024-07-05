@@ -5,6 +5,7 @@ $a-border-types: (
   "-brand": solid 1px color-cp("brand-primary"),
   "-viking-blue-darken": solid 1px color-cp("viking-blue-darken-12"),
   "-light": dotted 1px $color-default-border,
+  "-dashed": dotted 1px color-cp("plain-gray"),
   "-panel-3": solid 3px $color-default-border,
   "-current-2": solid 2px currentColor,
   "-1-s-transparent": 1px solid transparent
