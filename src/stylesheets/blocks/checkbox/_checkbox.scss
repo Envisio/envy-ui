@@ -39,7 +39,11 @@
     display: inline-block;
     position: relative;
     width: $check-size + 0.2em;
+    min-width: $check-size + 0.2em;
+    max-width: $check-size + 0.2em;;
     height: $check-size + 0.2em;
+    min-height: $check-size + 0.2em;
+    max-height: $check-size + 0.2em;
     border-radius: 50%;
     background-color: $white;
     border: 1px solid color("santas-gray");
@@ -83,6 +87,10 @@
         background-color: color("on-track");
         width: $check-size - 0.4em !important;
         height: $check-size - 0.4em !important;
+        min-width: $check-size - 0.4em !important;
+        min-height: $check-size - 0.4em !important;
+        max-width: $check-size - 0.4em !important;
+        max-height: $check-size - 0.4em !important;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -129,8 +137,10 @@
         position: absolute;
         width: $check-size - 0.4em;
         min-width: $check-size - 0.4em;
+        max-width: $check-size - 0.4em;
         height: $check-size - 0.4em;
         min-height: $check-size - 0.4em;
+        max-height: $check-size - 0.4em;
         background-color: $plain-gray;
         left: 0.12em;
         top: 0.12em;
