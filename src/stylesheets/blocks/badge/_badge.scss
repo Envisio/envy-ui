@@ -99,7 +99,7 @@
   }
 
   &--error {
-    @include badge__make-container-color(color("major-disruption"), color("white"));
+    @include badge__make-container-color(color("rose"), color("white"));
   }
 
   &--warning {
