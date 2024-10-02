@@ -76,6 +76,7 @@
       border-bottom: $shape-border darken(color("rose"), 15%);
     }
     &--warning {
+      color: color-cp("white");
       background-color: color("orange");
       border-bottom: $shape-border darken(color("orange"), 6%);
     }
