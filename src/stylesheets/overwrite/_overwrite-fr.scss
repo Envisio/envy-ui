@@ -64,6 +64,11 @@ $red: #cc181e;
     display: list-item;
     list-style-type: inherit;
   }
+  &::after {
+    content:"";
+    display:block;
+    clear:both;
+  }
 }
 
 .fr-loading {
