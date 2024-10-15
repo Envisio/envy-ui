@@ -1,0 +1,681 @@
+// Button2
+//
+// Weight: 1121
+//
+// Styleguide Button2
+
+/* stylelint-disable no-descending-specificity */
+
+.#{$uiButton2} {
+
+  @keyframes button2-loader-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+
+  $this: &;
+
+  $button2--default-font-size: $a-default-font-size;
+  $button2--height-default: em(35px, $button2--default-font-size);
+  $button2--height-small: em(25px, $button2--default-font-size);
+  $button2--height-xsmall: em(18px, $button2--default-font-size);
+  $button2--height-large: em(45px, $button2--default-font-size);
+
+  $button2--hover-color-map: (
+    color("brand-primary-alt"): darken(color("brand-primary-alt"), 7%),
+    color("viking-blue"): darken(color("viking-blue"), 7%),
+    color("green"): darken(color("green"), 5%),
+    color("red"): darken(color("red"), 5%),
+    color("white"): color("light-gray")
+  );
+
+  $button2--active-color-map: (
+    color("brand-primary-alt"): lighten(color("brand-primary-alt"), 5%),
+    color("viking-blue"): saturate(color("viking-blue"), 25%),
+    color("green"): saturate(color("green"), 25%),
+    color("red"): saturate(color("red"), 25%),
+    color("white"): lighten(color("pale-blue"), 3%)
+  );
+
+  $button2--border-color-map: (
+    color("brand-primary-alt"): darken(color("brand-primary-alt"), 10%),
+    color("viking-blue"): darken(color("viking-blue"), 10%),
+    color("green"): darken(color("green"), 10%),
+    color("red"): darken(color("red"), 10%),
+    color("white"): color("plain-gray")
+  );
+
+  $button2--focus-border-color-map: (
+    color("brand-primary-alt"): map-get($button2--border-color-map, color("brand-primary-alt")),
+    color("viking-blue"): map-get($button2--border-color-map, color("viking-blue")),
+    color("green"): map-get($button2--border-color-map, color("green")),
+    color("red"): map-get($button2--border-color-map, color("red")),
+    color("white"): $a-color-focus
+  );
+
+  $button2--focus-shadow-color-map: (
+    color("brand-primary-alt"): color("white"),
+    color("viking-blue"): color("white"),
+    color("green"): color("white"),
+    color("red"): color("white"),
+    color("white"): $a-color-focus
+  );
+
+  $button2--focus-shadow-alpha-map: (
+    color("brand-primary-alt"): 0.4,
+    color("viking-blue"): 0.6,
+    color("green"): 0.4,
+    color("red"): 0.4,
+    color("white"): 0.3
+  );
+
+  // $button2--disable-colors-map: (
+  //   "content": color("nobel"),
+  //   "container": color("gray-white")
+  // );
+
+  @mixin button2--disable() {
+    cursor: default !important;
+    box-shadow: none;
+    opacity: 0.5;
+    filter: saturate(50%);
+  }
+
+  // @mixin button2--inactive() {
+  //   cursor: default;
+  //   box-shadow: none;
+  // }
+
+  @mixin make-button2-state-from-token($state-fragment, $modifier, $state) {
+    #{$state-fragment} > #{$this}__content {
+      $schema-color: map-deep-get($tokens-button, "button", $modifier, $state);
+      @each $element, $color-value in $schema-color {
+        #{$element}: $color-value;
+      }
+      @if ($modifier == "--map") {
+        padding: 2.5px;
+        height: auto;
+      }
+    }
+  }
+
+  @mixin make-button2-from-tokens($modifier) {
+
+    $class-state-map: (
+      "&": "default",
+      "&:hover": "hover",
+      "&#{$this}--hover": "hover",
+      "&:focus": "focus",
+      "&#{$this}--focus": "focus",
+      "&:active": "active",
+      "&#{$this}--active": "active",
+      "&[disabled]": "disabled",
+      "&#{$this}--disabled": "disabled",
+      "&#{$this}--inactive": "inactive"
+    );
+
+    @include a-button--clean;
+
+    @each $mod, $state in $class-state-map {
+      @include make-button2-state-from-token($mod, $modifier, $state);
+    }
+
+  }
+
+/*   @mixin button2__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
+    @include a-button--clean;
+    & > #{$this}__content {
+      // transition-delay: -1s;
+      background-color: $bg-color;
+      color: $text-color;
+      border: 1px solid map-get($button2--border-color-map, $bg-color);
+      // &:hover {
+        //   background: darken($bg-color, 5%);
+        //   border-color: darken(map-get($button2--border-color-map, $bg-color), 5%);
+        // }
+    }
+
+    &#{$this}--hover, &:hover {
+      & > #{$this}__content {
+        // transition: background 1s;
+        // transition-delay: -1s;
+        background-color: map-get($button2--hover-color-map, $bg-color);
+        // border-color: darken(map-get($button2--border-color-map, $bg-color), 5%);
+      }
+    }
+
+    &#{$this}--focus, &:focus {
+      & > #{$this}__content {
+        @include a--focus(
+          true,
+          map-get($button2--focus-border-color-map, $bg-color),
+          map-get($button2--focus-shadow-color-map, $bg-color),
+          map-get($button2--focus-shadow-alpha-map, $bg-color)
+        );
+      }
+    }
+
+    &#{$this}--active, &:active {
+      & > #{$this}__content {
+        // transition: background 1s;
+        // transition-delay: -1s;
+        background: map-get($button2--active-color-map, $bg-color);
+        border-color: map-get($button2--focus-border-color-map, $bg-color);
+      }
+    }
+
+    &#{$this}--disabled, &[disabled] {
+      @include button2--disable();
+      & > #{$this}__content, & > #{$this}__content:hover {
+        background-color: $bg-color;
+        color: $text-color;
+        border-color: map-get($button2--border-color-map, $bg-color);
+      }
+    }
+
+  } */
+
+/*   @mixin button2__make-content-color($text-color: color("medium-gray"), $text-hover-color: color("gray")) {
+    color: $text-color;
+    &#{$this}--hover, &:hover {
+      color: $text-hover-color;
+    }
+    &#{$this}--active, &:active {
+      & > #{$this}__content {
+        color: darken($text-hover-color, 5%);
+        filter: contrast(130%);
+      }
+    }
+    // &#{$this}--disabled, &[disabled] {
+    //   @include button2--disable();
+    //   & > #{$this}__content, & > #{$this}__content:hover {
+    //     color: $text-color;
+    //   }
+    // }
+  } */
+
+  @include flex();
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  font-size: $button2--default-font-size;
+  &--hover,
+  &:hover,
+  &--focus,
+  &:focus {
+    // color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__content {
+    display: flex;
+    width: 100%;
+    height: $button2--height-default;
+    align-items: center;
+    justify-content: center;
+    padding: 0 $space-normal;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    line-height: 1.15;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &--focus,
+  &:focus {
+    outline: none;
+    & > #{$this}__content {
+      @include a--focus;
+    }
+  }
+
+  // Content color modifiers
+
+  &--content-link {
+    // @include button2__make-content-color(color("brand-primary"), color("brand-blue"));
+    @include make-button2-from-tokens("--content-link");
+  }
+
+  &--content-gray {
+    // @include button2__make-content-color(color("medium-gray"), color("gray"));
+    @include make-button2-from-tokens("--content-gray");
+  }
+
+  &--content-inverse {
+    // @include button2__make-content-color(color("medium-gray"), color("gray"));
+    @include make-button2-from-tokens("--content-inverse");
+  }
+
+  // Container color modifiers
+
+  &--clean {
+    // @include a-button--clean;
+    // &#{$this}--disabled, &[disabled] {
+    //   @include button2--disable();
+    // }
+    @include make-button2-from-tokens("--clean");
+  }
+
+  &--default {
+    // @include button2__make-container-color(color("white"), color("default"));
+    @include make-button2-from-tokens("--default");
+  }
+
+  &--mint-blue {
+    // @include button2__make-container-color(color("brand-primary-alt"));
+    @include make-button2-from-tokens("--mint-blue");
+  }
+
+  &--light-blue {
+    // @include button2__make-container-color(color("viking-blue"));
+    @include make-button2-from-tokens("--light-blue");
+  }
+
+  &--default-dont {
+    @include make-button2-from-tokens("--red");
+  }
+  &--green {
+    // @include button2__make-container-color(color("green"));
+    @include make-button2-from-tokens("--green");
+  }
+
+  &--red {
+    @include make-button2-from-tokens("--red");
+    // @include button2__make-container-color(color("red"));
+  }
+
+  &--warning {
+    @include make-button2-from-tokens("--warning");
+  }
+
+  &--complete {
+    @include make-button2-from-tokens("--complete");
+  }
+
+  &--map {
+    @include make-button2-from-tokens("--map");
+    // & > #{$this}__content {
+    //   height: auto;
+    //   padding: 2.5px;
+    // }
+    // &:hover > #{$this}__content{
+    //   border: 1px solid color-cp("viking-blue");
+    // }
+  }
+
+  // Inactive
+
+  &--inactive {
+    cursor: inherit;
+    box-shadow: none;
+    outline: none;
+  }
+
+  // Muted
+
+  &--muted {
+    filter: grayscale(0.4);
+    border-color: color("athens-gray");
+    & > #{$this}__content {
+      filter: opacity(0.4) grayscale(0.8) brightness(0.9);
+    }
+  }
+
+  // Covered
+
+  &--covered {
+    // border-color: color("athens-gray");
+    border-color: color("athens-gray");
+    & > #{$this}__content {
+      filter: opacity(0.5) grayscale(0.3) brightness(0.9);
+      background-image: linear-gradient(45deg, #ffffff 37.50%, #009fc7 37.50%, #009fc7 50%, #ffffff 50%, #ffffff 87.50%, #009fc7 87.50%, #009fc7 100%);
+      background-size: 5.66px 5.66px;
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(45deg, #ffffff 37.50%, #009fc7 37.50%, #009fc7 50%, #ffffff 50%, #ffffff 87.50%, #009fc7 87.50%, #009fc7 100%);
+        background-size: 5.66px 5.66px;
+        filter: opacity(0.3);
+      }
+    }
+  }
+
+  // Menu modifier
+
+  &--menu, &--menu-top, &--menu-bottom, &--menu-stack {
+    & > #{$this}__content {
+      justify-content: flex-start;
+    }
+  }
+
+  &--menu, &--menu-stack {
+    & > #{$this}__content {
+      border-radius: 0;
+    }
+  }
+
+  &--menu-top, &--first-child {
+    & > #{$this}__content {
+      border-radius: 2px 2px 0 0;
+    }
+  }
+
+  &--menu-bottom, &--menu-stack:last-child {
+    & > #{$this}__content {
+      border-radius: 0 0 2px 2px;
+    }
+  }
+
+  &--menu-left {
+    & > #{$this}__content {
+      border-radius: 2px 0 0 2px;
+      border-right-color: transparent;
+    }
+  }
+
+  &--menu-right {
+    & > #{$this}__content {
+      border-radius: 0 2px 2px 0;
+      border-left-color: transparent;
+    }
+  }
+
+  // Round hover shape modifiers
+
+  &--round-hover {
+    @include a-button--clean;
+    & > #{$this}__content {
+      min-height: $button2--height-default;
+      min-width: $button2--height-default;
+      padding: 0;
+      border-radius: 50%;
+      // transition: background 0.3s;
+      &:hover {
+        background-color: color("white");
+      }
+    }
+    &:focus {
+      & > #{$this}__content {
+        @include a--focus;
+      }
+    }
+    &#{$this}--disabled, &[disabled] {
+      & > #{$this}__content {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  // Color hovers shape modifiers
+
+  &--hover {
+    &-white {
+      // &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
+      // &:hover:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: color("white");
+      //   }
+      // }
+      // &#{$this}--active:not([disabled]):not(#{$this}--disabled),
+      // &:active:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: map-get($button2--active-color-map, color("white"));
+      //   }
+      // }
+      @include make-button2-from-tokens("--hover-white");
+    }
+    &-default {
+      // &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
+      // &:hover:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: map-get($button2--hover-color-map, color("white"));
+      //   }
+      // }
+      // &#{$this}--active:not([disabled]):not(#{$this}--disabled),
+      // &:active:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: map-get($button2--active-color-map, color("white"));
+      //   }
+      // }
+      @include make-button2-from-tokens("--hover-default");
+    }
+    &-menu {
+      // &#{$this}--focus:not([disabled]):not(#{$this}--disabled),
+      // &:focus:not([disabled]):not(#{$this}--disabled),
+      // &#{$this}--hover:not([disabled]):not(#{$this}--disabled),
+      // &:hover:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: color("pale-blue");
+      //   }
+      // }
+      // &#{$this}--active:not([disabled]):not(#{$this}--disabled),
+      // &:active:not([disabled]):not(#{$this}--disabled) {
+      //   & > #{$this}__content {
+      //     background-color: darken(color("pale-blue"), 10%);
+      //   }
+      // }
+      @include make-button2-from-tokens("--hover-menu");
+    }
+    &-clean-danger {
+      @include make-button2-from-tokens("--hover-clean-danger");
+    }
+    &-danger {
+      @include make-button2-from-tokens("--hover-danger");
+    }
+
+
+    // &#{$this}--disabled, &[disabled] {
+    //   & > #{$this}__content {
+    //     &:hover {
+    //       background-color: transparent;
+    //     }
+    //   }
+    // }
+  }
+
+  // Round shape modifiers
+
+  &--round {
+    & > #{$this}__content {
+      border-radius: $button2--height-default / 2;
+    }
+  }
+
+  // Circle shape modifiers
+
+  &--circle {
+    @include a-button--clean;
+    border-radius: 50%;
+    & > #{$this}__content {
+      width: $button2--height-default;
+      padding: 0;
+      border-radius: 50%;
+      // transition: background 0.3s;
+    }
+  }
+
+  // Size modifiers
+
+  &--small {
+    & > #{$this}__content {
+      height: $button2--height-small;
+    }
+    &#{$this}--round {
+      & > #{$this}__content {
+        border-radius: $button2--height-small / 2;
+      }
+    }
+    &#{$this}--circle {
+      & > #{$this}__content {
+        padding: 0;
+        border-radius: $button2--height-small / 2;
+        width: $button2--height-small;
+      }
+    }
+  }
+
+  &--xsmall {
+    & > #{$this}__content {
+      font-size: 10px;
+      padding: 0 5px;
+      height: $button2--height-xsmall;
+    }
+    &#{$this}--round {
+      & > #{$this}__content {
+        border-radius: $button2--height-xsmall / 2;
+      }
+    }
+    &#{$this}--circle {
+      & > #{$this}__content {
+        border-radius: $button2--height-xsmall / 2;
+        width: $button2--height-xsmall;
+        padding: 0;
+      }
+    }
+  }
+
+  &--large {
+    & > #{$this}__content {
+      height: $button2--height-large;
+      padding: 0 $space-large;
+    }
+    &#{$this}--round {
+      & > #{$this}__content {
+        border-radius: $button2--height-large / 2;
+      }
+    }
+    &#{$this}--circle {
+      & > #{$this}__content {
+        border-radius: $button2--height-large / 2;
+        width: $button2--height-large;
+        padding: 0;
+      }
+    }
+  }
+
+  // Inline modifier
+
+  &--inline {
+    #{$this}__content {
+      height: auto;
+      padding: 2px 5px;
+    }
+  }
+
+  // Loading modifier
+
+  &--loading {
+    position: relative;
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: calc(50% - 10px);
+      top: calc(50% - 10px);
+      backface-visibility: hidden;
+      border-radius: 50%;
+      border: .3em solid rgba(color("light-gray"), .7);
+      border-left-color: transparent;
+      transform-origin: center center;
+      animation: button2-loader-spin 2s infinite linear;
+    }
+    &#{$this}--clean::after, &#{$this}--default::after {
+      border-color: color-cp("plain-gray");
+      border-left-color: transparent;
+    }
+    & > #{$this}__content {
+      color: transparent !important;
+    }
+  }
+
+  & > #{$this}__status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -15px;
+    transform: translateY(8px);
+    width: 20px;
+    flex: 0 0 20px;
+    height: 20px;
+    max-height: 20px;
+    min-height: 20px;
+    background-color: color("plain-gray");
+    border-radius: 9px;
+    font-size: 11px;
+    outline: none;
+    border: 1px solid color("white");
+  }
+
+  &[disabled], &--disabled {
+    > #{$this}__status {
+      cursor: default;
+    }
+  }
+
+  &--hover-remove-person {
+    &:focus:not([disabled]),
+    &:hover:not([disabled]) {
+      & > #{$this}__content {
+        position: relative;
+        border-color: color("red");
+        background-color: color("white");
+        color: transparent;
+        &::after {
+          content: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjY2MxODFlIiBkPSJNNDUzLjE2MiAyMzYuODQ1bDQyLjY1Mi00Mi42NWMyLjQwMy0yLjQwNSAyLjQwMy02LjM2MSAwLTguNzY0bC04Ljc2My04Ljc2M2MtMi40MDQtMi40MDUtNi4zNi0yLjQwNS04Ljc2MyAwbC00Mi42NTMgNDIuNjUyLTQyLjY1My00Mi42NTJjLTIuNDAzLTIuNDA1LTYuMzU5LTIuNDA1LTguNzY0IDBsLTguNzYyIDguNzYzYy0yLjQwNCAyLjQwMy0yLjQwNCA2LjM1OSAwIDguNzY0bDQyLjY1MyA0Mi42NS00Mi42NTMgNDIuNjUzYy0yLjQwNCAyLjQwNi0yLjQwNCA2LjM2IDAgOC43NjRsOC43NjIgOC43NjNjMi40MDUgMi40MDQgNi4zNjEgMi40MDQgOC43NjQgMGw0Mi42NTMtNDIuNjUzIDQyLjY1MyA0Mi42NTNjMi40MDMgMi40MDQgNi4zNTkgMi40MDQgOC43NjMgMGw4Ljc2My04Ljc2M2MyLjQwMy0yLjQwNCAyLjQwMy02LjM1OCAwLTguNzY0bC00Mi42NTItNDIuNjUzem0tMjc4LjA5NiAxMi40MDljNTQuODI4IDAgOTkuMjY1LTQ0LjQzNiA5OS4yNjUtOTkuMjY0IDAtNTQuODI4LTQ0LjQzNy05OS4yNjQtOTkuMjY1LTk5LjI2NC01NC44MjcgMC05OS4yNjQgNDQuNDM2LTk5LjI2NCA5OS4yNjQgMCA1NC44MjggNDQuNDM3IDk5LjI2NCA5OS4yNjQgOTkuMjY0em0wLTE3My43MTFjNDEuMDI1IDAgNzQuNDQ4IDMzLjQyNCA3NC40NDggNzQuNDQ3IDAgNDEuMDI1LTMzLjQyMyA3NC40NDktNzQuNDQ4IDc0LjQ0OS00MS4wMjQgMC03NC40NDgtMzMuNDI0LTc0LjQ0OC03NC40NDkgMC00MS4wMjMgMzMuNDI0LTc0LjQ0NyA3NC40NDgtNzQuNDQ3em02OS40ODUgMTk4LjUyOGMtMjIuMjU3IDAtMzIuOTU4IDEyLjQwNy02OS40ODUgMTIuNDA3cy00Ny4xNS0xMi40MDctNjkuNDg1LTEyLjQwN2MtNTcuNTQxIDAtMTA0LjIyNyA0Ni42ODQtMTA0LjIyNyAxMDQuMjI3djMyLjI2MWMwIDIwLjU1MSAxNi42NzIgMzcuMjI0IDM3LjIyMyAzNy4yMjRoMjcyLjk3N2MyMC41NTEgMCAzNy4yMjUtMTYuNjczIDM3LjIyNS0zNy4yMjR2LTMyLjI2MWMwLTU3LjU0My00Ni42ODYtMTA0LjIyNy0xMDQuMjI4LTEwNC4yMjd6bTc5LjQxMiAxMzYuNDg4YzAgNi44MjUtNS41ODQgMTIuNDA5LTEyLjQwOSAxMi40MDlIMzguNTc3Yy02LjgyMyAwLTEyLjQwNy01LjU4NC0xMi40MDctMTIuNDA5di0zMi4yNjFjMC00My44MTYgMzUuNTk2LTc5LjQxMiA3OS40MTEtNzkuNDEyIDE1LjIgMCAzMC4zMjEgMTIuNDA5IDY5LjQ4NSAxMi40MDkgMzkuMDg2IDAgNTQuMjg2LTEyLjQwOSA2OS40ODUtMTIuNDA5IDQzLjgxNiAwIDc5LjQxMiAzNS41OTYgNzkuNDEyIDc5LjQxMnYzMi4yNjF6Ii8+PC9zdmc+");
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          position: absolute;
+          padding: 12%;
+          right: 0;
+          top: 0;
+          color: color("red");
+          background-color: color("white");
+          border: 1px solid transparent;
+        }
+      }
+      & > #{$this}__status {
+        opacity: 0;
+      }
+    }
+    &:focus:not([disabled]) {
+      & > #{$this}__content {
+        &::after {
+          @include a--focus(
+            true,
+            lighten(color("red"), 38%),
+            lighten(color("red"), 40%),
+            0.4
+          );
+        }
+      }
+    }
+    &:active:not([disabled]), &:active:focus:not([disabled]) {
+      & > #{$this}__content {
+        &::after {
+          background-color: lighten(color("red"), 40%)
+        }
+      }
+    }
+    // &#{$this}--large > #{$this}__content::after {
+    //   padding: 19% 14% 3% 19%;
+    // }
+  }
+}
+
+/* stylelint-enable */

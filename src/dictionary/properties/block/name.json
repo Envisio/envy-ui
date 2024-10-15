@@ -36,6 +36,12 @@
       "kss-weight": "1020",
       "comment": "{block-category.control._value}"
     },
+    "button2": {
+      "value": "button2",
+      "name": "Button2",
+      "kss-weight": "1021",
+      "comment": "{block-category.control._value}"
+    },
     "button-switch": {
       "value": "button-switch",
       "name": "Button Switch",

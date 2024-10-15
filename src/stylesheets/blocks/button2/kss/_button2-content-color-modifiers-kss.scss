@@ -1,0 +1,18 @@
+// Button2 Content Color Modifiers
+//
+// The modifiers assign button visual behavior to content of EDS Button. It is usually used together with --clean modifier. Typical use case: icon as a button.
+//
+// Markup:
+// _button2-content-color-modifiers-kss.html
+//
+// .env-button2--clean.env-button2--content-link - Link style.
+// .env-button2--clean.env-button2--content-gray - Gray content button.
+// .env-button2--clean.env-button2--content-inverse - Inverse content button.
+//
+// Moddescription: Modifiers for 5 button states: [], [hover], [focused], [active], [disabled].
+//
+// Updated: May 2020
+//
+// Weight: 5
+//
+// Styleguide Button2 - Content Color Modifiers
