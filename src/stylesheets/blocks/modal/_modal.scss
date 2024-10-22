@@ -40,6 +40,15 @@
     }
   }
 
+  &#{$this}--enlarged > #{$this}__overlay {
+    &::before {
+      height: 6%;
+    }
+    &::after {
+      height: 12%;
+    }
+  }
+
   #{$this}__modal {
     $min-vh: 300px;
     $min-pr: 75%;
