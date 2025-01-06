@@ -1,10 +1,16 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/functions/color-cp";
+
 // Placeholder
 //
 // Weight: 1360
 //
 // Styleguide Placeholder
 
-.#{$uiPlaceholder} {
+.#{block-name.$uiPlaceholder} {
 
   $this: &;
 
@@ -16,8 +22,8 @@
   height: 35px;
   width: 100%;
   max-width: 100%;
-  background: color-cp("gallery");
-  border-radius: $a-default-border-radius;
+  background: color-cp.color-cp("gallery");
+  border-radius: settings.$a-default-border-radius;
 
   &--small {
     height: $small-height;
@@ -42,7 +48,7 @@
   }
 
   &--darken {
-    background: darken(color("gallery"), 5%);
+    background: color.adjust(functions-color.color("gallery"), $lightness: -5%);
   }
 
 }

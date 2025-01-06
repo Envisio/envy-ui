@@ -1,5 +1,8 @@
+@use "../from-dictionary/block-name/block-name";
+@use "settings/filter-settings";
+
 @for $i from 1 through 9 {
-  .#{$uiA}-dimmed-#{$i} {
-    @include a-dimmed($i);
+  .#{block-name.$uiA}-dimmed-#{$i} {
+    @include filter-settings.a-dimmed($i);
   }
 }

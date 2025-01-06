@@ -1,3 +1,13 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/block/button";
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/functions/color-cp";
+@use "../../utils/functions/in-list";
+@use "../../utils/functions/map-deep-get";
+@use "../../utils/mixin";
+
 // Navigation
 //
 // Weight: 1310
@@ -8,7 +18,7 @@
 /* stylelint-disable declaration-block-no-duplicate-properties */
 /* stylelint-disable no-duplicate-selectors */
 
-.#{$uiNavigation} {
+.#{block-name.$uiNavigation} {
 
   $this: &;
   $this-button: #{$this}__menu-button;
@@ -20,9 +30,9 @@
   $this-transformation: #{$this}__transformation;
 
   $collapser--size: 20px;
-  $collapser-icon--default-font-size: $a-default-font-size;
+  $collapser-icon--default-font-size: settings.$a-default-font-size;
   $collapser-icon--size: 7px;
-  $collapser-icon--color: color-cp("dark-white");
+  $collapser-icon--color: color-cp.color-cp("dark-white");
   $collapser-icon--width: 1px;
   --collapser-icon-transform-position: translate(2px, -1px) rotate(135deg);
   --collapser-icon-animation-transform-position: translate(0, -1px) rotate(135deg);
@@ -33,53 +43,53 @@
   --navigation-width-default: calc(300px / var(--navigation-font-size-default));
   --navigation-width-collapsed: 50px;
 
-  $navigation-color-background: color-cp("brand-primary");
-  $navigation-color-background-darken: darken(color("brand-primary"), 5%);
-  $navigation-color-background-lighten: lighten(color("blue"), 3%);
-  $navigation-separator-light-border: 1px solid color("progress-bar");
-  $navigation-separator-xlight-border: 1px dotted color("viking-blue-darken-12");
-  $navigation-color-text-default: color-cp("paint-gray");
-  $navigation-color-text-secondary: lighten(color("cornflower-blue"), 10%);
+  $navigation-color-background: color-cp.color-cp("brand-primary");
+  $navigation-color-background-darken: color.adjust(functions-color.color("brand-primary"), $lightness: -5%);
+  $navigation-color-background-lighten: color.adjust(functions-color.color("blue"), $lightness: 3%);
+  $navigation-separator-light-border: 1px solid functions-color.color("progress-bar");
+  $navigation-separator-xlight-border: 1px dotted functions-color.color("viking-blue-darken-12");
+  $navigation-color-text-default: color-cp.color-cp("paint-gray");
+  $navigation-color-text-secondary: color.adjust(functions-color.color("cornflower-blue"), $lightness: 10%);
 
   $tokens-navigation-button: (
   'button': (
     '--mint-blue': (
       'default': (
-        'color': color-cp("paint-gray"),
+        'color': color-cp.color-cp("paint-gray"),
         'background-color': $navigation-color-background,
         'border': 1px solid transparent
       ),
       'hover': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background-darken,
         'text-decoration': none
       ),
       'active': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background-lighten,
-        'box-shadow': $button-mint-blue-active-box-shadow,
+        'box-shadow': button.$button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
       'focus': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-focus-box-shadow,
+        'box-shadow': button.$button-mint-blue-focus-box-shadow,
         'text-decoration': none
       ),
       'disabled': (
-        'background-color': $button-mint-blue-disabled-background-color,
+        'background-color': button.$button-mint-blue-disabled-background-color,
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-disabled-box-shadow,
-        'opacity': $button-mint-blue-disabled-opacity,
-        'filter': $button-mint-blue-disabled-filter,
-        'cursor': $button-mint-blue-disabled-cursor,
+        'box-shadow': button.$button-mint-blue-disabled-box-shadow,
+        'opacity': button.$button-mint-blue-disabled-opacity,
+        'filter': button.$button-mint-blue-disabled-filter,
+        'cursor': button.$button-mint-blue-disabled-cursor,
         'text-decoration': none
       ),
       'inactive': (
-        'background-color': $button-mint-blue-inactive-background-color,
+        'background-color': button.$button-mint-blue-inactive-background-color,
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-inactive-box-shadow,
-        'cursor': $button-mint-blue-inactive-cursor,
+        'box-shadow': button.$button-mint-blue-inactive-box-shadow,
+        'cursor': button.$button-mint-blue-inactive-cursor,
         'text-decoration': none
       )
     ),
@@ -90,119 +100,119 @@
         'border': 1px solid transparent
       ),
       'hover': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background,
         'text-decoration': none
       ),
       'active': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background-lighten,
-        'box-shadow': $button-mint-blue-active-box-shadow,
+        'box-shadow': button.$button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
       'focus': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-focus-box-shadow,
+        'box-shadow': button.$button-mint-blue-focus-box-shadow,
         'text-decoration': none
       ),
       'disabled': (
-        'background-color': $button-mint-blue-disabled-background-color,
+        'background-color': button.$button-mint-blue-disabled-background-color,
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-disabled-box-shadow,
-        'opacity': $button-mint-blue-disabled-opacity,
-        'filter': $button-mint-blue-disabled-filter,
-        'cursor': $button-mint-blue-disabled-cursor,
+        'box-shadow': button.$button-mint-blue-disabled-box-shadow,
+        'opacity': button.$button-mint-blue-disabled-opacity,
+        'filter': button.$button-mint-blue-disabled-filter,
+        'cursor': button.$button-mint-blue-disabled-cursor,
         'text-decoration': none
       ),
       'inactive': (
-        'background-color': $button-mint-blue-inactive-background-color,
+        'background-color': button.$button-mint-blue-inactive-background-color,
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-inactive-box-shadow,
-        'cursor': $button-mint-blue-inactive-cursor,
+        'box-shadow': button.$button-mint-blue-inactive-box-shadow,
+        'cursor': button.$button-mint-blue-inactive-cursor,
         'text-decoration': none
       )
     ),
     '--title': (
       'default': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background,
         'border': 1px solid transparent,
         'border-bottom': $navigation-separator-light-border,
       ),
       'hover': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background-darken,
         'text-decoration': none
       ),
       'active': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background-lighten,
-        'box-shadow': $button-mint-blue-active-box-shadow,
+        'box-shadow': button.$button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
       'focus': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-focus-box-shadow,
+        'box-shadow': button.$button-mint-blue-focus-box-shadow,
         'text-decoration': none
       ),
       'disabled': (
-        'background-color': $button-mint-blue-disabled-background-color,
+        'background-color': button.$button-mint-blue-disabled-background-color,
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-disabled-box-shadow,
-        'opacity': $button-mint-blue-disabled-opacity,
-        'filter': $button-mint-blue-disabled-filter,
-        'cursor': $button-mint-blue-disabled-cursor,
+        'box-shadow': button.$button-mint-blue-disabled-box-shadow,
+        'opacity': button.$button-mint-blue-disabled-opacity,
+        'filter': button.$button-mint-blue-disabled-filter,
+        'cursor': button.$button-mint-blue-disabled-cursor,
         'text-decoration': none
       ),
       'inactive': (
-        'background-color': $button-mint-blue-inactive-background-color,
+        'background-color': button.$button-mint-blue-inactive-background-color,
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-inactive-box-shadow,
-        'cursor': $button-mint-blue-inactive-cursor,
+        'box-shadow': button.$button-mint-blue-inactive-box-shadow,
+        'cursor': button.$button-mint-blue-inactive-cursor,
         'text-decoration': none
       )
     ),
     '--toolbar': (
       'default': (
-        'color': color-cp("paint-gray"),
-        'background-color': color("brand-primary"),
+        'color': color-cp.color-cp("paint-gray"),
+        'background-color': functions-color.color("brand-primary"),
         'border': 1px solid transparent,
         'border-top': $navigation-separator-light-border,
         'text-decoration': none
       ),
       'hover': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background-darken,
         'text-decoration': none
       ),
       'active': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background-lighten,
-        'box-shadow': $button-mint-blue-active-box-shadow,
+        'box-shadow': button.$button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
       'focus': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-focus-box-shadow,
+        'box-shadow': button.$button-mint-blue-focus-box-shadow,
         'text-decoration': none
       ),
       'disabled': (
-        'background-color': $button-mint-blue-disabled-background-color,
+        'background-color': button.$button-mint-blue-disabled-background-color,
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-disabled-box-shadow,
-        'opacity': $button-mint-blue-disabled-opacity,
-        'filter': $button-mint-blue-disabled-filter,
-        'cursor': $button-mint-blue-disabled-cursor,
+        'box-shadow': button.$button-mint-blue-disabled-box-shadow,
+        'opacity': button.$button-mint-blue-disabled-opacity,
+        'filter': button.$button-mint-blue-disabled-filter,
+        'cursor': button.$button-mint-blue-disabled-cursor,
         'text-decoration': none
       ),
       'inactive': (
-        'background-color': $button-mint-blue-inactive-background-color,
+        'background-color': button.$button-mint-blue-inactive-background-color,
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-inactive-box-shadow,
-        'cursor': $button-mint-blue-inactive-cursor,
+        'box-shadow': button.$button-mint-blue-inactive-box-shadow,
+        'cursor': button.$button-mint-blue-inactive-cursor,
         'text-decoration': none
       )
     ),
@@ -228,26 +238,26 @@
     ),
     '--collapser': (
       'default': (
-        'color': color-cp("paint-gray"),
+        'color': color-cp.color-cp("paint-gray"),
         'background-color': $navigation-color-background,
-        'border': 1px solid color("progress-bar"),
+        'border': 1px solid functions-color.color("progress-bar"),
         'text-decoration': none
       ),
       'hover': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background-darken,
         'text-decoration': none
       ),
       'active': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'background-color': $navigation-color-background-lighten,
-        'box-shadow': $button-mint-blue-active-box-shadow,
+        'box-shadow': button.$button-mint-blue-active-box-shadow,
         'text-decoration': none
       ),
       'focus': (
-        'color': color-cp("white"),
+        'color': color-cp.color-cp("white"),
         'border-color': transparent,
-        'box-shadow': $button-mint-blue-focus-box-shadow,
+        'box-shadow': button.$button-mint-blue-focus-box-shadow,
         'text-decoration': none
       ),
       'disabled': (
@@ -261,122 +271,122 @@
   'button-icon': (
     '--mint-blue': (
       'default': (
-        'color': color-cp("paint-gray")
+        'color': color-cp.color-cp("paint-gray")
       ),
       'hover': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'active': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'focus': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'disabled': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'inactive': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       )
     ),
     '--section-title': (
       'default': (
-        'color': color-cp("paint-gray")
+        'color': color-cp.color-cp("paint-gray")
       ),
       'hover': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'active': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'focus': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'disabled': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'inactive': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       )
     ),
     '--title': (
       'default': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'hover': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'active': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'focus': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'disabled': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'inactive': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       )
     ),
     '--toolbar': (
       'default': (
-        'color': color-cp("paint-gray")
+        'color': color-cp.color-cp("paint-gray")
       ),
       'hover': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'active': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'focus': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'disabled': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'inactive': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       )
     ),
     '--filler': (
       'default': (
-        'color': color-cp("paint-gray")
+        'color': color-cp.color-cp("paint-gray")
       ),
       'hover': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'active': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'focus': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'disabled': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'inactive': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       )
     ),
     '--collapser': (
       'default': (
-        'color': color-cp("paint-gray")
+        'color': color-cp.color-cp("paint-gray")
       ),
       'hover': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'active': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'focus': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'disabled': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       ),
       'inactive': (
-        'color': color-cp("white")
+        'color': color-cp.color-cp("white")
       )
     )
   )
@@ -390,7 +400,7 @@
   display: flex;
   flex-direction: column;
   background-color: $navigation-color-background;
-  color: color-cp("paint-gray");
+  color: color-cp.color-cp("paint-gray");
   border-right: 1px solid $navigation-color-background-darken;
   z-index: 1;
   box-shadow: rgba(50, 50, 93, 0.35) 1px 0px 8px -2px, rgba(0, 0, 0, 0.5) 1px 0px 5px -3px;
@@ -425,7 +435,7 @@
       "&#{$class-fragment}--inactive": "inactive"
     );
 
-    @include a-button--clean;
+    @include mixin.a-button--clean;
 
     @each $mod, $state in $class-state-map {
       @include make-navigation-button-state-from-token($mod, $modifier, $state, $class-fragment);
@@ -437,12 +447,12 @@
     $active-button-list: "hover", "focus", "active";
     #{$state-fragment} > #{$class-fragment}-content {
 
-      $schema-color: map-deep-get($tokens-navigation-button, "button", $modifier, $state);
+      $schema-color: map-deep-get.map-deep-get($tokens-navigation-button, "button", $modifier, $state);
 
       @each $element, $color-value in $schema-color {
         #{$element}: $color-value;
       }
-      @if in_list($state, $active-button-list) {
+      @if in-list.in_list($state, $active-button-list) {
         // @debug $state;
         #{$this}__button-color-secondary {
           color: inherit;
@@ -450,7 +460,7 @@
       }
     }
     #{$state-fragment} #{$class-fragment}-icon {
-      $schema-icon-color: map-deep-get($tokens-navigation-button, "button-icon", $modifier, $state);
+      $schema-icon-color: map-deep-get.map-deep-get($tokens-navigation-button, "button-icon", $modifier, $state);
       @each $element, $color-value in $schema-icon-color {
         #{$element}: $color-value;
       }
@@ -503,7 +513,7 @@
     &:focus {
       outline: none;
       & > #{$this}__menu-button-content {
-        @include a--focus;
+        @include mixin.a--focus;
       }
     }
     @include make-navigation-button-from-tokens("--mint-blue", $this-button);
@@ -519,7 +529,7 @@
     &:focus {
       outline: none;
       & > #{$this}__section-title-button-content {
-        @include a--focus;
+        @include mixin.a--focus;
       }
     }
     @include make-navigation-button-from-tokens("--section-title", $this-section-title-button);
@@ -534,7 +544,7 @@
     &:focus {
       outline: none;
       & > #{$this}__button-toolbar {
-        @include a--focus;
+        @include mixin.a--focus;
       }
     }
     @include make-navigation-button-from-tokens("--title", $this-title);
@@ -549,7 +559,7 @@
     &:focus {
       outline: none;
       & > #{$this}__button-toolbar {
-        @include a--focus;
+        @include mixin.a--focus;
       }
     }
     @include make-navigation-button-from-tokens("--toolbar", $this-toolbar);
@@ -564,7 +574,7 @@
     &:focus {
       outline: none;
       & > #{$this}__button-filler {
-        @include a--focus;
+        @include mixin.a--focus;
       }
     }
     @include make-navigation-button-from-tokens("--filler", $this-filler);
@@ -581,7 +591,7 @@
     &:focus {
       outline: none;
       & > #{$this}__button-collapser {
-        @include a--focus;
+        @include mixin.a--focus;
       }
     }
     @include make-navigation-button-from-tokens("--collapser", $this-collapser);
@@ -594,7 +604,7 @@
     height: 55px;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 $space-normal 0 $space-large;
+    padding: 0 settings.$space-normal 0 settings.$space-large;
     gap: 10px;
     line-height: normal;
     transition: color 0.15s ease-out, background-color 0.15s ease-out;
@@ -610,7 +620,7 @@
     height: 50px;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 $space-normal 0 $space-large;
+    padding: 0 settings.$space-normal 0 settings.$space-large;
     gap: 10px;
     line-height: normal;
     // transition: color 0.15s ease-out, background-color 0.15s ease-out;
@@ -677,7 +687,7 @@
     height: 40px;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 $space-normal 0 $space-large;
+    padding: 0 settings.$space-normal 0 settings.$space-large;
     gap: 10px;
     line-height: normal;
     transition: color 0.1s ease-out, background-color 0.1s ease-out;
@@ -697,7 +707,7 @@
     height: 40px;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 $space-large 0 $space-large;
+    padding: 0 settings.$space-large 0 settings.$space-large;
     // gap: 10px;
     line-height: normal;
     transition: color 0.15s ease-out, background-color 0.15s ease-out;
@@ -707,7 +717,7 @@
   }
 
   &__menu-button-icon {
-    color: lighten(color("cornflower-blue"), 15%);
+    color: color.adjust(functions-color.color("cornflower-blue"), $lightness: 15%);
     display: flex;
     flex: 0 0 25px;
     height: 25px;
@@ -721,7 +731,7 @@
     max-height: 1px;
     min-height: 1px;
     border-top: $navigation-separator-xlight-border;
-    margin: $space-small 0;
+    margin: settings.$space-small 0;
   }
 
   &__section-title {
@@ -729,7 +739,7 @@
     min-height: 40px;
     height: 40px;
     align-items: center;
-    padding: 0 0 0 $space-large;
+    padding: 0 0 0 settings.$space-large;
     align-items: center;
     color: $navigation-color-text-secondary;
   }

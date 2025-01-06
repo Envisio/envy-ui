@@ -1,6 +1,8 @@
+@use "../from-dictionary/color/color-map";
+
 :root {
   // colors
-  @each $color-name, $color-value in $a-color {
+  @each $color-name, $color-value in color-map.$a-color {
     --color-#{$color-name}: #{$color-value};
   }
 }

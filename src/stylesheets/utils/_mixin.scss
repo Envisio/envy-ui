@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "../a/settings/settings";
+@use "functions/color";
+
 // @import '../../corporate_v3/core/components/mixin/mixin';
 
 @mixin a-button--clean {
@@ -5,7 +9,7 @@
   background-color: transparent;
 };
 
-@mixin a--focus ($inset: true, $color:$a-color-focus, $color-bg:$a-color-focus, $alpha: 0.3) {
+@mixin a--focus ($inset: true, $color:settings.$a-color-focus, $color-bg:settings.$a-color-focus, $alpha: 0.3) {
   // @debug $color;
   // @debug $color-bg;
   border: 1px solid $color;
@@ -20,7 +24,7 @@
 
 @mixin a-placeholder-text {
   &::placeholder {
-    color: color("medium-gray");
+    color: color.color("medium-gray");
   }
 }
 
@@ -85,36 +89,36 @@
     wrap-reverse: wrap-reverse
   );
   @each $param in $params {
-    @if map-has-key($flex-direction, $param) {
-      @include flexDirection(map-get($flex-direction, $param));
+    @if map.has-key($flex-direction, $param) {
+      @include flexDirection(map.get($flex-direction, $param));
     }
-    @if map-has-key($justify-content, $param) {
-      justify-content: map-get($justify-content, $param);
+    @if map.has-key($justify-content, $param) {
+      justify-content: map.get($justify-content, $param);
     }
-    @if map-has-key($align-items, $param) {
-      @include alignItems(map-get($align-items, $param));
+    @if map.has-key($align-items, $param) {
+      @include alignItems(map.get($align-items, $param));
     }
-    @if map-has-key($align-content, $param) {
-      align-content: map-get($align-content, $param);
+    @if map.has-key($align-content, $param) {
+      align-content: map.get($align-content, $param);
     }
-    @if map-has-key($flex-wrap, $param) {
-      @include flexWrap(map-get($flex-wrap, $param));
+    @if map.has-key($flex-wrap, $param) {
+      @include flexWrap(map.get($flex-wrap, $param));
     }
   }
 }
 
 @mixin a-text-ellipsis($min-width: 0) {
-  white-space: nowrap#{$a-important};
-  overflow: hidden#{$a-important};
-  max-width: 100%#{$a-important};
+  white-space: nowrap#{settings.$a-important};
+  overflow: hidden#{settings.$a-important};
+  max-width: 100%#{settings.$a-important};
   min-width: $min-width;
-  text-overflow: ellipsis#{$a-important};
+  text-overflow: ellipsis#{settings.$a-important};
 }
 
 // process icons sizes (disputable)
 @mixin square-icon($delta: 0) {
-  width: $icon-base-size + $delta;
-  height: $icon-base-size + $delta;
-  min-width: $icon-base-size + $delta;
-  min-height: $icon-base-size + $delta;
+  width: settings.$icon-base-size + $delta;
+  height: settings.$icon-base-size + $delta;
+  min-width: settings.$icon-base-size + $delta;
+  min-height: settings.$icon-base-size + $delta;
 }

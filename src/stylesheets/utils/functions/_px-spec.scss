@@ -1,5 +1,10 @@
-@include describe('The [px] function') {
-  @include it('returns pixels valued data from number') {
-    @include assert-equal(px(20), 20px);
+@use "sass-true/sass/assert";
+@use "sass-true/sass/module";
+@use "sass-true/sass/test";
+@use "px";
+
+@include module.describe('The [px] function') {
+  @include test.it('returns pixels valued data from number') {
+    @include assert.assert-equal(px.px(20), 20px);
   }
 }

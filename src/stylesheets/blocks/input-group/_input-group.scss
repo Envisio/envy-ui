@@ -1,15 +1,20 @@
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/functions/color";
+@use "../../utils/mixin";
+
 // Input Group
 //
 // Weight: 1190
 //
 // Styleguide Input Group
 
-.#{$uiInputGroup} {
+.#{block-name.$uiInputGroup} {
 
   $this: &;
 
-  @include flex(a-center);
-  font-size: $a-default-font-size;
+  @include mixin.flex(a-center);
+  font-size: settings.$a-default-font-size;
   position: relative;
   min-width: 0;
   // isolation: isolate; Should not be usolated because of conflict
@@ -21,29 +26,29 @@
   }
 
   &__before {
-    flex: 0 0 $a-padding-input-icon;
-    width: $a-padding-input-icon;
-    @include flex(j-center);
+    flex: 0 0 settings.$a-padding-input-icon;
+    width: settings.$a-padding-input-icon;
+    @include mixin.flex(j-center);
   }
 
   &__after {
-    flex: 0 0 $a-padding-input-icon;
-    width: $a-padding-input-icon;
-    @include flex(j-center);
+    flex: 0 0 settings.$a-padding-input-icon;
+    width: settings.$a-padding-input-icon;
+    @include mixin.flex(j-center);
   }
 
   &__error {
-    flex: 0 0 $a-padding-input-icon;
-    width: $a-padding-input-icon;
-    @include flex(j-center);
+    flex: 0 0 settings.$a-padding-input-icon;
+    width: settings.$a-padding-input-icon;
+    @include mixin.flex(j-center);
   }
 
   &__dropdown {
-    margin-top: - $a-border-width-input;
-    @include flex(column);
-    border: $a-border-input;
-    border-radius: $a-default-border-radius;
-    background-color: color("white");
+    margin-top: - settings.$a-border-width-input;
+    @include mixin.flex(column);
+    border: settings.$a-border-input;
+    border-radius: settings.$a-default-border-radius;
+    background-color: color.color("white");
     position: absolute;
     top: 100%;
     left:0;
@@ -53,17 +58,17 @@
     #{$this}__before {
       position: absolute;
       left: 0;
-      color: color("medium-gray");
+      color: color.color("medium-gray");
       // z-index: 1;
     }
     #{$this}__input {
-      padding-left: $a-padding-input-icon;
+      padding-left: settings.$a-padding-input-icon;
     }
   }
 
   &--after {
     #{$this}__input {
-      padding-right: $a-padding-input-icon;
+      padding-right: settings.$a-padding-input-icon;
     }
     #{$this}__after {
       position: absolute;
@@ -73,21 +78,21 @@
 
   &--error-inside {
     #{$this}__input {
-      padding-right: $a-padding-input-icon;
+      padding-right: settings.$a-padding-input-icon;
     }
     #{$this}__error {
       margin-left: 0;
-      @include flex(j-center);
+      @include mixin.flex(j-center);
       position: absolute;
       right: 0;
     }
     &#{$this}--after {
       #{$this}__input {
-        padding-right: $a-padding-input-icon * 2;
+        padding-right: settings.$a-padding-input-icon * 2;
       }
       #{$this}__error {
-        right: $a-padding-input-icon;
-        @include flex(j-center);
+        right: settings.$a-padding-input-icon;
+        @include mixin.flex(j-center);
         position: absolute;
       }
       // #{$this}__after {

@@ -1,24 +1,30 @@
+@use "sass:map";
+@use "sass:string";
+@use "../from-dictionary/block-name/block-name";
+@use "../utils/functions/px";
+@use "settings/settings";
+
 $a-width-height-types: ("w-max": max-width, "w-min": min-width, "w": width, "h-max": max-height, "h-min": min-height, "h": height);
 $a-view-port-units: ("w-max": "vw", "w-min": "vw", "w": "vw", "h-max": "vh", "h-min": "vh", "h": "vh");
 
-@each $i in $a-iterate-list {
+@each $i in settings.$a-iterate-list {
   @each $width-height-type, $width-height-property in $a-width-height-types {
-    .#{$uiA}-#{$width-height-type}-#{$i} {
-      #{$width-height-property}: #{px($i)}#{$a-important};
+    .#{block-name.$uiA}-#{$width-height-type}-#{$i} {
+      #{$width-height-property}: #{px.px($i)}#{settings.$a-important};
     }
     @if $i > 0 and $i < 101 {
-      .#{$uiA}-#{$width-height-type}-#{$i}\% {
-        #{$width-height-property}: #{$i}#{'%'}#{$a-important};
+      .#{block-name.$uiA}-#{$width-height-type}-#{$i}\% {
+        #{$width-height-property}: #{$i}#{'%'}#{settings.$a-important};
       }
-      .#{$uiA}-#{$width-height-type}-#{$i}#{map-get($a-view-port-units, $width-height-type)} {
-        #{$width-height-property}: #{$i}#{map-get($a-view-port-units, $width-height-type)}#{$a-important};
+      .#{block-name.$uiA}-#{$width-height-type}-#{$i}#{map.get($a-view-port-units, $width-height-type)} {
+        #{$width-height-property}: #{$i}#{map.get($a-view-port-units, $width-height-type)}#{settings.$a-important};
       }
     }
   }
 }
 
 @each $width-height-type, $width-height-property in $a-width-height-types {
-  .#{$uiA}-#{$width-height-type}-auto {
-    #{$width-height-property}: unquote("#{if($width-height-type == "w-max" or $width-height-type == "h-max", none, auto)}#{$a-important}");
+  .#{block-name.$uiA}-#{$width-height-type}-auto {
+    #{$width-height-property}: string.unquote("#{if($width-height-type == "w-max" or $width-height-type == "h-max", none, auto)}#{settings.$a-important}");
   }
 }

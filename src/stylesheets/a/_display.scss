@@ -1,3 +1,6 @@
+@use "../from-dictionary/block-name/block-name";
+@use "settings/settings";
+
 $a-display-properties: (
   "-f": "flex",
   "-f-inline": "inline-flex",
@@ -14,7 +17,7 @@ $a-display-properties: (
 );
 
 @each $display-property-shorthand, $display-property in $a-display-properties {
-  .#{$uiA}#{$display-property-shorthand} {
-    display: #{$display-property}#{$a-important};
+  .#{block-name.$uiA}#{$display-property-shorthand} {
+    display: #{$display-property}#{settings.$a-important};
   }
 }

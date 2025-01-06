@@ -1,3 +1,14 @@
+@use "sass:color";
+@use "sass:map";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/block/button";
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/functions/color-cp";
+@use "../../utils/functions/em";
+@use "../../utils/functions/map-deep-get";
+@use "../../utils/mixin";
+
 // Button
 //
 // Weight: 1120
@@ -6,7 +17,7 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{$uiButton} {
+.#{block-name.$uiButton} {
 
   @keyframes button-loader-spin {
     from {
@@ -19,58 +30,58 @@
 
   $this: &;
 
-  $button--default-font-size: $a-default-font-size;
-  $button--height-default: em(35px, $button--default-font-size);
-  $button--height-small: em(25px, $button--default-font-size);
-  $button--height-xsmall: em(18px, $button--default-font-size);
-  $button--height-large: em(45px, $button--default-font-size);
+  $button--default-font-size: settings.$a-default-font-size;
+  $button--height-default: em.em(35px, $button--default-font-size);
+  $button--height-small: em.em(25px, $button--default-font-size);
+  $button--height-xsmall: em.em(18px, $button--default-font-size);
+  $button--height-large: em.em(45px, $button--default-font-size);
 
   $button--hover-color-map: (
-    color("brand-primary-alt"): darken(color("brand-primary-alt"), 7%),
-    color("viking-blue"): darken(color("viking-blue"), 7%),
-    color("green"): darken(color("green"), 5%),
-    color("red"): darken(color("red"), 5%),
-    color("white"): color("light-gray")
+    functions-color.color("brand-primary-alt"): color.adjust(functions-color.color("brand-primary-alt"), $lightness: -7%),
+    functions-color.color("viking-blue"): color.adjust(functions-color.color("viking-blue"), $lightness: -7%),
+    functions-color.color("green"): color.adjust(functions-color.color("green"), $lightness: -5%),
+    functions-color.color("red"): color.adjust(functions-color.color("red"), $lightness: -5%),
+    functions-color.color("white"): functions-color.color("light-gray")
   );
 
   $button--active-color-map: (
-    color("brand-primary-alt"): lighten(color("brand-primary-alt"), 5%),
-    color("viking-blue"): saturate(color("viking-blue"), 25%),
-    color("green"): saturate(color("green"), 25%),
-    color("red"): saturate(color("red"), 25%),
-    color("white"): lighten(color("pale-blue"), 3%)
+    functions-color.color("brand-primary-alt"): color.adjust(functions-color.color("brand-primary-alt"), $lightness: 5%),
+    functions-color.color("viking-blue"): color.adjust(functions-color.color("viking-blue"), $saturation: 25%),
+    functions-color.color("green"): color.adjust(functions-color.color("green"), $saturation: 25%),
+    functions-color.color("red"): color.adjust(functions-color.color("red"), $saturation: 25%),
+    functions-color.color("white"): color.adjust(functions-color.color("pale-blue"), $lightness: 3%)
   );
 
   $button--border-color-map: (
-    color("brand-primary-alt"): darken(color("brand-primary-alt"), 10%),
-    color("viking-blue"): darken(color("viking-blue"), 10%),
-    color("green"): darken(color("green"), 10%),
-    color("red"): darken(color("red"), 10%),
-    color("white"): color("plain-gray")
+    functions-color.color("brand-primary-alt"): color.adjust(functions-color.color("brand-primary-alt"), $lightness: -10%),
+    functions-color.color("viking-blue"): color.adjust(functions-color.color("viking-blue"), $lightness: -10%),
+    functions-color.color("green"): color.adjust(functions-color.color("green"), $lightness: -10%),
+    functions-color.color("red"): color.adjust(functions-color.color("red"), $lightness: -10%),
+    functions-color.color("white"): functions-color.color("plain-gray")
   );
 
   $button--focus-border-color-map: (
-    color("brand-primary-alt"): map-get($button--border-color-map, color("brand-primary-alt")),
-    color("viking-blue"): map-get($button--border-color-map, color("viking-blue")),
-    color("green"): map-get($button--border-color-map, color("green")),
-    color("red"): map-get($button--border-color-map, color("red")),
-    color("white"): $a-color-focus
+    functions-color.color("brand-primary-alt"): map.get($button--border-color-map, functions-color.color("brand-primary-alt")),
+    functions-color.color("viking-blue"): map.get($button--border-color-map, functions-color.color("viking-blue")),
+    functions-color.color("green"): map.get($button--border-color-map, functions-color.color("green")),
+    functions-color.color("red"): map.get($button--border-color-map, functions-color.color("red")),
+    functions-color.color("white"): settings.$a-color-focus
   );
 
   $button--focus-shadow-color-map: (
-    color("brand-primary-alt"): color("white"),
-    color("viking-blue"): color("white"),
-    color("green"): color("white"),
-    color("red"): color("white"),
-    color("white"): $a-color-focus
+    functions-color.color("brand-primary-alt"): functions-color.color("white"),
+    functions-color.color("viking-blue"): functions-color.color("white"),
+    functions-color.color("green"): functions-color.color("white"),
+    functions-color.color("red"): functions-color.color("white"),
+    functions-color.color("white"): settings.$a-color-focus
   );
 
   $button--focus-shadow-alpha-map: (
-    color("brand-primary-alt"): 0.4,
-    color("viking-blue"): 0.6,
-    color("green"): 0.4,
-    color("red"): 0.4,
-    color("white"): 0.3
+    functions-color.color("brand-primary-alt"): 0.4,
+    functions-color.color("viking-blue"): 0.6,
+    functions-color.color("green"): 0.4,
+    functions-color.color("red"): 0.4,
+    functions-color.color("white"): 0.3
   );
 
   // $button--disable-colors-map: (
@@ -92,7 +103,7 @@
 
   @mixin make-button-state-from-token($state-fragment, $modifier, $state) {
     #{$state-fragment} > #{$this}__content {
-      $schema-color: map-deep-get($tokens-button, "button", $modifier, $state);
+      $schema-color: map-deep-get.map-deep-get(button.$tokens-button, "button", $modifier, $state);
       @each $element, $color-value in $schema-color {
         #{$element}: $color-value;
       }
@@ -118,7 +129,7 @@
       "&#{$this}--inactive": "inactive"
     );
 
-    @include a-button--clean;
+    @include mixin.a-button--clean;
 
     @each $mod, $state in $class-state-map {
       @include make-button-state-from-token($mod, $modifier, $state);
@@ -198,7 +209,7 @@
     // }
   } */
 
-  @include flex();
+  @include mixin.flex();
   align-items: center;
   padding: 0;
   cursor: pointer;
@@ -218,7 +229,7 @@
     height: $button--height-default;
     align-items: center;
     justify-content: center;
-    padding: 0 $space-normal;
+    padding: 0 settings.$space-normal;
     border: 1px solid transparent;
     border-radius: 3px;
     line-height: 1.15;
@@ -231,7 +242,7 @@
   &:focus {
     outline: none;
     & > #{$this}__content {
-      @include a--focus;
+      @include mixin.a--focus;
     }
   }
 
@@ -321,7 +332,7 @@
 
   &--muted {
     filter: grayscale(0.4);
-    border-color: color("athens-gray");
+    border-color: functions-color.color("athens-gray");
     & > #{$this}__content {
       filter: opacity(0.4) grayscale(0.8) brightness(0.9);
     }
@@ -331,7 +342,7 @@
 
   &--covered {
     // border-color: color("athens-gray");
-    border-color: color("athens-gray");
+    border-color: functions-color.color("athens-gray");
     & > #{$this}__content {
       filter: opacity(0.5) grayscale(0.3) brightness(0.9);
       background-image: linear-gradient(45deg, #ffffff 37.50%, #009fc7 37.50%, #009fc7 50%, #ffffff 50%, #ffffff 87.50%, #009fc7 87.50%, #009fc7 100%);
@@ -393,7 +404,7 @@
   // Round hover shape modifiers
 
   &--round-hover {
-    @include a-button--clean;
+    @include mixin.a-button--clean;
     & > #{$this}__content {
       min-height: $button--height-default;
       min-width: $button--height-default;
@@ -401,12 +412,12 @@
       border-radius: 50%;
       // transition: background 0.3s;
       &:hover {
-        background-color: color("white");
+        background-color: functions-color.color("white");
       }
     }
     &:focus {
       & > #{$this}__content {
-        @include a--focus;
+        @include mixin.a--focus;
       }
     }
     &#{$this}--disabled, &[disabled] {
@@ -496,7 +507,7 @@
   // Circle shape modifiers
 
   &--circle {
-    @include a-button--clean;
+    @include mixin.a-button--clean;
     border-radius: 50%;
     & > #{$this}__content {
       width: $button--height-default;
@@ -549,7 +560,7 @@
   &--large {
     & > #{$this}__content {
       height: $button--height-large;
-      padding: 0 $space-large;
+      padding: 0 settings.$space-large;
     }
     &#{$this}--round {
       & > #{$this}__content {
@@ -588,13 +599,13 @@
       top: calc(50% - 10px);
       backface-visibility: hidden;
       border-radius: 50%;
-      border: .3em solid rgba(color("light-gray"), .7);
+      border: .3em solid rgba(functions-color.color("light-gray"), .7);
       border-left-color: transparent;
       transform-origin: center center;
       animation: button-loader-spin 2s infinite linear;
     }
     &#{$this}--clean::after, &#{$this}--default::after {
-      border-color: color-cp("plain-gray");
+      border-color: color-cp.color-cp("plain-gray");
       border-left-color: transparent;
     }
     & > #{$this}__content {
@@ -613,11 +624,11 @@
     height: 20px;
     max-height: 20px;
     min-height: 20px;
-    background-color: color("plain-gray");
+    background-color: functions-color.color("plain-gray");
     border-radius: 9px;
     font-size: 11px;
     outline: none;
-    border: 1px solid color("white");
+    border: 1px solid functions-color.color("white");
   }
 
   &[disabled], &--disabled {
@@ -631,8 +642,8 @@
     &:hover:not([disabled]) {
       & > #{$this}__content {
         position: relative;
-        border-color: color("red");
-        background-color: color("white");
+        border-color: functions-color.color("red");
+        background-color: functions-color.color("white");
         color: transparent;
         &::after {
           content: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjY2MxODFlIiBkPSJNNDUzLjE2MiAyMzYuODQ1bDQyLjY1Mi00Mi42NWMyLjQwMy0yLjQwNSAyLjQwMy02LjM2MSAwLTguNzY0bC04Ljc2My04Ljc2M2MtMi40MDQtMi40MDUtNi4zNi0yLjQwNS04Ljc2MyAwbC00Mi42NTMgNDIuNjUyLTQyLjY1My00Mi42NTJjLTIuNDAzLTIuNDA1LTYuMzU5LTIuNDA1LTguNzY0IDBsLTguNzYyIDguNzYzYy0yLjQwNCAyLjQwMy0yLjQwNCA2LjM1OSAwIDguNzY0bDQyLjY1MyA0Mi42NS00Mi42NTMgNDIuNjUzYy0yLjQwNCAyLjQwNi0yLjQwNCA2LjM2IDAgOC43NjRsOC43NjIgOC43NjNjMi40MDUgMi40MDQgNi4zNjEgMi40MDQgOC43NjQgMGw0Mi42NTMtNDIuNjUzIDQyLjY1MyA0Mi42NTNjMi40MDMgMi40MDQgNi4zNTkgMi40MDQgOC43NjMgMGw4Ljc2My04Ljc2M2MyLjQwMy0yLjQwNCAyLjQwMy02LjM1OCAwLTguNzY0bC00Mi42NTItNDIuNjUzem0tMjc4LjA5NiAxMi40MDljNTQuODI4IDAgOTkuMjY1LTQ0LjQzNiA5OS4yNjUtOTkuMjY0IDAtNTQuODI4LTQ0LjQzNy05OS4yNjQtOTkuMjY1LTk5LjI2NC01NC44MjcgMC05OS4yNjQgNDQuNDM2LTk5LjI2NCA5OS4yNjQgMCA1NC44MjggNDQuNDM3IDk5LjI2NCA5OS4yNjQgOTkuMjY0em0wLTE3My43MTFjNDEuMDI1IDAgNzQuNDQ4IDMzLjQyNCA3NC40NDggNzQuNDQ3IDAgNDEuMDI1LTMzLjQyMyA3NC40NDktNzQuNDQ4IDc0LjQ0OS00MS4wMjQgMC03NC40NDgtMzMuNDI0LTc0LjQ0OC03NC40NDkgMC00MS4wMjMgMzMuNDI0LTc0LjQ0NyA3NC40NDgtNzQuNDQ3em02OS40ODUgMTk4LjUyOGMtMjIuMjU3IDAtMzIuOTU4IDEyLjQwNy02OS40ODUgMTIuNDA3cy00Ny4xNS0xMi40MDctNjkuNDg1LTEyLjQwN2MtNTcuNTQxIDAtMTA0LjIyNyA0Ni42ODQtMTA0LjIyNyAxMDQuMjI3djMyLjI2MWMwIDIwLjU1MSAxNi42NzIgMzcuMjI0IDM3LjIyMyAzNy4yMjRoMjcyLjk3N2MyMC41NTEgMCAzNy4yMjUtMTYuNjczIDM3LjIyNS0zNy4yMjR2LTMyLjI2MWMwLTU3LjU0My00Ni42ODYtMTA0LjIyNy0xMDQuMjI4LTEwNC4yMjd6bTc5LjQxMiAxMzYuNDg4YzAgNi44MjUtNS41ODQgMTIuNDA5LTEyLjQwOSAxMi40MDlIMzguNTc3Yy02LjgyMyAwLTEyLjQwNy01LjU4NC0xMi40MDctMTIuNDA5di0zMi4yNjFjMC00My44MTYgMzUuNTk2LTc5LjQxMiA3OS40MTEtNzkuNDEyIDE1LjIgMCAzMC4zMjEgMTIuNDA5IDY5LjQ4NSAxMi40MDkgMzkuMDg2IDAgNTQuMjg2LTEyLjQwOSA2OS40ODUtMTIuNDA5IDQzLjgxNiAwIDc5LjQxMiAzNS41OTYgNzkuNDEyIDc5LjQxMnYzMi4yNjF6Ii8+PC9zdmc+");
@@ -644,8 +655,8 @@
           padding: 12%;
           right: 0;
           top: 0;
-          color: color("red");
-          background-color: color("white");
+          color: functions-color.color("red");
+          background-color: functions-color.color("white");
           border: 1px solid transparent;
         }
       }
@@ -656,10 +667,10 @@
     &:focus:not([disabled]) {
       & > #{$this}__content {
         &::after {
-          @include a--focus(
+          @include mixin.a--focus(
             true,
-            lighten(color("red"), 38%),
-            lighten(color("red"), 40%),
+            color.adjust(functions-color.color("red"), $lightness: 38%),
+            color.adjust(functions-color.color("red"), $lightness: 40%),
             0.4
           );
         }
@@ -668,7 +679,7 @@
     &:active:not([disabled]), &:active:focus:not([disabled]) {
       & > #{$this}__content {
         &::after {
-          background-color: lighten(color("red"), 40%)
+          background-color: color.adjust(functions-color.color("red"), $lightness: 40%)
         }
       }
     }

@@ -1,3 +1,10 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/functions/color-cp";
+@use "../../utils/functions/encodecolor";
+
 // Badge
 //
 // Weight: 1280
@@ -6,22 +13,22 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{$uiBadge} {
+.#{block-name.$uiBadge} {
 
   $this: &;
 
-  $badge--default-font-size: $a-default-font-size - 2;
+  $badge--default-font-size: settings.$a-default-font-size - 2;
   $badge--height-default: 25px;
   $badge--height-small: 20px;
   $badge--height-xsmall: 15px;
   $badge--height-large: 30px;
   $badge--height-xlarge: 35px;
 
-  @function svg-badge($color: color("white")) {
-    @return url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' %3E%3Cpath fill='#{encodecolor($color)}' d='M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z' %3E%3C/path%3E%3C/svg%3E");
+  @function svg-badge($color: functions-color.color("white")) {
+    @return url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' %3E%3Cpath fill='#{encodecolor.encodecolor($color)}' d='M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z' %3E%3C/path%3E%3C/svg%3E");
   }
 
-  @mixin badge__make-tag($text-color: color("white")) {
+  @mixin badge__make-tag($text-color: functions-color.color("white")) {
     height: $badge--height-small;
     font-size: $badge--default-font-size;
     border-radius: 3px;
@@ -29,7 +36,7 @@
     padding: 0 6px 0 23px;
     line-height: 1;
     // color: $text-color;
-    border: 1px solid color-cp("plain-gray");
+    border: 1px solid color-cp.color-cp("plain-gray");
     &::after {
       content: "";
       mask-image: svg-badge();
@@ -49,7 +56,7 @@
     }
   }
 
-  @mixin counter_make($text-color: color("white"), $bg-color: desaturate(lighten(color("brand-primary"), 25%), 50%)) {
+  @mixin counter_make($text-color: functions-color.color("white"), $bg-color: color.adjust(color.adjust(functions-color.color("brand-primary"), $lightness: 25%), $saturation: -50%)) {
     height: $badge--height-xsmall;
     font-size: $badge--default-font-size;
     font-weight: normal;
@@ -62,8 +69,8 @@
     background-color: $bg-color;
   }
 
-  @mixin badge__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
-    $border-color: if($bg-color == color("white"), color("plain-gray"), $bg-color);
+  @mixin badge__make-container-color($bg-color: functions-color.color("brand-primary-alt"), $text-color: functions-color.color("white")) {
+    $border-color: if($bg-color == functions-color.color("white"), functions-color.color("plain-gray"), $bg-color);
     background-color: $bg-color;
     color: $text-color;
     border: 1px solid $border-color;
@@ -79,7 +86,7 @@
   line-height: normal;
   white-space: nowrap;
 
-  @include badge__make-container-color(color("white"), color("default"));
+  @include badge__make-container-color(functions-color.color("white"), functions-color.color("default"));
 
   &--data {
     font-size: 13px;
@@ -91,42 +98,42 @@
   }
 
   &--info {
-    @include badge__make-container-color(color("viking-blue"), color("white"));
+    @include badge__make-container-color(functions-color.color("viking-blue"), functions-color.color("white"));
   }
 
   &--ok {
-    @include badge__make-container-color(color("green"), color("white"));
+    @include badge__make-container-color(functions-color.color("green"), functions-color.color("white"));
   }
 
   &--error {
-    @include badge__make-container-color(color("rose"), color("white"));
+    @include badge__make-container-color(functions-color.color("rose"), functions-color.color("white"));
   }
 
   &--warning {
-    @include badge__make-container-color(color("overdue"), color("white"));
+    @include badge__make-container-color(functions-color.color("overdue"), functions-color.color("white"));
   }
 
   &--status {
     &-pending {
-      @include badge__make-container-color(color("status-pending"), color("white"));
+      @include badge__make-container-color(functions-color.color("status-pending"), functions-color.color("white"));
     }
     &-on-track {
-      @include badge__make-container-color(color("on-track"), color("white"));
+      @include badge__make-container-color(functions-color.color("on-track"), functions-color.color("white"));
     }
     &-minor-disruption {
-      @include badge__make-container-color(color("minor-disruption"), color("default"));
+      @include badge__make-container-color(functions-color.color("minor-disruption"), functions-color.color("default"));
     }
     &-major-disruption {
-      @include badge__make-container-color(color("major-disruption"), color("white"));
+      @include badge__make-container-color(functions-color.color("major-disruption"), functions-color.color("white"));
     }
     &-upcoming {
-      @include badge__make-container-color(color("upcoming"), color("white"));
+      @include badge__make-container-color(functions-color.color("upcoming"), functions-color.color("white"));
     }
     &-discontinued {
-      @include badge__make-container-color(color("discontinued"), color("white"));
+      @include badge__make-container-color(functions-color.color("discontinued"), functions-color.color("white"));
     }
     &-completed {
-      @include badge__make-container-color(color("completed"), color("white"));
+      @include badge__make-container-color(functions-color.color("completed"), functions-color.color("white"));
     }
   }
 
@@ -169,9 +176,9 @@
   }
 
   &--large {
-    font-size: $a-default-font-size;
+    font-size: settings.$a-default-font-size;
     height: $badge--height-large;
-    padding: 0 $space-large;
+    padding: 0 settings.$space-large;
 
     &#{$this}--round {
         border-radius: $badge--height-large / 2;
@@ -185,9 +192,9 @@
   }
 
   &--xlarge {
-    font-size: $a-default-font-size;
+    font-size: settings.$a-default-font-size;
     height: $badge--height-xlarge;
-    padding: 0 $space-large;
+    padding: 0 settings.$space-large;
 
     &#{$this}--round {
         border-radius: $badge--height-xlarge / 2;
@@ -217,7 +224,7 @@
   }
 
   &--counter-light {
-    @include counter_make(color("gray"), color("gray-white"))
+    @include counter_make(functions-color.color("gray"), functions-color.color("gray-white"))
   }
 }
 

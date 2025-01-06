@@ -1,3 +1,11 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color" as color-color;
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/functions/color-cp";
+@use "../../utils/mixin";
+
 // Button Switch
 //
 // Weight: 1130
@@ -6,7 +14,7 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{$uiButtonSwitch} {
+.#{block-name.$uiButtonSwitch} {
 
   $this: &;
   $this-button-padding: 10px;
@@ -14,51 +22,51 @@
   $this-button-height: 35px;
   $this-button-height-small: 25px;
 
-  $switch-button-selected-light-blue-bg-color: color-cp("viking-blue");
-  $switch-button-selected-light-blue-outline-color: color-cp("viking-blue-darken-12");
+  $switch-button-selected-light-blue-bg-color: color-cp.color-cp("viking-blue");
+  $switch-button-selected-light-blue-outline-color: color-cp.color-cp("viking-blue-darken-12");
 
 
-  @include flex(stretch);
+  @include mixin.flex(stretch);
   height: $this-button-height;
 
 
   &__button {
-    background-color: $white;
+    background-color: color-color.$white;
     padding-left: $this-button-padding;
     padding-right: $this-button-padding;
-    border: $switch-button-border;
+    border: settings.$switch-button-border;
     border-right: 0;
     line-height: normal;
     cursor: pointer;
     text-decoration: none;
     &:first-child {
-      border-top-left-radius: $switch-button-radius;
-      border-bottom-left-radius: $switch-button-radius;
+      border-top-left-radius: settings.$switch-button-radius;
+      border-bottom-left-radius: settings.$switch-button-radius;
       &#{$this}__button--active {
-        border-left-color: darken($switch-button-selected-bg-color, 5%);
+        border-left-color: color.adjust(settings.$switch-button-selected-bg-color, $lightness: -5%);
       }
     }
     &:last-child {
-      border-top-right-radius: $switch-button-radius;
-      border-bottom-right-radius: $switch-button-radius;
-      border-right: $switch-button-border;
+      border-top-right-radius: settings.$switch-button-radius;
+      border-bottom-right-radius: settings.$switch-button-radius;
+      border-right: settings.$switch-button-border;
       &#{$this}__button--active {
-        border-right-color: darken($switch-button-selected-bg-color, 5%);
+        border-right-color: color.adjust(settings.$switch-button-selected-bg-color, $lightness: -5%);
       }
     }
     &:hover:not(:disabled, #{$this}__button--inactive) {
-      background-color: color("light-gray");
+      background-color: functions-color.color("light-gray");
     }
     &:active:not(:disabled, #{$this}__button--inactive) {
-      background-color: lighten(color("pale-blue"), 3%);
+      background-color: color.adjust(functions-color.color("pale-blue"), $lightness: 3%);
     }
     &:disabled {
       cursor: default;
-      color: color("plain-gray");
+      color: functions-color.color("plain-gray");
       box-shadow: none;
     }
     &:focus {
-      @include a--focus;
+      @include mixin.a--focus;
       border-right-width: 0;
     }
     &:focus:last-child {
@@ -66,14 +74,14 @@
     }
     @at-root a#{$this}__button--active,
     &--active {
-      background-color: $switch-button-selected-bg-color;
-      color: $white;
+      background-color: settings.$switch-button-selected-bg-color;
+      color: color-color.$white;
       transition: background 0.5s;
       cursor: default;
-      border-top-color: darken($switch-button-selected-bg-color, 5%);
-      border-bottom-color: darken($switch-button-selected-bg-color, 5%);
+      border-top-color: color.adjust(settings.$switch-button-selected-bg-color, $lightness: -5%);
+      border-bottom-color: color.adjust(settings.$switch-button-selected-bg-color, $lightness: -5%);
       &:hover:not(:disabled) {
-        background-color: $switch-button-selected-bg-color;
+        background-color: settings.$switch-button-selected-bg-color;
         // background-color: darken($switch-button-selected-bg-color, 5%);
       }
     }
@@ -123,12 +131,12 @@
     }
   }
 
-  &--#{$class-disabled} {
+  &--#{settings.$class-disabled} {
     pointer-events: none;
     #{$this}__button {
       cursor: default;
-      color: color("plain-gray");
-      opacity: $switch-button-selected-disabled-opacity;
+      color: functions-color.color("plain-gray");
+      opacity: settings.$switch-button-selected-disabled-opacity;
       box-shadow: none;
     }
   }

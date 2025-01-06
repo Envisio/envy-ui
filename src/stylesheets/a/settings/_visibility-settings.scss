@@ -1,15 +1,18 @@
+@use "sass:string";
+@use "settings";
+
 @mixin a-opacity($i: 5) {
-  opacity: unquote("#{$i / 10}#{$a-important}");
+  opacity: string.unquote("#{$i / 10}#{settings.$a-important}");
 }
 
 $a-overflows: visible, hidden, scroll, auto;
 
 @mixin a-overflow($i: visible) {
-  overflow: unquote("#{$i}#{$a-important}");
+  overflow: string.unquote("#{$i}#{settings.$a-important}");
 }
 
 $a-visibilities: visible, hidden, collapse;
 
 @mixin a-visibility($i: visible) {
-  visibility: unquote("#{$i}#{$a-important}");
+  visibility: string.unquote("#{$i}#{settings.$a-important}");
 }

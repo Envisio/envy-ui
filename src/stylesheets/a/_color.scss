@@ -1,30 +1,36 @@
-@each $color-name, $color-value in $a-color {
-  .#{$uiA}-color-#{"" + $color-name} {
-    color: unquote("#{$color-value}#{$a-important}");
+@use "sass:string";
+@use "../from-dictionary/block-name/block-name";
+@use "../from-dictionary/color/color-map";
+@use "../utils/functions/color";
+@use "settings/settings";
+
+@each $color-name, $color-value in color-map.$a-color {
+  .#{block-name.$uiA}-color-#{"" + $color-name} {
+    color: string.unquote("#{$color-value}#{settings.$a-important}");
   }
 
-  .#{$uiA}-color-hover-#{"" + $color-name}:hover {
-    color: unquote("#{$color-value}#{$a-important}");
+  .#{block-name.$uiA}-color-hover-#{"" + $color-name}:hover {
+    color: string.unquote("#{$color-value}#{settings.$a-important}");
   }
 
-  .#{$uiA}-color-bg-#{"" + $color-name} {
-    background-color: unquote("#{$color-value}#{$a-important}");
+  .#{block-name.$uiA}-color-bg-#{"" + $color-name} {
+    background-color: string.unquote("#{$color-value}#{settings.$a-important}");
   }
 
-  .#{$uiA}-color-bg-hover-#{"" + $color-name}:hover {
-    background-color: unquote("#{$color-value}#{$a-important}");
+  .#{block-name.$uiA}-color-bg-hover-#{"" + $color-name}:hover {
+    background-color: string.unquote("#{$color-value}#{settings.$a-important}");
   }
 }
 
-.#{$uiA}-color-inherit {
-  color: unquote("inherit#{$a-important}");
+.#{block-name.$uiA}-color-inherit {
+  color: string.unquote("inherit#{settings.$a-important}");
 }
 
-.#{$uiA}-color-bg-inherit {
-  background-color: unquote("inherit#{$a-important}");
+.#{block-name.$uiA}-color-bg-inherit {
+  background-color: string.unquote("inherit#{settings.$a-important}");
 }
 
-.#{$uiA}-color-bg-gallery-50\% {
-  background-image: linear-gradient(45deg, color("gallery") 25%, #ffffff 25%, #ffffff 50%, color("gallery") 50%, color("gallery") 75%, #ffffff 75%, #ffffff 100%);
+.#{block-name.$uiA}-color-bg-gallery-50\% {
+  background-image: linear-gradient(45deg, color.color("gallery") 25%, #ffffff 25%, #ffffff 50%, color.color("gallery") 50%, color.color("gallery") 75%, #ffffff 75%, #ffffff 100%);
   background-size: 2.83px 2.83px;
 }

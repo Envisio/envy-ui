@@ -1,3 +1,8 @@
+@use "sass-true/sass/assert";
+@use "sass-true/sass/module";
+@use "sass-true/sass/test";
+@use "map-deep-get";
+
 $test-map: (
   "test-foo": (
     "test-bar": (
@@ -18,16 +23,16 @@ $test-banana: (
   color: red
 );
 
-@include test-module('The [map-deep-get] function') {
-  @include test('returns correct deep map value 1') {
-    @include assert-equal(
-      map-deep-get($test-map, "test-foo", "test-bar"),
+@include module.test-module('The [map-deep-get] function') {
+  @include test.test('returns correct deep map value 1') {
+    @include assert.assert-equal(
+      map-deep-get.map-deep-get($test-map, "test-foo", "test-bar"),
       $test-bar
     );
   }
-  @include test('returns correct deep map value 1') {
-    @include assert-equal(
-      map-deep-get($test-map, "test-foo", "test-bar", "test-banana"),
+  @include test.test('returns correct deep map value 1') {
+    @include assert.assert-equal(
+      map-deep-get.map-deep-get($test-map, "test-foo", "test-bar", "test-banana"),
       $test-banana
     );
   }

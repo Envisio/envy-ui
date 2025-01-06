@@ -1,10 +1,14 @@
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color-default";
+@use "../../utils/functions/color-cp";
+
 // Connector
 //
 // Weight: 1290
 //
 // Styleguide Connector
 
-.#{$uiConnector} {
+.#{block-name.$uiConnector} {
 
   $this: &;
 
@@ -18,7 +22,7 @@
     max-height: 1px;
     width: 100%;
     position: absolute;
-    border-top: 1px solid $color-default-border;
+    border-top: 1px solid color-default.$color-default-border;
   }
 
   &::after {
@@ -29,7 +33,7 @@
     position: absolute;
     left: 0;
     top: -15px;
-    border-left: 1px solid $color-default-border;
+    border-left: 1px solid color-default.$color-default-border;
   }
 
   &--l-top::after {
@@ -105,10 +109,10 @@
   }
   &--light {
     &::before {
-      border-top: 1px dotted color-cp("cornflower-blue");
+      border-top: 1px dotted color-cp.color-cp("cornflower-blue");
     }
     &::after {
-      border-left: 1px dotted color-cp("cornflower-blue");
+      border-left: 1px dotted color-cp.color-cp("cornflower-blue");
     }
   }
 

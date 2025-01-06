@@ -1,10 +1,11 @@
+@use "sass:math";
 @function em($pixels, $base: 14) {
 
-  @if (unitless($pixels)) {
+  @if (math.is-unitless($pixels)) {
     $pixels: $pixels * 1px;
   }
 
-  @if (unitless($base)) {
+  @if (math.is-unitless($base)) {
     $base: $base * 1px;
   }
 

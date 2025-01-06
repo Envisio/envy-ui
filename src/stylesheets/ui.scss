@@ -1,44 +1,44 @@
 
 // sass-true testing
-@import 'sass-true/sass/_true.scss';
+@use 'sass-true/sass/report';
 
 // Blocks Names
-@import 'from-dictionary/block-name/block-name';
+@use 'from-dictionary/block-name/block-name';
 
 // Tokens based variables
-@import 'from-dictionary/shape/shape';
-@import 'from-dictionary/z/z';
-@import 'from-dictionary/color/color';
-@import 'from-dictionary/color/color-map';
-@import 'from-dictionary/color/color-default';
-@import 'custom-properties/custom-properties';
+@use 'from-dictionary/shape/shape';
+@use 'from-dictionary/z/z';
+@use 'from-dictionary/color/color';
+@use 'from-dictionary/color/color-map';
+@use 'from-dictionary/color/color-default';
+@use 'custom-properties/custom-properties';
 // @import 'from-dictionary/color/color-kss';
-@import 'from-dictionary/block/button';
+@use 'from-dictionary/block/button';
 
-@import 'utils/functions';
-@import 'utils/functions-specs';
+@use 'utils/functions';
+@use 'utils/functions-specs';
 
 // Initial setting
-@import 'a/settings/settings';
+@use 'a/settings/settings';
 
 /* Utils */
-@import 'utils/variables';
-@import 'utils/mixin';
+@use 'utils/variables';
+@use 'utils/mixin';
 
 /* Debug */
-@import 'utils/debug';
+@use 'utils/debug';
 
 // @import 'a/settings/color-settings';
-@import 'a/settings/filter-settings';
-@import 'a/settings/visibility-settings';
+@use 'a/settings/filter-settings';
+@use 'a/settings/visibility-settings';
 // @import 'a/settings/border-settings';
 
 /* Reset */
-@import 'reset/index';
+@use 'reset/index';
 
 // 3rd party
 /* stylelint-disable */
-@import 'overlayscrollbars/css/OverlayScrollbars';
+@use 'overlayscrollbars/css/OverlayScrollbars';
 /* stylelint-enable */
 
 /* Blocks */
@@ -81,7 +81,7 @@
 // Third party lib elements styling
 // @import 'blocks/autosize-input';
 
-@import 'from-dictionary/block-name/block-name-imports';
+@use 'from-dictionary/block-name/block-name-imports';
 
 /* Abstracts */
 // .a {
@@ -89,7 +89,7 @@
 // }
 
 /* Overwrites */
-@import 'overwrite/overwrite';
-@import 'overwrite/overwrite-fr';
+@use 'overwrite/overwrite';
+@use 'overwrite/overwrite-fr';
 // @import 'overwrite/overwrite-pa';
 // @import 'overwrite/overwrite-pl';

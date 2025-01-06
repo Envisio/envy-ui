@@ -1,3 +1,11 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color" as color-color;
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/functions/color-cp";
+@use "../../utils/mixin";
+
 // Table
 //
 // Weight: 1200
@@ -14,29 +22,29 @@
   100% {opacity: 1; }
 }
 
-.#{$uiTable} {
+.#{block-name.$uiTable} {
 
   $this: &;
 
-  @include flex(column);
+  @include mixin.flex(column);
 
   &__header {
     height: 50px;
-    @include flex();
+    @include mixin.flex();
     flex: 0 0 50px;
-    background-color: color("alabaster");
+    background-color: functions-color.color("alabaster");
     padding: 5px 0;
-    border-top: $panel-border;
-    border-bottom: $panel-border;
+    border-top: settings.$panel-border;
+    border-bottom: settings.$panel-border;
     overflow: hidden;
   }
 
   &__subheader {
-    @include flex();
+    @include mixin.flex();
     flex: 0 0 auto;
-    background-color: color("pale-gray");
+    background-color: functions-color.color("pale-gray");
     padding: 5px 0;
-    border-bottom: $panel-border;
+    border-bottom: settings.$panel-border;
     overflow: hidden;
   }
 
@@ -71,7 +79,7 @@
           height: 0;
           border-top: 5px solid transparent;
           border-bottom: 5px solid transparent;
-          border-right: 5px solid $plain-gray;
+          border-right: 5px solid color-color.$plain-gray;
           position: absolute;
           top: 15px;
           right:12px;
@@ -82,7 +90,7 @@
 
   &__cell {
     // border: 1px solid #999999;
-    @include flex(a-center);
+    @include mixin.flex(a-center);
     height: 100%;
     background-color: inherit;
     overflow: hidden;
@@ -109,8 +117,8 @@
   }
 
   &__row {
-    @include flex();
-    border-bottom: $panel-border;
+    @include mixin.flex();
+    border-bottom: settings.$panel-border;
     height: 40px;
     flex: 0 0 40px;
     overflow: hidden;
@@ -125,10 +133,10 @@
       }
     }
     &:hover {
-      background-color: color-cp("paint-gray");
+      background-color: color-cp.color-cp("paint-gray");
     }
     &--active {
-      background-color: lighten(color("pale-blue"), 3%);
+      background-color: color.adjust(functions-color.color("pale-blue"), $lightness: 3%);
     }
   }
 }

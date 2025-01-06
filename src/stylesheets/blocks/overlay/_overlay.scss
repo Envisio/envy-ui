@@ -1,16 +1,19 @@
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/functions/color";
+
 // Overlay
 //
 // Weight: 1235
 //
 // Styleguide Overlay
 
-.#{$uiOverlay} {
+.#{block-name.$uiOverlay} {
 
   $this: &;
   position: relative;
 
   > #{$this}__cover {
-    background-color: rgba(color("black"), .4);
+    background-color: rgba(color.color("black"), .4);
     position: absolute;
     left: 0;
     top:0;
@@ -30,7 +33,7 @@
 
   &--dark {
     > #{$this}__cover {
-      background-color: rgba(color("black"), .6);
+      background-color: rgba(color.color("black"), .6);
     }
   }
 

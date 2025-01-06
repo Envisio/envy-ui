@@ -1,3 +1,7 @@
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/mixin";
+
 // Form
 //
 // Weight: 1210
@@ -6,12 +10,12 @@
 //
 // Styleguide Form
 
-.#{$uiForm} {
+.#{block-name.$uiForm} {
 
   $this: &;
-  font-size: $folder-menu-root-text-size1;
+  font-size: settings.$folder-menu-root-text-size1;
 
-  @include flex(stretch);
+  @include mixin.flex(stretch);
   // margin-top: $panel-main-padding;
   // margin-bottom: $panel-main-padding;
   // height: calc(100% - #{$panel-main-padding * 2});
@@ -21,7 +25,7 @@
       content: "";
       align-self: stretch;
       margin: 0 30px;
-      border-left: $panel-border;
+      border-left: settings.$panel-border;
       order: 1;
     }
   }
@@ -31,7 +35,7 @@
   }
 
   &__column {
-    @include flex(column);
+    @include mixin.flex(column);
     flex: 1 1 auto;
     @each $number in (0, 2, 5) {
       &:nth-child(n+#{$number}) {

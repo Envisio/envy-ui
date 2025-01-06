@@ -1,7 +1,11 @@
+@use "sass:map";
+@use "sass:meta";
+@use "../../from-dictionary/color/color-map";
+
 @function color($color-name) {
-  @if map-has-key($a-color, $color-name) {
-    $color: map-get($a-color, $color-name);
-    @if type-of($color) == color {
+  @if map.has-key(color-map.$a-color, $color-name) {
+    $color: map.get(color-map.$a-color, $color-name);
+    @if meta.type-of($color) == color {
       @return $color;
     } @else {
       @error "Invalid color in color settings file: #{$color-name}";

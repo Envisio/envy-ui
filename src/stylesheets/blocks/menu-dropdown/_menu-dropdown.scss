@@ -1,3 +1,9 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color" as color-color;
+@use "../../utils/mixin";
+
 // Menu Dropdown
 //
 // Weight: 1250
@@ -6,7 +12,7 @@
 //
 // Styleguide Menu Dropdown
 
-.#{$uiMenuDropdown} {
+.#{block-name.$uiMenuDropdown} {
 
   $this: &;
 
@@ -14,7 +20,7 @@
   position: relative;
   z-index: 0;
   display: inline-block;
-  font-size: $a-default-font-size;
+  font-size: settings.$a-default-font-size;
 
   &__button-content {
     flex: 1 1 auto;
@@ -26,7 +32,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 $space-normal;
+    padding: 0 settings.$space-normal;
     border: 1px solid transparent;
     &:focus {
       outline: none;
@@ -37,9 +43,9 @@
     display: flex;
     background-color: transparent;
     border: 1px solid transparent;
-    width: $widget-menu-button-width;
-    border-radius: $border-radius-menu $border-radius-menu 0 0;
-    color: $medium-gray;
+    width: settings.$widget-menu-button-width;
+    border-radius: settings.$border-radius-menu settings.$border-radius-menu 0 0;
+    color: color-color.$medium-gray;
     padding: 0;
     // .rc-icon-container { // Eugene should fix this
     //   color: inherit;
@@ -48,20 +54,20 @@
     //   }
     // }
     &:hover {
-      color: $default;
+      color: color-color.$default;
     }
     &:focus {
       outline: none;
       & > #{$this}__button-content {
-        @include a--focus;
+        @include mixin.a--focus;
       }
     }
   }
 
-  &--#{$class-active} {
+  &--#{settings.$class-active} {
     #{$this}__button {
-      color: $widget-menu-color;
-      background-color: $widget-menu-bg-color;
+      color: settings.$widget-menu-color;
+      background-color: settings.$widget-menu-bg-color;
     }
   }
 
@@ -72,30 +78,30 @@
     right: 0;
     // bottom: 0;
     z-index: -1;
-    background-color: $widget-menu-bg-color;
-    border: 1px solid $widget-menu-bg-color;
-    border-radius: $border-radius-menu 0 $border-radius-menu $border-radius-menu;
+    background-color: settings.$widget-menu-bg-color;
+    border: 1px solid settings.$widget-menu-bg-color;
+    border-radius: settings.$border-radius-menu 0 settings.$border-radius-menu settings.$border-radius-menu;
     // padding: $widget-menu-margins/4 0;
   }
   &__item {
     display: block;
-    @include a-button--clean;
-    margin-top: $border-radius-menu;
-    margin-bottom: $border-radius-menu;
+    @include mixin.a-button--clean;
+    margin-top: settings.$border-radius-menu;
+    margin-bottom: settings.$border-radius-menu;
     width: 100%;
     text-align: left;
     white-space: nowrap;
-    color: $widget-menu-color;
+    color: settings.$widget-menu-color;
   }
   &__button-item {
     border: 1px solid transparent;
     &:hover, &:focus {
-      background-color: $widget-menu-hover-bg-color
+      background-color: settings.$widget-menu-hover-bg-color
     }
     &:focus {
-      @include a--focus;
+      @include mixin.a--focus;
     }
-    padding: $widget-menu-margins/1.5 $widget-menu-margins;
+    padding: settings.$widget-menu-margins/1.5 settings.$widget-menu-margins;
   }
 
   &--head-clean {
@@ -107,36 +113,36 @@
   &--light {
     #{$this}__button {
       // width: $widget-menu-light-button-width;
-      color: $medium-gray;
+      color: color-color.$medium-gray;
       .rc-icon-container { // Eugene should fix this
         svg {
-          @include square-icon();
+          @include mixin.square-icon();
         }
       }
       &:hover {
-        color: $default;
+        color: color-color.$default;
       }
     }
-    &#{$this}--#{$class-active} {
+    &#{$this}--#{settings.$class-active} {
       #{$this}__button {
-        color: $widget-menu-light-color;
-        background-color: $widget-menu-light-bg-color;
-        border: 1px solid darken($widget-menu-light-bg-color, 5%);
-        border-bottom-color: $widget-menu-light-bg-color;
+        color: settings.$widget-menu-light-color;
+        background-color: settings.$widget-menu-light-bg-color;
+        border: 1px solid color.adjust(settings.$widget-menu-light-bg-color, $lightness: -5%);
+        border-bottom-color: settings.$widget-menu-light-bg-color;
         z-index: 2;
       }
     }
     #{$this}__items {
-      background-color: $widget-menu-light-bg-color;
-      border: 1px solid darken($widget-menu-light-bg-color, 5%);
+      background-color: settings.$widget-menu-light-bg-color;
+      border: 1px solid color.adjust(settings.$widget-menu-light-bg-color, $lightness: -5%);
       transform: translateY(-1px);
       box-shadow: -1px 1px 0 0 rgba(0,0,0,0.1);
     }
     #{$this}__item {
-      color: lighten($widget-menu-light-color, 10%);
+      color: color.adjust(settings.$widget-menu-light-color, $lightness: 10%);
       &:hover, &:focus, &:active {
-        color: lighten($widget-menu-light-color, 5%);
-        background-color: $widget-menu-light-hover-bg-color;
+        color: color.adjust(settings.$widget-menu-light-color, $lightness: 5%);
+        background-color: settings.$widget-menu-light-hover-bg-color;
       }
     }
   }

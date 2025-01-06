@@ -1,10 +1,15 @@
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color-default";
+@use "../../utils/functions/color";
+@use "../../utils/mixin";
+
 // Range
 //
 // Weight: 1270
 //
 // Styleguide Range
 
-.#{$uiRange} {
+.#{block-name.$uiRange} {
 
   $this: &;
   display: flex;
@@ -15,7 +20,7 @@
   // $track-w: 12.5em;
   $track-h: 5px;
   $thumb-d: 15px;
-  $track-c: color("progress-bar");
+  $track-c: color.color("progress-bar");
   // $dist: $track-w - $thumb-d;
 
 @mixin track() {
@@ -25,15 +30,15 @@
   height: $track-h;
 	background: $track-c;
   border-radius: .5*$track-h;
-  border: 1px solid color("brand-primary");
+  border: 1px solid color.color("brand-primary");
 }
 
 @mixin thumb() {
 	box-sizing: border-box;
-	border: 1px solid color("white");
+	border: 1px solid color.color("white");
 	width: $thumb-d; height: $thumb-d;
 	border-radius: 50%;
-	background: color("progress-bar");;
+	background: color.color("progress-bar");;
 }
 
   input[type=range]#{$this}__range {
@@ -104,12 +109,12 @@
     &::-webkit-slider-runnable-track,
     &::-moz-range-track,
     &::-ms-track {
-      @include a--focus();
+      @include mixin.a--focus();
     }
   }
   #{$this}__label {
     flex: 0 0 auto;
-    color: $color-default-label;
+    color: color-default.$color-default-label;
     min-width: 40px;
   }
 }

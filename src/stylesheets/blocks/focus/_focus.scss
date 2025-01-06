@@ -1,10 +1,13 @@
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/mixin";
+
 // Focus
 //
 // Weight: 1340
 //
 // Styleguide Focus
 
-.#{$uiFocus} {
+.#{block-name.$uiFocus} {
 
   $this: &;
 
@@ -26,7 +29,7 @@
 
   &--outside {
     & > #{$this}__content {
-      @include a--focus;
+      @include mixin.a--focus;
     }
   }
 
@@ -36,7 +39,7 @@
       color: inherit;
       text-decoration: none;
       cursor: pointer;
-      @include a--focus;
+      @include mixin.a--focus;
     }
   }
 }

@@ -1,7 +1,10 @@
-.#{$uiA}-placeholder {
+@use "../from-dictionary/block-name/block-name";
+@use "../from-dictionary/color/color";
+
+.#{block-name.$uiA}-placeholder {
   display: block;
   height: 10px;
   width: 100%;
   max-width: 100%;
-  background: $gallery;
+  background: color.$gallery;
 }

@@ -1,10 +1,16 @@
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color-default";
+@use "../../from-dictionary/shape/shape";
+@use "../../utils/functions/color";
+@use "../../utils/mixin";
+
 // View
 //
 // Weight: 1232
 //
 // Styleguide View
 
-.#{$uiView} {
+.#{block-name.$uiView} {
 
   $this: &;
 
@@ -15,7 +21,7 @@
 
   &__header {
     position: relative;
-    border-bottom: $shape-border $color-default-border;
+    border-bottom: shape.$shape-border color-default.$color-default-border;
     display: flex;
     flex: 0 0 50px;
     height: 50px;
@@ -24,8 +30,8 @@
   }
 
   &__header-title {
-    @include a-text-ellipsis(50px);
-    color: color("brand-primary");
+    @include mixin.a-text-ellipsis(50px);
+    color: color.color("brand-primary");
     font-size: 19px;
     margin-top: 0;
     margin-bottom: 0;
@@ -56,9 +62,9 @@
    }
 
    &--darker {
-    background-color: color("gallery");
+    background-color: color.color("gallery");
     #{$this}__header-title {
-      color: color("default");
+      color: color.color("default");
     }
   }
 }

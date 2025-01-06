@@ -1,3 +1,5 @@
+@use "../from-dictionary/block-name/block-name";
+
 @keyframes burnin {
   0%   {opacity: 0.4;}
   20%  {opacity: 0.6;}
@@ -8,14 +10,14 @@
   100% {opacity: 0.4;}
 }
 
-.#{$uiA}-animate-burnin {
+.#{block-name.$uiA}-animate-burnin {
   animation-name: burnin;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(.5, 0, 1, 1);
   animation-duration: 0.7s;
 }
 
-.#{$uiA}-animate-burnin-3 {
+.#{block-name.$uiA}-animate-burnin-3 {
   animation-name: burnin;
   animation-iteration-count: 3;
   animation-timing-function: cubic-bezier(.5, 0, 1, 1);
@@ -31,22 +33,22 @@ $a-fadein-name-5: "-animate-fadein-5";
 @each $slide-down-height in $a-slide-down-heights-set {
   $a-sd-delta: $slide-down-height / 2000;
   $a-slide-max-h: max-height (0.3 + $a-sd-delta + s) ease-in, opacity (0.2 + $a-sd-delta + s) ease-in;
-  .#{$uiA+$a-sd-name+$slide-down-height}-enter, .#{$uiA+$a-sd-name+$slide-down-height}-appear {
+  .#{block-name.$uiA+$a-sd-name+$slide-down-height}-enter, .#{block-name.$uiA+$a-sd-name+$slide-down-height}-appear {
     opacity: 0;
     transition: #{$a-slide-max-h};
     max-height: 0;
     overflow: hidden;
   }
-  .#{$uiA+$a-sd-name+$slide-down-height}-enter-active, .#{$uiA+$a-sd-name+$slide-down-height}-appear-active {
+  .#{block-name.$uiA+$a-sd-name+$slide-down-height}-enter-active, .#{block-name.$uiA+$a-sd-name+$slide-down-height}-appear-active {
     opacity: 1;
     max-height: #{$slide-down-height}px;
   }
-  .#{$uiA+$a-sd-name+$slide-down-height}-exit {
+  .#{block-name.$uiA+$a-sd-name+$slide-down-height}-exit {
     opacity: 1;
     transition: #{$a-slide-max-h};
     max-height: #{$slide-down-height}px;
   }
-  .#{$uiA+$a-sd-name+$slide-down-height}-exit-active {
+  .#{block-name.$uiA+$a-sd-name+$slide-down-height}-exit-active {
     max-height: 0;
     opacity: 0;
   }
@@ -56,54 +58,54 @@ $a-popup: transform 0.2s ease-out, opacity 0.2s ease-out;
 $a-fadein: opacity 0.2s ease-out;
 $a-fadein-5: opacity 0.2s ease-out, max-height 0.15s ease-out 0.1s;
 
-.#{$uiA+$a-popup-name}-enter, .#{$uiA+$a-popup-name}-appear {
+.#{block-name.$uiA+$a-popup-name}-enter, .#{block-name.$uiA+$a-popup-name}-appear {
   opacity: 0;
   transform: scale(0.95);
 }
-.#{$uiA+$a-popup-name}-enter-active, .#{$uiA+$a-popup-name}-appear-active {
+.#{block-name.$uiA+$a-popup-name}-enter-active, .#{block-name.$uiA+$a-popup-name}-appear-active {
   opacity: 1;
   transform: scale(1);
   transition: #{$a-popup};
 }
-.#{$uiA+$a-popup-name}-exit {
+.#{block-name.$uiA+$a-popup-name}-exit {
   opacity: 1;
   transform: scale(1);
 }
-.#{$uiA+$a-popup-name}-exit-active {
+.#{block-name.$uiA+$a-popup-name}-exit-active {
   opacity: 0;
   transform: scale(0.95);
   transition: #{$a-popup};
 }
 
-.#{$uiA+$a-fadein-name}-enter, .#{$uiA+$a-fadein-name}-appear {
+.#{block-name.$uiA+$a-fadein-name}-enter, .#{block-name.$uiA+$a-fadein-name}-appear {
   opacity: 0;
 }
-.#{$uiA+$a-fadein-name}-enter-active, .#{$uiA+$a-fadein-name}-appear-active {
+.#{block-name.$uiA+$a-fadein-name}-enter-active, .#{block-name.$uiA+$a-fadein-name}-appear-active {
   opacity: 1;
   transition: #{$a-fadein};
 }
-.#{$uiA+$a-fadein-name}-exit {
+.#{block-name.$uiA+$a-fadein-name}-exit {
   opacity: 1;
 }
-.#{$uiA+$a-fadein-name}-exit-active {
+.#{block-name.$uiA+$a-fadein-name}-exit-active {
   opacity: 0;
   transition: #{$a-fadein};
 }
 
-.#{$uiA+$a-fadein-name-5}-enter, .#{$uiA+$a-fadein-name-5}-appear {
+.#{block-name.$uiA+$a-fadein-name-5}-enter, .#{block-name.$uiA+$a-fadein-name-5}-appear {
   opacity: 0;
   max-height: 0;
 }
-.#{$uiA+$a-fadein-name-5}-enter-active, .#{$uiA+$a-fadein-name-5}-appear-active {
+.#{block-name.$uiA+$a-fadein-name-5}-enter-active, .#{block-name.$uiA+$a-fadein-name-5}-appear-active {
   opacity: 1;
   max-height: 50px;
   transition: #{$a-fadein-5};
 }
-.#{$uiA+$a-fadein-name-5}-exit {
+.#{block-name.$uiA+$a-fadein-name-5}-exit {
   opacity: 1;
   max-height: 50px;
 }
-.#{$uiA+$a-fadein-name-5}-exit-active {
+.#{block-name.$uiA+$a-fadein-name-5}-exit-active {
   opacity: 0;
   max-height: 0;
   transition: #{$a-fadein-5};
@@ -118,23 +120,23 @@ $slide-in-data: (
 );
 
 @each $slide-in-direction, $slide-in-value in $slide-in-data {
-  .#{$uiA}-animate-slide-in-#{$slide-in-direction}-2-enter, .#{$uiA}-animate-slide-in-#{$slide-in-direction}-2-appear {
+  .#{block-name.$uiA}-animate-slide-in-#{$slide-in-direction}-2-enter, .#{block-name.$uiA}-animate-slide-in-#{$slide-in-direction}-2-appear {
     opacity: 0;
     transform: $slide-in-value;
   }
 
-  .#{$uiA}-animate-slide-in-#{$slide-in-direction}-2-enter-active, .#{$uiA}-animate-slide-in-#{$slide-in-direction}-2-appear-active {
+  .#{block-name.$uiA}-animate-slide-in-#{$slide-in-direction}-2-enter-active, .#{block-name.$uiA}-animate-slide-in-#{$slide-in-direction}-2-appear-active {
     opacity: 1;
     transform: translate(0);
     transition: opacity 200ms, transform 200ms;
   }
 
-  .#{$uiA}-animate-slide-in-#{$slide-in-direction}-2-exit {
+  .#{block-name.$uiA}-animate-slide-in-#{$slide-in-direction}-2-exit {
     transform: translate(0);
     opacity: 1;
   }
 
-  .#{$uiA}-animate-slide-in-#{$slide-in-direction}-2-exit-active {
+  .#{block-name.$uiA}-animate-slide-in-#{$slide-in-direction}-2-exit-active {
     opacity: 0;
     transform: $slide-in-value;
     transition: opacity 200ms, transform 200ms;

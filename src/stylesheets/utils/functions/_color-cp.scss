@@ -1,5 +1,8 @@
+@use "sass:map";
+@use "../../from-dictionary/color/color-map";
+
 @function color-cp($color-name) {
-  @if map-has-key($a-color, $color-name) {
+  @if map.has-key(color-map.$a-color, $color-name) {
     $color: var(--color-#{$color-name});
     // @if type-of($color) == color {
       @return $color;

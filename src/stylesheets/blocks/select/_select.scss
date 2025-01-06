@@ -1,28 +1,33 @@
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/functions/color";
+@use "../../utils/mixin";
+
 // Select
 //
 // Weight: 1170
 //
 // Styleguide Select
-.#{$uiSelect} {
+.#{block-name.$uiSelect} {
 
   $this: &;
 
   display: flex;
-  height: $a-default-control-height;
+  height: settings.$a-default-control-height;
   padding: 0 5px;;
-  font-size: $a-default-font-size;
-  color: color("default");
-  background-color: color("white");
+  font-size: settings.$a-default-font-size;
+  color: color.color("default");
+  background-color: color.color("white");
   background-image: none;
-  border: $a-border-input;
-  border-radius: $a-default-border-radius;
-  transition: $a-focus-transition;
+  border: settings.$a-border-input;
+  border-radius: settings.$a-default-border-radius;
+  transition: settings.$a-focus-transition;
 
   &:focus {
-    @include a--focus();
+    @include mixin.a--focus();
   }
 
-  @include a-placeholder-text();
+  @include mixin.a-placeholder-text();
 
   // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
@@ -31,13 +36,13 @@
   }
 
   &[disabled], &[readonly], &--disabled {
-    background-color: color("gallery");
+    background-color: color.color("gallery");
     opacity: 1;
   }
 
   &[disabled], &--disabled
   fieldset[disabled] & {
-    cursor: $a-cursor-disabled;
+    cursor: settings.$a-cursor-disabled;
   }
 
   &--small {
@@ -49,21 +54,21 @@
     background-color: transparent;
     padding: 0 10px;
     &:hover {
-      background-color: color("gallery");
+      background-color: color.color("gallery");
     }
     &[disabled], &[readonly], &--disabled {
       background-color: transparent;
-      color: color("plain-gray");
+      color: color.color("plain-gray");
     }
   }
 
   &--stack-left, &--stack-left:focus {
-    border-radius: $a-default-border-radius 0 0 $a-default-border-radius;
+    border-radius: settings.$a-default-border-radius 0 0 settings.$a-default-border-radius;
     border-right: 0;
   }
 
   &--stack-right, &--stack-right:focus {
-    border-radius: 0 $a-default-border-radius $a-default-border-radius 0;
+    border-radius: 0 settings.$a-default-border-radius settings.$a-default-border-radius 0;
   }
 
   &--stack, &--stack:focus {
@@ -72,9 +77,9 @@
   }
 
   &--error {
-    border-color: color("red");
+    border-color: color.color("red");
     &:focus {
-      @include a--focus(true, color("red"), color("red"), 0.2);
+      @include mixin.a--focus(true, color.color("red"), color.color("red"), 0.2);
     }
   }
 }

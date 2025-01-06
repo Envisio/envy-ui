@@ -1,34 +1,38 @@
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/mixin";
+
 // Form Row
 //
 // Weight: 1220
 //
 // Styleguide Form Row
 
-.#{$uiFormRow} {
+.#{block-name.$uiFormRow} {
 
   $this: &;
 
-  @include flex(a-center);
-  margin-bottom: $form-row-margin-bottom;
+  @include mixin.flex(a-center);
+  margin-bottom: settings.$form-row-margin-bottom;
   align-self: flex-start;
 
   &__label {
-    padding-right: $padding-small;
+    padding-right: settings.$padding-small;
     color: var(--color-default-label);
-    flex: 0 0 $base-form-label-min-width;
+    flex: 0 0 settings.$base-form-label-min-width;
     line-height: normal;
     &--long {
-      flex-basis: $base-form-label-min-width + $base-form-margin-step;
+      flex-basis: settings.$base-form-label-min-width + settings.$base-form-margin-step;
     }
     &--xlong {
-      flex-basis: $base-form-label-min-width + (2 * $base-form-margin-step);
+      flex-basis: settings.$base-form-label-min-width + (2 * settings.$base-form-margin-step);
     }
     &--short {
-      flex-basis: $base-form-label-min-width - $base-form-margin-step;
+      flex-basis: settings.$base-form-label-min-width - settings.$base-form-margin-step;
     }
     &--free {
       flex-basis: auto;
-      padding-right: $padding-normal;
+      padding-right: settings.$padding-normal;
     }
     &--disabled {
       --color-default-label: var(--color-default-label-disabled);
@@ -44,36 +48,36 @@
   }
 
   &--column {
-    @include flex(column, a-start);
+    @include mixin.flex(column, a-start);
     #{$this}__label {
     padding-right: 0;
     flex: 0 0 auto;
-    margin-bottom: $margin-small;
+    margin-bottom: settings.$margin-small;
     }
   }
 
   &--push-right {
-    padding-left: $base-form-label-min-width;
+    padding-left: settings.$base-form-label-min-width;
   }
 
   &--push-right-long {
-    padding-left: $base-form-label-min-width + $base-form-margin-step;
+    padding-left: settings.$base-form-label-min-width + settings.$base-form-margin-step;
   }
 
   &--push-right-xlong {
-    padding-left: $base-form-label-min-width + (2 * $base-form-margin-step);
+    padding-left: settings.$base-form-label-min-width + (2 * settings.$base-form-margin-step);
   }
 
   &--push-right-short {
-    padding-left: $base-form-label-min-width - $base-form-margin-step;
+    padding-left: settings.$base-form-label-min-width - settings.$base-form-margin-step;
   }
 
   &--push-down {
-    padding-top: $base-form-margin-step;
+    padding-top: settings.$base-form-margin-step;
   }
 
   &--height-fixed {
-    height: $label-fixed-height;
+    height: settings.$label-fixed-height;
   }
 
   &--no-bootstrap, &--clean {

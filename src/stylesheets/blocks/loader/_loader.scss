@@ -1,3 +1,8 @@
+@use "sass:color";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color" as color-color;
+@use "../../utils/functions/color" as functions-color;
+
 // Loader
 //
 // Weight: 1300
@@ -6,18 +11,18 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{$uiLoader} {
+.#{block-name.$uiLoader} {
 
   $this: &;
 
-  $loader-color: color("plain-gray");
+  $loader-color: functions-color.color("plain-gray");
   $preloader-font-size: 10;
 
   &--bars, &--bars::before, &--bars::after {
     // display: inline-flex;
     // align-items: center;
     background-color:$loader-color;
-    border: 1px solid darken($loader-color, 5%);
+    border: 1px solid color.adjust($loader-color, $lightness: -5%);
     // margin-right:4px;
     // margin-top: 6px;
     height: 18px;
@@ -53,7 +58,7 @@
     height:$preloader-font-size+px;
     width:$preloader-font-size+px;
     border-radius:100%;
-    background:$brand-green;
+    background:color-color.$brand-green;
     display:block;
     position: relative;
     animation:spin 2s ease infinite;
@@ -69,23 +74,23 @@
     }
     &:before{
       left:-($preloader-font-size*1.1)+px;
-      background:color("brand-gray");
+      background:functions-color.color("brand-gray");
     }
     &:after{
       left:($preloader-font-size*1.1)+px;
-      background: color("brand-blue");
+      background: functions-color.color("brand-blue");
     }
   }
 
   @keyframes loadingBar {
     0% {  transform: scaleY(1); }
-    50% { transform: scaleY(1.25); border-color:#d1d8e6; background-color:lighten($loader-color, 10%); }
+    50% { transform: scaleY(1.25); border-color:#d1d8e6; background-color:color.adjust($loader-color, $lightness: 10%); }
     100% { transform: scaleY(1); }
   }
 
   @keyframes loadingBarBA {
     0% {  transform: scaleY(1.15); }
-    50% { transform: scaleY(0.85); border-color:#d1d8e6; background-color:lighten($loader-color, 10%); }
+    50% { transform: scaleY(0.85); border-color:#d1d8e6; background-color:color.adjust($loader-color, $lightness: 10%); }
     100% { transform: scaleY(1.15); }
   }
 

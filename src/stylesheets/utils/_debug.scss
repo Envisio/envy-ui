@@ -1,4 +1,6 @@
-@if $a-visual-helper-enable {
+@use "../a/settings/settings";
+
+@if settings.$a-visual-helper-enable {
   * { background-color: rgba(255,0,0,.2); }
   * * { background-color: rgba(0,255,0,.2); }
   * * * { background-color: rgba(0,0,255,.2); }

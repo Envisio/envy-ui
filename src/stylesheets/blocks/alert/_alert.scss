@@ -1,3 +1,9 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/functions/encodecolor";
+
 // Alert
 //
 // Weight: 1290
@@ -6,20 +12,20 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{$uiAlert} {
+.#{block-name.$uiAlert} {
 
   $this: &;
 
-  $alert--default-font-size: $a-default-font-size + 2;
+  $alert--default-font-size: settings.$a-default-font-size + 2;
 
-  @mixin alert__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
-    $border-color: if($bg-color == color("white"), color("gray-white"), darken($bg-color, 5%));
+  @mixin alert__make-container-color($bg-color: functions-color.color("brand-primary-alt"), $text-color: functions-color.color("white")) {
+    $border-color: if($bg-color == functions-color.color("white"), functions-color.color("gray-white"), color.adjust($bg-color, $lightness: -5%));
     background-color: $bg-color;
     color: $text-color;
     border: 1px solid $border-color;
   }
 
-  @mixin alert__make-form-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
+  @mixin alert__make-form-container-color($bg-color: functions-color.color("brand-primary-alt"), $text-color: functions-color.color("white")) {
     // $border-color: if($bg-color == color("white"), color("gray-white"), darken($bg-color, 5%));
     background-color: $bg-color;
     color: $text-color;
@@ -41,11 +47,11 @@
       height: 3px;
     }
     &::after {
-      background-image: url("data:image/svg+xml,%3Csvg width='3' height='3' viewBox='0 0 3 3' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 3C1.65686 3 3 1.65686 3 0V3H0Z' fill='#{encodecolor($bg-color)}'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='3' height='3' viewBox='0 0 3 3' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 3C1.65686 3 3 1.65686 3 0V3H0Z' fill='#{encodecolor.encodecolor($bg-color)}'/%3E%3C/svg%3E");
       right: 0;
     }
     &::before {
-      background-image: url("data:image/svg+xml,%3Csvg width='3' height='3' viewBox='0 0 3 3' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 3C1.34314 3 0 1.65686 0 0V3H3Z' fill='#{encodecolor($bg-color)}'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='3' height='3' viewBox='0 0 3 3' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 3C1.34314 3 0 1.65686 0 0V3H3Z' fill='#{encodecolor.encodecolor($bg-color)}'/%3E%3C/svg%3E");
       left: 0;
     }
   }
@@ -56,26 +62,26 @@
   display: flex;
   align-items: center;
 
-  @include alert__make-container-color(color("white"), color("default"));
+  @include alert__make-container-color(functions-color.color("white"), functions-color.color("default"));
 
   // &--info {
   //   @include alert__make-container-color(color("viking-blue"), color("white"));
   // }
 
   &--ok {
-    @include alert__make-container-color(lighten(color("brand-green"), 25%), color("off-green"));
+    @include alert__make-container-color(color.adjust(functions-color.color("brand-green"), $lightness: 25%), functions-color.color("off-green"));
   }
 
   &--error {
-    @include alert__make-container-color(lighten(color("light-red"), 15%), darken(color("red"), 10%));
+    @include alert__make-container-color(color.adjust(functions-color.color("light-red"), $lightness: 15%), color.adjust(functions-color.color("red"), $lightness: -10%));
   }
 
   &--error-form {
-    @include alert__make-form-container-color(color("red"), color("white"));
+    @include alert__make-form-container-color(functions-color.color("red"), functions-color.color("white"));
   }
 
   &--warning {
-    @include alert__make-container-color(lighten(color("picklist"), 15%), color("potters-clay"));
+    @include alert__make-container-color(color.adjust(functions-color.color("picklist"), $lightness: 15%), functions-color.color("potters-clay"));
   }
 
   &__button {

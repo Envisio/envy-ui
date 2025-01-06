@@ -1,10 +1,14 @@
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color" as color-color;
+@use "../../utils/functions/color";
+
 // Show on Hover
 //
 // Weight: 1330
 //
 // Styleguide Show on Hover
 
-.#{$uiShowOnHover} {
+.#{block-name.$uiShowOnHover} {
 
   $this: &;
 
@@ -15,20 +19,20 @@
   &--highlight {
     #{$this}__content {
       visibility: visible;
-      color: $medium-gray;
+      color: color-color.$medium-gray;
     }
   }
 
   &--link {
     #{$this}__content {
-      color: $medium-gray;
+      color: color-color.$medium-gray;
     }
   }
 
   &--highlight {
     &:hover {
       #{$this}__content {
-        color: color("viking-blue");
+        color: color.color("viking-blue");
       }
     }
   }
@@ -36,7 +40,7 @@
   &--link {
     &:hover {
       #{$this}__content {
-        color: $brand-blue;
+        color: color-color.$brand-blue;
       }
     }
   }

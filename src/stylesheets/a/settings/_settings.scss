@@ -1,5 +1,9 @@
+@use "sass:color";
+@use "sass-true/sass/config/settings";
+@use "../../utils/functions/color" as functions-color;
+
 // true var
-$true-terminal-output: true;
+settings.$terminal-output: true;
 
 $class-disabled: 'disabled';
 $class-active: 'active';
@@ -21,7 +25,7 @@ $a-default-border-radius: 3px;
 $card-border-radius: $a-default-border-radius;
 $card-padding: 10px;
 
-$font-color-for-disabled: color("plain-gray");
+$font-color-for-disabled: functions-color.color("plain-gray");
 
 $a-card-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
 $a-card-shadow-strong: 0px 1px 3px 1px rgba(0,0,0,0.15);
@@ -37,16 +41,16 @@ $padding-normal: $space-normal;
 $margin-small: $space-small;
 
 $panel-main-padding: $space-large;
-$panel-dark-bg-color: color("gallery");
+$panel-dark-bg-color: functions-color.color("gallery");
 
 $widget-menu-button-width: 30px;
-$widget-menu-color: color("white");
-$widget-menu-bg-color: color("default");
-$widget-menu-hover-bg-color: color("gray");
+$widget-menu-color: functions-color.color("white");
+$widget-menu-bg-color: functions-color.color("default");
+$widget-menu-hover-bg-color: functions-color.color("gray");
 $widget-menu-margins: $card-padding;
-$widget-menu-light-color: color("default");
-$widget-menu-light-bg-color: color("gallery");
-$widget-menu-light-hover-bg-color: darken(color("gallery"), 5%);
+$widget-menu-light-color: functions-color.color("default");
+$widget-menu-light-bg-color: functions-color.color("gallery");
+$widget-menu-light-hover-bg-color: color.adjust(functions-color.color("gallery"), $lightness: -5%);
 
 $icon-base-size: 1.8rem;
 
@@ -58,23 +62,23 @@ $a-focus-transition: (border-color ease-in-out .15s, box-shadow ease-in-out .15s
 
 // text-inputs
 $a-border-width-input: 1px;
-$a-border-input: $a-border-width-input solid color("plain-gray");
-$a-border-panel: $a-border-width-input solid color("border");
+$a-border-input: $a-border-width-input solid functions-color.color("plain-gray");
+$a-border-panel: $a-border-width-input solid functions-color.color("border");
 $a-padding-input-icon: 30px;
-$a-color-focus: color("cornflower-blue");
+$a-color-focus: functions-color.color("cornflower-blue");
 
 $panel-border: $a-border-panel;
-$selected-button-bg-color: color("brand-primary-alt");
+$selected-button-bg-color: functions-color.color("brand-primary-alt");
 $switch-button-border: $panel-border;
 $switch-button-selected-bg-color: $selected-button-bg-color;
-$switch-button-hover-bg-color: color("athens-gray");
+$switch-button-hover-bg-color: functions-color.color("athens-gray");
 $switch-button-selected-disabled-opacity: 0.65;
 
 $border-radius-general: 3px;
 $switch-button-radius: $border-radius-general;
 
 $folder-menu-root-text-size1: 1.4rem;
-$folder-menu-text-color: color("darken-border");
+$folder-menu-text-color: functions-color.color("darken-border");
 $folder-menu-border: $panel-border;
 $folder-menu-button-padding: 2rem;
 $folder-menu-selected-color: $panel-dark-bg-color;

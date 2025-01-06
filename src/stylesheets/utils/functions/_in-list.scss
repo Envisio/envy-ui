@@ -1,3 +1,4 @@
+@use "sass:list";
 /**
  * in_list — Checks if a value exists in a list
  *
@@ -6,5 +7,5 @@
  * @return boolen TRUE if $value is found in the $list, FALSE otherwise.
  */
  @function in_list($value, $list) {
-  @return (null != index($list, $value));
+  @return (null != list.index($list, $value));
 }

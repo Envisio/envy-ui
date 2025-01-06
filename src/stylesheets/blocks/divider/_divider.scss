@@ -1,10 +1,15 @@
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color-default";
+@use "../../utils/functions/color";
+@use "../../utils/functions/color-cp";
+
 // Divider
 //
 // Weight: 1280
 //
 // Styleguide Divider
 
-.#{$uiDivider} {
+.#{block-name.$uiDivider} {
 
   $this: &;
 
@@ -15,7 +20,7 @@
   max-width: 100%;
 
   &__content {
-    color: color("variable");
+    color: color.color("variable");
     white-space: nowrap;
     overflow: hidden;
     min-width: 0;
@@ -28,7 +33,7 @@
     min-width: 25px;
     height: 1px;
     min-height: 1px;
-    border-top: 1px solid color("variable");
+    border-top: 1px solid color.color("variable");
   }
 
   &--left {
@@ -37,7 +42,7 @@
       margin-right: 5px;
     }
     &::after {
-      border-top: 1px dotted $color-default-border;
+      border-top: 1px dotted color-default.$color-default-border;
     }
     &::before {
       max-width: 0;
@@ -48,11 +53,11 @@
   &--form {
     gap: 0;
     #{$this}__content {
-      color: color-cp("medium-gray");
+      color: color-cp.color-cp("medium-gray");
       margin-right: 5px;
     }
     &::after {
-      border-top: 1px dotted $color-default-border;
+      border-top: 1px dotted color-default.$color-default-border;
     }
     &::before {
       max-width: 0;

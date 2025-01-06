@@ -1,3 +1,6 @@
+@use "../from-dictionary/block-name/block-name";
+@use "settings/settings";
+
 // ACSS Transform
 //
 // Transform modifiers.
@@ -23,38 +26,38 @@
 // Styleguide ACSS Transform
 
 
-.#{$uiA}-translate-x-50\%- {
-  transform: translateX(-50%)#{$a-important};
+.#{block-name.$uiA}-translate-x-50\%- {
+  transform: translateX(-50%)#{settings.$a-important};
 }
 
-.#{$uiA}-translate-y-50\%- {
-  transform: translateY(-50%)#{$a-important};
+.#{block-name.$uiA}-translate-y-50\%- {
+  transform: translateY(-50%)#{settings.$a-important};
 }
 
-.#{$uiA}-translate-50\%- {
-  transform: translate(-50%, -50%)#{$a-important};
+.#{block-name.$uiA}-translate-50\%- {
+  transform: translate(-50%, -50%)#{settings.$a-important};
 }
 
-.#{$uiA}-transform-scale-2 {
-  transform: scale(2)#{$a-important};
+.#{block-name.$uiA}-transform-scale-2 {
+  transform: scale(2)#{settings.$a-important};
 }
 
-.#{$uiA}-translate-y-3- {
-  transform: translateY(-3px)#{$a-important};
+.#{block-name.$uiA}-translate-y-3- {
+  transform: translateY(-3px)#{settings.$a-important};
 }
 
-.#{$uiA}-translate-y-5- {
-  transform: translateY(-5px)#{$a-important};
+.#{block-name.$uiA}-translate-y-5- {
+  transform: translateY(-5px)#{settings.$a-important};
 }
 
-.#{$uiA}-translate-z-0 {
-  transform: translateZ(0)#{$a-important};
+.#{block-name.$uiA}-translate-z-0 {
+  transform: translateZ(0)#{settings.$a-important};
 }
 
-.#{$uiA}-transform-origin-left-top {
-  transform-origin: left top#{$a-important};
+.#{block-name.$uiA}-transform-origin-left-top {
+  transform-origin: left top#{settings.$a-important};
 }
 
-.#{$uiA}-transform-rotate-180 {
-  transform: rotate(180deg)#{$a-important};
+.#{block-name.$uiA}-transform-rotate-180 {
+  transform: rotate(180deg)#{settings.$a-important};
 }

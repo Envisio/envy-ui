@@ -1,3 +1,6 @@
+@use "../from-dictionary/block-name/block-name";
+@use "settings/settings";
+
 // .#{$uiA}-size-100\% {
 //   width: 100%#{$a-important};
 //   height: 100%#{$a-important};
@@ -33,16 +36,16 @@
 //   margin-left: -100%#{$a-important};
 // }
 
-.#{$uiA}-f-hover-wrap:hover {
-  flex-wrap: wrap#{$a-important};
+.#{block-name.$uiA}-f-hover-wrap:hover {
+  flex-wrap: wrap#{settings.$a-important};
 }
 
 // .#{$uiA}-hide {
 //   display: none#{$a-important};
 // }
 
-.#{$uiA}-vanish {
-  position: fixed#{$a-important};
+.#{block-name.$uiA}-vanish {
+  position: fixed#{settings.$a-important};
   left: -99999px;
   top: -99999px;
   z-index: -999;
@@ -79,12 +82,12 @@
 //   font-style: italic#{$a-important};
 // }
 
-.#{$uiA}-transition-5 {
-  transition: all 0.5s#{$a-important};
+.#{block-name.$uiA}-transition-5 {
+  transition: all 0.5s#{settings.$a-important};
 }
 
-.#{$uiA}-transition-none {
-  transition: unset#{$a-important};
+.#{block-name.$uiA}-transition-none {
+  transition: unset#{settings.$a-important};
 }
 
 // .#{$uiA}-font-size-12 {
@@ -109,8 +112,8 @@
   }
 }
 
-.#{$uiA}-animate-rotate-360 {
-  animation: rotating 2s linear infinite#{$a-important};
+.#{block-name.$uiA}-animate-rotate-360 {
+  animation: rotating 2s linear infinite#{settings.$a-important};
 }
 
 // .#{$uiA}-overflow-hidden {
@@ -121,33 +124,33 @@
 //   display: inline-block#{$a-important};
 // }
 
-.#{$uiA}-cursor-default {
-  cursor: default#{$a-important};
+.#{block-name.$uiA}-cursor-default {
+  cursor: default#{settings.$a-important};
 }
 
-.#{$uiA}-cursor-grab {
-  cursor: grab#{$a-important};
+.#{block-name.$uiA}-cursor-grab {
+  cursor: grab#{settings.$a-important};
 }
 
-.#{$uiA}-cursor-off {
-  pointer-events: none#{$a-important};
+.#{block-name.$uiA}-cursor-off {
+  pointer-events: none#{settings.$a-important};
 }
 
-.#{$uiA}-cursor-hover-pointer:hover {
-  cursor: pointer#{$a-important};
+.#{block-name.$uiA}-cursor-hover-pointer:hover {
+  cursor: pointer#{settings.$a-important};
 }
 
-.#{$uiA}-outline-none {
-  outline: none#{$a-important};
+.#{block-name.$uiA}-outline-none {
+  outline: none#{settings.$a-important};
 }
 
-.#{$uiA}-f-br {
+.#{block-name.$uiA}-f-br {
   height: 0;
   width: 100%;
   content: '\A';
 }
 
-.#{$uiA}-f-1-gap {
+.#{block-name.$uiA}-f-1-gap {
   &:before {
     content: "";
     order: 1;
@@ -156,11 +159,11 @@
   }
 }
 
-.#{$uiA}-empty-hide:empty {
+.#{block-name.$uiA}-empty-hide:empty {
   display: none;
 }
 
-.#{$uiA}-absolute-center {
+.#{block-name.$uiA}-absolute-center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -175,26 +178,26 @@
     height: 20px; /* your line height here */
   }
 }
-/* .#{$uiA}-animate-slide-down-500-enter, .#{$uiA}-animate-slide-down-500-appear, .#{$uiA}-animate-slide-down-50-enter, .#{$uiA}-animate-slide-down-50-appear {
+/* .#{block-name.$uiA}-animate-slide-down-500-enter, .#{block-name.$uiA}-animate-slide-down-500-appear, .#{block-name.$uiA}-animate-slide-down-50-enter, .#{block-name.$uiA}-animate-slide-down-50-appear {
   opacity: 0;
   transition: max-height 0.4s ease-in, opacity .3s ease-in;
   max-height: 0;
   // transition: max-height 1900ms;
 }
 
-.#{$uiA}-animate-slide-down-500-enter-active, .#{$uiA}-animate-slide-down-500-appear-active {
+.#{block-name.$uiA}-animate-slide-down-500-enter-active, .#{block-name.$uiA}-animate-slide-down-500-appear-active {
   // max-height: auto;
   opacity: 1;
   max-height: 500px;
 }
 
-.#{$uiA}-animate-slide-down-50-enter-active, .#{$uiA}-animate-slide-down-50-appear-active {
+.#{block-name.$uiA}-animate-slide-down-50-enter-active, .#{block-name.$uiA}-animate-slide-down-50-appear-active {
   // max-height: auto;
   opacity: 1;
   max-height: 50px;
 }
 
-.#{$uiA}-animate-slide-down-500-exit {
+.#{block-name.$uiA}-animate-slide-down-500-exit {
   opacity: 1;
   transition: max-height .4s ease-out, opacity .3s ease-in;
   max-height: 500px;
@@ -202,7 +205,7 @@
   // transition: max-height 1900ms;
 }
 
-.#{$uiA}-animate-slide-down-50-exit {
+.#{block-name.$uiA}-animate-slide-down-50-exit {
   opacity: 1;
   transition: max-height .4s ease-out, opacity .3s ease-in;
   max-height: 50px;
@@ -210,7 +213,7 @@
   // transition: max-height 1900ms;
 }
 
-.#{$uiA}-animate-slide-down-500-exit-active, .#{$uiA}-animate-slide-down-50-exit-active {
+.#{block-name.$uiA}-animate-slide-down-500-exit-active, .#{block-name.$uiA}-animate-slide-down-50-exit-active {
   max-height: 0;
   opacity: 0;
 } */

@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:string";
+@use "settings";
+
 @mixin a-dimmed($i: 8) {
-  filter: unquote("#{opacity($i * 10%)}#{$a-important}");
+  filter: string.unquote("#{color.opacity($i * 10%)}#{settings.$a-important}");
 }

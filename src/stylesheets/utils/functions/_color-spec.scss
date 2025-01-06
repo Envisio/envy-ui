@@ -1,5 +1,10 @@
-@include test-module('The [color] function') {
-  @include test('returns brand-primary color value from Colors design tokens list') {
-    @include assert-equal(color("brand-primary"), #066a8d);
+@use "sass-true/sass/assert";
+@use "sass-true/sass/module";
+@use "sass-true/sass/test";
+@use "color";
+
+@include module.test-module('The [color] function') {
+  @include test.test('returns brand-primary color value from Colors design tokens list') {
+    @include assert.assert-equal(color.color("brand-primary"), #066a8d);
   }
 }

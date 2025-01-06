@@ -1,19 +1,20 @@
+@use "sass:meta";
 .a {
-  @import 'color';
-  @import 'margin-padding';
-  @import 'width-height';
-  @import 'top-right-bottom-left';
-  @import 'display';
-  @import 'flex';
-  @import 'position';
-  @import 'text';
-  @import 'shadow';
-  @import 'border';
-  @import 'visibility';
-  @import 'filter';
-  @import 'z-index';
-  @import 'animation';
-  @import 'shapes';
-  @import 'transform';
-  @import 'abstracts';
+  @include meta.load-css('color');
+  @include meta.load-css('margin-padding');
+  @include meta.load-css('width-height');
+  @include meta.load-css('top-right-bottom-left');
+  @include meta.load-css('display');
+  @include meta.load-css('flex');
+  @include meta.load-css('position');
+  @include meta.load-css('text');
+  @include meta.load-css('shadow');
+  @include meta.load-css('border');
+  @include meta.load-css('visibility');
+  @include meta.load-css('filter');
+  @include meta.load-css('animation');
+  @include meta.load-css('shapes');
+  @include meta.load-css('transform');
+  @include meta.load-css('abstracts');
+  @include meta.load-css('z-index');
 }

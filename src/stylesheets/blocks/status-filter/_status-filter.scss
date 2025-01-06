@@ -1,3 +1,9 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/mixin";
+
 // Status Filter
 //
 // Weight: 1035
@@ -6,21 +12,21 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{$uiStatusFilter} {
+.#{block-name.$uiStatusFilter} {
 
   $this: &;
 
   @mixin filter-status($color) {
     // position: relative;
-    background-color: color($color);
+    background-color: functions-color.color($color);
     @if $color == "minor-disruption" {
-      color: color("default");
+      color: functions-color.color("default");
     } @else {
-      color: color("white");
+      color: functions-color.color("white");
     }
     &:hover:not(:disabled) {
-      background-color: lighten(color($color), 5%);
-      border: 1px solid darken(color($color), 5%);;
+      background-color: color.adjust(functions-color.color($color), $lightness: 5%);
+      border: 1px solid color.adjust(functions-color.color($color), $lightness: -5%);;
     }
   }
   @mixin filter-status-after($color) {
@@ -31,13 +37,13 @@
       bottom: -5px;
       left: 0;
       height: 3px;
-      background-color: color($color);
+      background-color: functions-color.color($color);
     }
   }
 
   $this-button-padding: 5px;
   $this-button-height: 25px;
-  $border-status-filter: 1px solid color("white");
+  $border-status-filter: 1px solid functions-color.color("white");
   $status-filter-radius: 0px;
 
   // @include flex(stretch);
@@ -75,15 +81,15 @@
     //   color: color("string");
     // }
     &:active {
-      color: lighten(color("string"), 3%);
+      color: color.adjust(functions-color.color("string"), $lightness: 3%);
     }
     &:disabled {
       cursor: default;
-      color: color("plain-gray");
+      color: functions-color.color("plain-gray");
       box-shadow: none;
     }
     &:focus {
-      @include a--focus;
+      @include mixin.a--focus;
       // border-right-width: 0;
     }
     &:focus:last-child {
@@ -150,12 +156,12 @@
     }
   }
 
-  &--#{$class-disabled} {
+  &--#{settings.$class-disabled} {
     pointer-events: none;
     #{$this}__button {
       cursor: default;
-      color: color("plain-gray");
-      opacity: $switch-button-selected-disabled-opacity;
+      color: functions-color.color("plain-gray");
+      opacity: settings.$switch-button-selected-disabled-opacity;
       box-shadow: none;
     }
   }

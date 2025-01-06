@@ -1,21 +1,26 @@
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color";
+@use "../../utils/mixin";
+
 // Info
 //
 // Weight: 1270
 //
 // Styleguide Info
 
-.#{$uiInfo} {
+.#{block-name.$uiInfo} {
 
   $this: &;
-  $height-element: $space-step * 7;
+  $height-element: settings.$space-step * 7;
 
-  @include flex();
+  @include mixin.flex();
   align-items: center;
   position: relative;
 
   &__content {
-    border: $panel-border;
-    padding: $space-small $space-normal;
+    border: settings.$panel-border;
+    padding: settings.$space-small settings.$space-normal;
     display: inline-block;
     overflow: hidden;
     flex: 1 1 100%;
@@ -24,7 +29,7 @@
 
   &--condition {
     #{$this}__content {
-      background-color: $condition;
+      background-color: color.$condition;
     }
   }
 

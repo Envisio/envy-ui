@@ -1,6 +1,8 @@
+@use "../from-dictionary/color/color";
+
 /* stylelint-disable no-descending-specificity */
 
-$red: #cc181e;
+color.$red: #cc181e;
 
 @keyframes burnin {
   0%   {opacity: 0.4;}
@@ -51,7 +53,7 @@ $red: #cc181e;
   .fr-box {
     &.fr-basic.fr-top .fr-wrapper {
       .fr-element.fr-view {
-        border: 1px solid $red;
+        border: 1px solid color.$red;
       }
     }
   }

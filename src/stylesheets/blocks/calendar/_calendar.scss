@@ -1,3 +1,13 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/block/button";
+@use "../../from-dictionary/color/color" as color-color;
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/functions/color-cp";
+@use "../../utils/functions/map-deep-get";
+@use "../../utils/mixin";
+
 // Calendar
 //
 // Weight: 1150
@@ -6,11 +16,11 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{$uiCalendar} {
+.#{block-name.$uiCalendar} {
 
   $this: &;
 
-  @include flex(wrap);
+  @include mixin.flex(wrap);
   padding: 1px 0 0 1px;
   width: 250px;
 
@@ -69,14 +79,14 @@
   // }
 
   @mixin calendar__button(
-      $active-background-color: color-cp("brand-blue"),
-      $active-hover-background-color: darken($switch-button-selected-bg-color, 5%)) {
-    @include flex(j-center, a-center);
+      $active-background-color: color-cp.color-cp("brand-blue"),
+      $active-hover-background-color: color.adjust(settings.$switch-button-selected-bg-color, $lightness: -5%)) {
+    @include mixin.flex(j-center, a-center);
     margin: -1px 0 0 -1px;
     width: 14.285714286%;
     padding-top: 4%;
     padding-bottom: 4%;
-    border: map-deep-get($tokens-button, "button", "--default", "default", "border");
+    border: map-deep-get.map-deep-get(button.$tokens-button, "button", "--default", "default", "border");
 
     line-height: 1;
     cursor: pointer;
@@ -84,24 +94,24 @@
 
     // }
     &:hover:not(:disabled) {
-      background-color: color("light-gray");
+      background-color: functions-color.color("light-gray");
     }
     &:focus {
-      @include a--focus;
+      @include mixin.a--focus;
     }
     &:active:not(:disabled) {
-      background-color: lighten(color("pale-blue"), 3%);
+      background-color: color.adjust(functions-color.color("pale-blue"), $lightness: 3%);
     }
     &:disabled {
       cursor: default;
-      opacity: $switch-button-selected-disabled-opacity;
+      opacity: settings.$switch-button-selected-disabled-opacity;
       box-shadow: none;
     }
-    &--#{$class-active} {
+    &--#{settings.$class-active} {
       background-color: $active-background-color;
       border-left-color: $active-background-color;
       border-top-color: $active-background-color;
-      color: $white;
+      color: color-color.$white;
       transition: background 0.5s, border 0.5s;
       &:hover {
         background-color: $active-hover-background-color;
@@ -126,21 +136,21 @@
 
   &--light {
     #{$this}__button {
-      background-color: color("white");
+      background-color: functions-color.color("white");
       @include calendar__button;
     }
   }
 
   &--light-blue {
     #{$this}__button {
-      background-color: color("white");
-      @include calendar__button(color-cp("viking-blue"), color-cp("viking-blue-darken-12"));
+      background-color: functions-color.color("white");
+      @include calendar__button(color-cp.color-cp("viking-blue"), color-cp.color-cp("viking-blue-darken-12"));
     }
   }
 
   &--default {
     #{$this}__button {
-      background-color: $gallery;
+      background-color: color-color.$gallery;
       @include calendar__button;
     }
   }
@@ -149,7 +159,7 @@
     pointer-events: none;
     #{$this}__button {
       cursor: default;
-      opacity: $switch-button-selected-disabled-opacity;
+      opacity: settings.$switch-button-selected-disabled-opacity;
       box-shadow: none;
     }
   }

@@ -1,3 +1,7 @@
+@use "sass:string";
+@use "../from-dictionary/block-name/block-name";
+@use "settings/settings";
+
 // ACSS Shadow
 //
 // Shadow modifiers.
@@ -18,10 +22,10 @@
 //
 // Styleguide ACSS Shadow
 
-$shadows: (null: $a-card-shadow, "-strong": $a-card-shadow-strong, "-xstrong": $a-card-shadow-xstrong, "-none": "none");
+$shadows: (null: settings.$a-card-shadow, "-strong": settings.$a-card-shadow-strong, "-xstrong": settings.$a-card-shadow-xstrong, "-none": "none");
 
 @each $shadow-name, $shadow-value in $shadows {
-  .#{$uiA}-shadow#{$shadow-name} {
-    box-shadow: unquote("#{$shadow-value}#{$a-important}");
+  .#{block-name.$uiA}-shadow#{$shadow-name} {
+    box-shadow: string.unquote("#{$shadow-value}#{settings.$a-important}");
   }
 }

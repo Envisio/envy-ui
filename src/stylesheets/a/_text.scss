@@ -1,65 +1,72 @@
+@use "sass:color";
+@use "sass:string";
+@use "../from-dictionary/block-name/block-name";
+@use "../utils/functions/color" as functions-color;
+@use "../utils/mixin";
+@use "settings/settings";
+
 $a-text-aligns: left, right, center, justify;
 
 @mixin a-text-bold {
-  font-weight: bold#{$a-important};
+  font-weight: bold#{settings.$a-important};
 }
 
 @mixin a-text-italic {
-  font-style: italic#{$a-important};
+  font-style: italic#{settings.$a-important};
 }
 
 @mixin a-line-height($i: 5) {
-  line-height: unquote("#{$i / 10}#{$a-important}");
+  line-height: string.unquote("#{$i / 10}#{settings.$a-important}");
 }
 
 @mixin a-font-size($i: 14) {
-  font-size: #{$i}px#{$a-important};
+  font-size: #{$i}px#{settings.$a-important};
 }
 
 @mixin a-font-size-em($i: 10) {
-  font-size: #{$i / 10}em#{$a-important};
+  font-size: #{$i / 10}em#{settings.$a-important};
 }
 
 @mixin a-font-size-rem($i: 10) {
-  font-size: #{$i / 10}rem#{$a-important};
+  font-size: #{$i / 10}rem#{settings.$a-important};
 }
 
 @mixin a-text-align($i: left) {
-  text-align: unquote("#{$i}#{$a-important}");
+  text-align: string.unquote("#{$i}#{settings.$a-important}");
 }
 
 @for $i from 5 through 36 {
-  .#{$uiA}-font-size-#{$i} {
+  .#{block-name.$uiA}-font-size-#{$i} {
     @include a-font-size($i);
   }
 
-  .#{$uiA}-font-size-#{$i}em {
+  .#{block-name.$uiA}-font-size-#{$i}em {
     @include a-font-size-em($i);
   }
 
-  .#{$uiA}-font-size-#{$i}rem {
+  .#{block-name.$uiA}-font-size-#{$i}rem {
     @include a-font-size-rem($i);
   }
 }
 
-@each $font-size-percent in $a-font-size-percent {
-  .#{$uiA}-font-size-#{$font-size-percent}\% {
-    font-size: #{$font-size-percent}#{'%'}#{$a-important};
+@each $font-size-percent in settings.$a-font-size-percent {
+  .#{block-name.$uiA}-font-size-#{$font-size-percent}\% {
+    font-size: #{$font-size-percent}#{'%'}#{settings.$a-important};
   }
 }
 
 @for $i from 5 through 15 {
-  .#{$uiA}-line-height-#{$i} {
+  .#{block-name.$uiA}-line-height-#{$i} {
     @include a-line-height($i);
   }
 }
 
-.#{$uiA}-line-height-normal {
-  line-height: normal#{$a-important};
+.#{block-name.$uiA}-line-height-normal {
+  line-height: normal#{settings.$a-important};
 }
 
 @each $a-text-align in $a-text-aligns {
-  .#{$uiA}-text-align-#{$a-text-align} {
+  .#{block-name.$uiA}-text-align-#{$a-text-align} {
     @include a-text-align($a-text-align);
   }
 }
@@ -72,64 +79,64 @@ $a-text-aligns: left, right, center, justify;
 //   font-size: 90%#{$a-important};
 // }
 
-.#{$uiA}-text-ellipsis, .#{$uiA}-ellipsis {
-  @include a-text-ellipsis;
+.#{block-name.$uiA}-text-ellipsis, .#{block-name.$uiA}-ellipsis {
+  @include mixin.a-text-ellipsis;
 }
 
-.#{$uiA}-text-ellipsis-fr, .#{$uiA}-ellipsis-fr {
+.#{block-name.$uiA}-text-ellipsis-fr, .#{block-name.$uiA}-ellipsis-fr {
   > .fr-view, > .fr-view > * {
-    @include a-text-ellipsis;
+    @include mixin.a-text-ellipsis;
   }
 }
 
-.#{$uiA}-text-default {
-  color: color("default")#{$a-important};
+.#{block-name.$uiA}-text-default {
+  color: functions-color.color("default")#{settings.$a-important};
   &:hover {
-    text-decoration: none#{$a-important};
-    color: color("default")#{$a-important};
+    text-decoration: none#{settings.$a-important};
+    color: functions-color.color("default")#{settings.$a-important};
   }
 }
 
-.#{$uiA}-text-link {
-  color: color("brand-blue")#{$a-important};
+.#{block-name.$uiA}-text-link {
+  color: functions-color.color("brand-blue")#{settings.$a-important};
   &:hover {
-    color: darken(color("brand-blue"), 10%)#{$a-important};
-    text-decoration: none#{$a-important};
+    color: color.adjust(functions-color.color("brand-blue"), $lightness: -10%)#{settings.$a-important};
+    text-decoration: none#{settings.$a-important};
   }
 }
 
-.#{$uiA}-font-family-default {
-  font-family: 'Source Sans Pro', Arial, sans-serif#{$a-important};
+.#{block-name.$uiA}-font-family-default {
+  font-family: 'Source Sans Pro', Arial, sans-serif#{settings.$a-important};
 }
 
-.#{$uiA}-nowrap {
-  white-space: nowrap#{$a-important};
+.#{block-name.$uiA}-nowrap {
+  white-space: nowrap#{settings.$a-important};
 }
 
-.#{$uiA}-wrap {
-  white-space: normal#{$a-important};
+.#{block-name.$uiA}-wrap {
+  white-space: normal#{settings.$a-important};
 }
 
-.#{$uiA}-bold {
+.#{block-name.$uiA}-bold {
   @include a-text-bold;
 }
 
-.#{$uiA}-semibold {
+.#{block-name.$uiA}-semibold {
   font-weight: 600;
 }
 
-.#{$uiA}-italic {
+.#{block-name.$uiA}-italic {
   @include a-text-italic;
 }
 
-.#{$uiA}-font-weight-normal {
-  font-weight: normal#{$a-important};
+.#{block-name.$uiA}-font-weight-normal {
+  font-weight: normal#{settings.$a-important};
 }
 
-.#{$uiA}-text-underline {
-  text-decoration: underline#{$a-important};
+.#{block-name.$uiA}-text-underline {
+  text-decoration: underline#{settings.$a-important};
 }
 
-.#{$uiA}-text-decoration-none {
-  text-decoration: none#{$a-important};
+.#{block-name.$uiA}-text-decoration-none {
+  text-decoration: none#{settings.$a-important};
 }

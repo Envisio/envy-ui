@@ -1,6 +1,6 @@
-@import './functions/color-spec';
-@import './functions/em-spec';
-@import './functions/px-spec';
-@import './functions/map-deep-get-spec';
-@import './functions/encodecolor';
-@import './functions/checknull';
+@use 'functions/color-spec';
+@use 'functions/em-spec';
+@use 'functions/px-spec';
+@use 'functions/map-deep-get-spec';
+@use 'functions/encodecolor';
+@use 'functions/checknull';

@@ -1,3 +1,5 @@
+@use "../../from-dictionary/block-name/block-name";
+
 // Avatar Group
 //
 // Weight: 1050
@@ -5,7 +7,7 @@
 // Styleguide Avatar Group
 
 /* stylelint-disable no-descending-specificity */
-.#{$uiAvatarGroup} {
+.#{block-name.$uiAvatarGroup} {
 
   $this: &;
 

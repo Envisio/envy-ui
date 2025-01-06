@@ -1,15 +1,24 @@
+@use "sass:color";
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color" as color-color;
+@use "../../from-dictionary/color/color-default";
+@use "../../from-dictionary/shape/shape";
+@use "../../utils/functions/color" as functions-color;
+@use "../../utils/functions/color-cp";
+
 // Card
 //
 // Weight: 1230
 //
 // Styleguide Card
 
-.#{$uiCard} {
+.#{block-name.$uiCard} {
 
   $this: &;
 
-  @mixin alert__make-container-color($bg-color: color("brand-primary-alt"), $text-color: color("white")) {
-    $border-color: if($bg-color == color("white"), color("gray-white"), darken($bg-color, 10%));
+  @mixin alert__make-container-color($bg-color: functions-color.color("brand-primary-alt"), $text-color: functions-color.color("white")) {
+    $border-color: if($bg-color == functions-color.color("white"), functions-color.color("gray-white"), color.adjust($bg-color, $lightness: -10%));
     background-color: $bg-color;
     color: $text-color;
     border: 1px solid $border-color;
@@ -20,22 +29,22 @@
     &::before {
       content: '';
       position: absolute;
-      max-width: $shape-width-status;
-      min-width: $shape-width-status;
+      max-width: shape.$shape-width-status;
+      min-width: shape.$shape-width-status;
       height: 100%;
-      border-radius: $shape-border-radius-inner 0 0 $shape-border-radius-inner;
+      border-radius: shape.$shape-border-radius-inner 0 0 shape.$shape-border-radius-inner;
       left: 0;
       top: 0;
-      background-color: color($color);
+      background-color: functions-color.color($color);
     }
     &#{$this}--brand-border {
       &::before {
-        border-radius: ($shape-border-radius-inner - 1px) 0 0 ($shape-border-radius-inner - 1px);
+        border-radius: (shape.$shape-border-radius-inner - 1px) 0 0 (shape.$shape-border-radius-inner - 1px);
       }
     }
   }
 
-  @mixin bubble($color: color("white"), $position-vertical: "top", $position-horizontal: "left") {
+  @mixin bubble($color: functions-color.color("white"), $position-vertical: "top", $position-horizontal: "left") {
     $tick-size: 15px;
     position: relative;
     margin-top: $tick-size;
@@ -47,7 +56,7 @@
       height: 0;
       border-style: solid;
       border-width: $tick-size + 2px 0 0 $tick-size + 2px;
-      border-color: transparent transparent transparent $color-default-border;
+      border-color: transparent transparent transparent color-default.$color-default-border;
       top: -$tick-size - 2px;
       left: calc(25% - 1px);
     }
@@ -59,7 +68,7 @@
       height: 0;
       border-style: solid;
       border-width: $tick-size 0 0 $tick-size;
-      border-color: transparent transparent transparent color("white");
+      border-color: transparent transparent transparent functions-color.color("white");
       top: -$tick-size;
       left: 25%;
     }
@@ -70,10 +79,10 @@
     // }
   }
 
-  border: 1px solid $border;
-  border-radius: $card-border-radius;
-  background-color: color("white");
-  box-shadow: $a-card-shadow;
+  border: 1px solid color-color.$border;
+  border-radius: settings.$card-border-radius;
+  background-color: functions-color.color("white");
+  box-shadow: settings.$a-card-shadow;
 
   &--status {
     &-pending {
@@ -107,8 +116,8 @@
     width: 100%;
     min-height: 55px;
     font-size: 16px;
-    border-bottom: $shape-border $color-default-border;
-    border-radius: $shape-border-radius $shape-border-radius 0 0;
+    border-bottom: shape.$shape-border color-default.$color-default-border;
+    border-radius: shape.$shape-border-radius shape.$shape-border-radius 0 0;
     margin-top: 0;
     padding-left: 10px;
   }
@@ -121,12 +130,12 @@
   }
 
   #{$this}__footer {
-    border-top: $shape-border $color-default-border;
+    border-top: shape.$shape-border color-default.$color-default-border;
     display: flex;
     align-items: center;
     width: 100%;
     min-height: 55px;
-    border-radius: 0 0 $shape-border-radius $shape-border-radius;
+    border-radius: 0 0 shape.$shape-border-radius shape.$shape-border-radius;
     padding-left: 10px;
   }
 
@@ -139,33 +148,33 @@
   }
 
   &--plain {
-    background-color: color("alabaster");
-    border: 1px solid darken(color("alabaster"), 5%);
+    background-color: functions-color.color("alabaster");
+    border: 1px solid color.adjust(functions-color.color("alabaster"), $lightness: -5%);
     box-shadow: none;
   }
 
   &--active {
-    background-color: lighten(color("pale-blue"), 3%);
-    border: 1px solid color("brand-primary");
+    background-color: color.adjust(functions-color.color("pale-blue"), $lightness: 3%);
+    border: 1px solid functions-color.color("brand-primary");
   }
 
   &--selected {
-    border: 1px solid color("brand-primary");
-    box-shadow: 0px 0px 0px 3px color-cp("pale-blue");
+    border: 1px solid functions-color.color("brand-primary");
+    box-shadow: 0px 0px 0px 3px color-cp.color-cp("pale-blue");
   }
 
   &--brand-border {
-    border: 2px solid color("brand-primary");
+    border: 2px solid functions-color.color("brand-primary");
   }
 
   &--muted {
     filter: opacity(0.4) grayscale(0.8) brightness(0.9);
-    border-color: color("athens-gray");
+    border-color: functions-color.color("athens-gray");
   }
 
   &--brand {
-    background-color: color("brand-primary");
-    border: 1px solid darken(color("brand-primary"), 5%);
+    background-color: functions-color.color("brand-primary");
+    border: 1px solid color.adjust(functions-color.color("brand-primary"), $lightness: -5%);
   }
 
   &--no-shadow {
@@ -177,11 +186,11 @@
   }
 
   &--shadow-strong {
-    box-shadow: $a-card-shadow-strong;
+    box-shadow: settings.$a-card-shadow-strong;
   }
 
   &--shadow-xstrong {
-    box-shadow: $a-card-shadow-xstrong;
+    box-shadow: settings.$a-card-shadow-xstrong;
   }
 
   &--bubble-top-left {
@@ -189,9 +198,9 @@
   }
 
   &--alert-warning {
-    @include alert__make-container-color(lighten(color("picklist"), 15%), color("potters-clay"));
+    @include alert__make-container-color(color.adjust(functions-color.color("picklist"), $lightness: 15%), functions-color.color("potters-clay"));
     #{$this}__footer {
-      border-top-color: darken(color("picklist"), 5%);
+      border-top-color: color.adjust(functions-color.color("picklist"), $lightness: -5%);
     }
   }
 }

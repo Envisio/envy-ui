@@ -1,3 +1,8 @@
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+@use "../../from-dictionary/color/color";
+@use "../../utils/mixin";
+
 // Panel
 //
 // Weight: 1240
@@ -6,38 +11,38 @@
 //
 // Styleguide Panel
 
-.#{$uiPanel} {
+.#{block-name.$uiPanel} {
 
   $this: &;
 
-  @include flex(column);
-  background-color: $white;
+  @include mixin.flex(column);
+  background-color: color.$white;
 
   &__content {
     // margin: 0 $panel-main-padding;
     position: relative;
     flex: 1 1 auto;
-    @include flex(column);
+    @include mixin.flex(column);
     &--row {
       flex-direction: row;
     }
   }
 
   &__button-close {
-    margin: 0 $panel-main-padding;
+    margin: 0 settings.$panel-main-padding;
   }
 
   &__header {
-    @include flex();
-    padding: $panel-main-padding;
+    @include mixin.flex();
+    padding: settings.$panel-main-padding;
   }
 
   &__header-title {
     flex: 1 1 100%;
     font-weight: bold;
     text-overflow: ellipsis;
-    color: $folder-menu-text-color;
-    padding-right: $padding-normal;
+    color: settings.$folder-menu-text-color;
+    padding-right: settings.$padding-normal;
   }
 
   &--has-scroll {
@@ -60,10 +65,10 @@
   // }
 
   &--bg-dark {
-    background-color: $panel-dark-bg-color;
+    background-color: settings.$panel-dark-bg-color;
   }
   &--border {
-    border: $panel-border;
+    border: settings.$panel-border;
   }
 
 }

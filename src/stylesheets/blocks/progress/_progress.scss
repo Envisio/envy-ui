@@ -1,10 +1,12 @@
+@use "../../from-dictionary/block-name/block-name";
+
 // Placeholder
 //
 // Weight: 1360
 //
 // Styleguide Placeholder
 
-.#{$uiProgress} {
+.#{block-name.$uiProgress} {
 
   $this: &;
 

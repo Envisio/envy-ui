@@ -1,40 +1,45 @@
+@use "sass:string";
+@use "../from-dictionary/block-name/block-name";
+@use "settings/settings";
+@use "settings/visibility-settings";
+
 @mixin a-opacity($i: 5) {
-  opacity: unquote("#{$i / 10}#{$a-important}");
+  opacity: string.unquote("#{$i / 10}#{settings.$a-important}");
 }
 
 @for $i from 0 through 10 {
   @if $i == 10 {
-    .#{$uiA}-opacity-none {
+    .#{block-name.$uiA}-opacity-none {
       @include a-opacity($i);
     }
-    .#{$uiA}-opacity-hover-none:hover {
+    .#{block-name.$uiA}-opacity-hover-none:hover {
       @include a-opacity($i);
     }
   }
   @else {
-    .#{$uiA}-opacity-#{$i} {
+    .#{block-name.$uiA}-opacity-#{$i} {
       @include a-opacity($i);
     }
-    .#{$uiA}-opacity-hover-#{$i}:hover {
+    .#{block-name.$uiA}-opacity-hover-#{$i}:hover {
       @include a-opacity($i);
     }
   }
 }
 
-@each $overflow in $a-overflows {
-  .#{$uiA}-overflow-#{$overflow} {
-    overflow: #{$overflow}#{$a-important};
+@each $overflow in visibility-settings.$a-overflows {
+  .#{block-name.$uiA}-overflow-#{$overflow} {
+    overflow: #{$overflow}#{settings.$a-important};
   }
-  .#{$uiA}-overflow-x-#{$overflow} {
-    overflow-x: #{$overflow}#{$a-important};
+  .#{block-name.$uiA}-overflow-x-#{$overflow} {
+    overflow-x: #{$overflow}#{settings.$a-important};
   }
-  .#{$uiA}-overflow-y-#{$overflow} {
-    overflow-y: #{$overflow}#{$a-important};
+  .#{block-name.$uiA}-overflow-y-#{$overflow} {
+    overflow-y: #{$overflow}#{settings.$a-important};
   }
 }
 
-@each $visibility in $a-visibilities {
-  .#{$uiA}-visibility-#{$visibility} {
-    visibility: #{$visibility}#{$a-important};
+@each $visibility in visibility-settings.$a-visibilities {
+  .#{block-name.$uiA}-visibility-#{$visibility} {
+    visibility: #{$visibility}#{settings.$a-important};
   }
 }

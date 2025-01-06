@@ -1,4 +1,6 @@
-@mixin box($width: 1em, $height: 1em, $border-color: $santas-gray) {
+@use "../../from-dictionary/color/color";
+
+@mixin box($width: 1em, $height: 1em, $border-color: color.$santas-gray) {
   display: inline-block;
   position: relative;
   width: $width !important;
@@ -9,12 +11,12 @@
 }
 
 %ui-checkbox-disable-state-painter {
-  background-color: $gallery;
-  border-color: $plain-gray;
+  background-color: color.$gallery;
+  border-color: color.$plain-gray;
   cursor: inherit;
   box-shadow: none;
   &::after {
-    border-color: $plain-gray !important;
-    background-color: $gallery;
+    border-color: color.$plain-gray !important;
+    background-color: color.$gallery;
   }
 }

@@ -1,5 +1,10 @@
-@include describe('The [em] function') {
-  @include it('returns em value of the default pixel based argument') {
-    @include assert-equal(em(28), 2em);
+@use "sass-true/sass/assert";
+@use "sass-true/sass/module";
+@use "sass-true/sass/test";
+@use "em";
+
+@include module.describe('The [em] function') {
+  @include test.it('returns em value of the default pixel based argument') {
+    @include assert.assert-equal(em.em(28), 2em);
   }
 }

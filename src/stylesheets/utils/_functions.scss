@@ -1,7 +1,7 @@
-@import './functions/color';
-@import './functions/color-cp';
-@import './functions/em';
-@import './functions/px';
-@import './functions/map-deep-get';
-@import './functions/encodecolor';
-@import './functions/in-list';
+@use 'functions/color';
+@use 'functions/color-cp';
+@use 'functions/em';
+@use 'functions/px';
+@use 'functions/map-deep-get';
+@use 'functions/encodecolor';
+@use 'functions/in-list';

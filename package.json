@@ -99,7 +99,7 @@
     "react-dom": "^18.3.1",
     "rimraf": "^3.0.2",
     "sass": "^1.82.0",
-    "sass-true": "^5.0.0",
+    "sass-true": "^8.1.0",
     "sleep-ms": "^2.0.1",
     "specificity-graph": "^0.1.7",
     "style-dictionary": "^2.8.3",

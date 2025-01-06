@@ -1,3 +1,6 @@
+@use "../../a/settings/settings";
+@use "../../from-dictionary/block-name/block-name";
+
 // Collapser
 //
 // Weight: 1140
@@ -6,11 +9,11 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{$uiCollapser} {
+.#{block-name.$uiCollapser} {
 
   $this: &;
 
-  $collapser--default-font-size: $a-default-font-size;
+  $collapser--default-font-size: settings.$a-default-font-size;
   $collapser--size-default: 10px;
   $collapser--size-large: 13px;
   $collapser--size-small: 7px;
