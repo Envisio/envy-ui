@@ -9,5 +9,5 @@
     $base: $base * 1px;
   }
 
-  @return $pixels / $base * 1em;
+  @return math.div($pixels, $base) * 1em;
 }

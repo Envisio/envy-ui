@@ -1,10 +1,11 @@
 @use "sass:string";
+@use "sass:math";
 @use "../from-dictionary/block-name/block-name";
 @use "settings/settings";
 @use "settings/visibility-settings";
 
 @mixin a-opacity($i: 5) {
-  opacity: string.unquote("#{$i / 10}#{settings.$a-important}");
+  opacity: string.unquote("#{math.div($i, 10)}#{settings.$a-important}");
 }
 
 @for $i from 0 through 10 {
