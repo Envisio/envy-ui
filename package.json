@@ -58,7 +58,7 @@
     "backstop:reference": "backstop reference --config=\"backstop.config.js\"",
     "start:styleguide": "npm run open-styleguide",
     "open-styleguide": "concurrently \"http-server -a localhost -c-1 -p 1234\" \"open http://localhost:1234/dist/styleguide/\"",
-    "publish-staging": "surge ./dist envisio-styleguide-staging.surge.sh"
+    "publish-staging": "npm run run-all && surge ./dist envisio-styleguide-staging.surge.sh"
   },
   "repository": {
     "type": "git",
