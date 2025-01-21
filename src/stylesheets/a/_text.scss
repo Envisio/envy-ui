@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "sass:string";
+@use "sass:math";
 @use "../from-dictionary/block-name/block-name";
 @use "../utils/functions/color" as functions-color;
 @use "../utils/mixin";
@@ -16,7 +17,7 @@ $a-text-aligns: left, right, center, justify;
 }
 
 @mixin a-line-height($i: 5) {
-  line-height: string.unquote("#{$i / 10}#{settings.$a-important}");
+  line-height: string.unquote("#{math.div($i, 10)}#{settings.$a-important}");
 }
 
 @mixin a-font-size($i: 14) {
@@ -24,11 +25,11 @@ $a-text-aligns: left, right, center, justify;
 }
 
 @mixin a-font-size-em($i: 10) {
-  font-size: #{$i / 10}em#{settings.$a-important};
+  font-size: #{math.div($i, 10)}em#{settings.$a-important};
 }
 
 @mixin a-font-size-rem($i: 10) {
-  font-size: #{$i / 10}rem#{settings.$a-important};
+  font-size: #{math.div($i, 10)}rem#{settings.$a-important};
 }
 
 @mixin a-text-align($i: left) {

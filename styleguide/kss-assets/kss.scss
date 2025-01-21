@@ -1,3 +1,4 @@
+@use "sass:math";
 // ------------------------------------------------------------------------------
 //   Variables - Colors, Fonts, etc.
 // ------------------------------------------------------------------------------
@@ -79,7 +80,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
   }
 
   p {
-    margin: ($kss-vertical-rhythm/2) 0 $kss-vertical-rhythm 0;
+    margin: math.div($kss-vertical-rhythm, 2) 0 $kss-vertical-rhythm 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -699,7 +700,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
   }
   .kss-modifier__default-name {
     font-weight: bold;
-    margin-bottom: ($kss-vertical-rhythm / 2);
+    margin-bottom: math.div($kss-vertical-rhythm, 2);
   }
   .is-fullscreen .kss-modifier__default-name {
     margin-left: 20px;
@@ -769,7 +770,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
       background-color: $kss-colors-check-bg1;
       background-image: linear-gradient(45deg, $kss-colors-check-bg2 25%, transparent 25%, transparent 75%, $kss-colors-check-bg2 75%, $kss-colors-check-bg2), linear-gradient(45deg, $kss-colors-check-bg2 25%, transparent 25%, transparent 75%, $kss-colors-check-bg2 75%, $kss-colors-check-bg2);
       background-size: $check-bg-size $check-bg-size;
-      background-position: 0 0, $check-bg-size / 2 $check-bg-size / 2;
+      background-position: 0 0, math.div($check-bg-size, 2) math.div($check-bg-size, 2);
 
       // &:before {
       //   top: -5px;
