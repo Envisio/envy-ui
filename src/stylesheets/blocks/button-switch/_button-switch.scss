@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:math";
 @use "../../a/settings/settings";
 @use "../../from-dictionary/block-name/block-name";
 @use "../../from-dictionary/color/color" as color-color;
@@ -115,15 +116,15 @@
   &--round {
     #{$this}__button {
       &:first-child {
-        border-top-left-radius: $this-button-height / 2;
-        border-bottom-left-radius: $this-button-height / 2;
+        border-top-left-radius: math.div($this-button-height, 2);
+        border-bottom-left-radius: math.div($this-button-height, 2);
         &#{$this}__button--active {
           border-left-color: $switch-button-selected-light-blue-outline-color;
         }
       }
       &:last-child {
-        border-top-right-radius: $this-button-height / 2;
-        border-bottom-right-radius: $this-button-height / 2;
+        border-top-right-radius: math.div($this-button-height, 2);
+        border-bottom-right-radius: math.div($this-button-height, 2);
         &#{$this}__button--active {
           border-right-color: $switch-button-selected-light-blue-outline-color;
         }

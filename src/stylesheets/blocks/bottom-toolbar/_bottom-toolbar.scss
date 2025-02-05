@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../a/settings/settings";
 @use "../../from-dictionary/block-name/block-name";
 @use "../../from-dictionary/color/color-default";
@@ -38,10 +39,10 @@
   }
 
   &--push-right {
-    padding-left: settings.$base-form-label-min-width + ((10px / 14px) * 1rem);
+    padding-left: settings.$base-form-label-min-width + (math.div(10px, 14px) * 1rem);
   }
 
   &--push-right-long {
-    padding-left: settings.$base-form-label-min-width + settings.$base-form-margin-step + ((10px / 14px) * 1rem);
+    padding-left: settings.$base-form-label-min-width + settings.$base-form-margin-step + (math.div(10px, 14px) * 1rem);
   }
 }
