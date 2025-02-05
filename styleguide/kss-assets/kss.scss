@@ -116,6 +116,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     border: 0;
     border-top: 1px solid color.adjust($kss-colors-foreground, $lightness: 60%, $space: hsl);
     border-bottom: 1px solid color.adjust($kss-colors-background, $lightness: -10%, $space: hsl);
+    margin: $kss-vertical-rhythm 0;
     padding: 0;
   }
 
