@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../../a/settings/settings";
 @use "../../from-dictionary/block-name/block-name";
 @use "../../utils/functions/color";
@@ -73,7 +74,7 @@
   }
 
   &--round {
-    border-radius: settings.$a-default-control-height/2;
+    border-radius: math.div(settings.$a-default-control-height, 2);
   }
 
   &--stack-left, &--stack-left:focus {

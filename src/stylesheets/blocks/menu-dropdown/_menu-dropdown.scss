@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:math";
 @use "../../a/settings/settings";
 @use "../../from-dictionary/block-name/block-name";
 @use "../../from-dictionary/color/color" as color-color;
@@ -101,7 +102,7 @@
     &:focus {
       @include mixin.a--focus;
     }
-    padding: settings.$widget-menu-margins/1.5 settings.$widget-menu-margins;
+    padding: math.div(settings.$widget-menu-margins, 1.5) settings.$widget-menu-margins;
   }
 
   &--head-clean {

@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "sass:map";
+@use "sass:math";
 @use "../../a/settings/settings";
 @use "../../from-dictionary/block-name/block-name";
 @use "../../from-dictionary/block/button";
@@ -500,7 +501,7 @@
 
   &--round {
     & > #{$this}__content {
-      border-radius: $button2--height-default / 2;
+      border-radius: math.div($button2--height-default, 2);
     }
   }
 
@@ -525,13 +526,13 @@
     }
     &#{$this}--round {
       & > #{$this}__content {
-        border-radius: $button2--height-small / 2;
+        border-radius: math.div($button2--height-small, 2);
       }
     }
     &#{$this}--circle {
       & > #{$this}__content {
         padding: 0;
-        border-radius: $button2--height-small / 2;
+        border-radius: math.div($button2--height-small, 2);
         width: $button2--height-small;
       }
     }
@@ -545,12 +546,12 @@
     }
     &#{$this}--round {
       & > #{$this}__content {
-        border-radius: $button2--height-xsmall / 2;
+        border-radius: math.div($button2--height-xsmall, 2);
       }
     }
     &#{$this}--circle {
       & > #{$this}__content {
-        border-radius: $button2--height-xsmall / 2;
+        border-radius: math.div($button2--height-xsmall, 2);
         width: $button2--height-xsmall;
         padding: 0;
       }
@@ -564,12 +565,12 @@
     }
     &#{$this}--round {
       & > #{$this}__content {
-        border-radius: $button2--height-large / 2;
+        border-radius: math.div($button2--height-large, 2);
       }
     }
     &#{$this}--circle {
       & > #{$this}__content {
-        border-radius: $button2--height-large / 2;
+        border-radius: math.div($button2--height-large, 2);
         width: $button2--height-large;
         padding: 0;
       }

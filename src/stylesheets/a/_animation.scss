@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../from-dictionary/block-name/block-name";
 
 @keyframes burnin {
@@ -31,7 +32,7 @@ $a-fadein-name: "-animate-fadein";
 $a-fadein-name-5: "-animate-fadein-5";
 
 @each $slide-down-height in $a-slide-down-heights-set {
-  $a-sd-delta: $slide-down-height / 2000;
+  $a-sd-delta: math.div($slide-down-height, 2000);
   $a-slide-max-h: max-height (0.3 + $a-sd-delta + s) ease-in, opacity (0.2 + $a-sd-delta + s) ease-in;
   .#{block-name.$uiA+$a-sd-name+$slide-down-height}-enter, .#{block-name.$uiA+$a-sd-name+$slide-down-height}-appear {
     opacity: 0;
