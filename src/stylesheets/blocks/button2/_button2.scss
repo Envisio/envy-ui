@@ -18,16 +18,16 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{block-name.$uiButton2} {
-
-  @keyframes button2-loader-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+@keyframes button2-loader-spin {
+  from {
+      transform: rotate(0deg);
   }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.#{block-name.$uiButton2} {
 
   $this: &;
 

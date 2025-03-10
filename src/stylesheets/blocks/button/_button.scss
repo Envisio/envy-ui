@@ -18,16 +18,16 @@
 
 /* stylelint-disable no-descending-specificity */
 
-.#{block-name.$uiButton} {
-
-  @keyframes button-loader-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+@keyframes button-loader-spin {
+  from {
+      transform: rotate(0deg);
   }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.#{block-name.$uiButton} {
 
   $this: &;
 
@@ -211,10 +211,10 @@
   } */
 
   @include mixin.flex();
+  font-size: $button--default-font-size;
   align-items: center;
   padding: 0;
   cursor: pointer;
-  font-size: $button--default-font-size;
   &--hover,
   &:hover,
   &--focus,

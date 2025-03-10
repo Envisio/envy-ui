@@ -82,6 +82,7 @@
       $active-background-color: color-cp.color-cp("brand-blue"),
       $active-hover-background-color: color.adjust(settings.$switch-button-selected-bg-color, $lightness: -5%)) {
     @include mixin.flex(j-center, a-center);
+    border-radius: 0;
     margin: -1px 0 0 -1px;
     width: 14.285714286%;
     padding-top: 4%;
@@ -117,8 +118,6 @@
         background-color: $active-hover-background-color;
       }
     }
-
-    border-radius: 0;
 
     &:nth-child(1) {
       border-radius: 3px 0 0 0;

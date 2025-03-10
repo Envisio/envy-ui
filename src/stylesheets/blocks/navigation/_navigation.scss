@@ -18,6 +18,11 @@
 /* stylelint-disable declaration-block-no-duplicate-properties */
 /* stylelint-disable no-duplicate-selectors */
 
+@keyframes show-intention {
+  0%   {transform: var(--collapser-icon-transform-position)}
+  90% {transform: var(--collapser-icon-animation-transform-position)}
+}
+
 .#{block-name.$uiNavigation} {
 
   $this: &;
@@ -392,11 +397,6 @@
   )
 );
 
-@keyframes show-intention {
-  0%   {transform: var(--collapser-icon-transform-position)}
-  90% {transform: var(--collapser-icon-animation-transform-position)}
-}
-
   display: flex;
   flex-direction: column;
   background-color: $navigation-color-background;
@@ -509,6 +509,7 @@
     cursor: pointer;
     text-decoration: none !important;
     width: 100%;
+    @include make-navigation-button-from-tokens("--mint-blue", $this-button);
     &--focus,
     &:focus {
       outline: none;
@@ -516,7 +517,6 @@
         @include mixin.a--focus;
       }
     }
-    @include make-navigation-button-from-tokens("--mint-blue", $this-button);
   }
 
   &__section-title-button {
@@ -525,6 +525,7 @@
     cursor: pointer;
     text-decoration: none !important;
     // width: 100%;
+    @include make-navigation-button-from-tokens("--section-title", $this-section-title-button);
     &--focus,
     &:focus {
       outline: none;
@@ -532,7 +533,6 @@
         @include mixin.a--focus;
       }
     }
-    @include make-navigation-button-from-tokens("--section-title", $this-section-title-button);
   }
 
   &__button-title {
@@ -540,6 +540,7 @@
     padding: 0;
     cursor: pointer;
     text-decoration: none !important;
+    @include make-navigation-button-from-tokens("--title", $this-title);
     &--focus,
     &:focus {
       outline: none;
@@ -547,7 +548,6 @@
         @include mixin.a--focus;
       }
     }
-    @include make-navigation-button-from-tokens("--title", $this-title);
   }
 
   &__button-toolbar {
@@ -555,6 +555,7 @@
     padding: 0;
     cursor: pointer;
     text-decoration: none !important;
+    @include make-navigation-button-from-tokens("--toolbar", $this-toolbar);
     &--focus,
     &:focus {
       outline: none;
@@ -562,7 +563,6 @@
         @include mixin.a--focus;
       }
     }
-    @include make-navigation-button-from-tokens("--toolbar", $this-toolbar);
   }
 
   &__button-filler {
@@ -570,6 +570,7 @@
     cursor: pointer;
     flex: 1 1 auto;
     text-decoration: none !important;
+    @include make-navigation-button-from-tokens("--filler", $this-filler);
     &--focus,
     &:focus {
       outline: none;
@@ -577,7 +578,6 @@
         @include mixin.a--focus;
       }
     }
-    @include make-navigation-button-from-tokens("--filler", $this-filler);
   }
 
   &__button-collapser {
@@ -587,6 +587,7 @@
     padding: 0;
     cursor: pointer;
     text-decoration: none !important;
+    @include make-navigation-button-from-tokens("--collapser", $this-collapser);
     &--focus,
     &:focus {
       outline: none;
@@ -594,7 +595,6 @@
         @include mixin.a--focus;
       }
     }
-    @include make-navigation-button-from-tokens("--collapser", $this-collapser);
   }
 
   &__button-toolbar-content {
