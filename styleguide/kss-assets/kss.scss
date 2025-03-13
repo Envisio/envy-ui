@@ -1,5 +1,6 @@
 @use "sass:math";
 @use "sass:color";
+@use 'highlight.js/styles/vs2015';
 // ------------------------------------------------------------------------------
 //   Variables - Colors, Fonts, etc.
 // ------------------------------------------------------------------------------
@@ -960,5 +961,4 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
     color: inherit;
   }
 
-  @import 'highlight.js/styles/vs2015';
 }

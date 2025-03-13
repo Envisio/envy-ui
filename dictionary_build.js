@@ -402,7 +402,7 @@ function styleDictionaryRegistration() {
       // eslint-disable-next-line prefer-template
       return header +
       dictionary.allProperties
-        .map((prop) => (`@import '../../${prop.value === 'a' ? '' : 'blocks/'}${prop.path[1]}/index';`))
+        .map((prop) => (`@use '../../${prop.value === 'a' ? '' : 'blocks/'}${prop.path[1]}/index' as *;`))
         .join('\n')
         + '\n//\n// SCSS block name imports\n';
     },
@@ -418,7 +418,7 @@ function styleDictionaryRegistration() {
       return header +
       this.fragments.map((fragment) => {
         const mainPart = fragment['main-fragment'];
-        return `@import "acss-${mainPart}-main-menu-kss";\n` + fragment.fragments.map((element) => `@import "acss-${mainPart}${element.content}${getUnitNameFromAlias(element.unit)}-kss";`).join('\n');
+        return `@use "acss-${mainPart}-main-menu-kss" as *;\n` + fragment.fragments.map((element) => `@use "acss-${mainPart}${element.content}${getUnitNameFromAlias(element.unit)}-kss" as *;`).join('\n');
       }).join('\n')
         + '\n//\n// ACSS imports\n';
     },

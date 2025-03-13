@@ -9,6 +9,24 @@
 //
 // Styleguide Range
 
+@mixin track($track-h, $track-c) {
+	box-sizing: border-box;
+	// border: none;
+	// width: $track-w;
+  height: $track-h;
+	background: $track-c;
+  border-radius: .5*$track-h;
+  border: 1px solid color.color("brand-primary");
+}
+
+@mixin thumb($thumb-d) {
+	box-sizing: border-box;
+	border: 1px solid color.color("white");
+	width: $thumb-d; height: $thumb-d;
+	border-radius: 50%;
+	background: color.color("progress-bar");;
+}
+
 .#{block-name.$uiRange} {
 
   $this: &;
@@ -23,50 +41,31 @@
   $track-c: color.color("progress-bar");
   // $dist: $track-w - $thumb-d;
 
-@mixin track() {
-	box-sizing: border-box;
-	// border: none;
-	// width: $track-w;
-  height: $track-h;
-	background: $track-c;
-  border-radius: .5*$track-h;
-  border: 1px solid color.color("brand-primary");
-}
-
-@mixin thumb() {
-	box-sizing: border-box;
-	border: 1px solid color.color("white");
-	width: $thumb-d; height: $thumb-d;
-	border-radius: 50%;
-	background: color.color("progress-bar");;
-}
-
   input[type=range]#{$this}__range {
-    &, &::-webkit-slider-thumb {
-      -webkit-appearance: none
-    }
-
     flex: 1;
     margin: 0;
     padding: 0;
     min-height: $thumb-d;
     background: transparent;
     font: inherit;
+    &, &::-webkit-slider-thumb {
+      -webkit-appearance: none
+    }
 
     &::-webkit-slider-runnable-track {
-      @include track()
+      @include track($track-h, $track-c)
     }
-    &::-moz-range-track { @include track }
-    &::-ms-track { @include track }
+    &::-moz-range-track { @include track($track-h, $track-c) }
+    &::-ms-track { @include track($track-h, $track-c) }
 
     &::-webkit-slider-thumb {
       margin-top: .5*($track-h - $thumb-d - 1px);
-      @include thumb
+      @include thumb($thumb-d)
     }
-    &::-moz-range-thumb { @include thumb }
+    &::-moz-range-thumb { @include thumb($thumb-d) }
     &::-ms-thumb {
       margin-top: 0;
-      @include thumb
+      @include thumb($thumb-d)
     }
 
     &::-ms-tooltip { display: none }
