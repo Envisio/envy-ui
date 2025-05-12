@@ -11,6 +11,7 @@ import {
   UI_COLOR_RED,
   UI_COLOR_WHITE,
 } from '../from-dictionary/color';
+import { EnvisioTooltip } from '../react_components/tooltip';
 
 const statusColors = {
   'completed': '--status-completed',
@@ -31,14 +32,16 @@ export function FullTag(props) {
   } = props;
 
   return (
-    <span
-      {...ui([uiBadge`--tag`, uiA`w-max-100%`, addClass])}
-      style={{ color: color }}
-    >
-      <span {...ui([uiA`f-1-1-auto ellipsis color-default`])} style={{height: '1.1em'}}>
-        {name}
+    <EnvisioTooltip title={name} delay>
+      <span
+        {...ui([uiBadge`--tag`, uiA`w-max-100%`, addClass])}
+        style={{ color: color }}
+      >
+        <span {...ui([uiA`f-1-1-auto ellipsis color-default`])} style={{height: '1.1em'}}>
+          {name}
+        </span>
       </span>
-    </span>
+    </EnvisioTooltip>
   );
 }
 export function StatusTag(props) {
