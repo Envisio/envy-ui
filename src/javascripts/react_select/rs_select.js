@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { components } from 'react-select';
-import { take } from 'lodash';
+import { min, take } from 'lodash';
 import { ui, uiA, uiBadge, uiCheckbox, uiMerge } from '../';
 import { contrastColor } from '../utils/contrast_color';
 import {
@@ -187,7 +187,7 @@ export const rsSelect = ({
       ...(tagStyle || statusStyle ? {
         minWidth: '50px',
         maxWidth: '175px',
-      } : {}),
+      } : {minWidth: '40px'}),
       ...(tagStyle ? {
         borderRadius: '3px',
         border: `1px solid ${UI_COLOR_PLAIN_GRAY}`,
