@@ -331,6 +331,28 @@ export const rsStatusMultiValueLabel = ({
   </components.MultiValueLabel>
 );
 
+export const rsMultiValueLabel = ({
+  data: {
+    value,
+    label,
+    ...data
+  },
+  ...props
+}) => (
+  <components.MultiValueLabel
+    data={{
+      label,
+      value,
+      ...data,
+    }}
+    {...props}
+  >
+    <EnvisioTooltip title={label} delay>
+      <span {...ui([uiA`ellipsis`])}>{label}</span>
+    </EnvisioTooltip>
+  </components.MultiValueLabel>
+);
+
 export const rsMultiSelectOption = (props) => {
   const { isSelected, ...reducedProps } = props;
   return (
