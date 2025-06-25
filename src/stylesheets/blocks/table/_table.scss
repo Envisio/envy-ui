@@ -138,5 +138,8 @@
     &--active {
       background-color: color.adjust(functions-color.color("pale-blue"), $lightness: 3%);
     }
+    &--folder {
+      background-color: color.adjust(functions-color.color("pale-blue"), $lightness: 0%);
+    }
   }
 }
