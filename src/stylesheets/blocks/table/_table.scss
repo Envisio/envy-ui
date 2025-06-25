@@ -140,6 +140,17 @@
     }
     &--folder {
       background-color: color.adjust(functions-color.color("pale-blue"), $lightness: 0%);
+      border-bottom-color: functions-color.color("viking-blue");
+      & #{$this}__cell {
+        background-color: transparent;
+      }
+    }
+    &--in-folder {
+      background-color: color.adjust(functions-color.color("pale-blue"), $lightness: 7%);
+      border-bottom-color: functions-color.color("viking-blue");
+      & #{$this}__cell {
+        background-color: transparent;
+      }
     }
   }
 }
