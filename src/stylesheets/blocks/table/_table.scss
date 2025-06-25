@@ -152,5 +152,19 @@
         background-color: transparent;
       }
     }
+    &--marker {
+      position: relative;
+      overflow: visible;
+      &::before {
+        content: "";
+        display: flex;
+        position: absolute;
+        width: 3px;
+        height: calc(100% + 1px);
+        background-color: currentColor;
+        top: 0;
+        left: -3px;
+      }
+    }
   }
 }
