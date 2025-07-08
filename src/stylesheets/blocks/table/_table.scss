@@ -154,6 +154,9 @@
       &:first-child {
         border-top-color: functions-color.color("viking-blue");
       }
+      &-last {
+        border-bottom-color: functions-color.color("viking-blue");
+      }
     }
     &--marker {
       position: relative;
