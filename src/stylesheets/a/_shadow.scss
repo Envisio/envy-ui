@@ -12,6 +12,9 @@
 // .env-a-shadow - Default shadow.
 // .env-a-shadow-strong - Strong Shadow.
 // .env-a-shadow-xstrong - Extra Strong Shadow.
+// .env-a-shadow-inset-top - Inset Top Shadow.
+// .env-a-shadow-inset-bottom - Inset Bottom Shadow.
+// .env-a-shadow-xstrong - Extra Strong Shadow.
 // .env-a-shadow-none - No Shadow.
 //
 // Moddescription: Modifiers.
@@ -32,7 +35,14 @@ $shadows: (null: settings.$a-card-shadow, "-strong": settings.$a-card-shadow-str
 
 .#{block-name.$uiA}-shadow-inset-top {
   box-shadow: string.unquote(
-    "inset 0 4px 5px -4px rgba(0, 0, 0, 0.2), " +
-    "inset 0 -5px 5px -5px transparent#{settings.$a-important}"
+    "inset 0 4px 4px -4px rgba(0, 0, 0, 0.2), " +
+    "inset 0 -4px 4px -4px transparent#{settings.$a-important}"
+  );
+}
+
+.#{block-name.$uiA}-shadow-inset-bottom {
+  box-shadow: string.unquote(
+    "inset 0 -4px 4px -4px rgba(0, 0, 0, 0.2), " +
+    "inset 0 4px 4px -4px transparent#{settings.$a-important}"
   );
 }
