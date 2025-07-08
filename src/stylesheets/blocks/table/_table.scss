@@ -147,9 +147,12 @@
     }
     &--in-folder {
       background-color: color.adjust(functions-color.color("pale-blue"), $lightness: 7%);
-      border-bottom-color: functions-color.color("viking-blue");
+      // border-bottom-color: functions-color.color("viking-blue");
       & #{$this}__cell {
         background-color: transparent;
+      }
+      &:first-child {
+        border-top-color: functions-color.color("viking-blue");
       }
     }
     &--marker {
