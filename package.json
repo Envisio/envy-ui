@@ -1,6 +1,6 @@
 {
   "name": "envy-ui",
-  "version": "1.0.476",
+  "version": "1.0.477",
   "description": "UI Design System for Envisio Applications",
   "main": "./lib/index.js",
   "files": [
