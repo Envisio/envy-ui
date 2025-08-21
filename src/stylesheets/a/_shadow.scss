@@ -46,3 +46,12 @@ $shadows: (null: settings.$a-card-shadow, "-strong": settings.$a-card-shadow-str
     "inset 0 4px 4px -4px transparent#{settings.$a-important}"
   );
 }
+
+.#{block-name.$uiA}-shadow-inset-y {
+  box-shadow: string.unquote(
+    "inset 0 4px 4px -4px rgba(0, 0, 0, 0.2), " +
+    "inset 0 -4px 4px -4px transparent, " +
+    "inset 0 -4px 4px -4px rgba(0, 0, 0, 0.2), " +
+    "inset 0 4px 4px -4px transparent#{settings.$a-important}"
+  );
+}
