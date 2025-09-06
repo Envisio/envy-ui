@@ -48,7 +48,7 @@
     "build:types": "tsc --project tsconfig.json",
     "webpack": "webpack --config webpack.config.js",
     "babel": "npx babel src/javascripts --out-dir lib",
-    "run-all": "npm run remove ; npm run dictionary && npm run js-test && npm run babel && npm run sass-envisio-ui && npm run css-lint && npm run prefix && npm run sass-envisio-ui-min && npm run prefix-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss",
+    "run-all": "npm run remove && npm run dictionary && npm run js-test && npm run babel && npm run build:types && npm run sass-envisio-ui && npm run css-lint && npm run prefix && npm run sass-envisio-ui-min && npm run prefix-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss",
     "dictionary": "node dictionary_build.js",
     "watch": "npm-watch",
     "specificity": "specificity-graph dist/css/ui.css --output dist/styleguide/specificity",
