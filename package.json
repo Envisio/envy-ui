@@ -35,7 +35,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "remove": "rm -r -f dist lib",
+    "remove": "rm -rf dist lib && find . -type d -name 'from-dictionary' -exec rm -rf {} +",
     "sass-styleguide": "sass --style=compressed --load-path=node_modules/ styleguide/kss-assets/kss.scss styleguide/kss-assets/kss.css",
     "sass-envisio-ui": "sass --embed-sources --source-map  --load-path=node_modules/ src/stylesheets/ui.scss dist/css/ui.css",
     "prefix": "postcss dist/css/ui.css --use autoprefixer -d dist/css",
