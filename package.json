@@ -44,6 +44,7 @@
     "kss": "kss --config kss-config.json",
     "css-lint": "stylelint dist/css/ui.css",
     "scss-lint": "stylelint src/stylesheets/**/*.scss",
+    "build:types": "tsc --project tsconfig.json",
     "webpack": "webpack --config webpack.config.js",
     "babel": "npx babel src/javascripts --out-dir lib",
     "run-all": "npm run remove ; npm run dictionary && npm run js-test && npm run babel && npm run sass-envisio-ui && npm run css-lint && npm run prefix && npm run sass-envisio-ui-min && npm run prefix-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss",
