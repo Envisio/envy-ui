@@ -122,9 +122,15 @@ const _getBlockClasses = (block, predicates, fragment, i, useElementAsBlock = fa
 };
 
 // TODO: Eugene should consider another function with auto key and memoization limit
+/**
+ * Returns a function that generates BEM/ACSS class names.
+ *
+ * @param {string} blockName
+ * @returns {(strings: TemplateStringsArray, ...predicates: any[]) => string}
+ */
 const getBlock = blockName => memoize(
   (elements, ...predicates) => {
-    // console.log('I am running...------------------------------------------------------');
+    // console.warn('I am running... from link------------------------------------------------------');
     const thisBlock = blockName;
 
     const classProcessor = (eq(blockName, $uiA)) ? _getAcssClasses : _getBlockClasses;
