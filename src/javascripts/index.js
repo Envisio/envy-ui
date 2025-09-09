@@ -7,6 +7,12 @@ export { default as ellipsis } from 'smart-truncate';
 const _classNameWrapper = value => ({ className: value });
 const _noWrapper = value => value;
 
+/**
+ * Wraps a value or array of values into a className object or raw value.
+ * @param {Function} wrapper - Function to wrap the value.
+ * @param {string|string[]|Function} blocksElements - Elements or function returning elements.
+ * @returns {object|string} Wrapped value.
+ */
 const _uiGeneric = (wrapper, blocksElements) => {
   if (isFunction(blocksElements)) {
     return wrapper(blocksElements``);
@@ -15,7 +21,18 @@ const _uiGeneric = (wrapper, blocksElements) => {
   return wrapper(Array.isArray(blocksElements) ? blocksElements.join(' ') : blocksElements);
 };
 
+/**
+ * Compose UI classes into a React spreadable props object.
+ *
+ * @param {string[]} classNames
+ * @returns {{ className: string }}
+ */
 export const ui = partial(_uiGeneric, _classNameWrapper);
+
+/**
+ * Returns the raw value or joined string without wrapping.
+ * @type {function(string|string[]|Function): string}
+ */
 export const uiMerge = partial(_uiGeneric, _noWrapper);
 
 export * from './from-dictionary/block_name';
@@ -25,6 +42,12 @@ export * from './react_select/rs_color_picker';
 export * from './from-dictionary/color';
 export * from './from-dictionary/z';
 
+/**
+ * Returns 'active' class if statement is truthy.
+ * @param {string} [classFragment] - Optional prefix class.
+ * @param {boolean} statement - Condition for active class.
+ * @returns {string} Active class string.
+ */
 export const getClassActive = (...params) => {
   let [classFragment, statement] = params;
 
