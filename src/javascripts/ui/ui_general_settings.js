@@ -1,5 +1,11 @@
 import color from '../colors';
 
+/**
+ * Visual settings for UI elements.
+ * @type {Object}
+ * @property {{fontSizeValue: string, fontColor: string}} title - Settings for titles.
+ * @property {{fontSizeValue: string, fontColor: string}} subtitle - Settings for subtitles.
+ */
 export const visualSettings = {
   title: {
     fontSizeValue: '18',
@@ -11,12 +17,20 @@ export const visualSettings = {
   },
 };
 
+/**
+ * Common MIME types.
+ * @type {Object<string,string>}
+ */
 export const mimeTypes = {
   png: 'image/png',
   pdf: 'application/pdf',
   svg: 'image/svg+xml',
 };
 
+/**
+ * Mapping of status labels to modifier class suffixes.
+ * @type {Record<string,string>}
+ */
 export const statusModifiers = {
   Completed: '--status-completed',
   'On Track': '--status-on-track',
@@ -28,6 +42,10 @@ export const statusModifiers = {
   'Status Pending': '--status-pending',
 };
 
+/**
+ * Mapping of status labels to background color classes.
+ * @type {Record<string,string>}
+ */
 export const statusBgColors = {
   Completed: 'color-bg-completed',
   'On Track': 'color-bg-on-track',
@@ -39,6 +57,10 @@ export const statusBgColors = {
   'Status Pending': 'color-bg-status-pending',
 };
 
+/**
+ * Mapping of status labels to hex color values.
+ * @type {Record<string,string>}
+ */
 export const statusHexColors = {
   Completed: color.completed,
   'On Track': color.onTrack,

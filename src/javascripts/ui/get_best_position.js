@@ -1,5 +1,16 @@
 import { some, last } from 'lodash';
 
+/**
+ * Calculates the best position for an element relative to a container and optional reference element.
+ * @param {Object} params
+ * @param {('left'|'center'|'right')[]} params.x - Preferred horizontal positions.
+ * @param {('top'|'center'|'bottom')[]} params.y - Preferred vertical positions.
+ * @param {HTMLElement} [params.relativeElement] - Reference element for positioning.
+ * @param {number} [params.relativeElementGap=0] - Gap between the element and reference element.
+ * @param {{width: number, height: number}} params.containerSize - Size of the element to position.
+ * @param {boolean} [params.debug=false] - Enable debug logging.
+ * @returns {{x: string|number, y: string|number, left: number, right: number, top: number, bottom: number}}
+ */
 const getBestPosition = ({
   x,
   y,
