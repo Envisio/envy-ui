@@ -24,7 +24,7 @@
 styleguide-homepage.md
 
 # Ignore generated Dictionary files
-**/from-dictionary
+/from-dictionary
 
 # Ignore Backstop generated files
 

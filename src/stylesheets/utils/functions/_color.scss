@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "sass:meta";
-@use "../../from-dictionary/color/color-map";
+@use "../../../../from-dictionary/stylesheets/color/color-map";
 
 @function color($color-name) {
   @if map.has-key(color-map.$a-color, $color-name) {

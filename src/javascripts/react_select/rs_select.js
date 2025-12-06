@@ -10,7 +10,7 @@ import {
   UI_COLOR_DEFAULT,
   UI_COLOR_RED,
   UI_COLOR_WHITE,
-} from '../from-dictionary/color';
+} from '../../from-dictionary/javascripts/color';
 import { EnvisioTooltip } from '../react_components/tooltip';
 
 const statusColors = {

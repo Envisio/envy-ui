@@ -1,8 +1,8 @@
 @use "sass:map";
 @use "sass:string";
-@use "../from-dictionary/block-name/block-name";
-@use "../from-dictionary/color/color";
-@use "../from-dictionary/color/color-default";
+@use "../../../from-dictionary/stylesheets/block-name/block-name";
+@use "../../../from-dictionary/stylesheets/color/color";
+@use "../../../from-dictionary/stylesheets/color/color-default";
 @use "../utils/functions/color-cp";
 @use "settings/settings";
 

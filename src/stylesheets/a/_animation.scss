@@ -1,5 +1,5 @@
 @use "sass:math";
-@use "../from-dictionary/block-name/block-name";
+@use "../../../from-dictionary/stylesheets/block-name/block-name";
 
 @keyframes burnin {
   0%   {opacity: 0.4;}

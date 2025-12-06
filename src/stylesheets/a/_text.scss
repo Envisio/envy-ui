@@ -1,7 +1,7 @@
 @use "sass:color";
 @use "sass:string";
 @use "sass:math";
-@use "../from-dictionary/block-name/block-name";
+@use "../../../from-dictionary/stylesheets/block-name/block-name";
 @use "../utils/functions/color" as functions-color;
 @use "../utils/mixin";
 @use "settings/settings";

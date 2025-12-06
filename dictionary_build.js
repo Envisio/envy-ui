@@ -9,10 +9,10 @@ let acssList = [];
 let tokenFolders;
 const { getFragmentIterator, getFragmentUnit, getUnitNameFromAlias, getMarkupFile } = require('./src/dictionary/_getters.js');
 
-const SCSS_PATH = './src/stylesheets/from-dictionary/';
-const JS_PATH = './src/javascripts/from-dictionary/';
+const SCSS_PATH = './from-dictionary/stylesheets/';
+const JS_PATH = './from-dictionary/javascripts/';
 const PROPERTIES_PATH = './src/dictionary/properties/'
-const STYLEGUIDE_PUG_PATH = './styleguide/homepage/from-dictionary/';
+const STYLEGUIDE_PUG_PATH = './from-dictionary/styleguide/';
 const COLOR = 'color';
 const SHAPE = 'shape';
 const Z = 'z';
@@ -82,7 +82,7 @@ const makeTokenFolders = () => ({
           transforms: ['name/cti/constant'],
           files: [{
             destination: 'color.js',
-            format: 'javascript/es6',
+            format: 'javascript/module',
           }],
         },
       },
@@ -110,7 +110,7 @@ const makeTokenFolders = () => ({
           files: [{
             destination: 'color-default.js',
             filter: filterForCategory(['color-default']),
-            format: 'javascript/es6',
+            format: 'javascript/module',
           }],
         },
       },
@@ -161,7 +161,7 @@ const makeTokenFolders = () => ({
           files: [{
             destination: 'button.js',
             filter: filterForCategory(['button']),
-            format: 'javascript/es6',
+            format: 'javascript/module',
           }],
         },
       },
@@ -189,7 +189,7 @@ const makeTokenFolders = () => ({
           transforms: ['name/cti/constant'],
           files: [{
             destination: `${SHAPE}.js`,
-            format: 'javascript/es6',
+            format: 'javascript/module',
           }],
         },
       },
@@ -217,7 +217,7 @@ const makeTokenFolders = () => ({
           transforms: ['name/cti/constant'],
           files: [{
             destination: `${Z}.js`,
-            format: 'javascript/es6',
+            format: 'javascript/module',
           }],
         },
       },
@@ -402,7 +402,7 @@ function styleDictionaryRegistration() {
       // eslint-disable-next-line prefer-template
       return header +
       dictionary.allProperties
-        .map((prop) => (`@use '../../${prop.value === 'a' ? '' : 'blocks/'}${prop.path[1]}/index' as *;`))
+        .map((prop) => (`@use '../../../src/stylesheets/${prop.value === 'a' ? '' : 'blocks/'}${prop.path[1]}/index' as *;`))
         .join('\n')
         + '\n//\n// SCSS block name imports\n';
     },
@@ -431,11 +431,13 @@ function styleDictionaryRegistration() {
       const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
 
       // eslint-disable-next-line prefer-template
-      return header + `import getBlock from '../ui/get_block';\n\n` +
+      return header + `const getBlock = require('../../lib/ui/get_block').default;\n\n` +
         dictionary.allProperties
           .filter((prop) => (prop.value !== defaultPrefix))
-          .map((prop) => `export const $${prop.name} = '${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}';\n`
-            + `export const ${prop.name} = getBlock('${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}');${prop.comment ? ` // ${prop.comment}` : ''}`)
+          .map((prop) => `const $${prop.name} = '${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}';\n`
+            + `const ${prop.name} = getBlock('${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}');${prop.comment ? ` // ${prop.comment}` : ''}\n`
+            + `module.exports.$${prop.name} = $${prop.name};\n`
+            + `module.exports.${prop.name} = ${prop.name};`)
           .join('\n')
           + '\n//\n// JS block names\n';
     },
@@ -451,7 +453,7 @@ function styleDictionaryRegistration() {
       return header +
         dictionary.allProperties
           .filter((prop) => (prop.value !== defaultPrefix))
-          .map((prop) => `export const $${prop.name} = '${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}';${prop.comment ? ` // ${prop.comment}` : ''}`)
+          .map((prop) => `const $${prop.name} = '${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}';${prop.comment ? ` // ${prop.comment}` : ''}\nmodule.exports.$${prop.name} = $${prop.name};`)
           .join('\n')
           + '\n//\n// JS block names\n';
     },

@@ -2,8 +2,8 @@
 @use "sass:map";
 @use "sass:math";
 @use "../../a/settings/settings";
-@use "../../from-dictionary/block-name/block-name";
-@use "../../from-dictionary/block/button";
+@use "../../../../from-dictionary/stylesheets/block-name/block-name";
+@use "../../../../from-dictionary/stylesheets/block/button";
 @use "../../utils/functions/color" as functions-color;
 @use "../../utils/functions/color-cp";
 @use "../../utils/functions/em";

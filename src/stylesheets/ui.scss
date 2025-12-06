@@ -3,17 +3,17 @@
 @use 'sass-true/sass/report';
 
 // Blocks Names
-@use 'from-dictionary/block-name/block-name';
+@use '../from-dictionary/stylesheets/block-name/block-name';
 
 // Tokens based variables
-@use 'from-dictionary/shape/shape';
-@use 'from-dictionary/z/z';
-@use 'from-dictionary/color/color';
-@use 'from-dictionary/color/color-map';
-@use 'from-dictionary/color/color-default';
+@use '../from-dictionary/stylesheets/shape/shape';
+@use '../from-dictionary/stylesheets/z/z';
+@use '../from-dictionary/stylesheets/color/color';
+@use '../from-dictionary/stylesheets/color/color-map';
+@use '../from-dictionary/stylesheets/color/color-default';
 @use 'custom-properties/custom-properties';
 // @import 'from-dictionary/color/color-kss';
-@use 'from-dictionary/block/button';
+@use '../from-dictionary/stylesheets/block/button';
 
 @use 'utils/functions';
 @use 'utils/functions-specs';
@@ -81,7 +81,7 @@
 // Third party lib elements styling
 // @import 'blocks/autosize-input';
 
-@use 'from-dictionary/block-name/block-name-imports';
+@use '../from-dictionary/stylesheets/block-name/block-name-imports';
 
 /* Abstracts */
 // .a {

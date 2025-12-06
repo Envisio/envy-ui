@@ -1,5 +1,5 @@
-@use "../from-dictionary/block-name/block-name";
-@use "../from-dictionary/color/color";
+@use "../../../from-dictionary/stylesheets/block-name/block-name";
+@use "../../../from-dictionary/stylesheets/color/color";
 
 .#{block-name.$uiA}-placeholder {
   display: block;

@@ -1,6 +1,6 @@
 @use "sass:string";
-@use "../from-dictionary/block-name/block-name";
-@use "../from-dictionary/color/color-map";
+@use "../../../from-dictionary/stylesheets/block-name/block-name";
+@use "../../../from-dictionary/stylesheets/color/color-map";
 @use "../utils/functions/color";
 @use "settings/settings";
 

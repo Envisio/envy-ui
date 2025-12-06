@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:string";
-@use "../from-dictionary/block-name/block-name";
-@use "../from-dictionary/z/z";
+@use "../../../from-dictionary/stylesheets/block-name/block-name";
+@use "../../../from-dictionary/stylesheets/z/z";
 @use "settings/settings";
 
 $z-top: z.$z-top;

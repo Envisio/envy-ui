@@ -1,6 +1,6 @@
 import { eq, split, without, isEmpty, memoize, values } from 'lodash';
 
-import { $uiA } from '../from-dictionary/block_raw_name';
+import { $uiA } from '../../from-dictionary/javascripts/block_raw_name';
 
 const _getClasses = (block, predicates, fragment, i) => {
   // console.log('block ', block);

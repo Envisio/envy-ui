@@ -1,9 +1,9 @@
 @use "sass:color";
 @use "../../a/settings/settings";
-@use "../../from-dictionary/block-name/block-name";
-@use "../../from-dictionary/color/color-default";
-@use "../../from-dictionary/shape/shape";
-@use "../../from-dictionary/z/z";
+@use "../../../../from-dictionary/stylesheets/block-name/block-name";
+@use "../../../../from-dictionary/stylesheets/color/color-default";
+@use "../../../../from-dictionary/stylesheets/shape/shape";
+@use "../../../../from-dictionary/stylesheets/z/z";
 @use "../../utils/functions/color" as functions-color;
 @use "../../utils/functions/color-cp";
 

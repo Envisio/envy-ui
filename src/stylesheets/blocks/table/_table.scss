@@ -1,7 +1,7 @@
 @use "sass:color";
 @use "../../a/settings/settings";
-@use "../../from-dictionary/block-name/block-name";
-@use "../../from-dictionary/color/color" as color-color;
+@use "../../../../from-dictionary/stylesheets/block-name/block-name";
+@use "../../../../from-dictionary/stylesheets/color/color" as color-color;
 @use "../../utils/functions/color" as functions-color;
 @use "../../utils/functions/color-cp";
 @use "../../utils/mixin";

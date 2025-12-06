@@ -25,17 +25,15 @@
         "json"
       ],
       "ignore": [
-        "./src/stylesheets/from-dictionary",
-        "./src/javascripts/from-dictionary",
+        "./from-dictionary",
         "./src/javascripts/from-css",
-        "./styleguide/homepage/from-dictionary",
         "./src/stylesheets/a/kss/build"
       ]
     }
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "remove": "rm -r -f dist lib",
+    "remove": "rm -r -f dist lib from-dictionary",
     "sass-styleguide": "sass --style=compressed --load-path=node_modules/ styleguide/kss-assets/kss.scss styleguide/kss-assets/kss.css",
     "sass-envisio-ui": "sass --embed-sources --source-map  --load-path=node_modules/ src/stylesheets/ui.scss dist/css/ui.css",
     "prefix": "postcss dist/css/ui.css --use autoprefixer -d dist/css",
@@ -46,18 +44,19 @@
     "scss-lint": "stylelint src/stylesheets/**/*.scss",
     "webpack": "webpack --config webpack.config.js",
     "babel": "npx babel src/javascripts --out-dir lib",
-    "run-all": "npm run remove ; npm run dictionary && npm run js-test && npm run babel && npm run sass-envisio-ui && npm run css-lint && npm run prefix && npm run sass-envisio-ui-min && npm run prefix-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss",
+    "run-all": "npm run remove ; npm run dictionary && npm run babel && npm run js-test && npm run sass-envisio-ui && npm run css-lint && npm run prefix && npm run sass-envisio-ui-min && npm run prefix-min && npm run sass-styleguide && npm run render-styleguide-homepage && npm run render-markups && npm run kss",
     "dictionary": "node dictionary_build.js",
     "watch": "npm-watch",
     "specificity": "specificity-graph dist/css/ui.css --output dist/styleguide/specificity",
-    "render-styleguide-homepage": "pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
-    "render-markups": "pug --pretty -O src/javascripts/from-dictionary/block_name.styleguide.js src/stylesheets/a/kss/src/ --out src/stylesheets/a/kss/build/",
+    "render-styleguide-homepage": "pug -O from-dictionary/javascripts/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
+    "render-markups": "pug --pretty -O from-dictionary/javascripts/block_name.styleguide.js src/stylesheets/a/kss/src/ --out src/stylesheets/a/kss/build/",
     "deploy": "npm run specificity && surge --domain envisio-styleguide.surge.sh ./dist",
-    "js-test": "babel-tape-runner src/javascripts/ui/tests/get_block.test.js | faucet",
+    "js-test": "babel-tape-runner lib/ui/tests/get_block.test.js | faucet",
     "backstop:exec-test": "concurrently \"http-server -a localhost -p 5000\" \"sleepms 2000 && node backstop.exec.js test; open-cli http://localhost:5000/backstop_data/html_report/\"",
     "backstop:reference": "backstop reference --config=\"backstop.config.js\"",
     "start:styleguide": "npm run open-styleguide",
     "open-styleguide": "concurrently \"http-server -a localhost -c-1 -p 1234\" \"open http://localhost:1234/dist/styleguide/\"",
+    "styleguide": "open-cli dist/styleguide/index.html",
     "publish-staging": "npm run run-all && surge ./dist envisio-styleguide-staging.surge.sh"
   },
   "repository": {

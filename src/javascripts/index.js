@@ -21,12 +21,12 @@ const _uiGeneric = (wrapper, blocksElements) => {
 export const ui = partial(_uiGeneric, _classNameWrapper);
 export const uiMerge = partial(_uiGeneric, _noWrapper);
 
-export * from './from-dictionary/block_name';
+export * from '../from-dictionary/javascripts/block_name';
 export * from './react_select/rs_dropdown_menu';
 export * from './react_select/rs_select';
 export * from './react_select/rs_color_picker';
-export * from './from-dictionary/color';
-export * from './from-dictionary/z';
+export * from '../from-dictionary/javascripts/color';
+export * from '../from-dictionary/javascripts/z';
 
 // // Abstract Library
 // export const uiA = getBlock($ui.A);
