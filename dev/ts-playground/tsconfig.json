@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.dev.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "types": ["vite/client"]
+  },
+  "include": [
+    "./src",
+    "../ts-playground.d.ts"
+  ]
+}

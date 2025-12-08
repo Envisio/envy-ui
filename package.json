@@ -3,10 +3,12 @@
   "version": "1.0.479",
   "description": "UI Design System for Envisio Applications",
   "main": "./lib/index.js",
+  "types": "./index.d.ts",
   "files": [
     "dist/js/**/*",
     "dist/css/**/*",
-    "lib/**/*"
+    "lib/**/*",
+    "index.d.ts"
   ],
   "watch": {
     "run-all": {
@@ -54,6 +56,9 @@
     "js-test": "babel-tape-runner lib/ui/tests/get_block.test.js | faucet",
     "backstop:exec-test": "concurrently \"http-server -a localhost -p 5000\" \"sleepms 2000 && node backstop.exec.js test; open-cli http://localhost:5000/backstop_data/html_report/\"",
     "backstop:reference": "backstop reference --config=\"backstop.config.js\"",
+    "ts:dev": "tsc --project tsconfig.dev.json",
+    "playground:dev": "vite --config dev/ts-playground/vite.config.mjs",
+    "playground:build": "vite build --config dev/ts-playground/vite.config.mjs",
     "start:styleguide": "npm run open-styleguide",
     "open-styleguide": "concurrently \"http-server -a localhost -c-1 -p 1234\" \"open http://localhost:1234/dist/styleguide/\"",
     "styleguide": "open-cli dist/styleguide/index.html",
@@ -76,6 +81,10 @@
     "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^8.1.0",
     "babel-tape-runner": "^3.0.0",
@@ -107,6 +116,8 @@
     "stylelint-config-recommended": "^3.0.0",
     "surge": "^0.21.5",
     "tape": "^5.0.1",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.11",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-node-externals": "^1.7.2"
