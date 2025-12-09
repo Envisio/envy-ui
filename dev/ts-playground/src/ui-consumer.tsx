@@ -1,7 +1,8 @@
 import React from 'react';
+import { Button as AriaButton, Switch as AriaSwitch } from 'react-aria-components';
 import * as envyUI from 'envy-ui';
 
-const { ui, uiA, uiButton, uiMerge } = envyUI;
+const { ui, uiA, uiButton, uiCheckbox, uiMerge } = envyUI;
 
 type PlaygroundProps = {
   isDanger: boolean;
@@ -25,6 +26,7 @@ const PlaygroundPreview: React.FC<PlaygroundProps> = ({
     []
   );
 
+
   return (
     <div {...ui([uiA`f f-column f-gap-small p`])}>
       <div {...ui([uiButton`--mint-blue`, uiA`f f-a-center f-gap-small`])}>
@@ -44,13 +46,22 @@ const PlaygroundPreview: React.FC<PlaygroundProps> = ({
         </span>
       </div>
 
-      <button
-        type="button"
-        onClick={toggleVariant}
-        {...ui([uiButton`--ghost`, uiA`self-start`])}
+      <AriaButton
+        {...ui([uiButton`--red:--mint-blue:${isDanger}`, uiA`m-left-large`])}
+        onPress={toggleVariant}
       >
-        Toggle danger
-      </button>
+        <span {...ui([uiButton`__content`, uiA`ellipsis`])}>
+          React Aria Button ({isDanger ? 'danger' : 'mint-blue'})
+        </span>
+      </AriaButton>
+
+      <AriaSwitch
+        {...ui([envyUI.uiCheckbox`--toggle`, uiA`self-start m-bottom-small`])}
+        isSelected={isDanger}
+        onChange={toggleVariant}
+      >
+        React Aria Switch
+      </AriaSwitch>
 
       <pre className={settingsDumpClass}>
         {JSON.stringify(mergedSettings, null, 2)}
@@ -67,7 +78,7 @@ export const TsPlaygroundApp: React.FC = () => {
   }, []);
 
   return (
-    <section {...ui([uiA`f f-column f-gap p`])}>
+    <section {...ui([uiA`f f-column f-gap p`, "a"])}>
       <h1 {...ui([uiA`font-size-24 m-bottom-small`])}>envy-ui TS smoke test</h1>
       <PlaygroundPreview isDanger={isDanger} toggleVariant={toggleVariant} />
     </section>

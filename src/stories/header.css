@@ -1,0 +1,53 @@
+.storybook-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(11, 28, 49, 0.08);
+  padding: 18px 24px;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: linear-gradient(120deg, rgba(14, 34, 60, 0.97), rgba(21, 58, 106, 0.92));
+  color: #f5fbff;
+}
+
+.storybook-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.storybook-header__logo {
+  display: block;
+  height: 32px;
+  width: auto;
+}
+
+.storybook-header__logo svg {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+.storybook-header__title-block h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.storybook-header__title-block p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: rgba(245, 251, 255, 0.8);
+}
+
+.storybook-header button + button {
+  margin-left: 10px;
+}
+
+.storybook-header .welcome {
+  margin-right: 10px;
+  color: rgba(245, 251, 255, 0.9);
+  font-size: 14px;
+}

@@ -1,0 +1,71 @@
+.storybook-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid rgba(9, 20, 44, 0.1);
+  background: #ffffff;
+  padding: 20px 22px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  gap: 12px;
+  min-height: 140px;
+  max-width: 420px;
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.storybook-card--info {
+  border-color: rgba(27, 136, 249, 0.2);
+  box-shadow: 0 12px 34px rgba(27, 136, 249, 0.12);
+}
+
+.storybook-card--success {
+  border-color: rgba(66, 226, 184, 0.3);
+  box-shadow: 0 12px 34px rgba(66, 226, 184, 0.18);
+}
+
+.storybook-card--warning {
+  border-color: rgba(241, 182, 91, 0.35);
+  box-shadow: 0 12px 34px rgba(241, 182, 91, 0.2);
+}
+
+.storybook-card__badge {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  border-radius: 999px;
+  padding: 4px 12px;
+  background: rgba(27, 136, 249, 0.12);
+  color: #1b88f9;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.storybook-card__body h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #0f172a;
+}
+
+.storybook-card__body p {
+  margin: 8px 0 0;
+  color: #475467;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.storybook-card__content {
+  margin-top: 12px;
+  color: #0f172a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.storybook-card__footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
