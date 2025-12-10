@@ -46,6 +46,10 @@
   margin-left: 10px;
 }
 
+.storybook-header .storybook-button {
+  color: #f5fbff;
+}
+
 .storybook-header .welcome {
   margin-right: 10px;
   color: rgba(245, 251, 255, 0.9);

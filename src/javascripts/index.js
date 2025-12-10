@@ -94,7 +94,7 @@ export { OverlayScroll } from './react_components/scrollbar';
 export { default as Portal } from './react_components/portal';
 export { default as Tooltip } from './react_components/tooltip';
 
-export const { name: browserName } = detect();
+export const { name: browserName = 'unknown' } = detect() || {};
 
 export { default as CheckboxWrapper } from './react_wrappers/checkbox_wrapper';
 export { default as FlexScrollbarWrapper } from './react_wrappers/flex_scrollbar_wrapper';

@@ -15,7 +15,7 @@ const envisioTheme = create({
   appContentBg: '#ffffff',
   appBorderColor: '#d8dce8',
   appBorderRadius: 8,
-  fontBase: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+  fontBase: "'Source Sans Pro', Arial, sans-serif",
   fontCode: "'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace",
   textColor: '#0f172a',
   textInverseColor: '#ffffff',

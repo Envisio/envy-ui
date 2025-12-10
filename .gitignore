@@ -13,6 +13,8 @@
 /dist
 /lib
 
+/**/report_builder
+
 # Ignore all logfiles and tempfiles.
 *.log
 /tmp
