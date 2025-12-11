@@ -1,0 +1,50 @@
+{
+  "button": {
+    "--clean": {
+      "default": {
+        "border": {
+          "$value": "{shape.border.$value} transparent",
+          "$type": "dimension"
+        }
+      },
+      "focus": {
+        "border-color": {
+          "$value": "{color-default.focus-border.$value}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "{shape.focus-box-shadow.$value} {color-default.focus-shadow.$value}",
+          "$type": "dimension"
+        }
+      },
+      "disabled": {
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "opacity": {
+          "$value": "0.5",
+          "$type": "dimension"
+        },
+        "cursor": {
+          "$value": "default",
+          "$type": "dimension"
+        }
+      },
+      "inactive": {
+        "border": {
+          "$value": "{button.--clean.default.border.$value}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "cursor": {
+          "$value": "default",
+          "$type": "dimension"
+        }
+      }
+    }
+  }
+}

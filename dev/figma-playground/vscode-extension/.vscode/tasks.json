@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "compile",
+      "group": "build",
+      "presentation": {
+        "panel": "shared",
+        "reveal": "silent"
+      },
+      "problemMatcher": "$tsc"
+    },
+    {
+      "type": "npm",
+      "script": "watch",
+      "group": "build",
+      "isBackground": true,
+      "presentation": {
+        "panel": "shared",
+        "reveal": "never"
+      },
+      "problemMatcher": [
+        {
+          "owner": "typescript",
+          "pattern": {
+            "regexp": "^([^\\s].*):(\\d+):(\\d+):\\s+(warning|error)\\s+TS(\\d+):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "code": 5,
+            "message": 6
+          },
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "^\\s*\\d{1,2}:\\d{2}:\\d{2}(\\s+AM|\\s+PM)?\\s+-\\s+File change detected\\. Starting incremental compilation\\.\\.\\.",
+            "endsPattern": "^\\s*\\d{1,2}:\\d{2}:\\d{2}(\\s+AM|\\s+PM)?\\s+-\\s+Compilation complete\\."
+          }
+        }
+      ]
+    }
+  ]
+}

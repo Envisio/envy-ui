@@ -1,0 +1,139 @@
+{
+  "acss-top-right-bottom-left": {
+    "main-fragment": "top-right-bottom-left",
+    "ignore-main-fragment": true,
+    "value": "{acss-settings.iterate-list}",
+    "default-iterator": "{acss-settings.iterate-list}",
+    "text-label": "ACSS Top/Right/Bottom/Left",
+    "menu-weight": 145,
+    "$type": "string",
+    "$description": "ACSS general top, right, bottom, left modifiers classes.",
+    "fragments": [
+      {
+        "content": "-top",
+        "description": "Top position in default units (px).",
+        "markup-file": "_a-top-kss.html",
+        "menu": "Top (px)",
+        "test-extension": ""
+      },
+      {
+        "content": "-top",
+        "description": "Top negative position in default units (px).",
+        "markup-file": "_a-top-negative-kss.html",
+        "menu": "Top Negative (px)",
+        "iterator": "{acss-settings.iterate-list-small}",
+        "unit": "{acss-settings.unit.negative}",
+        "number-extension": "{acss-settings.negative-extension}"
+      },
+      {
+        "content": "-top",
+        "description": "Top position in %.",
+        "markup-file": "_a-top-kss.html",
+        "unit": "{acss-settings.unit.percent}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Top (%)"
+      },
+      {
+        "content": "-top",
+        "description": "Top position shortcut for 0 value.",
+        "markup-file": "_a-top-kss.html",
+        "unit": "{acss-settings.unit.none}",
+        "iterator": "{acss-settings.null}",
+        "menu": "Top Shortcuts"
+      },
+      {
+        "content": "-right",
+        "description": "Right position in default units (px).",
+        "markup-file": "_a-right-kss.html",
+        "menu": "Right (px)"
+      },
+      {
+        "content": "-right",
+        "description": "Right negative position in default units (px).",
+        "markup-file": "_a-right-negative-kss.html",
+        "menu": "Right Negative (px)",
+        "iterator": "{acss-settings.iterate-list-small}",
+        "unit": "{acss-settings.unit.negative}",
+        "number-extension": "{acss-settings.negative-extension}"
+      },
+      {
+        "content": "-right",
+        "description": "Right position in %.",
+        "markup-file": "_a-right-kss.html",
+        "unit": "{acss-settings.unit.percent}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Right (%)"
+      },
+      {
+        "content": "-right",
+        "description": "Right position shortcut for 0 value.",
+        "markup-file": "_a-right-kss.html",
+        "unit": "{acss-settings.unit.none}",
+        "iterator": "{acss-settings.null}",
+        "menu": "Right Shortcuts"
+      },
+      {
+        "content": "-bottom",
+        "description": "Bottom negative position in default units (px).",
+        "markup-file": "_a-bottom-negative-kss.html",
+        "menu": "Bottom Negative (px)",
+        "iterator": "{acss-settings.iterate-list-small}",
+        "unit": "{acss-settings.unit.negative}",
+        "number-extension": "{acss-settings.negative-extension}"
+      },
+      {
+        "content": "-bottom",
+        "description": "Bottom position in default units (px).",
+        "markup-file": "_a-bottom-kss.html",
+        "menu": "Bottom (px)"
+      },
+      {
+        "content": "-bottom",
+        "description": "Bottom position in %.",
+        "markup-file": "_a-bottom-kss.html",
+        "unit": "{acss-settings.unit.percent}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Bottom (%)"
+      },
+      {
+        "content": "-bottom",
+        "description": "Bottom position shortcut for 0 value.",
+        "markup-file": "_a-bottom-kss.html",
+        "unit": "{acss-settings.unit.none}",
+        "iterator": "{acss-settings.null}",
+        "menu": "Bottom Shortcuts"
+      },
+      {
+        "content": "-left",
+        "description": "Left position in default units (px).",
+        "markup-file": "_a-left-kss.html",
+        "menu": "Left (px)"
+      },
+      {
+        "content": "-left",
+        "description": "Left negative position in default units (px).",
+        "markup-file": "_a-left-negative-kss.html",
+        "menu": "Left Negative (px)",
+        "iterator": "{acss-settings.iterate-list-small}",
+        "unit": "{acss-settings.unit.negative}",
+        "number-extension": "{acss-settings.negative-extension}"
+      },
+      {
+        "content": "-left",
+        "description": "Left position in %.",
+        "markup-file": "_a-left-kss.html",
+        "unit": "{acss-settings.unit.percent}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Left (%)"
+      },
+      {
+        "content": "-left",
+        "description": "Left position shortcut for 0 value.",
+        "markup-file": "_a-right-kss.html",
+        "unit": "{acss-settings.unit.none}",
+        "iterator": "{acss-settings.null}",
+        "menu": "Left Shortcuts"
+      }
+    ]
+  }
+}

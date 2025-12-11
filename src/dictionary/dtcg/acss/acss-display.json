@@ -1,0 +1,20 @@
+{
+  "acss-display": {
+    "main-fragment": "display",
+    "ignore-main-fragment": true,
+    "value": "{acss-settings.display-properties}",
+    "default-iterator": "{acss-settings.display-properties}",
+    "markup-file": "_a-display-kss.html",
+    "text-label": "ACSS Display",
+    "menu-weight": 150,
+    "$type": "string",
+    "$description": "ACSS display modifier class.",
+    "fragments": [
+      {
+        "content": "",
+        "description": "Display modifiers.",
+        "menu": "Display"
+      }
+    ]
+  }
+}

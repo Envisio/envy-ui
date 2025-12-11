@@ -1,0 +1,40 @@
+{
+  "block-category": {
+    "acss": {
+      "_value": "ACSS"
+    },
+    "control": {
+      "_value": "Control"
+    },
+    "form": {
+      "_value": "Form"
+    },
+    "table": {
+      "_value": "Table"
+    },
+    "container": {
+      "_value": "Container"
+    },
+    "info": {
+      "_value": "Info"
+    },
+    "input": {
+      "_value": "Input"
+    },
+    "menu": {
+      "_value": "Menu"
+    },
+    "specific": {
+      "_value": "Specific"
+    },
+    "abstract": {
+      "_value": "Abstract"
+    },
+    "icon": {
+      "_value": "Icon"
+    },
+    "third-party": {
+      "_value": "Third party"
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "containerManifest": {
+    "display": {
+      "options": {
+        "flex": {
+          "figma": "auto-layout-horizontal",
+          "class": "f"
+        },
+        "flex-inline": {
+          "figma": "auto-layout-horizontal",
+          "class": "f-inline"
+        },
+        "block": {
+          "figma": "fixed",
+          "class": "block"
+        },
+        "grid": {
+          "figma": "auto-layout-grid",
+          "class": "g"
+        }
+      }
+    },
+    "direction": {
+      "options": {
+        "row": {
+          "figma": "horizontal",
+          "class": ""
+        },
+        "column": {
+          "figma": "vertical",
+          "class": "f-column"
+        },
+        "row-reverse": {
+          "figma": "horizontal-reverse",
+          "class": "f-row-reverse"
+        },
+        "column-reverse": {
+          "figma": "vertical-reverse",
+          "class": "f-column-reverse"
+        }
+      }
+    },
+    "gap": {
+      "options": {
+        "0": {
+          "figma": 0,
+          "class": "f-gap-0"
+        },
+        "1": {
+          "figma": 1,
+          "class": "f-gap-1"
+        },
+        "2": {
+          "figma": 2,
+          "class": "f-gap-2"
+        },
+        "3": {
+          "figma": 3,
+          "class": "f-gap-3"
+        },
+        "4": {
+          "figma": 4,
+          "class": "f-gap-4"
+        },
+        "5": {
+          "figma": 5,
+          "class": "f-gap-5"
+        },
+        "10": {
+          "figma": 10,
+          "class": "f-gap"
+        },
+        "15": {
+          "figma": 15,
+          "class": "f-gap-15"
+        },
+        "20": {
+          "figma": 20,
+          "class": "f-gap-20"
+        },
+        "25": {
+          "figma": 25,
+          "class": "f-gap-25"
+        },
+        "30": {
+          "figma": 30,
+          "class": "f-gap-30"
+        }
+      }
+    },
+    "justify": {
+      "options": {
+        "start": {
+          "figma": "packed-start",
+          "class": "f-j-start"
+        },
+        "center": {
+          "figma": "packed-center",
+          "class": "f-j-center"
+        },
+        "end": {
+          "figma": "packed-end",
+          "class": "f-j-end"
+        },
+        "space-between": {
+          "figma": "space-between",
+          "class": "f-j-space-between"
+        },
+        "space-around": {
+          "figma": "space-around",
+          "class": "f-j-space-around"
+        },
+        "space-evenly": {
+          "figma": "space-evenly",
+          "class": "f-j-space-evenly"
+        }
+      }
+    },
+    "align": {
+      "options": {
+        "start": {
+          "figma": "min",
+          "class": "f-a-start"
+        },
+        "center": {
+          "figma": "center",
+          "class": "f-a-center"
+        },
+        "end": {
+          "figma": "max",
+          "class": "f-a-end"
+        },
+        "baseline": {
+          "figma": "baseline",
+          "class": "f-a-baseline"
+        },
+        "stretch": {
+          "figma": "fill",
+          "class": "f-a-stretch"
+        }
+      }
+    }
+  }
+}

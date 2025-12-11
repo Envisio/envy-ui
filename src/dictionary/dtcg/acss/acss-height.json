@@ -1,0 +1,80 @@
+{
+  "acss-h": {
+    "main-fragment": "h",
+    "value": "{acss-settings.iterate-list}",
+    "markup-file": "_a-height-kss.html",
+    "text-label": "ACSS Height",
+    "menu-weight": 140,
+    "$type": "string",
+    "$description": "ACSS general height modifiers classes.",
+    "fragments": [
+      {
+        "content": "",
+        "description": "Height in default units (px).",
+        "iterator": "{acss-settings.iterate-list}",
+        "menu": "Height (px)"
+      },
+      {
+        "content": "",
+        "description": "Height in % units.",
+        "unit": "{acss-settings.unit.percent}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "markup-file": "_a-height-percent-kss.html",
+        "menu": "Height (%)"
+      },
+      {
+        "content": "",
+        "description": "Height in vh units.",
+        "unit": "{acss-settings.unit.vh}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Height (vh)"
+      },
+      {
+        "content": "-min",
+        "description": "Min height in default units (px).",
+        "iterator": "{acss-settings.iterate-list}",
+        "menu": "Min height (px)",
+        "markup-file": "_a-height-min-kss.html"
+      },
+      {
+        "content": "-min",
+        "description": "Min height in % units.",
+        "unit": "{acss-settings.unit.percent}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Min height (%)",
+        "markup-file": "_a-height-min-percent-kss.html"
+      },
+      {
+        "content": "-min",
+        "description": "Height in vh units.",
+        "unit": "{acss-settings.unit.vh}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Min height (vh)",
+        "markup-file": "_a-height-min-kss.html"
+      },
+      {
+        "content": "-max",
+        "description": "Max height in default units (px).",
+        "iterator": "{acss-settings.iterate-list}",
+        "markup-file": "_a-height-max-kss.html",
+        "menu": "Max height (px)"
+      },
+      {
+        "content": "-max",
+        "description": "Max height in % units.",
+        "menu": "Max height (%)",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "markup-file": "_a-height-max-percent-kss.html",
+        "unit": "{acss-settings.unit.percent}"
+      },
+      {
+        "content": "-max",
+        "description": "Max height in vh units.",
+        "menu": "Max height (vh)",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "markup-file": "_a-height-max-kss.html",
+        "unit": "{acss-settings.unit.vh}"
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "button": {
+    "--map": {
+      "default": {
+        "color": {
+          "$value": "inherit",
+          "$type": "dimension"
+        },
+        "background-color": {
+          "$value": "{color.white.$value}",
+          "$type": "dimension"
+        },
+        "border": {
+          "$value": "{shape.border-dashed.$value} {button.--map.default.border.$color}",
+          "$type": "border",
+          "$color": "{color.transparent.$value}"
+        }
+      },
+      "hover": {
+        "border-color": {
+          "$value": "var(--color-viking-blue)",
+          "$type": "dimension"
+        }
+      },
+      "active": {
+        "background-color": {
+          "$value": "#dff0f6",
+          "$type": "color",
+          "$description": "lighten 3% from color.pale-light"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "border-color": {
+          "$value": "var(--color-viking-blue)",
+          "$type": "dimension"
+        }
+      },
+      "focus": {
+        "border-color": {
+          "$value": "var(--color-viking-blue)",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "{shape.focus-box-shadow.$value} rgba(255,255,255,0.4)",
+          "$type": "color"
+        }
+      },
+      "disabled": {
+        "background-color": {
+          "$value": "{color.white.$value}",
+          "$type": "dimension"
+        },
+        "border-color": {
+          "$value": "{color.transparent.$value}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "filter": {
+          "$value": "brightness(1)",
+          "$type": "dimension"
+        },
+        "opacity": {
+          "$value": "1",
+          "$type": "dimension"
+        }
+      },
+      "inactive": {
+        "background-color": {
+          "$value": "{button.--map.default.background-color.$value}",
+          "$type": "dimension"
+        },
+        "border-color": {
+          "$value": "{button.--map.default.border.$color}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "cursor": {
+          "$value": "default",
+          "$type": "dimension"
+        }
+      }
+    }
+  }
+}

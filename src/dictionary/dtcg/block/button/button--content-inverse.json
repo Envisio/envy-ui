@@ -1,0 +1,36 @@
+{
+  "button": {
+    "--content-inverse": {
+      "default": {
+        "color": {
+          "$value": "{color.gray-white.$value}",
+          "$type": "dimension"
+        }
+      },
+      "hover": {
+        "color": {
+          "$value": "{color.white.$value}",
+          "$type": "dimension"
+        }
+      },
+      "active": {
+        "color": {
+          "$value": "{color.white.$value}",
+          "$type": "dimension"
+        }
+      },
+      "disabled": {
+        "color": {
+          "$value": "{color.plain-gray.$value}",
+          "$type": "dimension"
+        }
+      },
+      "inactive": {
+        "color": {
+          "$value": "{button.--content-gray.default.color.$value}",
+          "$type": "dimension"
+        }
+      }
+    }
+  }
+}

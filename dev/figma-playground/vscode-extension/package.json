@@ -1,0 +1,73 @@
+{
+  "name": "envy-ui-figma-sync",
+  "displayName": "Envy UI Figma Sync",
+  "description": "Generate Envy UI code from Figma selections",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:envyui.generateFromFigma"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "envyui.generateFromFigma",
+        "title": "Generate Envy UI from Figma Selection",
+        "category": "Envy UI"
+      },
+      {
+        "command": "envyui.convertTailwindToEnvyUI",
+        "title": "Convert Tailwind to Envy UI",
+        "category": "Envy UI"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "envyui.generateFromFigma",
+        "key": "ctrl+shift+f",
+        "mac": "cmd+shift+f",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Envy UI Figma Sync",
+      "properties": {
+        "envyui.outputFormat": {
+          "type": "string",
+          "enum": [
+            "html",
+            "react",
+            "vue"
+          ],
+          "default": "html",
+          "description": "Output format for generated code"
+        },
+        "envyui.indentation": {
+          "type": "number",
+          "default": 2,
+          "description": "Number of spaces for indentation"
+        },
+        "envyui.includeComments": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include comments in generated code"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.107.0",
+    "typescript": "^4.9.4"
+  }
+}

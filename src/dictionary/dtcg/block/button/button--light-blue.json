@@ -1,0 +1,93 @@
+{
+  "button": {
+    "--light-blue": {
+      "default": {
+        "color": {
+          "$value": "{color.white.$value}",
+          "$type": "dimension"
+        },
+        "background-color": {
+          "$value": "{color.viking-blue.$value}",
+          "$type": "dimension"
+        },
+        "border": {
+          "$value": "{shape.border.$value} {button.--light-blue.default.border.$color}",
+          "$type": "dimension",
+          "$description": "darken 7% from color.viking-blue.value",
+          "$color": "#34aacd"
+        }
+      },
+      "hover": {
+        "background-color": {
+          "$value": "{button.--light-blue.default.border.$color}",
+          "$type": "dimension"
+        }
+      },
+      "active": {
+        "background-color": {
+          "$value": "#36c5ef",
+          "$type": "color",
+          "$description": "saturate 25% from color.viking-blue.value"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        }
+      },
+      "focus": {
+        "border-color": {
+          "$value": "{button.--light-blue.default.border.$color}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "{shape.focus-box-shadow.$value} rgba(255,255,255,0.4)",
+          "$type": "color"
+        }
+      },
+      "disabled": {
+        "background-color": {
+          "$value": "{button.--light-blue.default.background-color.$value}",
+          "$type": "dimension"
+        },
+        "border-color": {
+          "$value": "{button.--light-blue.default.border.$color}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "opacity": {
+          "$value": "0.6",
+          "$type": "dimension"
+        },
+        "filter": {
+          "$value": "saturate(50%)",
+          "$type": "dimension"
+        },
+        "cursor": {
+          "$value": "default",
+          "$type": "dimension"
+        }
+      },
+      "inactive": {
+        "background-color": {
+          "$value": "{button.--light-blue.default.background-color.$value}",
+          "$type": "dimension"
+        },
+        "border-color": {
+          "$value": "{button.--light-blue.default.border.$color}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "cursor": {
+          "$value": "default",
+          "$type": "dimension"
+        }
+      }
+    }
+  }
+}

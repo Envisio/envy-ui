@@ -1,0 +1,586 @@
+{
+  "$schema": "https://tr.designtokens.org/format/#top-level-keys",
+  "$description": "DTCG format tokens for Figma container component that mirrors envy-ui atomic CSS",
+  "component": {
+    "container": {
+      "display": {
+        "flex": {
+          "$type": "string",
+          "$value": "flex",
+          "$description": "Flexbox display with horizontal auto-layout",
+          "css": {
+            "$type": "string",
+            "$value": "display: flex !important"
+          },
+          "figma": {
+            "$type": "string", 
+            "$value": "auto-layout-horizontal"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f"
+          }
+        },
+        "flex-inline": {
+          "$type": "string",
+          "$value": "inline-flex",
+          "$description": "Inline flexbox display",
+          "css": {
+            "$type": "string",
+            "$value": "display: inline-flex !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "auto-layout-horizontal"
+          },
+          "class": {
+            "$type": "string", 
+            "$value": "f-inline"
+          }
+        },
+        "block": {
+          "$type": "string",
+          "$value": "block",
+          "$description": "Block display with fixed positioning",
+          "css": {
+            "$type": "string",
+            "$value": "display: block !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "fixed"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "block"
+          }
+        },
+        "grid": {
+          "$type": "string", 
+          "$value": "grid",
+          "$description": "CSS Grid display",
+          "css": {
+            "$type": "string",
+            "$value": "display: grid !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "auto-layout-grid"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "g"
+          }
+        }
+      },
+      "direction": {
+        "row": {
+          "$type": "string",
+          "$value": "row",
+          "$description": "Horizontal flex direction (default)",
+          "css": {
+            "$type": "string",
+            "$value": "flex-direction: row !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "horizontal"
+          },
+          "class": {
+            "$type": "string",
+            "$value": ""
+          }
+        },
+        "column": {
+          "$type": "string",
+          "$value": "column", 
+          "$description": "Vertical flex direction",
+          "css": {
+            "$type": "string",
+            "$value": "flex-direction: column !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "vertical"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-column"
+          }
+        },
+        "row-reverse": {
+          "$type": "string",
+          "$value": "row-reverse",
+          "$description": "Horizontal flex direction reversed",
+          "css": {
+            "$type": "string", 
+            "$value": "flex-direction: row-reverse !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "horizontal-reverse"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-row-reverse"
+          }
+        },
+        "column-reverse": {
+          "$type": "string",
+          "$value": "column-reverse",
+          "$description": "Vertical flex direction reversed", 
+          "css": {
+            "$type": "string",
+            "$value": "flex-direction: column-reverse !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "vertical-reverse"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-column-reverse"
+          }
+        }
+      },
+      "gap": {
+        "0": {
+          "$type": "dimension",
+          "$value": "0px",
+          "$description": "No gap between items",
+          "css": {
+            "$type": "string",
+            "$value": "gap: 0px !important"
+          },
+          "figma": {
+            "$type": "number",
+            "$value": 0
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap-0"
+          }
+        },
+        "1": {
+          "$type": "dimension", 
+          "$value": "1px",
+          "$description": "1px gap between items",
+          "css": {
+            "$type": "string",
+            "$value": "gap: 1px !important"
+          },
+          "figma": {
+            "$type": "number",
+            "$value": 1
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap-1"
+          }
+        },
+        "2": {
+          "$type": "dimension",
+          "$value": "2px", 
+          "$description": "2px gap between items",
+          "css": {
+            "$type": "string",
+            "$value": "gap: 2px !important"
+          },
+          "figma": {
+            "$type": "number",
+            "$value": 2
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap-2"
+          }
+        },
+        "3": {
+          "$type": "dimension",
+          "$value": "3px",
+          "$description": "3px gap between items",
+          "css": {
+            "$type": "string", 
+            "$value": "gap: 3px !important"
+          },
+          "figma": {
+            "$type": "number",
+            "$value": 3
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap-3"
+          }
+        },
+        "4": {
+          "$type": "dimension",
+          "$value": "4px",
+          "$description": "4px gap between items",
+          "css": {
+            "$type": "string",
+            "$value": "gap: 4px !important"
+          },
+          "figma": {
+            "$type": "number", 
+            "$value": 4
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap-4"
+          }
+        },
+        "5": {
+          "$type": "dimension",
+          "$value": "5px",
+          "$description": "5px gap between items (small)",
+          "css": {
+            "$type": "string",
+            "$value": "gap: 5px !important"
+          },
+          "figma": {
+            "$type": "number",
+            "$value": 5
+          },
+          "class": {
+            "$type": "string", 
+            "$value": "f-gap-5"
+          },
+          "alias": {
+            "$type": "string",
+            "$value": "f-gap-small"
+          }
+        },
+        "10": {
+          "$type": "dimension",
+          "$value": "10px",
+          "$description": "10px gap between items (default)",
+          "css": {
+            "$type": "string",
+            "$value": "gap: 10px !important"
+          },
+          "figma": {
+            "$type": "number",
+            "$value": 10
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap"
+          }
+        },
+        "15": {
+          "$type": "dimension",
+          "$value": "15px",
+          "$description": "15px gap between items (large)",
+          "css": {
+            "$type": "string", 
+            "$value": "gap: 15px !important"
+          },
+          "figma": {
+            "$type": "number",
+            "$value": 15
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap-15"
+          },
+          "alias": {
+            "$type": "string",
+            "$value": "f-gap-large"
+          }
+        },
+        "20": {
+          "$type": "dimension",
+          "$value": "20px",
+          "$description": "20px gap between items",
+          "css": {
+            "$type": "string",
+            "$value": "gap: 20px !important"
+          },
+          "figma": {
+            "$type": "number", 
+            "$value": 20
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap-20"
+          }
+        },
+        "25": {
+          "$type": "dimension",
+          "$value": "25px",
+          "$description": "25px gap between items",
+          "css": {
+            "$type": "string",
+            "$value": "gap: 25px !important"
+          },
+          "figma": {
+            "$type": "number",
+            "$value": 25
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap-25"
+          }
+        },
+        "30": {
+          "$type": "dimension",
+          "$value": "30px", 
+          "$description": "30px gap between items",
+          "css": {
+            "$type": "string",
+            "$value": "gap: 30px !important"
+          },
+          "figma": {
+            "$type": "number",
+            "$value": 30
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-gap-30"
+          }
+        }
+      },
+      "justify": {
+        "start": {
+          "$type": "string",
+          "$value": "flex-start",
+          "$description": "Align items to start of main axis",
+          "css": {
+            "$type": "string", 
+            "$value": "justify-content: flex-start !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "packed-start"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-j-start"
+          }
+        },
+        "center": {
+          "$type": "string",
+          "$value": "center",
+          "$description": "Center items on main axis",
+          "css": {
+            "$type": "string",
+            "$value": "justify-content: center !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "packed-center"
+          },
+          "class": {
+            "$type": "string", 
+            "$value": "f-j-center"
+          }
+        },
+        "end": {
+          "$type": "string",
+          "$value": "flex-end",
+          "$description": "Align items to end of main axis",
+          "css": {
+            "$type": "string",
+            "$value": "justify-content: flex-end !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "packed-end"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-j-end"
+          }
+        },
+        "space-between": {
+          "$type": "string",
+          "$value": "space-between",
+          "$description": "Distribute items with space between", 
+          "css": {
+            "$type": "string",
+            "$value": "justify-content: space-between !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "space-between"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-j-space-between"
+          }
+        },
+        "space-around": {
+          "$type": "string",
+          "$value": "space-around",
+          "$description": "Distribute items with space around",
+          "css": {
+            "$type": "string",
+            "$value": "justify-content: space-around !important"
+          },
+          "figma": {
+            "$type": "string", 
+            "$value": "space-around"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-j-space-around"
+          }
+        },
+        "space-evenly": {
+          "$type": "string",
+          "$value": "space-evenly",
+          "$description": "Distribute items with equal space",
+          "css": {
+            "$type": "string",
+            "$value": "justify-content: space-evenly !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "space-evenly"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-j-space-evenly"
+          }
+        }
+      },
+      "align": {
+        "start": {
+          "$type": "string", 
+          "$value": "flex-start",
+          "$description": "Align items to start of cross axis",
+          "css": {
+            "$type": "string",
+            "$value": "align-items: flex-start !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "min"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-a-start"
+          }
+        },
+        "center": {
+          "$type": "string",
+          "$value": "center",
+          "$description": "Center items on cross axis",
+          "css": {
+            "$type": "string",
+            "$value": "align-items: center !important"
+          },
+          "figma": {
+            "$type": "string", 
+            "$value": "center"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-a-center"
+          }
+        },
+        "end": {
+          "$type": "string",
+          "$value": "flex-end",
+          "$description": "Align items to end of cross axis",
+          "css": {
+            "$type": "string",
+            "$value": "align-items: flex-end !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "max"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-a-end"
+          }
+        },
+        "baseline": {
+          "$type": "string",
+          "$value": "baseline", 
+          "$description": "Align items to baseline",
+          "css": {
+            "$type": "string",
+            "$value": "align-items: baseline !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "baseline"
+          },
+          "class": {
+            "$type": "string",
+            "$value": "f-a-baseline"
+          }
+        },
+        "stretch": {
+          "$type": "string",
+          "$value": "stretch",
+          "$description": "Stretch items to fill cross axis",
+          "css": {
+            "$type": "string",
+            "$value": "align-items: stretch !important"
+          },
+          "figma": {
+            "$type": "string",
+            "$value": "fill"
+          },
+          "class": {
+            "$type": "string", 
+            "$value": "f-a-stretch"
+          }
+        }
+      }
+    }
+  },
+  "examples": {
+    "basic-flex": {
+      "$type": "object",
+      "$description": "Basic flexbox container",
+      "code": {
+        "$type": "string",
+        "$value": "<div {...ui([uiA`f`])}>"
+      },
+      "figma": {
+        "$type": "string",
+        "$value": "Display=Flex"
+      },
+      "classes": {
+        "$type": "array",
+        "$value": ["f"]
+      }
+    },
+    "column-with-gap": {
+      "$type": "object",
+      "$description": "Vertical container with default gap",
+      "code": {
+        "$type": "string", 
+        "$value": "<div {...ui([uiA`f f-column f-gap`])}>"
+      },
+      "figma": {
+        "$type": "string",
+        "$value": "Display=Flex, Direction=Column, Gap=10"
+      },
+      "classes": {
+        "$type": "array",
+        "$value": ["f", "f-column", "f-gap"]
+      }
+    },
+    "centered-container": {
+      "$type": "object",
+      "$description": "Centered flexbox container",
+      "code": {
+        "$type": "string",
+        "$value": "<div {...ui([uiA`f f-j-center f-a-center f-gap-large`])}>"
+      },
+      "figma": {
+        "$type": "string",
+        "$value": "Display=Flex, Justify=Center, Align=Center, Gap=15"
+      },
+      "classes": {
+        "$type": "array", 
+        "$value": ["f", "f-j-center", "f-a-center", "f-gap-large"]
+      }
+    }
+  }
+}

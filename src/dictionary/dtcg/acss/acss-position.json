@@ -1,0 +1,21 @@
+{
+  "acss-position": {
+    "main-fragment": "position",
+    "ignore-main-fragment": true,
+    "value": "{acss-settings.position}",
+    "default-iterator": "{acss-settings.position}",
+    "text-label": "ACSS Position",
+    "menu-weight": 180,
+    "$type": "string",
+    "$description": "ACSS position modifiers classes.",
+    "fragments": [
+      {
+        "content": "",
+        "description": "Positioning class.",
+        "markup-file": "_a-position-kss.html",
+        "iterator": "{acss-settings.position}",
+        "menu": "Position"
+      }
+    ]
+  }
+}

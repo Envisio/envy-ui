@@ -1,0 +1,24 @@
+{
+  "source": [
+    "./src/dictionary/dtcg/color/base.json"
+  ],
+  "platforms": {
+    "scss": {
+      "transformGroup": "dtcg/scss",
+      "buildPath": "./test-dtcg/scss/",
+      "files": [{
+        "destination": "_color.scss",
+        "format": "scss/variables"
+      }]
+    },
+    "js": {
+      "transformGroup": "dtcg/js", 
+      "prefix": "UI",
+      "buildPath": "./test-dtcg/js/",
+      "files": [{
+        "destination": "color.js",
+        "format": "javascript/module"
+      }]
+    }
+  }
+}

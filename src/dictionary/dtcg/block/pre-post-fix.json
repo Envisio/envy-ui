@@ -1,0 +1,19 @@
+{
+  "pre-post-fix": {
+    "general-prefix": {
+      "$value": "{pre-post-fix.general-prefix.$default}",
+      "$type": "dimension",
+      "$description": "General Prefix",
+      "$default": "env-"
+    },
+    "acss-prefix": {
+      "_value": "a-",
+      "_undashed-value": "a",
+      "comment": "Prefix for ACSS Library"
+    },
+    "kss-postfix": {
+      "_value": "-kss",
+      "comment": "Postfix for Styleguide Documentation"
+    }
+  }
+}

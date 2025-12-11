@@ -1,0 +1,47 @@
+{
+  "acss-f": {
+    "main-fragment": "f",
+    "value": "",
+    "text-label": "ACSS Flexbox",
+    "menu-weight": 155,
+    "$description": "ACSS classes related to Flexbox",
+    "$type": "string",
+    "fragments": [
+      {
+        "content": "-j",
+        "description": "Justify content.",
+        "markup-file": "_a-f-kss.html",
+        "iterator": "{acss-settings.f-j}",
+        "menu": "Justify Content"
+      },
+      {
+        "content": "-a",
+        "description": "Align items.",
+        "markup-file": "_a-f-kss.html",
+        "iterator": "{acss-settings.f-a}",
+        "menu": "Align Items"
+      },
+      {
+        "content": "-a-content",
+        "description": "Align content.",
+        "markup-file": "_a-f-multiline-kss.html",
+        "iterator": "{acss-settings.f-a-content}",
+        "menu": "Align Content"
+      },
+      {
+        "content": "-a-self",
+        "description": "Align self.",
+        "markup-file": "_a-f-child-kss.html",
+        "iterator": "{acss-settings.f-a-self}",
+        "menu": "Align Self"
+      },
+      {
+        "content": "-gap",
+        "description": "Gap",
+        "markup-file": "_a-f-gap-kss.html",
+        "iterator": "{acss-settings.f-gap}",
+        "menu": "Gap"
+      }
+    ]
+  }
+}

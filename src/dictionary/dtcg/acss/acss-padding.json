@@ -1,0 +1,77 @@
+{
+  "acss-p": {
+    "main-fragment": "p",
+    "value": "{acss-settings.iterate-list}",
+    "default-iterator": "{acss-settings.iterate-list}",
+    "markup-file": "_a-padding-kss.html",
+    "text-label": "ACSS Padding",
+    "menu-weight": 120,
+    "$type": "string",
+    "$description": "ACSS general padding modifiers classes.",
+    "fragments": [
+      {
+        "content": "",
+        "description": "All sides padding general modifier.",
+        "test-extension": "",
+        "number-extension": [
+          ""
+        ],
+        "menu": "Padding all sides (px)"
+      },
+      {
+        "content": "-top",
+        "description": "Top side padding general modifier.",
+        "test-extension": "",
+        "number-extension": [
+          ""
+        ],
+        "menu": "Padding top (px)"
+      },
+      {
+        "content": "-right",
+        "description": "Right side padding general modifier.",
+        "menu": "Padding right (px)",
+        "test-extension": "",
+        "number-extension": [
+          ""
+        ]
+      },
+      {
+        "content": "-bottom",
+        "description": "Bottom side padding general modifier.",
+        "menu": "Padding bottom (px)",
+        "test-extension": "",
+        "number-extension": [
+          ""
+        ]
+      },
+      {
+        "content": "-left",
+        "description": "Left side padding general modifier.",
+        "menu": "Padding left (px)",
+        "test-extension": "",
+        "number-extension": [
+          ""
+        ]
+      },
+      {
+        "content": "-x",
+        "description": "Left and right side padding.",
+        "menu": "Padding left and right (px)",
+        "test-extension": "",
+        "number-extension": [
+          ""
+        ]
+      },
+      {
+        "content": "-y",
+        "description": "Top and bottom side padding.",
+        "menu": "Padding top and bottom (px)",
+        "test-extension": "",
+        "number-extension": [
+          ""
+        ]
+      }
+    ]
+  }
+}

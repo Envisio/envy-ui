@@ -1,0 +1,43 @@
+<!-- Test file for Envy UI VS Code Extension -->
+<!-- Try selecting the className and running "Convert Tailwind to Envy UI" command -->
+
+<!-- Example 1: Basic Flexbox -->
+<div className="flex gap-4 items-center justify-between">
+  <span>Basic flex layout</span>
+  <button>Action</button>
+</div>
+
+<!-- Example 2: Complex Layout with custom values -->
+<div className="content-stretch flex gap-[25px] items-start justify-end relative size-full">
+  <div className="bg-[#822121] h-[109px] shrink-0 w-[123px]"></div>
+  <div className="bg-[#1b6e3b] h-[109px] shrink-0 w-[123px]"></div>
+  <div className="bg-[#d9d9d9] h-[109px] shrink-0 w-[123px]"></div>
+</div>
+
+<!-- Example 3: Grid Layout -->
+<div className="grid grid-cols-3 gap-6 p-4">
+  <div className="flex flex-col items-center space-y-2">
+    <h3>Card 1</h3>
+    <p>Content here</p>
+  </div>
+</div>
+
+<!-- Expected conversion results:
+
+Example 1:
+<div className="f f-gap-4 f-align-center f-justify-between">
+
+Example 2: 
+<div className="f-content-stretch f f-gap-25 f-align-start f-justify-end position-relative w-full h-full">
+  <div className="bg-[#822121] h-109 f-shrink-0 w-123"></div>
+  ...
+</div>
+
+Example 3:
+<div className="d-grid grid-cols-3 f-gap-6 p-4">
+  <div className="f f-column f-align-center space-y-2">
+    ...
+  </div>
+</div>
+
+-->

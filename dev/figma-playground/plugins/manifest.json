@@ -1,0 +1,10 @@
+{
+  "name": "Envy UI Auto-Layout Applier v2.3",
+  "id": "envy-ui-auto-layout-applier",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": [
+    "figma"
+  ]
+}

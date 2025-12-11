@@ -3,6 +3,9 @@ const StyleDictionaryPackage = require('style-dictionary');
 const _ = require('lodash');
 const jsonConcat = require('json-concat');
 
+// Load DTCG bridge transforms
+require('./scripts/style-dictionary-dtcg.js');
+
 const { filterForCategory, filterForFragmentAndUnits } = require('./src/dictionary/_filters.js');
 const { acssFilesList } = require('./src/dictionary/_acss_files_list.js');
 let acssList = [];
@@ -11,7 +14,7 @@ const { getFragmentIterator, getFragmentUnit, getUnitNameFromAlias, getMarkupFil
 
 const SCSS_PATH = './from-dictionary/stylesheets/';
 const JS_PATH = './from-dictionary/javascripts/';
-const PROPERTIES_PATH = './src/dictionary/properties/'
+const PROPERTIES_PATH = process.env.PROPERTIES_PATH || './src/dictionary/dtcg/';
 const STYLEGUIDE_PUG_PATH = './from-dictionary/styleguide/';
 const COLOR = 'color';
 const SHAPE = 'shape';
@@ -56,7 +59,7 @@ const makeTokenFolders = () => ({
       ],
       platforms: {
         scss: {
-          transformGroup: 'scss',
+          transformGroup: 'dtcg/scss',
           buildPath: `${SCSS_PATH}${COLOR}/`,
           transforms: ['name/ti/kebab'],
           files: [{
@@ -76,10 +79,9 @@ const makeTokenFolders = () => ({
           }],
         },
         js: {
-          transformGroup: 'js',
+          transformGroup: 'dtcg/js',
           prefix: 'UI',
           buildPath: `${JS_PATH}`,
-          transforms: ['name/cti/constant'],
           files: [{
             destination: 'color.js',
             format: 'javascript/module',
@@ -93,9 +95,8 @@ const makeTokenFolders = () => ({
       ],
       platforms: {
         scss: {
-          transformGroup: 'scss',
+          transformGroup: 'dtcg/scss',
           buildPath: `${SCSS_PATH}${COLOR}/`,
-          transforms: ['name/cti/kebab'],
           files: [{
             destination: '_color-default.scss',
             filter: filterForCategory(['color-default']),
@@ -103,10 +104,9 @@ const makeTokenFolders = () => ({
           }],
         },
         js: {
-          transformGroup: 'js',
+          transformGroup: 'dtcg/js',
           prefix: 'UI',
           buildPath: `${JS_PATH}`,
-          transforms: ['name/cti/constant'],
           files: [{
             destination: 'color-default.js',
             filter: filterForCategory(['color-default']),
@@ -120,7 +120,7 @@ const makeTokenFolders = () => ({
       ],
       platforms: {
         scss: {
-          transformGroup: 'scss',
+          transformGroup: 'dtcg/scss',
           buildPath: `${STYLEGUIDE_PUG_PATH}${COLOR}/`,
           files: [{
             header: '// - Do not edit directly Colors: \n' + '// - Generated on ' + new Date().toUTCString() + '\n',
@@ -143,9 +143,8 @@ const makeTokenFolders = () => ({
       ],
       platforms: {
         scss: {
-          transformGroup: 'scss',
+          transformGroup: 'dtcg/scss',
           buildPath: `${SCSS_PATH}${BLOCK}/`,
-          transforms: ['name/cti/kebab'],
           files: [{
             "mapName": "tokens-button",
             filter: filterForCategory(['button']),
@@ -154,10 +153,9 @@ const makeTokenFolders = () => ({
           }],
         },
         js: {
-          transformGroup: 'js',
+          transformGroup: 'dtcg/js',
           prefix: 'UI',
           buildPath: `${JS_PATH}${BLOCK}/`,
-          transforms: ['name/cti/constant'],
           files: [{
             destination: 'button.js',
             filter: filterForCategory(['button']),
@@ -174,19 +172,17 @@ const makeTokenFolders = () => ({
       ],
       platforms: {
         scss: {
-          transformGroup: 'scss',
+          transformGroup: 'dtcg/scss',
           buildPath: `${SCSS_PATH}${SHAPE}/`,
-          transforms: ['name/cti/kebab'],
           files: [{
             destination: `_${SHAPE}.scss`,
             format: 'scss/variables',
           }],
         },
         js: {
-          transformGroup: 'js',
+          transformGroup: 'dtcg/js',
           prefix: 'UI',
           buildPath: `${JS_PATH}`,
-          transforms: ['name/cti/constant'],
           files: [{
             destination: `${SHAPE}.js`,
             format: 'javascript/module',
@@ -202,19 +198,17 @@ const makeTokenFolders = () => ({
       ],
       platforms: {
         scss: {
-          transformGroup: 'scss',
+          transformGroup: 'dtcg/scss',
           buildPath: `${SCSS_PATH}${Z}/`,
-          transforms: ['name/cti/kebab'],
           files: [{
             destination: `_${Z}.scss`,
             format: 'scss/variables',
           }],
         },
         js: {
-          transformGroup: 'js',
+          transformGroup: 'dtcg/js',
           prefix: 'UI',
           buildPath: `${JS_PATH}`,
-          transforms: ['name/cti/constant'],
           files: [{
             destination: `${Z}.js`,
             format: 'javascript/module',
@@ -230,7 +224,7 @@ const makeTokenFolders = () => ({
       ],
       platforms: {
         scss: {
-          transformGroup: 'scss',
+          transformGroup: 'dtcg/scss',
           prefix: '$ui',
           buildPath: `${SCSS_PATH}block-name/`,
           transforms: ['name/ti/camel'],
@@ -273,7 +267,7 @@ const makeTokenFolders = () => ({
           }))],
         },
         js: {
-          transformGroup: 'js',
+          transformGroup: 'dtcg/js',
           prefix: 'ui',
           buildPath: `${JS_PATH}`,
           transforms: ['name/ti/camel'],
@@ -340,22 +334,51 @@ function styleDictionaryRegistration() {
       const header = this.menu;
       const that = this;
 
-      const extractedFragment = dictionaryMeat.fragments.filter(fragment => filterForFragmentAndUnits(fragment, that))[0];
+      // Safety check for DTCG compatibility
+      if (!dictionaryMeat || !dictionaryMeat.fragments) {
+        return `// ${header}\n// No fragments available for ACSS generation (DTCG format limitation)\n`;
+      }
+
+      // Handle both array and object formats for fragments
+      let fragments;
+      if (Array.isArray(dictionaryMeat.fragments)) {
+        fragments = dictionaryMeat.fragments;
+      } else if (typeof dictionaryMeat.fragments === 'object') {
+        // Convert object to array of fragments
+        fragments = Object.values(dictionaryMeat.fragments);
+      } else {
+        return `// ${header}\n// Invalid fragments structure (DTCG format limitation)\n`;
+      }
+
+      const extractedFragment = fragments.filter(fragment => filterForFragmentAndUnits(fragment, that))[0];
       // eslint-disable-next-line prefer-template
       return `// ${header}` +
         '\n// ' +
         setMainDescription(`${this.menu}`) +
         setMarkup(getMarkupFile(dictionaryMeat, extractedFragment)) +
         '\n// ' +
-        dictionary.allProperties.map(prop =>
-          prop.fragments
+        dictionary.allProperties.map(prop => {
+          // Handle fragments for individual properties
+          let propFragments;
+          if (!prop.fragments) {
+            return `// No fragments for ${prop.name || 'property'}`;
+          } else if (Array.isArray(prop.fragments)) {
+            propFragments = prop.fragments;
+          } else if (typeof prop.fragments === 'object') {
+            propFragments = Object.values(prop.fragments);
+          } else {
+            return `// Invalid fragment structure for ${prop.name || 'property'}`;
+          }
+
+          return propFragments
             .filter((fragment) => (filterForFragmentAndUnits(fragment, that)))
             .map((fragment) => {
               return Object.keys(getFragmentIterator(prop, fragment)).map((iteratorKey) =>
                 `.env-a${prop['ignore-main-fragment'] ? '' : '-' + prop['main-fragment']}${fragment.content}${iteratorKey === "null" ? '' : '-' + iteratorKey}${getFragmentUnit(prop, fragment)}${fragment['test-extension'] || ''}${setDescription(fragment.description)}`)
               .join('\n// ');
             })
-          .join('\n// ')) +
+            .join('\n// ')
+        }) +
           setWeight(dictionaryMeat['menu-weight']) +
           `\n// Styleguide ${dictionaryMeat['text-label']} - ${header}\n`;
     },

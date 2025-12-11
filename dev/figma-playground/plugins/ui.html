@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Envy UI Auto-Layout Applier</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 12px;
+      background: #ffffff;
+    }
+    
+    h2 {
+      margin: 0 0 16px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e1e1e;
+    }
+    
+    .instruction {
+      background: #f0f8ff;
+      border: 1px solid #0066ff;
+      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 16px;
+      font-size: 11px;
+      color: #0052cc;
+    }
+    
+    .section {
+      margin-bottom: 20px;
+    }
+    
+    .property {
+      margin-bottom: 12px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+      color: #333;
+    }
+    
+    select {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      font-size: 12px;
+      background: white;
+    }
+    
+    button {
+      width: 100%;
+      padding: 8px 16px;
+      background: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    
+    button:hover {
+      background: #0052cc;
+    }
+    
+    .code-preview {
+      background: #f8f8f8;
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      padding: 8px;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 10px;
+      margin-bottom: 12px;
+      word-break: break-all;
+      min-height: 24px;
+    }
+    
+    .success {
+      background: #e6f7e6;
+      border: 1px solid #4caf50;
+      color: #2e7d32;
+      padding: 8px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    
+    .error {
+      background: #ffebee;
+      border: 1px solid #f44336;
+      color: #c62828;
+      padding: 8px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Envy UI Auto-Layout Applier</h2>
+  
+  <div class="instruction">
+    Select a frame/container, then choose settings below to apply auto-layout that matches your atomic CSS classes.
+  </div>
+  
+  <div class="section">
+    <div class="property">
+      <label for="display">Display</label>
+      <select id="display">
+        <option value="flex">Flex (f)</option>
+        <option value="block">Block</option>
+        <option value="grid">Grid (g)</option>
+      </select>
+    </div>
+    
+    <div class="property">
+      <label for="direction">Direction</label>
+      <select id="direction">
+        <option value="row">Row (default)</option>
+        <option value="column">Column (f-column)</option>
+        <option value="row-reverse">Row Reverse (f-row-reverse)</option>
+        <option value="column-reverse">Column Reverse (f-column-reverse)</option>
+      </select>
+    </div>
+    
+    <div class="property">
+      <label for="gap">Gap</label>
+      <select id="gap">
+        <option value="0">0 (f-gap-0)</option>
+        <option value="1">1px (f-gap-1)</option>
+        <option value="2">2px (f-gap-2)</option>
+        <option value="3">3px (f-gap-3)</option>
+        <option value="4">4px (f-gap-4)</option>
+        <option value="5">5px (f-gap-5)</option>
+        <option value="10" selected>10px (f-gap-10)</option>
+        <option value="15">15px (f-gap-15)</option>
+        <option value="20">20px (f-gap-20)</option>
+        <option value="25">25px (f-gap-25)</option>
+        <option value="30">30px (f-gap-30)</option>
+      </select>
+    </div>
+    
+    <div class="property">
+      <label for="justify">Justify (Primary Axis)</label>
+      <select id="justify">
+        <option value="start">Start (f-justify-start)</option>
+        <option value="center">Center (f-justify-center)</option>
+        <option value="end">End (f-justify-end)</option>
+        <option value="space-between">Space Between (f-justify-between)</option>
+        <option value="space-around">Space Around (f-justify-around)</option>
+      </select>
+    </div>
+    
+    <div class="property">
+      <label for="align">Align (Cross Axis)</label>
+      <select id="align">
+        <option value="start">Start (f-align-start)</option>
+        <option value="center">Center (f-align-center)</option>
+        <option value="end">End (f-align-end)</option>
+      </select>
+    </div>
+  </div>
+  
+  <button id="apply-button">Apply Auto-Layout</button>
+  <button id="read-button" style="background: #6b7280; margin-bottom: 12px;">Read Stored Metadata</button>
+  
+  <div class="code-preview" id="preview">
+    CSS Classes: f f-gap-10
+  </div>
+  
+  <div id="metadata-display" style="display: none; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px; margin-bottom: 12px; font-family: Monaco, monospace; font-size: 10px; white-space: pre-wrap;"></div>
+  
+  <div id="message"></div>
+
+  <script>
+    const displaySelect = document.getElementById('display');
+    const directionSelect = document.getElementById('direction');
+    const gapSelect = document.getElementById('gap');
+    const justifySelect = document.getElementById('justify');
+    const alignSelect = document.getElementById('align');
+    const applyButton = document.getElementById('apply-button');
+    const readButton = document.getElementById('read-button');
+    const preview = document.getElementById('preview');
+    const messageDiv = document.getElementById('message');
+    const metadataDisplay = document.getElementById('metadata-display');
+    
+    function updatePreview() {
+      const settings = getCurrentSettings();
+      const cssClasses = [];
+      
+      if (settings.display === 'flex') {
+        cssClasses.push('f');
+      } else if (settings.display === 'grid') {
+        cssClasses.push('g');
+      }
+      
+      if (settings.direction === 'column') {
+        cssClasses.push('f-column');
+      } else if (settings.direction === 'row-reverse') {
+        cssClasses.push('f-row-reverse');
+      } else if (settings.direction === 'column-reverse') {
+        cssClasses.push('f-column-reverse');
+      }
+      
+      if (settings.gap && settings.gap !== '0') {
+        cssClasses.push(`f-gap-${settings.gap}`);
+      }
+      
+      if (settings.justify && settings.justify !== 'start') {
+        cssClasses.push(`f-justify-${settings.justify}`);
+      }
+      
+      if (settings.align && settings.align !== 'start') {
+        cssClasses.push(`f-align-${settings.align}`);
+      }
+      
+      preview.textContent = `CSS Classes: ${cssClasses.join(' ') || 'f'}`;
+    }
+    
+    function getCurrentSettings() {
+      return {
+        display: displaySelect.value,
+        direction: directionSelect.value,
+        gap: gapSelect.value,
+        justify: justifySelect.value,
+        align: alignSelect.value
+      };
+    }
+    
+    // Update preview when any setting changes
+    [displaySelect, directionSelect, gapSelect, justifySelect, alignSelect].forEach(select => {
+      select.addEventListener('change', updatePreview);
+    });
+    
+    applyButton.addEventListener('click', () => {
+      const settings = getCurrentSettings();
+      parent.postMessage({
+        pluginMessage: {
+          type: 'apply-layout',
+          settings: settings
+        }
+      }, '*');
+    });
+    
+    readButton.addEventListener('click', () => {
+      parent.postMessage({
+        pluginMessage: {
+          type: 'read-metadata'
+        }
+      }, '*');
+    });
+    
+    // Handle messages from plugin
+    onmessage = (event) => {
+      const msg = event.data.pluginMessage;
+      if (!msg) return;
+      
+      if (msg.type === 'success') {
+        messageDiv.innerHTML = `<div class="success">${msg.message}<br>CSS: ${msg.classes}</div>`;
+      } else if (msg.type === 'error') {
+        messageDiv.innerHTML = `<div class="error">${msg.message}</div>`;
+      } else if (msg.type === 'metadata-read') {
+        displayMetadata(msg.results);
+      }
+      
+      // Clear message after 5 seconds (except metadata)
+      if (msg.type !== 'metadata-read') {
+        setTimeout(() => {
+          messageDiv.innerHTML = '';
+        }, 5000);
+      }
+    };
+    
+    function displayMetadata(results) {
+      if (results.length === 0) {
+        metadataDisplay.textContent = 'No containers selected.';
+        metadataDisplay.style.display = 'block';
+        return;
+      }
+      
+      let output = '';
+      results.forEach((result, index) => {
+        output += `=== Container ${index + 1}: ${result.nodeName} ===\n`;
+        output += `Type: ${result.nodeType}\n`;
+        output += `Has Envy UI: ${result.hasMetadata ? 'YES' : 'NO'}\n`;
+        
+        if (result.hasMetadata) {
+          output += `Classes: ${result.classes}\n`;
+          output += `Applied: ${result.timestamp}\n`;
+          output += `Settings: ${JSON.stringify(result.settings, null, 2)}\n`;
+        }
+        
+        output += '\n';
+      });
+      
+      metadataDisplay.textContent = output;
+      metadataDisplay.style.display = 'block';
+    }
+    
+    // Initialize preview
+    updatePreview();
+  </script>
+</body>
+</html>
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🎯 Envy UI Container</h2>
+  
+  <div class="section">
+    <div class="property">
+      <label>Display</label>
+      <select id="display">
+        <option value="flex">Flex (f)</option>
+        <option value="flex-inline">Inline Flex (f-inline)</option>
+        <option value="block">Block (block)</option>
+        <option value="grid">Grid (g)</option>
+      </select>
+    </div>
+    
+    <div class="property">
+      <label>Direction</label>
+      <select id="direction">
+        <option value="row">Row (f-row)</option>
+        <option value="column">Column (f-column)</option>
+        <option value="row-reverse">Row Reverse (f-row-reverse)</option>
+        <option value="column-reverse">Column Reverse (f-column-reverse)</option>
+      </select>
+    </div>
+    
+    <div class="property">
+      <label>Gap</label>
+      <select id="gap">
+        <option value="0">None (f-gap-0)</option>
+        <option value="5">5px (f-gap-5)</option>
+        <option value="10" selected>10px (f-gap)</option>
+        <option value="15">15px (f-gap-15)</option>
+        <option value="20">20px (f-gap-20)</option>
+        <option value="25">25px (f-gap-25)</option>
+        <option value="30">30px (f-gap-30)</option>
+      </select>
+    </div>
+    
+    <div class="property">
+      <label>Justify</label>
+      <select id="justify">
+        <option value="start">Start (f-j-start)</option>
+        <option value="center">Center (f-j-center)</option>
+        <option value="end">End (f-j-end)</option>
+        <option value="space-between">Space Between (f-j-space-between)</option>
+      </select>
+    </div>
+    
+    <div class="property">
+      <label>Align</label>
+      <select id="align">
+        <option value="start">Start (f-a-start)</option>
+        <option value="center">Center (f-a-center)</option>
+        <option value="end">End (f-a-end)</option>
+        <option value="stretch">Stretch (f-a-stretch)</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="code-preview" id="codePreview">
+    &lt;div {...ui([uiA`f f-gap`])}&gt;
+  </div>
+  
+  <button id="createComponent">Create Component</button>
+  <button id="createInstance" class="secondary">Create Instance</button>
+  
+  <div id="message" style="display: none;"></div>
+
+  <script>
+    const displaySelect = document.getElementById('display');
+    const directionSelect = document.getElementById('direction');
+    const gapSelect = document.getElementById('gap');
+    const justifySelect = document.getElementById('justify');
+    const alignSelect = document.getElementById('align');
+    const codePreview = document.getElementById('codePreview');
+    const messageDiv = document.getElementById('message');
+    
+    const classMap = {
+      display: {
+        'flex': 'f',
+        'flex-inline': 'f-inline',
+        'block': 'block',
+        'grid': 'g'
+      },
+      direction: {
+        'row': '',
+        'column': 'f-column',
+        'row-reverse': 'f-row-reverse', 
+        'column-reverse': 'f-column-reverse'
+      },
+      gap: {
+        '0': 'f-gap-0',
+        '5': 'f-gap-5',
+        '10': 'f-gap',
+        '15': 'f-gap-15',
+        '20': 'f-gap-20',
+        '25': 'f-gap-25',
+        '30': 'f-gap-30'
+      },
+      justify: {
+        'start': '',
+        'center': 'f-j-center',
+        'end': 'f-j-end',
+        'space-between': 'f-j-space-between'
+      },
+      align: {
+        'start': '',
+        'center': 'f-a-center', 
+        'end': 'f-a-end',
+        'stretch': 'f-a-stretch'
+      }
+    };
+    
+    function updatePreview() {
+      const classes = [];
+      
+      const displayClass = classMap.display[displaySelect.value];
+      if (displayClass) classes.push(displayClass);
+      
+      const directionClass = classMap.direction[directionSelect.value];
+      if (directionClass) classes.push(directionClass);
+      
+      const gapClass = classMap.gap[gapSelect.value];
+      if (gapClass) classes.push(gapClass);
+      
+      const justifyClass = classMap.justify[justifySelect.value];
+      if (justifyClass) classes.push(justifyClass);
+      
+      const alignClass = classMap.align[alignSelect.value];
+      if (alignClass) classes.push(alignClass);
+      
+      const classString = classes.join(' ');
+      codePreview.innerHTML = `&lt;div {...ui([uiA\`${classString}\`])}&gt;`;
+    }
+    
+    function showMessage(message, type) {
+      messageDiv.innerHTML = message;
+      messageDiv.className = type;
+      messageDiv.style.display = 'block';
+      setTimeout(() => {
+        messageDiv.style.display = 'none';
+      }, 3000);
+    }
+    
+    // Update preview on any change
+    [displaySelect, directionSelect, gapSelect, justifySelect, alignSelect].forEach(select => {
+      select.addEventListener('change', updatePreview);
+    });
+    
+    document.getElementById('createComponent').onclick = () => {
+      parent.postMessage({
+        pluginMessage: {
+          type: 'create-container'
+        }
+      }, '*');
+    };
+    
+    document.getElementById('createInstance').onclick = () => {
+      const classes = [];
+      
+      const displayClass = classMap.display[displaySelect.value];
+      if (displayClass) classes.push(displayClass);
+      
+      const directionClass = classMap.direction[directionSelect.value];
+      if (directionClass) classes.push(directionClass);
+      
+      const gapClass = classMap.gap[gapSelect.value];
+      if (gapClass) classes.push(gapClass);
+      
+      const justifyClass = classMap.justify[justifySelect.value];
+      if (justifyClass) classes.push(justifyClass);
+      
+      const alignClass = classMap.align[alignSelect.value];
+      if (alignClass) classes.push(alignClass);
+      
+      parent.postMessage({
+        pluginMessage: {
+          type: 'create-instance',
+          classes: classes
+        }
+      }, '*');
+    };
+    
+    // Listen for plugin messages
+    window.onmessage = (event) => {
+      const { type, message } = event.data.pluginMessage;
+      
+      if (type === 'success') {
+        showMessage(message, 'success');
+      } else if (type === 'error') {
+        showMessage(message, 'error');
+      }
+    };
+    
+    // Initialize preview
+    updatePreview();
+  </script>
+</body>
+</html>

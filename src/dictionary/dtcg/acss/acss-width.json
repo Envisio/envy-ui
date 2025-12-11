@@ -1,0 +1,76 @@
+{
+  "acss-w": {
+    "main-fragment": "w",
+    "value": "{acss-settings.iterate-list}",
+    "markup-file": "_a-width-kss.html",
+    "text-label": "ACSS Width",
+    "menu-weight": 130,
+    "$type": "string",
+    "$description": "ACSS general width modifiers classes.",
+    "fragments": [
+      {
+        "content": "",
+        "description": "Width in default units (px).",
+        "iterator": "{acss-settings.iterate-list}",
+        "menu": "Width (px)"
+      },
+      {
+        "content": "",
+        "description": "Width in % units.",
+        "unit": "{acss-settings.unit.percent}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Width (%)"
+      },
+      {
+        "content": "",
+        "description": "Width in vw units.",
+        "unit": "{acss-settings.unit.vw}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Width (vw)"
+      },
+      {
+        "content": "-min",
+        "description": "Min width in default units (px).",
+        "iterator": "{acss-settings.iterate-list}",
+        "menu": "Min width (px)",
+        "markup-file": "_a-width-min-kss.html"
+      },
+      {
+        "content": "-min",
+        "description": "Min width in % units.",
+        "unit": "{acss-settings.unit.percent}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Min width (%)",
+        "markup-file": "_a-width-min-kss.html"
+      },
+      {
+        "content": "-min",
+        "description": "Width in vw units.",
+        "unit": "{acss-settings.unit.vw}",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "menu": "Min width (vw)",
+        "markup-file": "_a-width-min-kss.html"
+      },
+      {
+        "content": "-max",
+        "description": "Max width in default units (px).",
+        "iterator": "{acss-settings.iterate-list}",
+        "menu": "Max width (px)"
+      },
+      {
+        "content": "-max",
+        "description": "Max width in % units.",
+        "menu": "Max width (%)",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "unit": "{acss-settings.unit.percent}"
+      },
+      {
+        "content": "-max",
+        "description": "Max width in vw units.",
+        "menu": "Max width (vw)",
+        "iterator": "{acss-settings.iterate-list-percent}",
+        "unit": "{acss-settings.unit.vw}"
+      }
+    ]
+  }
+}

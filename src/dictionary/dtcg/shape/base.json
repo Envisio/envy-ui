@@ -1,0 +1,28 @@
+{
+  "shape": {
+    "border-radius": {
+      "$value": "3px",
+      "$type": "dimension"
+    },
+    "border-radius-inner": {
+      "$value": "2px",
+      "$type": "dimension"
+    },
+    "focus-box-shadow": {
+      "$value": "inset 0 0 0 3px",
+      "$type": "shadow"
+    },
+    "border": {
+      "$value": "1px solid",
+      "$type": "border"
+    },
+    "border-dashed": {
+      "$value": "1px dashed",
+      "$type": "border"
+    },
+    "width-status": {
+      "$value": "7px",
+      "$type": "dimension"
+    }
+  }
+}

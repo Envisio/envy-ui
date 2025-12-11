@@ -1,0 +1,94 @@
+{
+  "button": {
+    "--hover-danger": {
+      "default": {
+        "background-color": {
+          "$value": "inherit",
+          "$type": "dimension"
+        },
+        "border": {
+          "$value": "{shape.border.$value} {color.plain-gray.$value}",
+          "$type": "dimension"
+        }
+      },
+      "hover": {
+        "background-color": {
+          "$value": "#f9d0d1",
+          "$type": "color",
+          "$description": "lighten 40% from color.red"
+        },
+        "color": {
+          "$value": "{color.red.$value}",
+          "$type": "dimension"
+        }
+      },
+      "active": {
+        "background-color": {
+          "$value": "#ec5e63",
+          "$type": "color",
+          "$description": "lighten 20% from color.red"
+        },
+        "color": {
+          "$value": "{color.white.$value}",
+          "$type": "dimension"
+        }
+      },
+      "focus": {
+        "border-color": {
+          "$value": "#d5423d",
+          "$type": "color",
+          "$description": "darken 7% from color.red.value"
+        },
+        "color": {
+          "$value": "{color.red.$value}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "{shape.focus-box-shadow.$value} #f4a2a5",
+          "$type": "dimension",
+          "$description": "lighten 35% from color.red"
+        },
+        "background-color": {
+          "$value": "{button.--hover-danger.hover.background-color.$value}",
+          "$type": "dimension"
+        }
+      },
+      "disabled": {
+        "background-color": {
+          "$value": "{button.--hover-danger.default.background-color.$value}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "opacity": {
+          "$value": "0.7",
+          "$type": "dimension"
+        },
+        "cursor": {
+          "$value": "default",
+          "$type": "dimension"
+        }
+      },
+      "inactive": {
+        "border": {
+          "$value": "{button.--hover-danger.default.border.$value}",
+          "$type": "dimension"
+        },
+        "background-color": {
+          "$value": "{button.--hover-danger.default.background-color.$value}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "cursor": {
+          "$value": "default",
+          "$type": "dimension"
+        }
+      }
+    }
+  }
+}

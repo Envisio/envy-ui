@@ -1,0 +1,93 @@
+{
+  "button": {
+    "--warning": {
+      "default": {
+        "color": {
+          "$value": "{color.white.$value}",
+          "$type": "dimension"
+        },
+        "background-color": {
+          "$value": "{color.overdue.$value}",
+          "$type": "dimension"
+        },
+        "border": {
+          "$value": "{shape.border.$value} {button.--warning.default.border.$color}",
+          "$type": "dimension",
+          "$description": "darken 8% from color.overdue.value",
+          "$color": "#f77500"
+        }
+      },
+      "hover": {
+        "background-color": {
+          "$value": "{button.--warning.default.border.$color}",
+          "$type": "dimension"
+        }
+      },
+      "active": {
+        "background-color": {
+          "$value": "#ffa554",
+          "$type": "color",
+          "$description": "lighten 10% from color.overdue.value"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        }
+      },
+      "focus": {
+        "border-color": {
+          "$value": "{button.--warning.default.border.$color}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "{shape.focus-box-shadow.$value} rgba(255,255,255,0.4)",
+          "$type": "color"
+        }
+      },
+      "disabled": {
+        "background-color": {
+          "$value": "{button.--warning.default.background-color.$value}",
+          "$type": "dimension"
+        },
+        "border-color": {
+          "$value": "{button.--warning.default.border.$color}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "opacity": {
+          "$value": "0.5",
+          "$type": "dimension"
+        },
+        "filter": {
+          "$value": "saturate(50%)",
+          "$type": "dimension"
+        },
+        "cursor": {
+          "$value": "default",
+          "$type": "dimension"
+        }
+      },
+      "inactive": {
+        "background-color": {
+          "$value": "{button.--warning.default.background-color.$value}",
+          "$type": "dimension"
+        },
+        "border-color": {
+          "$value": "{button.--warning.default.border.$color}",
+          "$type": "dimension"
+        },
+        "box-shadow": {
+          "$value": "none",
+          "$type": "dimension"
+        },
+        "cursor": {
+          "$value": "default",
+          "$type": "dimension"
+        }
+      }
+    }
+  }
+}

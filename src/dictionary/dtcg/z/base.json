@@ -1,0 +1,28 @@
+{
+  "z": {
+    "1": {
+      "$value": 1,
+      "$type": "number"
+    },
+    "2": {
+      "$value": 2,
+      "$type": "number"
+    },
+    "3": {
+      "$value": 3,
+      "$type": "number"
+    },
+    "4": {
+      "$value": 4,
+      "$type": "number"
+    },
+    "5": {
+      "$value": 5,
+      "$type": "number"
+    },
+    "top": {
+      "$value": 9999,
+      "$type": "number"
+    }
+  }
+}
