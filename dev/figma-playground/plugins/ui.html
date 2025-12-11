@@ -4,16 +4,201 @@
   <meta charset="utf-8">
   <title>Envy UI Auto-Layout Applier</title>
   <style>
+    /* Import envy-ui card styles */
+    @import url('../../../lib/stylesheets/ui.css');
+    
+    /* Envy UI Card Styles for Figma Plugin */
+    .env-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      border: 1px solid rgba(9, 20, 44, 0.1);
+      background: #ffffff;
+      padding: 16px 18px;
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+      gap: 8px;
+      min-height: 80px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      transition: all 0.2s ease;
+      font-size: 12px;
+    }
+
+    /* Shadow modifiers */
+    .env-card--no-shadow {
+      box-shadow: none;
+    }
+
+    .env-card--shadow-strong {
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.12);
+    }
+
+    .env-card--shadow-xstrong {
+      box-shadow: 0 16px 45px rgba(15, 23, 42, 0.16);
+    }
+
+    /* Border modifiers */
+    .env-card--no-border {
+      border: none;
+    }
+
+    .env-card--brand-border {
+      border-color: #3b82f6;
+      border-width: 2px;
+    }
+
+    /* Variant modifiers */
+    .env-card--plain {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+    }
+
+    .env-card--brand {
+      background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+      color: white;
+      border-color: #2563eb;
+    }
+
+    .env-card--muted {
+      background: #f1f5f9;
+      color: #64748b;
+      border-color: #cbd5e1;
+    }
+
+    /* State modifiers */
+    .env-card--active {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 45px rgba(15, 23, 42, 0.16);
+      border-color: #3b82f6;
+    }
+
+    .env-card--selected {
+      border-color: #10b981;
+      border-width: 2px;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+    }
+
+    /* Plugin-specific preview styles */
+    .card-preview-container {
+      padding: 16px;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin: 12px 0;
+      border: 1px solid #e2e8f0;
+    }
+
+    .card-preview-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
     * {
       box-sizing: border-box;
     }
     
     body {
       margin: 0;
-      padding: 16px;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 12px;
       background: #ffffff;
+      display: flex;
+      height: 100vh;
+    }
+    
+    .main-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .sidebar {
+      width: 120px;
+      background: #f8f9fa;
+      border-right: 1px solid #e5e7eb;
+      padding: 8px;
+      overflow-y: auto;
+    }
+    
+    .sidebar-item {
+      padding: 8px 12px;
+      margin-bottom: 2px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 500;
+      color: #4b5563;
+      transition: background-color 0.2s;
+    }
+    
+    .sidebar-item:hover {
+      background: #e5e7eb;
+    }
+    
+    .sidebar-item.active {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    .sidebar-divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 12px 8px;
+    }
+    
+    .sidebar-action {
+      padding: 6px 12px;
+      margin-top: 8px;
+      font-size: 10px;
+      color: #6b7280;
+      cursor: pointer;
+      text-decoration: underline;
+      text-align: center;
+      transition: color 0.2s;
+    }
+    
+    .sidebar-action:hover {
+      color: #374151;
+    }
+    
+    .metadata-results {
+      margin-top: 8px;
+      padding: 8px;
+      background: #f9fafb;
+      border-radius: 4px;
+      font-size: 10px;
+      color: #4b5563;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    
+    .metadata-item {
+      margin-bottom: 6px;
+      padding: 4px;
+      background: white;
+      border-radius: 2px;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .metadata-item strong {
+      display: block;
+      font-size: 9px;
+      color: #374151;
+    }
+    
+    .metadata-item small {
+      font-size: 8px;
+      color: #6b7280;
+    }
+    
+    .content-area {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
     }
     
     h2 {
@@ -31,6 +216,40 @@
       margin-bottom: 16px;
       font-size: 11px;
       color: #0052cc;
+      display: none;
+    }
+    
+    .instruction.visible {
+      display: block;
+    }
+    
+    .info-toggle {
+      display: inline-block;
+      margin-left: 8px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      color: #6b7280;
+      font-size: 10px;
+      text-align: center;
+      line-height: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      vertical-align: middle;
+    }
+    
+    .info-toggle:hover {
+      background: #d1d5db;
+      color: #374151;
+    }
+    
+    .content-section {
+      display: none;
+    }
+    
+    .content-section.active {
+      display: block;
     }
     
     .section {
@@ -41,99 +260,172 @@
       margin-bottom: 12px;
     }
     
+    .placeholder {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 24px;
+      text-align: center;
+      color: #6b7280;
+      margin-top: 24px;
+    }
+    
+    .placeholder h3 {
+      margin: 0 0 8px 0;
+      color: #374151;
+      font-size: 14px;
+    }
+    
+    .placeholder p {
+      margin: 0;
+      font-size: 11px;
+    }
+    
     label {
       display: block;
       margin-bottom: 4px;
       font-weight: 500;
       color: #333;
+      font-size: 9px;
     }
     
     select {
       width: 100%;
       padding: 6px 8px;
-      border: 1px solid #e5e5e5;
+      border: 1px solid #d1d5db;
       border-radius: 4px;
-      font-size: 12px;
+      font-size: 11px;
       background: white;
+    }
+    
+    select:disabled {
+      background: #f3f4f6;
+      color: #9ca3af;
+      border-color: #e5e7eb;
     }
     
     button {
       width: 100%;
-      padding: 8px 16px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
       background: #0066ff;
       color: white;
       border: none;
       border-radius: 4px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
       cursor: pointer;
-      margin-bottom: 8px;
     }
     
     button:hover {
       background: #0052cc;
     }
     
+    button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+    
+    button:disabled:hover {
+      background: #9ca3af;
+    }
+    
+    button.secondary {
+      background: #6b7280;
+    }
+    
+    button.secondary:hover {
+      background: #4b5563;
+    }
+    
     .code-preview {
-      background: #f8f8f8;
-      border: 1px solid #e5e5e5;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
       border-radius: 4px;
       padding: 8px;
-      font-family: 'Monaco', 'Consolas', monospace;
+      margin-bottom: 12px;
+      font-family: Monaco, monospace;
       font-size: 10px;
-      margin-bottom: 12px;
-      word-break: break-all;
-      min-height: 24px;
+      color: #374151;
     }
     
-    .success {
-      background: #e6f7e6;
-      border: 1px solid #4caf50;
-      color: #2e7d32;
+    .message {
       padding: 8px;
       border-radius: 4px;
       margin-bottom: 12px;
+      font-size: 11px;
     }
     
-    .error {
+    .message.success {
+      background: #ecfdf5;
+      border: 1px solid #10b981;
+      color: #059669;
+    }
+    
+    .message.error {
       background: #ffebee;
       border: 1px solid #f44336;
       color: #c62828;
-      padding: 8px;
-      border-radius: 4px;
-      margin-bottom: 12px;
+    }
+    
+    .message.info {
+      background: #f3e5f5;
+      border: 1px solid #9c27b0;
+      color: #7b1fa2;
     }
   </style>
 </head>
 <body>
-  <h2>Envy UI Auto-Layout Applier</h2>
-  
-  <div class="instruction">
-    Select a frame/container, then choose settings below to apply auto-layout that matches your atomic CSS classes.
-  </div>
-  
-  <div class="section">
-    <div class="property">
-      <label for="display">Display</label>
-      <select id="display">
-        <option value="flex">Flex (f)</option>
-        <option value="block">Block</option>
-        <option value="grid">Grid (g)</option>
-      </select>
+  <div class="main-container">
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-item active" data-section="layout">Layout</div>
+      <div class="sidebar-item" data-section="button">Button</div>
+      <div class="sidebar-item" data-section="badge">Badge</div>
+      <div class="sidebar-item" data-section="card">Card</div>
+      <div class="sidebar-item" data-section="input">Input</div>
+      <div class="sidebar-item" data-section="modal">Modal</div>
+      <div class="sidebar-item" data-section="tooltip">Tooltip</div>
+      <div class="sidebar-item" data-section="navigation">Navigation</div>
+      
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-action" id="readMetadataSidebar">Read Metadata</div>
+      <div id="metadataResults" class="metadata-results" style="display: none;"></div>
     </div>
     
-    <div class="property">
-      <label for="direction">Direction</label>
-      <select id="direction">
-        <option value="row">Row (default)</option>
-        <option value="column">Column (f-column)</option>
-        <option value="row-reverse">Row Reverse (f-row-reverse)</option>
-        <option value="column-reverse">Column Reverse (f-column-reverse)</option>
-      </select>
-    </div>
-    
-    <div class="property">
-      <label for="gap">Gap</label>
+    <!-- Right Content Area -->
+    <div class="content-area">
+      
+      <!-- Layout Section -->
+      <div class="content-section active" id="layout-section">
+        <h2>Layout Settings <span class="info-toggle" id="infoToggle">i</span></h2>
+        
+        <div class="instruction" id="instructionBlock">
+          Select container, choose layout settings, and click Apply.
+        </div>
+        
+        <div class="section">
+          <div class="property">
+            <label for="display">Display</label>
+            <select id="display">
+              <option value="flex">Flex (f)</option>
+              <option value="block">Block</option>
+              <option value="grid">Grid (g)</option>
+            </select>
+          </div>
+          
+          <div class="property">
+            <label for="direction">Direction</label>
+            <select id="direction">
+              <option value="row">Row (default)</option>
+              <option value="column">Column (f-column)</option>
+              <option value="row-reverse">Row Reverse (f-row-reverse)</option>
+              <option value="column-reverse">Column Reverse (f-column-reverse)</option>
+            </select>
+          </div>
+          
+          <div class="property">
+            <label for="gap">Gap</label>
       <select id="gap">
         <option value="0">0 (f-gap-0)</option>
         <option value="1">1px (f-gap-1)</option>
@@ -150,240 +442,222 @@
     </div>
     
     <div class="property">
-      <label for="justify">Justify (Primary Axis)</label>
+      <label for="justify">Justify Content (Primary Axis)</label>
       <select id="justify">
-        <option value="start">Start (f-justify-start)</option>
+        <option value="start">Start (default)</option>
         <option value="center">Center (f-justify-center)</option>
         <option value="end">End (f-justify-end)</option>
-        <option value="space-between">Space Between (f-justify-between)</option>
-        <option value="space-around">Space Around (f-justify-around)</option>
+        <option value="between">Space Between (f-justify-between)</option>
       </select>
     </div>
     
     <div class="property">
-      <label for="align">Align (Cross Axis)</label>
+      <label for="align">Align Items (Cross Axis)</label>
       <select id="align">
-        <option value="start">Start (f-align-start)</option>
+        <option value="start">Start (default)</option>
         <option value="center">Center (f-align-center)</option>
         <option value="end">End (f-align-end)</option>
-      </select>
-    </div>
-  </div>
-  
-  <button id="apply-button">Apply Auto-Layout</button>
-  <button id="read-button" style="background: #6b7280; margin-bottom: 12px;">Read Stored Metadata</button>
-  
-  <div class="code-preview" id="preview">
-    CSS Classes: f f-gap-10
-  </div>
-  
-  <div id="metadata-display" style="display: none; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px; margin-bottom: 12px; font-family: Monaco, monospace; font-size: 10px; white-space: pre-wrap;"></div>
-  
-  <div id="message"></div>
-
-  <script>
-    const displaySelect = document.getElementById('display');
-    const directionSelect = document.getElementById('direction');
-    const gapSelect = document.getElementById('gap');
-    const justifySelect = document.getElementById('justify');
-    const alignSelect = document.getElementById('align');
-    const applyButton = document.getElementById('apply-button');
-    const readButton = document.getElementById('read-button');
-    const preview = document.getElementById('preview');
-    const messageDiv = document.getElementById('message');
-    const metadataDisplay = document.getElementById('metadata-display');
-    
-    function updatePreview() {
-      const settings = getCurrentSettings();
-      const cssClasses = [];
-      
-      if (settings.display === 'flex') {
-        cssClasses.push('f');
-      } else if (settings.display === 'grid') {
-        cssClasses.push('g');
-      }
-      
-      if (settings.direction === 'column') {
-        cssClasses.push('f-column');
-      } else if (settings.direction === 'row-reverse') {
-        cssClasses.push('f-row-reverse');
-      } else if (settings.direction === 'column-reverse') {
-        cssClasses.push('f-column-reverse');
-      }
-      
-      if (settings.gap && settings.gap !== '0') {
-        cssClasses.push(`f-gap-${settings.gap}`);
-      }
-      
-      if (settings.justify && settings.justify !== 'start') {
-        cssClasses.push(`f-justify-${settings.justify}`);
-      }
-      
-      if (settings.align && settings.align !== 'start') {
-        cssClasses.push(`f-align-${settings.align}`);
-      }
-      
-      preview.textContent = `CSS Classes: ${cssClasses.join(' ') || 'f'}`;
-    }
-    
-    function getCurrentSettings() {
-      return {
-        display: displaySelect.value,
-        direction: directionSelect.value,
-        gap: gapSelect.value,
-        justify: justifySelect.value,
-        align: alignSelect.value
-      };
-    }
-    
-    // Update preview when any setting changes
-    [displaySelect, directionSelect, gapSelect, justifySelect, alignSelect].forEach(select => {
-      select.addEventListener('change', updatePreview);
-    });
-    
-    applyButton.addEventListener('click', () => {
-      const settings = getCurrentSettings();
-      parent.postMessage({
-        pluginMessage: {
-          type: 'apply-layout',
-          settings: settings
-        }
-      }, '*');
-    });
-    
-    readButton.addEventListener('click', () => {
-      parent.postMessage({
-        pluginMessage: {
-          type: 'read-metadata'
-        }
-      }, '*');
-    });
-    
-    // Handle messages from plugin
-    onmessage = (event) => {
-      const msg = event.data.pluginMessage;
-      if (!msg) return;
-      
-      if (msg.type === 'success') {
-        messageDiv.innerHTML = `<div class="success">${msg.message}<br>CSS: ${msg.classes}</div>`;
-      } else if (msg.type === 'error') {
-        messageDiv.innerHTML = `<div class="error">${msg.message}</div>`;
-      } else if (msg.type === 'metadata-read') {
-        displayMetadata(msg.results);
-      }
-      
-      // Clear message after 5 seconds (except metadata)
-      if (msg.type !== 'metadata-read') {
-        setTimeout(() => {
-          messageDiv.innerHTML = '';
-        }, 5000);
-      }
-    };
-    
-    function displayMetadata(results) {
-      if (results.length === 0) {
-        metadataDisplay.textContent = 'No containers selected.';
-        metadataDisplay.style.display = 'block';
-        return;
-      }
-      
-      let output = '';
-      results.forEach((result, index) => {
-        output += `=== Container ${index + 1}: ${result.nodeName} ===\n`;
-        output += `Type: ${result.nodeType}\n`;
-        output += `Has Envy UI: ${result.hasMetadata ? 'YES' : 'NO'}\n`;
-        
-        if (result.hasMetadata) {
-          output += `Classes: ${result.classes}\n`;
-          output += `Applied: ${result.timestamp}\n`;
-          output += `Settings: ${JSON.stringify(result.settings, null, 2)}\n`;
-        }
-        
-        output += '\n';
-      });
-      
-      metadataDisplay.textContent = output;
-      metadataDisplay.style.display = 'block';
-    }
-    
-    // Initialize preview
-    updatePreview();
-  </script>
-</body>
-</html>
-      border-radius: 4px;
-      margin-bottom: 12px;
-    }
-  </style>
-</head>
-<body>
-  <h2>🎯 Envy UI Container</h2>
-  
-  <div class="section">
-    <div class="property">
-      <label>Display</label>
-      <select id="display">
-        <option value="flex">Flex (f)</option>
-        <option value="flex-inline">Inline Flex (f-inline)</option>
-        <option value="block">Block (block)</option>
-        <option value="grid">Grid (g)</option>
-      </select>
-    </div>
-    
-    <div class="property">
-      <label>Direction</label>
-      <select id="direction">
-        <option value="row">Row (f-row)</option>
-        <option value="column">Column (f-column)</option>
-        <option value="row-reverse">Row Reverse (f-row-reverse)</option>
-        <option value="column-reverse">Column Reverse (f-column-reverse)</option>
-      </select>
-    </div>
-    
-    <div class="property">
-      <label>Gap</label>
-      <select id="gap">
-        <option value="0">None (f-gap-0)</option>
-        <option value="5">5px (f-gap-5)</option>
-        <option value="10" selected>10px (f-gap)</option>
-        <option value="15">15px (f-gap-15)</option>
-        <option value="20">20px (f-gap-20)</option>
-        <option value="25">25px (f-gap-25)</option>
-        <option value="30">30px (f-gap-30)</option>
-      </select>
-    </div>
-    
-    <div class="property">
-      <label>Justify</label>
-      <select id="justify">
-        <option value="start">Start (f-j-start)</option>
-        <option value="center">Center (f-j-center)</option>
-        <option value="end">End (f-j-end)</option>
-        <option value="space-between">Space Between (f-j-space-between)</option>
-      </select>
-    </div>
-    
-    <div class="property">
-      <label>Align</label>
-      <select id="align">
-        <option value="start">Start (f-a-start)</option>
-        <option value="center">Center (f-a-center)</option>
-        <option value="end">End (f-a-end)</option>
-        <option value="stretch">Stretch (f-a-stretch)</option>
+        <option value="stretch">Stretch (f-align-stretch)</option>
       </select>
     </div>
   </div>
   
   <div class="code-preview" id="codePreview">
-    &lt;div {...ui([uiA`f f-gap`])}&gt;
+    &lt;div class="f f-gap-10"&gt;
   </div>
   
-  <button id="createComponent">Create Component</button>
-  <button id="createInstance" class="secondary">Create Instance</button>
+  <button id="applyLayout">Apply</button>
   
-  <div id="message" style="display: none;"></div>
+  <div id="message" class="message" style="display: none;"></div>
+      </div>
+      
+      <!-- Button Section -->
+      <div class="content-section" id="button-section">
+        <h2>Button Components</h2>
+        <div class="placeholder">
+          <h3>Button Library</h3>
+          <p>Create and manage button variants with Envy UI styles.</p>
+        </div>
+      </div>
+      
+      <!-- Badge Section -->
+      <div class="content-section" id="badge-section">
+        <h2>Badge Components</h2>
+        <div class="placeholder">
+          <h3>Badge Library</h3>
+          <p>Create and manage badge components with status indicators.</p>
+        </div>
+      </div>
+      
+      <!-- Card Section -->
+      <div class="content-section" id="card-section">
+        <h2>Card Styling <span class="info-toggle" id="cardInfoToggle">i</span></h2>
+        
+        <div class="instruction" id="cardInstructionBlock">
+          Select container, choose card styling, and click Apply.
+        </div>
+        
+        <div class="section">
+          <div class="property">
+            <label for="cardShadow">Shadow</label>
+            <select id="cardShadow">
+              <option value="default">Default</option>
+              <option value="none">None (--no-shadow)</option>
+              <option value="strong">Strong (--shadow-strong)</option>
+              <option value="xstrong">Extra Strong (--shadow-xstrong)</option>
+            </select>
+          </div>
+          
+          <div class="property">
+            <label for="cardBorder">Border Style</label>
+            <select id="cardBorder">
+              <option value="default">Default</option>
+              <option value="none">None (--no-border)</option>
+              <option value="brand">Brand Border (--brand-border)</option>
+            </select>
+          </div>
+          
+          <div class="property">
+            <label for="cardVariant">Variant</label>
+            <select id="cardVariant">
+              <option value="default">Default</option>
+              <option value="plain">Plain (--plain)</option>
+              <option value="brand">Brand (--brand)</option>
+              <option value="muted">Muted (--muted)</option>
+            </select>
+          </div>
+          
+          <div class="property">
+            <label for="cardState">State</label>
+            <select id="cardState">
+              <option value="default">Default</option>
+              <option value="active">Active (--active)</option>
+              <option value="selected">Selected (--selected)</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="code-preview" id="cardCodePreview">
+          uiA&grave;env-card&grave;
+        </div>
+
+        <!-- Live Card Preview -->
+        <div class="card-preview-container">
+          <div class="card-preview-label">Live Preview</div>
+          <div class="env-card" id="cardLivePreview">
+            <div style="font-weight: 600; font-size: 14px;">Card Title</div>
+            <div style="color: #64748b; font-size: 12px;">This is how your card will look with the selected settings.</div>
+          </div>
+        </div>
+        
+        <button id="applyCard" disabled>Apply</button>
+        
+        <div id="cardMessage" class="message" style="display: none;"></div>
+      </div>
+      
+      <!-- Input Section -->
+      <div class="content-section" id="input-section">
+        <h2>Input Components</h2>
+        <div class="placeholder">
+          <h3>Form Controls</h3>
+          <p>Create and manage form inputs, selects, and controls.</p>
+        </div>
+      </div>
+      
+      <!-- Modal Section -->
+      <div class="content-section" id="modal-section">
+        <h2>Modal Components</h2>
+        <div class="placeholder">
+          <h3>Modal Library</h3>
+          <p>Create and manage modal dialogs and overlays.</p>
+        </div>
+      </div>
+      
+      <!-- Tooltip Section -->
+      <div class="content-section" id="tooltip-section">
+        <h2>Tooltip Components</h2>
+        <div class="placeholder">
+          <h3>Tooltip Library</h3>
+          <p>Create and manage tooltip components and popovers.</p>
+        </div>
+      </div>
+      
+      <!-- Navigation Section -->
+      <div class="content-section" id="navigation-section">
+        <h2>Navigation Components</h2>
+        <div class="placeholder">
+          <h3>Navigation Library</h3>
+          <p>Create and manage navigation menus and breadcrumbs.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
   <script>
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPlugin);
+    } else {
+      initPlugin();
+    }
+    
+    function initPlugin() {
+    // Navigation functionality
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    function showSection(sectionId) {
+      // Hide all sections
+      contentSections.forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Remove active state from all sidebar items
+      sidebarItems.forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Show selected section
+      const targetSection = document.getElementById(sectionId + '-section');
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+      
+      // Set active sidebar item
+      const activeItem = document.querySelector(`[data-section="${sectionId}"]`);
+      if (activeItem) {
+        activeItem.classList.add('active');
+      }
+    }
+    
+    // Add click listeners to sidebar items
+    sidebarItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const sectionId = item.getAttribute('data-section');
+        showSection(sectionId);
+      });
+    });
+    
+    // Info toggle functionality
+    const infoToggle = document.getElementById('infoToggle');
+    const instructionBlock = document.getElementById('instructionBlock');
+    const cardInfoToggle = document.getElementById('cardInfoToggle');
+    const cardInstructionBlock = document.getElementById('cardInstructionBlock');
+    
+    if (infoToggle && instructionBlock) {
+      infoToggle.addEventListener('click', () => {
+        instructionBlock.classList.toggle('visible');
+      });
+    }
+    
+    if (cardInfoToggle && cardInstructionBlock) {
+      cardInfoToggle.addEventListener('click', () => {
+        cardInstructionBlock.classList.toggle('visible');
+      });
+    }
+    
+    // Layout section functionality
     const displaySelect = document.getElementById('display');
     const directionSelect = document.getElementById('direction');
     const gapSelect = document.getElementById('gap');
@@ -391,126 +665,340 @@
     const alignSelect = document.getElementById('align');
     const codePreview = document.getElementById('codePreview');
     const messageDiv = document.getElementById('message');
+    const applyButton = document.getElementById('applyLayout');
     
-    const classMap = {
-      display: {
-        'flex': 'f',
-        'flex-inline': 'f-inline',
-        'block': 'block',
-        'grid': 'g'
-      },
-      direction: {
-        'row': '',
-        'column': 'f-column',
-        'row-reverse': 'f-row-reverse', 
-        'column-reverse': 'f-column-reverse'
-      },
-      gap: {
-        '0': 'f-gap-0',
-        '5': 'f-gap-5',
-        '10': 'f-gap',
-        '15': 'f-gap-15',
-        '20': 'f-gap-20',
-        '25': 'f-gap-25',
-        '30': 'f-gap-30'
-      },
-      justify: {
-        'start': '',
-        'center': 'f-j-center',
-        'end': 'f-j-end',
-        'space-between': 'f-j-space-between'
-      },
-      align: {
-        'start': '',
-        'center': 'f-a-center', 
-        'end': 'f-a-end',
-        'stretch': 'f-a-stretch'
+    // Card section functionality
+    const cardShadowSelect = document.getElementById('cardShadow');
+    const cardBorderSelect = document.getElementById('cardBorder');
+    const cardVariantSelect = document.getElementById('cardVariant');
+    const cardStateSelect = document.getElementById('cardState');
+    const cardCodePreview = document.getElementById('cardCodePreview');
+    const cardApplyButton = document.getElementById('applyCard');
+    
+    function setFieldsDisabled(disabled) {
+      // Layout section
+      if (displaySelect) {
+        const selects = [displaySelect, directionSelect, gapSelect, justifySelect, alignSelect];
+        selects.forEach(select => {
+          select.disabled = disabled;
+          if (disabled) {
+            select.selectedIndex = 0;
+          }
+        });
+        
+        if (applyButton) {
+          applyButton.disabled = disabled;
+        }
+        
+        if (codePreview) {
+          if (disabled) {
+            codePreview.innerHTML = 'Select a container to configure layout';
+            codePreview.style.color = '#9ca3af';
+            codePreview.style.fontStyle = 'italic';
+          } else {
+            codePreview.style.color = '#374151';
+            codePreview.style.fontStyle = 'normal';
+            updatePreview();
+          }
+        }
       }
-    };
+      
+      // Card section
+      if (cardShadowSelect) {
+        const cardSelects = [cardShadowSelect, cardBorderSelect, cardVariantSelect, cardStateSelect];
+        cardSelects.forEach(select => {
+          select.disabled = disabled;
+          if (disabled) {
+            select.selectedIndex = 0;
+          }
+        });
+        
+        if (cardApplyButton) {
+          cardApplyButton.disabled = disabled;
+        }
+        
+        if (cardCodePreview) {
+          if (disabled) {
+            cardCodePreview.innerHTML = 'Select a container to configure card styling';
+            cardCodePreview.style.color = '#9ca3af';
+            cardCodePreview.style.fontStyle = 'italic';
+          } else {
+            cardCodePreview.style.color = '#374151';
+            cardCodePreview.style.fontStyle = 'normal';
+            updateCardPreview();
+          }
+        }
+      }
+    }
+    
+    function populateFieldsFromSettings(settings) {
+      if (!settings || !displaySelect) return;
+      
+      // Populate display
+      if (settings.display) {
+        displaySelect.value = settings.display;
+      }
+      
+      // Populate direction
+      if (settings.direction) {
+        directionSelect.value = settings.direction;
+      }
+      
+      // Populate gap
+      if (settings.gap !== undefined) {
+        gapSelect.value = settings.gap;
+      }
+      
+      // Populate justify
+      if (settings.justify) {
+        justifySelect.value = settings.justify;
+      }
+      
+      // Populate align
+      if (settings.align) {
+        alignSelect.value = settings.align;
+      }
+      
+      // Update preview after populating
+      updatePreview();
+    }
+    
+    function populateCardFieldsFromSettings(settings) {
+      if (!settings || !cardShadowSelect) return;
+      
+      // Populate card shadow
+      if (settings.shadow) {
+        cardShadowSelect.value = settings.shadow;
+      }
+      
+      // Populate card border
+      if (settings.border) {
+        cardBorderSelect.value = settings.border;
+      }
+      
+      // Populate card variant
+      if (settings.variant) {
+        cardVariantSelect.value = settings.variant;
+      }
+      
+      // Populate card state
+      if (settings.state) {
+        cardStateSelect.value = settings.state;
+      }
+      
+      // Update preview after populating
+      updateCardPreview();
+    }
+    
+    // Initialize with disabled state
+    setFieldsDisabled(true);
+    
+    // Initialize card preview (only if card section elements exist)
+    if (cardShadowSelect && cardCodePreview) {
+      updateCardPreview();
+    }
     
     function updatePreview() {
+      if (!displaySelect || !codePreview) return; // Guard clause for when layout section isn't active
+      
       const classes = [];
       
-      const displayClass = classMap.display[displaySelect.value];
-      if (displayClass) classes.push(displayClass);
+      // Display/Layout mode
+      if (displaySelect.value === 'flex') {
+        classes.push('f');
+      } else if (displaySelect.value === 'grid') {
+        classes.push('g');
+      }
       
-      const directionClass = classMap.direction[directionSelect.value];
-      if (directionClass) classes.push(directionClass);
+      // Direction
+      if (directionSelect.value === 'column') {
+        classes.push('f-column');
+      } else if (directionSelect.value === 'row-reverse') {
+        classes.push('f-row-reverse');
+      } else if (directionSelect.value === 'column-reverse') {
+        classes.push('f-column-reverse');
+      }
       
-      const gapClass = classMap.gap[gapSelect.value];
-      if (gapClass) classes.push(gapClass);
+      // Gap
+      if (gapSelect.value && gapSelect.value !== '0') {
+        classes.push(`f-gap-${gapSelect.value}`);
+      }
       
-      const justifyClass = classMap.justify[justifySelect.value];
-      if (justifyClass) classes.push(justifyClass);
+      // Justify
+      if (justifySelect.value && justifySelect.value !== 'start') {
+        classes.push(`f-justify-${justifySelect.value}`);
+      }
       
-      const alignClass = classMap.align[alignSelect.value];
-      if (alignClass) classes.push(alignClass);
+      // Align
+      if (alignSelect.value && alignSelect.value !== 'start') {
+        classes.push(`f-align-${alignSelect.value}`);
+      }
       
-      const classString = classes.join(' ');
-      codePreview.innerHTML = `&lt;div {...ui([uiA\`${classString}\`])}&gt;`;
+      const classString = classes.join(' ') || 'f';
+      codePreview.innerHTML = 'uiA`' + classString + '`';
     }
     
     function showMessage(message, type) {
       messageDiv.innerHTML = message;
-      messageDiv.className = type;
+      messageDiv.className = `message ${type}`;
       messageDiv.style.display = 'block';
+      
+      // Longer timeout for info messages (metadata)
+      const timeout = type === 'info' ? 8000 : 3000;
       setTimeout(() => {
         messageDiv.style.display = 'none';
-      }, 3000);
+      }, timeout);
     }
     
-    // Update preview on any change
-    [displaySelect, directionSelect, gapSelect, justifySelect, alignSelect].forEach(select => {
-      select.addEventListener('change', updatePreview);
+    function updateCardPreview() {
+      if (!cardShadowSelect || !cardCodePreview) return;
+      
+      const classes = ['env-card'];
+      
+      // Shadow
+      if (cardShadowSelect.value === 'none') {
+        classes.push('env-card--no-shadow');
+      } else if (cardShadowSelect.value === 'strong') {
+        classes.push('env-card--shadow-strong');
+      } else if (cardShadowSelect.value === 'xstrong') {
+        classes.push('env-card--shadow-xstrong');
+      }
+      
+      // Border
+      if (cardBorderSelect.value === 'none') {
+        classes.push('env-card--no-border');
+      } else if (cardBorderSelect.value === 'brand') {
+        classes.push('env-card--brand-border');
+      }
+      
+      // Variant
+      if (cardVariantSelect.value === 'plain') {
+        classes.push('env-card--plain');
+      } else if (cardVariantSelect.value === 'brand') {
+        classes.push('env-card--brand');
+      } else if (cardVariantSelect.value === 'muted') {
+        classes.push('env-card--muted');
+      }
+      
+      // State
+      if (cardStateSelect.value === 'active') {
+        classes.push('env-card--active');
+      } else if (cardStateSelect.value === 'selected') {
+        classes.push('env-card--selected');
+      }
+      
+      const classString = classes.join(' ');
+      cardCodePreview.innerHTML = 'uiA`' + classString + '`';
+      
+      // Update live preview
+      const livePreview = document.getElementById('cardLivePreview');
+      if (livePreview) {
+        livePreview.className = classString;
+      }
+    }
+    
+    // Update preview on any change (only if elements exist)
+    if (displaySelect && directionSelect && gapSelect && justifySelect && alignSelect) {
+      [displaySelect, directionSelect, gapSelect, justifySelect, alignSelect].forEach(select => {
+        select.addEventListener('change', updatePreview);
+      });
+    }
+    
+    // Card section event listeners
+    if (cardShadowSelect && cardBorderSelect && cardVariantSelect && cardStateSelect) {
+      [cardShadowSelect, cardBorderSelect, cardVariantSelect, cardStateSelect].forEach(select => {
+        select.addEventListener('change', updateCardPreview);
+      });
+    }
+    
+    document.getElementById('applyLayout')?.addEventListener('click', () => {
+      const settings = {
+        display: displaySelect.value,
+        direction: directionSelect.value,
+        gap: gapSelect.value,
+        justify: justifySelect.value,
+        align: alignSelect.value
+      };
+      
+      parent.postMessage({
+        pluginMessage: {
+          type: 'apply-layout',
+          settings: settings
+        }
+      }, '*');
     });
-    
-    document.getElementById('createComponent').onclick = () => {
-      parent.postMessage({
-        pluginMessage: {
-          type: 'create-container'
-        }
-      }, '*');
-    };
-    
-    document.getElementById('createInstance').onclick = () => {
-      const classes = [];
-      
-      const displayClass = classMap.display[displaySelect.value];
-      if (displayClass) classes.push(displayClass);
-      
-      const directionClass = classMap.direction[directionSelect.value];
-      if (directionClass) classes.push(directionClass);
-      
-      const gapClass = classMap.gap[gapSelect.value];
-      if (gapClass) classes.push(gapClass);
-      
-      const justifyClass = classMap.justify[justifySelect.value];
-      if (justifyClass) classes.push(justifyClass);
-      
-      const alignClass = classMap.align[alignSelect.value];
-      if (alignClass) classes.push(alignClass);
+
+    document.getElementById('applyCard')?.addEventListener('click', () => {
+      const cardSettings = {
+        shadow: cardShadowSelect.value,
+        border: cardBorderSelect.value,
+        variant: cardVariantSelect.value,
+        state: cardStateSelect.value
+      };
       
       parent.postMessage({
         pluginMessage: {
-          type: 'create-instance',
-          classes: classes
+          type: 'apply-card',
+          settings: cardSettings
         }
       }, '*');
-    };
-    
-    // Listen for plugin messages
+    });
+
+    document.getElementById('readMetadataSidebar')?.addEventListener('click', () => {
+      parent.postMessage({
+        pluginMessage: {
+          type: 'read-metadata'
+        }
+      }, '*');
+    });    // Listen for plugin messages
     window.onmessage = (event) => {
-      const { type, message } = event.data.pluginMessage;
+      const { type, message, results, classes, hasSelection, containerSettings } = event.data.pluginMessage;
       
-      if (type === 'success') {
-        showMessage(message, 'success');
+      if (type === 'selection-changed') {
+        setFieldsDisabled(!hasSelection);
+        if (hasSelection && containerSettings) {
+          populateFieldsFromSettings(containerSettings);
+          // Also try to populate card settings if available
+          const cardSettings = containerSettings.cardSettings || containerSettings;
+          populateCardFieldsFromSettings(cardSettings);
+        }
+      } else if (type === 'success') {
+        showMessage(message + (classes ? ' • Classes: ' + classes : ''), 'success');
       } else if (type === 'error') {
         showMessage(message, 'error');
+      } else if (type === 'metadata-read') {
+        displayMetadataResults(results);
       }
     };
     
-    // Initialize preview
-    updatePreview();
+    function displayMetadataResults(results) {
+      const metadataContainer = document.getElementById('metadataResults');
+      if (!metadataContainer) return;
+      
+      const resultsHtml = results.map(result => {
+        return '<div class="metadata-item">' +
+          '<strong>' + result.nodeName + '</strong>' +
+          '<small>Type: ' + result.nodeType + '</small><br>' +
+          '<small>Classes: ' + result.classes + '</small><br>' +
+          '<small>Updated: ' + result.timestamp + '</small>' +
+        '</div>';
+      }).join('');
+      
+      metadataContainer.innerHTML = resultsHtml;
+      metadataContainer.style.display = results.length > 0 ? 'block' : 'none';
+    }
+    
+    // Initialize preview (only if layout section elements exist)
+    if (displaySelect && codePreview) {
+      updatePreview();
+    }
+    
+    // Initialize card preview (only if card section elements exist)
+    if (cardShadowSelect && cardCodePreview) {
+      updateCardPreview();
+    }
+    
+    } // End of initPlugin function
   </script>
 </body>
 </html>

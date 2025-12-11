@@ -1,10 +1,15 @@
 {
-  "name": "Envy UI Auto-Layout Applier v2.3",
+  "name": "Envy UI Auto-Layout Applier",
   "id": "envy-ui-auto-layout-applier",
   "api": "1.0.0",
   "main": "code.js",
   "ui": "ui.html",
+  "containsWidget": true,
+  "widgetApi": "1.0.0",
   "editorType": [
     "figma"
-  ]
+  ],
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  }
 }
