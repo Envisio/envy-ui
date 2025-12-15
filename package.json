@@ -55,6 +55,7 @@
     "specificity": "specificity-graph dist/css/ui.css --output dist/styleguide/specificity",
     "render-styleguide-homepage": "pug -O from-dictionary/javascripts/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
     "render-markups": "pug --pretty -O from-dictionary/javascripts/block_name.styleguide.js src/stylesheets/a/kss/src/ --out src/stylesheets/a/kss/build/",
+    "rich-styleguide": "node scripts/generate-rich-styleguide.js",
     "deploy": "npm run specificity && surge --domain envisio-styleguide.surge.sh ./dist",
     "js-test": "babel-tape-runner lib/ui/tests/get_block.test.js | faucet",
     "backstop:exec-test": "concurrently \"http-server -a localhost -p 5000\" \"sleepms 2000 && node backstop.exec.js test; open-cli http://localhost:5000/backstop_data/html_report/\"",

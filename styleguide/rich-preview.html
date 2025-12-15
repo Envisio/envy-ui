@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Envy UI Rich Styleguide Preview</title>
+  <style>
+    body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; margin: 0; background:#f4f5f7; color:#222; }
+    header.hero { background:#101828; color:#fff; padding:48px 24px; }
+    header.hero h1 { margin:0 0 12px; }
+    header.hero p { max-width:720px; line-height:1.5; }
+    main { padding:32px; max-width:1200px; margin:0 auto; }
+    section { margin-bottom:48px; }
+    .color-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:16px; }
+    .color-card { background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(16,24,40,0.08); display:flex; }
+    .color-card .swatch { width:80px; border-radius:12px 0 0 12px; }
+    .color-meta { padding:12px; display:flex; flex-direction:column; gap:4px; }
+    .color-name { font-weight:600; text-transform:capitalize; }
+    .color-prop, .color-js { font-size:12px; color:#475467; }
+    .component { background:#fff; border-radius:16px; padding:24px; box-shadow:0 4px 12px rgba(16,24,40,0.08); }
+    .component header { border-bottom:1px solid #f0f2f5; margin-bottom:16px; padding-bottom:8px; }
+    .component h3 { margin:0; }
+    .snippet-path { font-size:12px; color:#475467; margin:4px 0 0; }
+    .component-preview { padding-top:8px; }
+    .component-preview .kss-test-flex { gap:8px; flex-wrap:wrap; }
+    code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; background:#f2f4f7; padding:2px 6px; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Envy UI Rich Styleguide Preview</h1>
+    <p>
+      Tokens flow from the DTCG JSON in <code>src/dictionary/dtcg</code> through <code>dictionary_build.js</code> to generate JS exports, SCSS maps and custom properties.
+      This page pulls directly from <code>from-dictionary/</code> outputs and the rendered KSS snippets to provide a design/dev friendly snapshot.
+    </p>
+  </header>
+  <main>
+    <section>
+      <h2>Color Palette</h2>
+      <p>Each card lists the token name, HEX value, implied CSS custom property, and the matching JS path (from <code>from-dictionary/javascripts/color.js</code>).</p>
+      <div class="color-grid">
+        
+      <div class="color-card">
+        <div class="swatch" style="background:#066a8d"></div>
+        <div class="color-meta">
+          <div class="color-name">brand-primary</div>
+          <div class="color-value">#066a8d</div>
+          <div class="color-prop"><code>--env-color-brand-primary</code></div>
+          <div class="color-js"><code>colors.color['brand-primary']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#027ea2"></div>
+        <div class="color-meta">
+          <div class="color-name">new</div>
+          <div class="color-value">#027ea2</div>
+          <div class="color-prop"><code>--env-color-new</code></div>
+          <div class="color-js"><code>colors.color['new']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#007da5"></div>
+        <div class="color-meta">
+          <div class="color-name">brand-primary-alt</div>
+          <div class="color-value">#007da5</div>
+          <div class="color-prop"><code>--env-color-brand-primary-alt</code></div>
+          <div class="color-js"><code>colors.color['brand-primary-alt']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#007ca0"></div>
+        <div class="color-meta">
+          <div class="color-name">brand-blue</div>
+          <div class="color-value">#007ca0</div>
+          <div class="color-prop"><code>--env-color-brand-blue</code></div>
+          <div class="color-js"><code>colors.color['brand-blue']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#007fa2"></div>
+        <div class="color-meta">
+          <div class="color-name">blue</div>
+          <div class="color-value">#007fa2</div>
+          <div class="color-prop"><code>--env-color-blue</code></div>
+          <div class="color-js"><code>colors.color['blue']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#0856af"></div>
+        <div class="color-meta">
+          <div class="color-name">dark-blue</div>
+          <div class="color-value">#0856af</div>
+          <div class="color-prop"><code>--env-color-dark-blue</code></div>
+          <div class="color-js"><code>colors.color['dark-blue']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#1565c0"></div>
+        <div class="color-meta">
+          <div class="color-name">completed</div>
+          <div class="color-value">#1565c0</div>
+          <div class="color-prop"><code>--env-color-completed</code></div>
+          <div class="color-js"><code>colors.color['completed']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#1594c9"></div>
+        <div class="color-meta">
+          <div class="color-name">progress-bar</div>
+          <div class="color-value">#1594c9</div>
+          <div class="color-prop"><code>--env-color-progress-bar</code></div>
+          <div class="color-js"><code>colors.color['progress-bar']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#71ade4"></div>
+        <div class="color-meta">
+          <div class="color-name">light-blue</div>
+          <div class="color-value">#71ade4</div>
+          <div class="color-prop"><code>--env-color-light-blue</code></div>
+          <div class="color-js"><code>colors.color['light-blue']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#64b5f6"></div>
+        <div class="color-meta">
+          <div class="color-name">in-progress</div>
+          <div class="color-value">#64b5f6</div>
+          <div class="color-prop"><code>--env-color-in-progress</code></div>
+          <div class="color-js"><code>colors.color['in-progress']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#54b2ef"></div>
+        <div class="color-meta">
+          <div class="color-name">variable</div>
+          <div class="color-value">#54b2ef</div>
+          <div class="color-prop"><code>--env-color-variable</code></div>
+          <div class="color-js"><code>colors.color['variable']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#51b6d4"></div>
+        <div class="color-meta">
+          <div class="color-name">viking-blue</div>
+          <div class="color-value">#51b6d4</div>
+          <div class="color-prop"><code>--env-color-viking-blue</code></div>
+          <div class="color-js"><code>colors.color['viking-blue']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#34aacd"></div>
+        <div class="color-meta">
+          <div class="color-name">viking-blue-darken-12</div>
+          <div class="color-value">#34aacd</div>
+          <div class="color-prop"><code>--env-color-viking-blue-darken-12</code></div>
+          <div class="color-js"><code>colors.color['viking-blue-darken-12']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#76bcd0"></div>
+        <div class="color-meta">
+          <div class="color-name">cornflower-blue</div>
+          <div class="color-value">#76bcd0</div>
+          <div class="color-prop"><code>--env-color-cornflower-blue</code></div>
+          <div class="color-js"><code>colors.color['cornflower-blue']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#80e5ff"></div>
+        <div class="color-meta">
+          <div class="color-name">string</div>
+          <div class="color-value">#80e5ff</div>
+          <div class="color-prop"><code>--env-color-string</code></div>
+          <div class="color-js"><code>colors.color['string']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#d3ebf3"></div>
+        <div class="color-meta">
+          <div class="color-name">pale-blue</div>
+          <div class="color-value">#d3ebf3</div>
+          <div class="color-prop"><code>--env-color-pale-blue</code></div>
+          <div class="color-js"><code>colors.color['pale-blue']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#e0ebeb"></div>
+        <div class="color-meta">
+          <div class="color-name">paint-gray</div>
+          <div class="color-value">#e0ebeb</div>
+          <div class="color-prop"><code>--env-color-paint-gray</code></div>
+          <div class="color-js"><code>colors.color['paint-gray']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#1b1b1b"></div>
+        <div class="color-meta">
+          <div class="color-name">black</div>
+          <div class="color-value">#1b1b1b</div>
+          <div class="color-prop"><code>--env-color-black</code></div>
+          <div class="color-js"><code>colors.color['black']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#36312d"></div>
+        <div class="color-meta">
+          <div class="color-name">discontinued</div>
+          <div class="color-value">#36312d</div>
+          <div class="color-prop"><code>--env-color-discontinued</code></div>
+          <div class="color-js"><code>colors.color['discontinued']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#404040"></div>
+        <div class="color-meta">
+          <div class="color-name">default</div>
+          <div class="color-value">#404040</div>
+          <div class="color-prop"><code>--env-color-default</code></div>
+          <div class="color-js"><code>colors.color['default']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#4b5253"></div>
+        <div class="color-meta">
+          <div class="color-name">tab</div>
+          <div class="color-value">#4b5253</div>
+          <div class="color-prop"><code>--env-color-tab</code></div>
+          <div class="color-js"><code>colors.color['tab']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#555555"></div>
+        <div class="color-meta">
+          <div class="color-name">gray</div>
+          <div class="color-value">#555555</div>
+          <div class="color-prop"><code>--env-color-gray</code></div>
+          <div class="color-js"><code>colors.color['gray']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#757575"></div>
+        <div class="color-meta">
+          <div class="color-name">darken-border</div>
+          <div class="color-value">#757575</div>
+          <div class="color-prop"><code>--env-color-darken-border</code></div>
+          <div class="color-js"><code>colors.color['darken-border']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#777777"></div>
+        <div class="color-meta">
+          <div class="color-name">boulder</div>
+          <div class="color-value">#777777</div>
+          <div class="color-prop"><code>--env-color-boulder</code></div>
+          <div class="color-js"><code>colors.color['boulder']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#888888"></div>
+        <div class="color-meta">
+          <div class="color-name">medium-gray</div>
+          <div class="color-value">#888888</div>
+          <div class="color-prop"><code>--env-color-medium-gray</code></div>
+          <div class="color-js"><code>colors.color['medium-gray']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#828387"></div>
+        <div class="color-meta">
+          <div class="color-name">brand-gray</div>
+          <div class="color-value">#828387</div>
+          <div class="color-prop"><code>--env-color-brand-gray</code></div>
+          <div class="color-js"><code>colors.color['brand-gray']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#8c8b8c"></div>
+        <div class="color-meta">
+          <div class="color-name">status-pending</div>
+          <div class="color-value">#8c8b8c</div>
+          <div class="color-prop"><code>--env-color-status-pending</code></div>
+          <div class="color-js"><code>colors.color['status-pending']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#979daa"></div>
+        <div class="color-meta">
+          <div class="color-name">santas-gray</div>
+          <div class="color-value">#979daa</div>
+          <div class="color-prop"><code>--env-color-santas-gray</code></div>
+          <div class="color-js"><code>colors.color['santas-gray']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#b7b7b7"></div>
+        <div class="color-meta">
+          <div class="color-name">nobel</div>
+          <div class="color-value">#b7b7b7</div>
+          <div class="color-prop"><code>--env-color-nobel</code></div>
+          <div class="color-js"><code>colors.color['nobel']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#cccccc"></div>
+        <div class="color-meta">
+          <div class="color-name">plain-gray</div>
+          <div class="color-value">#cccccc</div>
+          <div class="color-prop"><code>--env-color-plain-gray</code></div>
+          <div class="color-js"><code>colors.color['plain-gray']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#d1d4e4"></div>
+        <div class="color-meta">
+          <div class="color-name">border</div>
+          <div class="color-value">#d1d4e4</div>
+          <div class="color-prop"><code>--env-color-border</code></div>
+          <div class="color-js"><code>colors.color['border']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#e6e6e6"></div>
+        <div class="color-meta">
+          <div class="color-name">gray-white</div>
+          <div class="color-value">#e6e6e6</div>
+          <div class="color-prop"><code>--env-color-gray-white</code></div>
+          <div class="color-js"><code>colors.color['gray-white']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#eeeeee"></div>
+        <div class="color-meta">
+          <div class="color-name">gallery</div>
+          <div class="color-value">#eeeeee</div>
+          <div class="color-prop"><code>--env-color-gallery</code></div>
+          <div class="color-js"><code>colors.color['gallery']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#f1f2f6"></div>
+        <div class="color-meta">
+          <div class="color-name">athens-gray</div>
+          <div class="color-value">#f1f2f6</div>
+          <div class="color-prop"><code>--env-color-athens-gray</code></div>
+          <div class="color-js"><code>colors.color['athens-gray']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#f1f2f7"></div>
+        <div class="color-meta">
+          <div class="color-name">light-gray</div>
+          <div class="color-value">#f1f2f7</div>
+          <div class="color-prop"><code>--env-color-light-gray</code></div>
+          <div class="color-js"><code>colors.color['light-gray']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#f7f7f7"></div>
+        <div class="color-meta">
+          <div class="color-name">alabaster</div>
+          <div class="color-value">#f7f7f7</div>
+          <div class="color-prop"><code>--env-color-alabaster</code></div>
+          <div class="color-js"><code>colors.color['alabaster']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#f9f9fb"></div>
+        <div class="color-meta">
+          <div class="color-name">pale-gray</div>
+          <div class="color-value">#f9f9fb</div>
+          <div class="color-prop"><code>--env-color-pale-gray</code></div>
+          <div class="color-js"><code>colors.color['pale-gray']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#f9fafc"></div>
+        <div class="color-meta">
+          <div class="color-name">dark-white</div>
+          <div class="color-value">#f9fafc</div>
+          <div class="color-prop"><code>--env-color-dark-white</code></div>
+          <div class="color-js"><code>colors.color['dark-white']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#fcfcfe"></div>
+        <div class="color-meta">
+          <div class="color-name">off-white</div>
+          <div class="color-value">#fcfcfe</div>
+          <div class="color-prop"><code>--env-color-off-white</code></div>
+          <div class="color-js"><code>colors.color['off-white']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ffffff"></div>
+        <div class="color-meta">
+          <div class="color-name">white</div>
+          <div class="color-value">#ffffff</div>
+          <div class="color-prop"><code>--env-color-white</code></div>
+          <div class="color-js"><code>colors.color['white']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#567225"></div>
+        <div class="color-meta">
+          <div class="color-name">off-green</div>
+          <div class="color-value">#567225</div>
+          <div class="color-prop"><code>--env-color-off-green</code></div>
+          <div class="color-js"><code>colors.color['off-green']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#769147"></div>
+        <div class="color-meta">
+          <div class="color-name">off-green-lighter</div>
+          <div class="color-value">#769147</div>
+          <div class="color-prop"><code>--env-color-off-green-lighter</code></div>
+          <div class="color-js"><code>colors.color['off-green-lighter']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#3c763d"></div>
+        <div class="color-meta">
+          <div class="color-name">green</div>
+          <div class="color-value">#3c763d</div>
+          <div class="color-prop"><code>--env-color-green</code></div>
+          <div class="color-js"><code>colors.color['green']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#57a92b"></div>
+        <div class="color-meta">
+          <div class="color-name">on-track</div>
+          <div class="color-value">#57a92b</div>
+          <div class="color-prop"><code>--env-color-on-track</code></div>
+          <div class="color-js"><code>colors.color['on-track']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#4cc417"></div>
+        <div class="color-meta">
+          <div class="color-name">apple-green</div>
+          <div class="color-value">#4cc417</div>
+          <div class="color-prop"><code>--env-color-apple-green</code></div>
+          <div class="color-js"><code>colors.color['apple-green']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#00e676"></div>
+        <div class="color-meta">
+          <div class="color-name">bright-apple-green</div>
+          <div class="color-value">#00e676</div>
+          <div class="color-prop"><code>--env-color-bright-apple-green</code></div>
+          <div class="color-js"><code>colors.color['bright-apple-green']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#8bc63c"></div>
+        <div class="color-meta">
+          <div class="color-name">light-green</div>
+          <div class="color-value">#8bc63c</div>
+          <div class="color-prop"><code>--env-color-light-green</code></div>
+          <div class="color-js"><code>colors.color['light-green']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#a2ce5d"></div>
+        <div class="color-meta">
+          <div class="color-name">brand-green</div>
+          <div class="color-value">#a2ce5d</div>
+          <div class="color-prop"><code>--env-color-brand-green</code></div>
+          <div class="color-js"><code>colors.color['brand-green']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#9bd067"></div>
+        <div class="color-meta">
+          <div class="color-name">column</div>
+          <div class="color-value">#9bd067</div>
+          <div class="color-prop"><code>--env-color-column</code></div>
+          <div class="color-js"><code>colors.color['column']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#e2ebd4"></div>
+        <div class="color-meta">
+          <div class="color-name">condition</div>
+          <div class="color-value">#e2ebd4</div>
+          <div class="color-prop"><code>--env-color-condition</code></div>
+          <div class="color-js"><code>colors.color['condition']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#99ffd6"></div>
+        <div class="color-meta">
+          <div class="color-name">formula</div>
+          <div class="color-value">#99ffd6</div>
+          <div class="color-prop"><code>--env-color-formula</code></div>
+          <div class="color-js"><code>colors.color['formula']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#967132"></div>
+        <div class="color-meta">
+          <div class="color-name">potters-clay</div>
+          <div class="color-value">#967132</div>
+          <div class="color-prop"><code>--env-color-potters-clay</code></div>
+          <div class="color-js"><code>colors.color['potters-clay']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ff8a21"></div>
+        <div class="color-meta">
+          <div class="color-name">overdue</div>
+          <div class="color-value">#ff8a21</div>
+          <div class="color-prop"><code>--env-color-overdue</code></div>
+          <div class="color-js"><code>colors.color['overdue']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ffa500"></div>
+        <div class="color-meta">
+          <div class="color-name">orange</div>
+          <div class="color-value">#ffa500</div>
+          <div class="color-prop"><code>--env-color-orange</code></div>
+          <div class="color-js"><code>colors.color['orange']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#fbb41e"></div>
+        <div class="color-meta">
+          <div class="color-name">yellow</div>
+          <div class="color-value">#fbb41e</div>
+          <div class="color-prop"><code>--env-color-yellow</code></div>
+          <div class="color-js"><code>colors.color['yellow']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ffd700"></div>
+        <div class="color-meta">
+          <div class="color-name">minor-disruption</div>
+          <div class="color-value">#ffd700</div>
+          <div class="color-prop"><code>--env-color-minor-disruption</code></div>
+          <div class="color-js"><code>colors.color['minor-disruption']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ffbb80"></div>
+        <div class="color-meta">
+          <div class="color-name">new-time</div>
+          <div class="color-value">#ffbb80</div>
+          <div class="color-prop"><code>--env-color-new-time</code></div>
+          <div class="color-js"><code>colors.color['new-time']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ffcc80"></div>
+        <div class="color-meta">
+          <div class="color-name">duration</div>
+          <div class="color-value">#ffcc80</div>
+          <div class="color-prop"><code>--env-color-duration</code></div>
+          <div class="color-js"><code>colors.color['duration']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ffdf80"></div>
+        <div class="color-meta">
+          <div class="color-name">picklist</div>
+          <div class="color-value">#ffdf80</div>
+          <div class="color-prop"><code>--env-color-picklist</code></div>
+          <div class="color-js"><code>colors.color['picklist']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#fbe1b1"></div>
+        <div class="color-meta">
+          <div class="color-name">banana-mania</div>
+          <div class="color-value">#fbe1b1</div>
+          <div class="color-prop"><code>--env-color-banana-mania</code></div>
+          <div class="color-js"><code>colors.color['banana-mania']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ffee80"></div>
+        <div class="color-meta">
+          <div class="color-name">datetime</div>
+          <div class="color-value">#ffee80</div>
+          <div class="color-prop"><code>--env-color-datetime</code></div>
+          <div class="color-js"><code>colors.color['datetime']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ffff80"></div>
+        <div class="color-meta">
+          <div class="color-name">date</div>
+          <div class="color-value">#ffff80</div>
+          <div class="color-prop"><code>--env-color-date</code></div>
+          <div class="color-js"><code>colors.color['date']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ffffe3"></div>
+        <div class="color-meta">
+          <div class="color-name">vanilla</div>
+          <div class="color-value">#ffffe3</div>
+          <div class="color-prop"><code>--env-color-vanilla</code></div>
+          <div class="color-js"><code>colors.color['vanilla']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#7f00ff"></div>
+        <div class="color-meta">
+          <div class="color-name">purple-blue</div>
+          <div class="color-value">#7f00ff</div>
+          <div class="color-prop"><code>--env-color-purple-blue</code></div>
+          <div class="color-js"><code>colors.color['purple-blue']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#7946a0"></div>
+        <div class="color-meta">
+          <div class="color-name">studio</div>
+          <div class="color-value">#7946a0</div>
+          <div class="color-prop"><code>--env-color-studio</code></div>
+          <div class="color-js"><code>colors.color['studio']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#8b65a1"></div>
+        <div class="color-meta">
+          <div class="color-name">upcoming</div>
+          <div class="color-value">#8b65a1</div>
+          <div class="color-prop"><code>--env-color-upcoming</code></div>
+          <div class="color-js"><code>colors.color['upcoming']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#d0a9f7"></div>
+        <div class="color-meta">
+          <div class="color-name">number</div>
+          <div class="color-value">#d0a9f7</div>
+          <div class="color-prop"><code>--env-color-number</code></div>
+          <div class="color-js"><code>colors.color['number']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#cc181e"></div>
+        <div class="color-meta">
+          <div class="color-name">red</div>
+          <div class="color-value">#cc181e</div>
+          <div class="color-prop"><code>--env-color-red</code></div>
+          <div class="color-js"><code>colors.color['red']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#e30022"></div>
+        <div class="color-meta">
+          <div class="color-name">major-disruption</div>
+          <div class="color-value">#e30022</div>
+          <div class="color-prop"><code>--env-color-major-disruption</code></div>
+          <div class="color-js"><code>colors.color['major-disruption']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#dd2c00"></div>
+        <div class="color-meta">
+          <div class="color-name">burgundy</div>
+          <div class="color-value">#dd2c00</div>
+          <div class="color-prop"><code>--env-color-burgundy</code></div>
+          <div class="color-js"><code>colors.color['burgundy']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#d9534f"></div>
+        <div class="color-meta">
+          <div class="color-name">rose</div>
+          <div class="color-value">#d9534f</div>
+          <div class="color-prop"><code>--env-color-rose</code></div>
+          <div class="color-js"><code>colors.color['rose']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#fe7e73"></div>
+        <div class="color-meta">
+          <div class="color-name">light-red</div>
+          <div class="color-value">#fe7e73</div>
+          <div class="color-prop"><code>--env-color-light-red</code></div>
+          <div class="color-js"><code>colors.color['light-red']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ff99bb"></div>
+        <div class="color-meta">
+          <div class="color-name">bool</div>
+          <div class="color-value">#ff99bb</div>
+          <div class="color-prop"><code>--env-color-bool</code></div>
+          <div class="color-js"><code>colors.color['bool']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:#ecc8c5"></div>
+        <div class="color-meta">
+          <div class="color-name">rose-fog</div>
+          <div class="color-value">#ecc8c5</div>
+          <div class="color-prop"><code>--env-color-rose-fog</code></div>
+          <div class="color-js"><code>colors.color['rose-fog']</code></div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="swatch" style="background:transparent"></div>
+        <div class="color-meta">
+          <div class="color-name">transparent</div>
+          <div class="color-value">transparent</div>
+          <div class="color-prop"><code>--env-color-transparent</code></div>
+          <div class="color-js"><code>colors.color['transparent']</code></div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section>
+      <h2>Component Previews (Active / Not Retired)</h2>
+      <p>Snippets are reused from <code>src/stylesheets/a/kss/build</code>. Hover/focus/disabled permutations inside each snippet come directly from the KSS template.</p>
+    </section>
+    
+      <section class="component">
+        <header>
+          <h3>Alert</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Autosize Input</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Avatar Group</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Badge</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Bottom Toolbar</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Button</h3>
+          <p class="snippet-path">src/stylesheets/a/kss/build/_button-explicit-states-modifiers-kss.html</p>
+        </header>
+        <div class="component-preview">
+          
+<div class="kss-test-flex">
+  <!-- No state-->
+  <button class="env-button {{modifier_class}}" tabindex="0">
+    <div class="env-button__content" tabindex="-1">Button</div>
+  </button>&nbsp;
+  <!-- Hover state-->
+  <button class="env-button env-button--hover {{modifier_class}}" tabindex="0">
+    <div class="env-button__content" tabindex="-1">Button</div>
+  </button>&nbsp;
+  <!-- Focused state-->
+  <button class="env-button env-button--focus {{modifier_class}}" tabindex="0">
+    <div class="env-button__content" tabindex="-1">Button</div>
+  </button>&nbsp;
+  <!-- Active state-->
+  <button class="env-button env-button--active {{modifier_class}}" tabindex="0">
+    <div class="env-button__content" tabindex="-1">Button</div>
+  </button>&nbsp;
+  <!-- Disable state-->
+  <button class="env-button env-button--disabled {{modifier_class}}" tabindex="0">
+    <div class="env-button__content" tabindex="-1">Button</div>
+  </button>
+</div>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Button Switch</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Button2</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Calendar</h3>
+          <p class="snippet-path">src/stylesheets/a/kss/build/_calendar-block-kss.html</p>
+        </header>
+        <div class="component-preview">
+          <!-- Calendar -->
+<div class="env-calendar {{modifier_class}}">
+  <button class="env-calendar__button    ">1
+  </button>
+  <button class="env-calendar__button    ">2
+  </button>
+  <button class="env-calendar__button    ">3
+  </button>
+  <button class="env-calendar__button    ">4
+  </button>
+  <button class="env-calendar__button    ">5
+  </button>
+  <button class="env-calendar__button    ">6
+  </button>
+  <button class="env-calendar__button    ">7
+  </button>
+  <button class="env-calendar__button    ">8
+  </button>
+  <button class="env-calendar__button    " disabled="disabled">9
+  </button>
+  <button class="env-calendar__button    ">10
+  </button>
+  <button class="env-calendar__button env-calendar__button--active    ">11
+  </button>
+  <button class="env-calendar__button    ">12
+  </button>
+  <button class="env-calendar__button    ">13
+  </button>
+  <button class="env-calendar__button    ">14
+  </button>
+  <button class="env-calendar__button    env-calendar__button--disabled">15
+  </button>
+  <button class="env-calendar__button    ">16
+  </button>
+  <button class="env-calendar__button    ">17
+  </button>
+  <button class="env-calendar__button    ">18
+  </button>
+  <button class="env-calendar__button pseudo-class-hover   ">19
+  </button>
+  <button class="env-calendar__button    ">20
+  </button>
+  <button class="env-calendar__button    ">21
+  </button>
+  <button class="env-calendar__button    ">22
+  </button>
+  <button class="env-calendar__button  pseudo-class-focus  ">23
+  </button>
+  <button class="env-calendar__button    ">24
+  </button>
+  <button class="env-calendar__button    ">25
+  </button>
+  <button class="env-calendar__button   pseudo-class-active ">26
+  </button>
+  <button class="env-calendar__button    ">27
+  </button>
+  <button class="env-calendar__button    ">28
+  </button>
+  <button class="env-calendar__button    ">29
+  </button>
+  <button class="env-calendar__button    ">30
+  </button>
+  <button class="env-calendar__button    ">31
+  </button>
+</div>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Card</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Checkbox</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Collapser</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Connector</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Divider</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Focus</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Form Row</h3>
+          <p class="snippet-path">src/stylesheets/a/kss/build/_form-row-block-kss.html</p>
+        </header>
+        <div class="component-preview">
+          <!-- Form Row -->
+<label class="env-form-row"><span class="env-form-row__label">Form Row Label</span>
+  <div class="env-a-placeholder env-a-w-min-25"></div>
+</label>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Icon Svg</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Info</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Input Group</h3>
+          <p class="snippet-path">src/stylesheets/a/kss/build/_input-group-after-element-kss.html</p>
+        </header>
+        <div class="component-preview">
+          <!-- Input Group -->
+<div class="env-a-w-200">
+  <div class="env-input-group env-input-group--after">
+    <input class="env-input-text env-input-group__input" type="text"/>
+    <div class="env-input-group__after">
+      <div class="env-a-placeholder env-a-w-15"></div>
+    </div>
+  </div>
+</div>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Input Text</h3>
+          <p class="snippet-path">src/stylesheets/a/kss/build/_input-text-block-kss.html</p>
+        </header>
+        <div class="component-preview">
+          <!-- Input Text -->
+<input class="env-input-text" type="text"/>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Loader</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Menu Folder</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Modal</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Navigation</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Overlay</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Placeholder</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Progress</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Range</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>S3 Uploader</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Select</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Show On Hover</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Status Filter</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>Table</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+
+      <section class="component">
+        <header>
+          <h3>View</h3>
+          
+        </header>
+        <div class="component-preview">
+          <p>No preview snippet found.</p>
+        </div>
+      </section>
+  </main>
+</body>
+</html>
