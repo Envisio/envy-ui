@@ -7,7 +7,7 @@
           "$type": "dimension"
         },
         "background-color": {
-          "$value": "#ff88aa",
+          "$value": "{color.brand-primary-alt.$value}",
           "$type": "dimension"
         },
         "border": {

@@ -1,10 +1,29 @@
 const rimraf = require('rimraf');
-const StyleDictionaryPackage = require('style-dictionary');
 const _ = require('lodash');
 const jsonConcat = require('json-concat');
 
-// Load DTCG bridge transforms
-require('./scripts/style-dictionary-dtcg.js');
+const { registerDtcgTransforms } = require('./scripts/style-dictionary-dtcg.js');
+let StyleDictionaryPackage;
+async function loadStyleDictionary() {
+  if (StyleDictionaryPackage) {
+    return StyleDictionaryPackage;
+  }
+
+  try {
+    const moduleOrPromise = require('style-dictionary');
+    StyleDictionaryPackage = moduleOrPromise.default || moduleOrPromise;
+  } catch (error) {
+    if (error.code === 'ERR_REQUIRE_ESM') {
+      const moduleOrPromise = await import('style-dictionary');
+      StyleDictionaryPackage = moduleOrPromise.default || moduleOrPromise;
+    } else {
+      throw error;
+    }
+  }
+
+  registerDtcgTransforms(StyleDictionaryPackage);
+  return StyleDictionaryPackage;
+}
 
 const { filterForCategory, filterForFragmentAndUnits } = require('./src/dictionary/_filters.js');
 const { acssFilesList } = require('./src/dictionary/_acss_files_list.js');
@@ -21,6 +40,27 @@ const SHAPE = 'shape';
 const Z = 'z';
 const BLOCK_NAME = 'block-name';
 const BLOCK = 'block';
+
+const getTokenValue = (token) => (
+  token?.value
+  ?? token?.original?.value
+  ?? token?.$value
+  ?? token?.original?.$value
+  ?? token?.$default
+  ?? ''
+);
+
+const getAllTokens = (dictionary) => dictionary.allTokens || dictionary.allProperties || [];
+
+const getDictionaryTokens = (dictionary) => dictionary.tokens || dictionary.properties || {};
+
+const resolveFileConfig = (legacyContext, file) => file || legacyContext || {};
+
+const formatHeaderLines = (header = '', prefix = '') => (
+  header ? header.split('\n').map(line => `${prefix}${line}`).join('\n') : ''
+);
+
+const getHeaderFromOptions = (fileConfig = {}) => fileHeader(fileConfig.options || {});
 
 const buildList = [
   Z,
@@ -65,7 +105,9 @@ const makeTokenFolders = () => ({
           files: [{
             destination: '_color-map.scss',
             format: 'scss/map-flat',
-            mapName: 'a-color',
+            options: {
+              mapName: 'a-color',
+            },
           }, {
             destination: '_color.scss',
             format: 'scss/variables',
@@ -135,6 +177,7 @@ const makeTokenFolders = () => ({
     {
       source: [
         `${PROPERTIES_PATH}${BLOCK}/**/*.json`,
+        `!${PROPERTIES_PATH}${BLOCK}/name.json`,
         // `${PROPERTIES_PATH}${BLOCK}/name.json`,
         `${PROPERTIES_PATH}${COLOR}/*.json`,
         `${PROPERTIES_PATH}${SHAPE}/base.json`,
@@ -146,10 +189,12 @@ const makeTokenFolders = () => ({
           transformGroup: 'dtcg/scss',
           buildPath: `${SCSS_PATH}${BLOCK}/`,
           files: [{
-            "mapName": "tokens-button",
             filter: filterForCategory(['button']),
             destination: '_button.scss',
             format: 'scss/map-deep',
+            options: {
+              mapName: 'tokens-button',
+            },
           }],
         },
         js: {
@@ -224,10 +269,9 @@ const makeTokenFolders = () => ({
       ],
       platforms: {
         scss: {
-          transformGroup: 'dtcg/scss',
           prefix: '$ui',
           buildPath: `${SCSS_PATH}block-name/`,
-          transforms: ['name/ti/camel'],
+          transforms: ['dtcg/references', 'dtcg/value', 'dtcg/type', 'attribute/cti', 'name/ti/camel'],
           files: [{
             header: 'Block Names\n\nNames:',
             destination: '_block-name.scss',
@@ -267,10 +311,9 @@ const makeTokenFolders = () => ({
           }))],
         },
         js: {
-          transformGroup: 'dtcg/js',
           prefix: 'ui',
           buildPath: `${JS_PATH}`,
-          transforms: ['name/ti/camel'],
+          transforms: ['dtcg/references', 'dtcg/value', 'dtcg/type', 'attribute/cti', 'name/ti/camel'],
           files: [{
             destination: 'block_name.js',
             format: 'js/js-variables-block-names',
@@ -292,244 +335,273 @@ const makeTokenFolders = () => ({
 
 function styleDictionaryRegistration() {
 
+  const registerFormatDual = (name, formatFn) => {
+    StyleDictionaryPackage.registerFormat({
+      name,
+      formatter(dictionary) {
+        return formatFn({ dictionary, file: resolveFileConfig(this) });
+      },
+      format({ dictionary, file }) {
+        return formatFn({ dictionary, file });
+      },
+    });
+  };
+
   StyleDictionaryPackage.registerTransform({
     name: 'name/ti/kebab',
     type: 'name',
     transformer: function(prop, options) {
+        options = options || {};
+        var path = prop.path.slice(1);
+        return _.kebabCase([options.prefix].concat(path).join(' '));
+    },
+    transform: function(prop, options) {
+        options = options || {};
         var path = prop.path.slice(1);
         return _.kebabCase([options.prefix].concat(path).join(' '));
     }
   });
 
-  StyleDictionaryPackage.registerFormat({
-    name: 'scss/variables-color-pug',
-    formatter(dictionary, config) {
-      const header = this.header.split('\n').map(line => `${line}`).join('\n');
-      // eslint-disable-next-line prefer-template
-      return header + '\n' + '- var colorClasses = [' +
-        dictionary.allProperties.map(prop => `"${prop.path[1]}"`).join(', ') + ']\n// -\n// - Styleguide homepage color-palette\n';
+  StyleDictionaryPackage.registerTransform({
+    name: 'name/ti/camel',
+    type: 'name',
+    transformer: function(prop, options) {
+        options = options || {};
+        var path = prop.path.slice(1);
+        return _.camelCase([options.prefix].concat(path).join(' '));
+    },
+    transform: function(prop, options) {
+        options = options || {};
+        var path = prop.path.slice(1);
+        return _.camelCase([options.prefix].concat(path).join(' '));
     }
   });
 
-  StyleDictionaryPackage.registerFormat({
-    name: 'scss/variables-color-kss',
-    formatter(dictionary, config) {
-      const header = this.header.split('\n').map(line => `// ${line}`).join('\n');
+  registerFormatDual('scss/variables-color-pug', ({ dictionary, file = {} }) => {
+    const header = formatHeaderLines(file.header);
+    const prefix = header ? `${header}\n` : '';
+    const colorClasses = getAllTokens(dictionary).map(prop => `"${prop.path[1]}"`).join(', ');
+    return `${prefix}- var colorClasses = [${colorClasses}]\n// -\n// - Styleguide homepage color-palette\n`;
+  });
 
-      // eslint-disable-next-line prefer-template
-      return header + '\n// ' +
-        dictionary.allProperties.map(prop => `"${prop.name}": ${prop.value}`).join('\n// ') + '\n//\n// Styleguide color-palette\n';
+  registerFormatDual('scss/variables-color-kss', ({ dictionary, file = {} }) => {
+    const header = formatHeaderLines(file.header, '// ');
+    const prefix = header ? `${header}\n// ` : '// ';
+    const colorLines = getAllTokens(dictionary).map(prop => `"${prop.name}": ${prop.value}`).join('\n// ');
+    return `${prefix}${colorLines}\n//\n// Styleguide color-palette\n`;
+  });
+
+  registerFormatDual('scss/acss-kss', ({ dictionary, file = {} }) => {
+    const dictionaryMeat = getAllTokens(dictionary)[0];
+    if (!dictionaryMeat) {
+      return `// ${file.menu || ''}\n// No fragments available for ACSS generation\n`;
     }
+    const weightCounter = file.weightCounter || 0;
+    const setMarkup = markUpFileName => markUpFileName ? `\n// Markup:\n// ${markUpFileName}\n//` : '';
+    const setMainDescription = description => description ? `\n// ${description}\n//` : '';
+    const setDescription = description => description ? ` - ${description}` : '';
+    const setWeight = weight => weight ? `\n//\n// Weight: ${weight + weightCounter}\n//` : '';
+    const header = file.menu || '';
+
+    const fragmentList = Array.isArray(dictionaryMeat.fragments)
+      ? dictionaryMeat.fragments
+      : Object.values(dictionaryMeat.fragments || {});
+    const extractedFragment = fragmentList.filter(fragment => filterForFragmentAndUnits(fragment, file))[0];
+
+    const tokenOutput = getAllTokens(dictionary).map(prop => {
+      const propFragments = Array.isArray(prop.fragments)
+        ? prop.fragments
+        : Object.values(prop.fragments || {});
+      return propFragments
+        .filter((fragment) => (filterForFragmentAndUnits(fragment, file)))
+        .map((fragment) => {
+          return Object.keys(getFragmentIterator(prop, fragment)).map((iteratorKey) =>
+            `.env-a${prop['ignore-main-fragment'] ? '' : '-' + prop['main-fragment']}${fragment.content}${iteratorKey === "null" ? '' : '-' + iteratorKey}${getFragmentUnit(prop, fragment)}${fragment['test-extension'] || ''}${setDescription(fragment.description)}`)
+          .join('\n// ');
+        })
+        .join('\n// ');
+    }).join('\n// ');
+
+    return `// ${header}` +
+      '\n// ' +
+      setMainDescription(`${file.menu || ''}`) +
+      setMarkup(getMarkupFile(dictionaryMeat, extractedFragment)) +
+      '\n// ' +
+      tokenOutput +
+      setWeight(dictionaryMeat['menu-weight']) +
+      `\n// Styleguide ${dictionaryMeat['text-label']} - ${header}\n`;
   });
 
-  StyleDictionaryPackage.registerFormat({
-    name: 'scss/acss-kss',
-    formatter(dictionary, config) {
-      const dictionaryMeat = dictionary.allProperties[0];
-      const { weightCounter } = this;
-      const setMarkup = markUpFileName => markUpFileName ? `\n// Markup:\n// ${markUpFileName}\n//` : '';
-      const setMainDescription = description => description ? `\n// ${description}\n//` : '';
-      const setDescription = description => description ? ` - ${description}` : '';
-      const setWeight = weight => weight ? `\n//\n// Weight: ${weight + weightCounter}\n//` : '';
-      const header = this.menu;
-      const that = this;
-
-      // Safety check for DTCG compatibility
-      if (!dictionaryMeat || !dictionaryMeat.fragments) {
-        return `// ${header}\n// No fragments available for ACSS generation (DTCG format limitation)\n`;
-      }
-
-      // Handle both array and object formats for fragments
-      let fragments;
-      if (Array.isArray(dictionaryMeat.fragments)) {
-        fragments = dictionaryMeat.fragments;
-      } else if (typeof dictionaryMeat.fragments === 'object') {
-        // Convert object to array of fragments
-        fragments = Object.values(dictionaryMeat.fragments);
-      } else {
-        return `// ${header}\n// Invalid fragments structure (DTCG format limitation)\n`;
-      }
-
-      const extractedFragment = fragments.filter(fragment => filterForFragmentAndUnits(fragment, that))[0];
-      // eslint-disable-next-line prefer-template
-      return `// ${header}` +
-        '\n// ' +
-        setMainDescription(`${this.menu}`) +
-        setMarkup(getMarkupFile(dictionaryMeat, extractedFragment)) +
-        '\n// ' +
-        dictionary.allProperties.map(prop => {
-          // Handle fragments for individual properties
-          let propFragments;
-          if (!prop.fragments) {
-            return `// No fragments for ${prop.name || 'property'}`;
-          } else if (Array.isArray(prop.fragments)) {
-            propFragments = prop.fragments;
-          } else if (typeof prop.fragments === 'object') {
-            propFragments = Object.values(prop.fragments);
-          } else {
-            return `// Invalid fragment structure for ${prop.name || 'property'}`;
-          }
-
-          return propFragments
-            .filter((fragment) => (filterForFragmentAndUnits(fragment, that)))
-            .map((fragment) => {
-              return Object.keys(getFragmentIterator(prop, fragment)).map((iteratorKey) =>
-                `.env-a${prop['ignore-main-fragment'] ? '' : '-' + prop['main-fragment']}${fragment.content}${iteratorKey === "null" ? '' : '-' + iteratorKey}${getFragmentUnit(prop, fragment)}${fragment['test-extension'] || ''}${setDescription(fragment.description)}`)
-              .join('\n// ');
-            })
-            .join('\n// ')
-        }) +
-          setWeight(dictionaryMeat['menu-weight']) +
-          `\n// Styleguide ${dictionaryMeat['text-label']} - ${header}\n`;
-    },
+  registerFormatDual('scss/acss-main-menu-kss', ({ dictionary }) => {
+    const dictionaryMeat = getAllTokens(dictionary)[0];
+    if (!dictionaryMeat) {
+      return '//\n// Styleguide\n';
+    }
+    const setMainDescription = description => description ? `\n// ${description}\n//` : '';
+    const setWeight = weight => weight ? `\n// Weight: ${weight}\n//` : '';
+    const header = `${dictionaryMeat['text-label']}`;
+    return `// ${header}` +
+      '\n//' +
+      setMainDescription(`${dictionaryMeat.description}`) +
+      setWeight(dictionaryMeat['menu-weight']) +
+      `\n// Styleguide ${header}\n`;
   });
 
-  StyleDictionaryPackage.registerFormat({
-    name: 'scss/acss-main-menu-kss',
-    formatter(dictionary, config) {
-      const dictionaryMeat = dictionary.allProperties[0];
-      const setMainDescription = description => description ? `\n// ${description}\n//` : '';
-      const setWeight = weight => weight ? `\n// Weight: ${weight}\n//` : '';
-      const header = `${dictionaryMeat['text-label']}`;
-
-      // eslint-disable-next-line prefer-template
-      return `// ${header}` +
-        '\n//' +
-        setMainDescription(`${dictionaryMeat.description}`) +
-          setWeight(dictionaryMeat['menu-weight']) +
-          `\n// Styleguide ${header}\n`;
-    },
+  registerFormatDual('scss/scss-variables-block-name', ({ dictionary, file = {} }) => {
+    const header = getHeaderFromOptions(file);
+    const defaultPrefixToken = getDictionaryTokens(dictionary)['pre-post-fix']?.['general-prefix'];
+    const defaultPrefix = getTokenValue(defaultPrefixToken);
+    const body = getAllTokens(dictionary)
+      .map((prop) => ({ prop, tokenValue: getTokenValue(prop) }))
+      .filter(({ tokenValue }) => (tokenValue !== defaultPrefix))
+      .map(({ prop, tokenValue }) => (`$${prop.name}: "${defaultPrefix}${tokenValue}";${prop.comment ? ` // ${prop.comment}` : ''}`))
+      .join('\n');
+    return `${header}${body}\n//\n// SCSS block names\n`;
   });
 
-  StyleDictionaryPackage.registerFormat({
-    name: 'scss/scss-variables-block-name',
-    formatter(dictionary, config) {
-      const header = fileHeader(this.options);
-      const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
-
-      // eslint-disable-next-line prefer-template
-      return header +
-      dictionary.allProperties
-        .filter((prop) => (prop.value !== defaultPrefix))
-        .map((prop) => (`$${prop.name}: "${defaultPrefix}${prop.value}";${prop.comment ? ` // ${prop.comment}` : ''}`))
-        .join('\n')
-        + '\n//\n// SCSS block names\n';
-    },
+  registerFormatDual('scss/scss-block-name-imports', ({ dictionary, file = {} }) => {
+    const header = getHeaderFromOptions(file);
+    const body = getAllTokens(dictionary)
+      .map((prop) => {
+        const tokenValue = getTokenValue(prop);
+        return `@use '../../../src/stylesheets/${tokenValue === 'a' ? '' : 'blocks/'}${prop.path[1]}/index' as *;`;
+      })
+      .join('\n');
+    return `${header}${body}\n//\n// SCSS block name imports\n`;
   });
 
-  StyleDictionaryPackage.registerFormat({
-    name: 'scss/scss-block-name-imports',
-    formatter(dictionary, config) {
-      const header = fileHeader(this.options);
-
-      // eslint-disable-next-line prefer-template
-      return header +
-      dictionary.allProperties
-        .map((prop) => (`@use '../../../src/stylesheets/${prop.value === 'a' ? '' : 'blocks/'}${prop.path[1]}/index' as *;`))
-        .join('\n')
-        + '\n//\n// SCSS block name imports\n';
-    },
+  registerFormatDual('scss/scss-acss-imports', ({ file = {} }) => {
+    const header = getHeaderFromOptions(file);
+    const fragments = file.fragments || [];
+    const body = fragments.map((fragment) => {
+      const mainPart = fragment['main-fragment'];
+      const fragmentImports = fragment.fragments.map((element) => `@use "acss-${mainPart}${element.content}${getUnitNameFromAlias(element.unit)}-kss" as *;`).join('\n');
+      return `@use "acss-${mainPart}-main-menu-kss" as *;\n${fragmentImports}`;
+    }).join('\n');
+    return `${header}${body}\n//\n// ACSS imports\n`;
   });
 
-  StyleDictionaryPackage.registerFormat({
-    name: 'scss/scss-acss-imports',
-    formatter(dictionary, config) {
-      const header = fileHeader(this.options);
-
-      const mainFragments = this.fragments.map((fragment) => fragment['main-fragment']);
-
-      return header +
-      this.fragments.map((fragment) => {
-        const mainPart = fragment['main-fragment'];
-        return `@use "acss-${mainPart}-main-menu-kss" as *;\n` + fragment.fragments.map((element) => `@use "acss-${mainPart}${element.content}${getUnitNameFromAlias(element.unit)}-kss" as *;`).join('\n');
-      }).join('\n')
-        + '\n//\n// ACSS imports\n';
-    },
+  registerFormatDual('js/js-variables-block-names', ({ dictionary, file = {} }) => {
+    const header = getHeaderFromOptions(file);
+    const defaultPrefixToken = getDictionaryTokens(dictionary)['pre-post-fix']?.['general-prefix'];
+    const defaultPrefix = getTokenValue(defaultPrefixToken);
+    const body = getAllTokens(dictionary)
+      .map((prop) => ({ prop, tokenValue: getTokenValue(prop) }))
+      .filter(({ tokenValue }) => (tokenValue !== defaultPrefix))
+      .map(({ prop, tokenValue }) => {
+        const basePrefix = prop['general-prefix'] || defaultPrefix;
+        const normalizedValue = tokenValue === 'a' ? 'a-' : tokenValue;
+        return `const $${prop.name} = '${basePrefix}${normalizedValue}';\n`
+        + `const ${prop.name} = getBlock('${basePrefix}${normalizedValue}');${prop.comment ? ` // ${prop.comment}` : ''}\n`
+        + `module.exports.$${prop.name} = $${prop.name};\n`
+        + `module.exports.${prop.name} = ${prop.name};`;
+      })
+      .join('\n');
+    return `${header}const getBlock = require('../../lib/ui/get_block').default;\n\n${body}\n//\n// JS block names\n`;
   });
 
-  StyleDictionaryPackage.registerFormat({
-    name: 'js/js-variables-block-names',
-    formatter(dictionary, config) {
-      const header = fileHeader(this.options);
-      const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
-
-      // eslint-disable-next-line prefer-template
-      return header + `const getBlock = require('../../lib/ui/get_block').default;\n\n` +
-        dictionary.allProperties
-          .filter((prop) => (prop.value !== defaultPrefix))
-          .map((prop) => `const $${prop.name} = '${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}';\n`
-            + `const ${prop.name} = getBlock('${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}');${prop.comment ? ` // ${prop.comment}` : ''}\n`
-            + `module.exports.$${prop.name} = $${prop.name};\n`
-            + `module.exports.${prop.name} = ${prop.name};`)
-          .join('\n')
-          + '\n//\n// JS block names\n';
-    },
+  registerFormatDual('js/js-variables-raw-names', ({ dictionary, file = {} }) => {
+    const header = getHeaderFromOptions(file);
+    const defaultPrefixToken = getDictionaryTokens(dictionary)['pre-post-fix']?.['general-prefix'];
+    const defaultPrefix = getTokenValue(defaultPrefixToken);
+    const body = getAllTokens(dictionary)
+      .map((prop) => ({ prop, tokenValue: getTokenValue(prop) }))
+      .filter(({ tokenValue }) => (tokenValue !== defaultPrefix))
+      .map(({ prop, tokenValue }) => {
+        const basePrefix = prop['general-prefix'] || defaultPrefix;
+        const normalizedValue = tokenValue === 'a' ? 'a-' : tokenValue;
+        return `const $${prop.name} = '${basePrefix}${normalizedValue}';${prop.comment ? ` // ${prop.comment}` : ''}\nmodule.exports.$${prop.name} = $${prop.name};`;
+      })
+      .join('\n');
+    return `${header}${body}\n//\n// JS block names\n`;
   });
 
-  StyleDictionaryPackage.registerFormat({
-    name: 'js/js-variables-raw-names',
-    formatter(dictionary, config) {
-      const header = fileHeader(this.options);
-      const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
-
-      // eslint-disable-next-line prefer-template
-      return header +
-        dictionary.allProperties
-          .filter((prop) => (prop.value !== defaultPrefix))
-          .map((prop) => `const $${prop.name} = '${prop['general-prefix'] || defaultPrefix}${prop.value === 'a' ? 'a-' : prop.value}';${prop.comment ? ` // ${prop.comment}` : ''}\nmodule.exports.$${prop.name} = $${prop.name};`)
-          .join('\n')
-          + '\n//\n// JS block names\n';
-    },
-  });
-
-  StyleDictionaryPackage.registerFormat({
-    name: 'js/js-block-names-for-styleguide',
-    formatter(dictionary, config) {
-      const header = fileHeader(this.options);
-      const defaultPrefix = dictionary.properties['pre-post-fix']['general-prefix'].value;
-
-      // eslint-disable-next-line prefer-template
-      return header + `{\n` +
-        dictionary.allProperties
-          .filter((prop) => (prop.value !== defaultPrefix))
-          .map((prop) => `${prop.name}: require('../../lib/index.js').${prop.name},`)
-          .join('\n')
-          + `\nuiMerge: require('../../lib/index.js').uiMerge,\n`
-          + `\nenv: process.env\n}\n\n`
-          + '\n//\n// JS block names\n';
-    },
+  registerFormatDual('js/js-block-names-for-styleguide', ({ dictionary, file = {} }) => {
+    const header = getHeaderFromOptions(file);
+    const defaultPrefixToken = getDictionaryTokens(dictionary)['pre-post-fix']?.['general-prefix'];
+    const defaultPrefix = getTokenValue(defaultPrefixToken);
+    const body = getAllTokens(dictionary)
+      .map((prop) => ({ prop, tokenValue: getTokenValue(prop) }))
+      .filter(({ tokenValue }) => (tokenValue !== defaultPrefix))
+      .map(({ prop }) => `${prop.name}: require('../../lib/index.js').${prop.name},`)
+      .join('\n');
+    return `${header}{\n${body}\nuiMerge: require('../../lib/index.js').uiMerge,\n\nenv: process.env\n}\n\n\n//\n// JS block names\n`;
   });
 }
 
 
 // eslint-disable-next-line no-console
 
-function buildTokens() {
+async function buildTokens() {
   console.log('\nDestination token library building process is started...');
-  buildList.map((tokenFolder) => {
-    tokenFolders[tokenFolder].map((tokenData) => {
-      // eslint-disable-next-line no-console
+  for (const tokenFolder of buildList) {
+    const folderData = tokenFolders[tokenFolder] || [];
+    for (const tokenData of folderData) {
       console.log(`\nProcessing: ${tokenFolder}`);
-      const StyleDictionary = StyleDictionaryPackage.extend(tokenData);
-      StyleDictionary.buildAllPlatforms();
-      return null;
-    });
+      const StyleDictionary = new StyleDictionaryPackage(tokenData);
+      if (StyleDictionary.hasInitialized) {
+        await StyleDictionary.hasInitialized;
+      }
+      if (typeof StyleDictionary.buildAllPlatforms === 'function') {
+        await StyleDictionary.buildAllPlatforms();
+      }
+    }
+  }
+}
 
-    return null;
+async function startBuild() {
+  try {
+    await loadStyleDictionary();
+  } catch (error) {
+    console.error('Failed to load Style Dictionary', error);
+    process.exit(1);
+  }
+
+  jsonConcat({ src: acssFilesList(PROPERTIES_PATH), dest: null }, async function(err, json) {
+    if (err) {
+      console.error('Failed to read ACSS files', err);
+      process.exit(1);
+    }
+    acssList = _.values(json);
+    tokenFolders = makeTokenFolders();
+    styleDictionaryRegistration();
+    try {
+      await removeCssDir();
+      await removeJsDir();
+      await buildTokens();
+    } catch (error) {
+      console.error('Dictionary build failed', error);
+      process.exit(1);
+    }
   });
 }
 
-jsonConcat({ src: acssFilesList(PROPERTIES_PATH), dest: null }, function(err, json) {
-  acssList = _.values(json);
-  tokenFolders = makeTokenFolders();
-  styleDictionaryRegistration();
-  removeCssDir();
-});
+startBuild();
 
 function removeCssDir() {
-  rimraf(SCSS_PATH, function rmScss() { console.log('removed SCSS dictionary output'); removeJsDir();});
+  return new Promise((resolve, reject) => {
+    rimraf(SCSS_PATH, function rmScss(err) {
+      if (err) {
+        console.error('Failed to remove SCSS dictionary output', err);
+        reject(err);
+        return;
+      }
+      console.log('removed SCSS dictionary output');
+      resolve();
+    });
+  });
 }
 
 function removeJsDir() {
-  rimraf(JS_PATH, function rmJs() { console.log('removed JS dictionary output'); buildTokens(); });
+  return new Promise((resolve, reject) => {
+    rimraf(JS_PATH, function rmJs(err) {
+      if (err) {
+        console.error('Failed to remove JS dictionary output', err);
+        reject(err);
+        return;
+      }
+      console.log('removed JS dictionary output');
+      resolve();
+    });
+  });
 }

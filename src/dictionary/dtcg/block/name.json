@@ -2,294 +2,294 @@
   "block-name": {
     "a": {
       "$value": "a",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.acss._value}",
       "$name": "ACSS",
       "$kss-weight": "500"
     },
     "avatar-group": {
       "$value": "avatar-group",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.container._value}",
       "$name": "Avatar Group",
       "$kss-weight": "1015"
     },
     "progress": {
       "$value": "progress",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.container._value}",
       "$name": "Progress",
       "$kss-weight": "1017"
     },
     "checkbox": {
       "$value": "checkbox",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.control._value}",
       "$name": "Checkbox",
       "$kss-weight": "1011"
     },
     "checkbox-legacy": {
       "$value": "checkbox-legacy",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.control._value}",
       "$name": "Checkbox-legacy",
       "$kss-weight": "1010"
     },
     "button": {
       "$value": "button",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.control._value}",
       "$name": "Button",
       "$kss-weight": "1020"
     },
     "button2": {
       "$value": "button2",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.control._value}",
       "$name": "Button2",
       "$kss-weight": "1021"
     },
     "button-switch": {
       "$value": "button-switch",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.control._value}",
       "$name": "Button Switch",
       "$kss-weight": "1030"
     },
     "status-filter": {
       "$value": "status-filter",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.control._value}",
       "$name": "Status Filter",
       "$kss-weight": "1035"
     },
     "collapser": {
       "$value": "collapser",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.control._value}",
       "$name": "Collapser",
       "$kss-weight": "1040"
     },
     "calendar": {
       "$value": "calendar",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.control._value}",
       "$name": "Calendar",
       "$kss-weight": "1050"
     },
     "input-text": {
       "$value": "input-text",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.input._value}",
       "$name": "Input Text",
       "$kss-weight": "1060"
     },
     "select": {
       "$value": "select",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.input._value}",
       "$name": "Select",
       "$kss-weight": "1070"
     },
     "autosize-input": {
       "$value": "autosize-input",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.input._value}",
       "$name": "Autosize Input",
       "$kss-weight": "1080"
     },
     "input-group": {
       "$value": "input-group",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.input._value}",
       "$name": "Input Group",
       "$kss-weight": "1090"
     },
     "input-group-legacy": {
       "$value": "input-group-legacy",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.input._value}",
       "$name": "Input Group Legacy",
       "$kss-weight": "1091"
     },
     "table": {
       "$value": "table",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.table._value}",
       "$name": "Table",
       "$kss-weight": "1100"
     },
     "form": {
       "$value": "form",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.form._value}",
       "$name": "Form",
       "$kss-weight": "1110"
     },
     "form-row": {
       "$value": "form-row",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.form._value}",
       "$name": "Form Row",
       "$kss-weight": "1120"
     },
     "card": {
       "$value": "card",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.container._value}",
       "$name": "Card",
       "$kss-weight": "1130"
     },
     "modal": {
       "$value": "modal",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.container._value}",
       "$name": "Modal",
       "$kss-weight": "1131"
     },
     "view": {
       "$value": "view",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.container._value}",
       "$name": "View",
       "$kss-weight": "1132"
     },
     "bottom-toolbar": {
       "$value": "bottom-toolbar",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.container._value}",
       "$name": "Bottom Toolbar",
       "$kss-weight": "1133"
     },
     "overlay": {
       "$value": "overlay",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.container._value}",
       "$name": "Overlay",
       "$kss-weight": "1135"
     },
     "panel": {
       "$value": "panel",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.container._value}",
       "$name": "Panel",
       "$kss-weight": "1140"
     },
     "menu-dropdown": {
       "$value": "menu-dropdown",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.menu._value}",
       "$name": "Menu Dropdown",
       "$kss-weight": "1150"
     },
     "menu-folder": {
       "$value": "menu-folder",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.menu._value}",
       "$name": "Menu Folder",
       "$kss-weight": "1160"
     },
     "info": {
       "$value": "info",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.info._value}",
       "$name": "Info",
       "$kss-weight": "1170"
     },
     "badge": {
       "$value": "badge",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.info._value}",
       "$name": "Badge",
       "$kss-weight": "1180"
     },
     "alert": {
       "$value": "alert",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.info._value}",
       "$name": "Alert",
       "$kss-weight": "1190"
     },
     "loader": {
       "$value": "loader",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.info._value}",
       "$name": "Loader",
       "$kss-weight": "1200"
     },
     "icon-stack": {
       "$value": "icon-stack",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.icon._value}",
       "$name": "Icon Stack",
       "$kss-weight": "1210"
     },
     "icon-svg": {
       "$value": "icon-svg",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.icon._value}",
       "$name": "Icon SVG",
       "$kss-weight": "1220"
     },
     "show-on-hover": {
       "$value": "show-on-hover",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.abstract._value}",
       "$name": "Show On Hover",
       "$kss-weight": "1230"
     },
     "focus": {
       "$value": "focus",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.abstract._value}",
       "$name": "Focus",
       "$kss-weight": "1240"
     },
     "visual": {
       "$value": "visual",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.specific._value}",
       "$name": "Visual",
       "$kss-weight": "1250"
     },
     "s3-uploader": {
       "$value": "s3-uploader",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.third-party._value}",
       "$name": "S3 Uploader",
       "$kss-weight": "1260"
     },
     "range": {
       "$value": "range",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.input._value}",
       "$name": "Range Slider",
       "$kss-weight": "1270"
     },
     "divider": {
       "$value": "divider",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.info._value}",
       "$name": "Divider",
       "$kss-weight": "1280"
     },
     "connector": {
       "$value": "connector",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.abstract._value}",
       "$name": "Connector",
       "$kss-weight": "1290"
     },
     "placeholder": {
       "$value": "placeholder",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.abstract._value}",
       "$name": "Placeholder",
       "$kss-weight": "1300"
     },
     "navigation": {
       "$value": "navigation",
-      "$type": "dimension",
+      "$type": "string",
       "$description": "{block-category.container._value}",
       "$name": "Navigation",
       "$kss-weight": "1310"
