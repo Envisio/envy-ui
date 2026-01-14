@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: https://registry.npmjs.org/
-      - run: npm i
+      - run: npm i --legacy-peer-deps
       - run: npm run run-all
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - run: npm publish
