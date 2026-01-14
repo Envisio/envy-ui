@@ -1,0 +1,36 @@
+@use "../from-dictionary/block-name/block-name";
+@use "../utils/mixin";
+@use "kss/a11y-focus-kss";
+
+// High-contrast focus for publish context (WCAG 2.2 AA)
+
+/* stylelint-disable no-descending-specificity */
+
+@mixin _button-high-contrast-focus {
+  > .#{block-name.$uiButton}__content,
+  > .#{block-name.$uiButton2}__content {
+    @include mixin.a--focus-high-contrast;
+  }
+}
+
+// Default: keyboard only (:focus-visible)
+[data-env-ui-context="publish"] {
+  .#{block-name.$uiButton}:focus-visible,
+  .#{block-name.$uiButton2}:focus-visible {
+    @include _button-high-contrast-focus;
+  }
+
+  .#{block-name.$uiButton}--focus,
+  .#{block-name.$uiButton2}--focus {
+    @include _button-high-contrast-focus;
+  }
+}
+
+// Policy "all": mouse + keyboard (:focus)
+[data-env-ui-context="publish"][data-env-ui-focus-policy="all"],
+[data-env-ui-focus-policy="all"] [data-env-ui-context="publish"] {
+  .#{block-name.$uiButton}:focus,
+  .#{block-name.$uiButton2}:focus {
+    @include _button-high-contrast-focus;
+  }
+}

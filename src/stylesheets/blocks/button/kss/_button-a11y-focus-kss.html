@@ -1,0 +1,87 @@
+<div class="a">
+
+<!-- Section 1: No context (default light focus) -->
+<h4>1. No Context (default focus)</h4>
+<p class="env-a-m-bottom-10 env-a-color-dark-grey">Standard light blue focus ring.</p>
+<div class="env-a-f env-a-f-gap-15 env-a-color-bg-gallery env-a-p-15 env-a-border-radius-5 env-a-m-bottom-30">
+  <button class="env-button env-button--default" tabindex="0">
+    <span class="env-button__content">Default</span>
+  </button>
+  <button class="env-button env-button--mint-blue" tabindex="0">
+    <span class="env-button__content">Mint Blue</span>
+  </button>
+  <button class="env-button env-button--green" tabindex="0">
+    <span class="env-button__content">Green</span>
+  </button>
+  <button class="env-button env-button--red" tabindex="0">
+    <span class="env-button__content">Red</span>
+  </button>
+  <button class="env-button env-button--mint-blue env-button--round" tabindex="0">
+    <span class="env-button__content">Round</span>
+  </button>
+</div>
+
+<!-- Section 2: A11y context (keyboard-only high-contrast focus) -->
+<h4>2. <code>data-env-ui-context="publish"</code></h4>
+<p class="env-a-m-bottom-10 env-a-color-dark-grey">High-contrast black focus on <strong>keyboard only</strong>. Click does NOT show focus.</p>
+<div data-env-ui-context="publish" class="env-a-f env-a-f-gap-15 env-a-color-bg-gallery env-a-p-15 env-a-border-radius-5 env-a-m-bottom-30">
+  <button class="env-button env-button--default" tabindex="0">
+    <span class="env-button__content">Default</span>
+  </button>
+  <button class="env-button env-button--mint-blue" tabindex="0">
+    <span class="env-button__content">Mint Blue</span>
+  </button>
+  <button class="env-button env-button--green" tabindex="0">
+    <span class="env-button__content">Green</span>
+  </button>
+  <button class="env-button env-button--red" tabindex="0">
+    <span class="env-button__content">Red</span>
+  </button>
+  <button class="env-button env-button--mint-blue env-button--round" tabindex="0">
+    <span class="env-button__content">Round</span>
+  </button>
+</div>
+
+<!-- Section 3: A11y context + focus policy all -->
+<h4>3. <code>data-env-ui-context="publish" data-env-ui-focus-policy="all"</code></h4>
+<p class="env-a-m-bottom-10 env-a-color-dark-grey">High-contrast black focus on <strong>all interactions</strong> (keyboard + mouse).</p>
+<div data-env-ui-context="publish" data-env-ui-focus-policy="all" class="env-a-f env-a-f-gap-15 env-a-color-bg-gallery env-a-p-15 env-a-border-radius-5 env-a-m-bottom-30">
+  <button class="env-button env-button--default" tabindex="0">
+    <span class="env-button__content">Default</span>
+  </button>
+  <button class="env-button env-button--mint-blue" tabindex="0">
+    <span class="env-button__content">Mint Blue</span>
+  </button>
+  <button class="env-button env-button--green" tabindex="0">
+    <span class="env-button__content">Green</span>
+  </button>
+  <button class="env-button env-button--red" tabindex="0">
+    <span class="env-button__content">Red</span>
+  </button>
+  <button class="env-button env-button--mint-blue env-button--round" tabindex="0">
+    <span class="env-button__content">Round</span>
+  </button>
+</div>
+
+<!-- Section 4: Custom focus color via CSS variable -->
+<h4>4. Custom Color: <code>--env-ui-a11y-focus-color: #0066cc</code></h4>
+<p class="env-a-m-bottom-10 env-a-color-dark-grey">Override default black focus with custom color using CSS variable.</p>
+<div data-env-ui-context="publish" data-env-ui-focus-policy="all" class="env-a-f env-a-f-gap-15 env-a-color-bg-gallery env-a-p-15 env-a-border-radius-5" style="--env-ui-a11y-focus-color: #0066cc;">
+  <button class="env-button env-button--default" tabindex="0">
+    <span class="env-button__content">Default</span>
+  </button>
+  <button class="env-button env-button--mint-blue" tabindex="0">
+    <span class="env-button__content">Mint Blue</span>
+  </button>
+  <button class="env-button env-button--green" tabindex="0">
+    <span class="env-button__content">Green</span>
+  </button>
+  <button class="env-button env-button--red" tabindex="0">
+    <span class="env-button__content">Red</span>
+  </button>
+  <button class="env-button env-button--mint-blue env-button--round" tabindex="0">
+    <span class="env-button__content">Round</span>
+  </button>
+</div>
+
+</div>

@@ -93,3 +93,6 @@
 @use 'overwrite/overwrite-fr';
 // @import 'overwrite/overwrite-pa';
 // @import 'overwrite/overwrite-pl';
+
+/* Context-specific styles */
+@use 'context/publish-focus';

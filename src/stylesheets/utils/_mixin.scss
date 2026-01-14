@@ -22,6 +22,12 @@
   box-shadow: none;
 }
 
+@mixin a--focus-high-contrast($width: 2px, $offset: 2px) {
+  outline: $width solid var(--env-ui-a11y-focus-color, #000000);
+  outline-offset: $offset;
+  box-shadow: none;
+}
+
 @mixin a-placeholder-text {
   &::placeholder {
     color: color.color("medium-gray");

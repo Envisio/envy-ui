@@ -1,0 +1,23 @@
+// Button A11y Focus Context
+//
+// Buttons inside `data-env-ui-context="publish"` container get WCAG 2.2 AA compliant
+// high-contrast focus styling (black 2px outline).
+//
+// **Focus Policy:**
+// - Default: Focus shows only on keyboard navigation (`:focus-visible`)
+// - `data-env-ui-focus-policy="all"`: Focus shows on all interactions
+//
+// **Custom Color:** Set `--env-ui-a11y-focus-color` CSS variable to override black.
+//
+// Markup:
+// _button-a11y-focus-kss.html
+//
+// Defaultmodifier: true
+//
+// Moddescription: Buttons in 3 contexts - no context (default), a11y context (keyboard focus), a11y context with focus-policy="all".
+//
+// New: January 2026
+//
+// Weight: 55
+//
+// Styleguide Button - A11y Focus Context

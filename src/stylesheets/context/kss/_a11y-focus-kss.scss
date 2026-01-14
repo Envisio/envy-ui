@@ -1,0 +1,25 @@
+// A11y Focus
+//
+// WCAG 2.2 AA compliant high-contrast focus styling for buttons in publish context.
+// Uses black 2px outline for maximum contrast (3:1 ratio).
+//
+// **Scope:** Apply `data-env-ui-context="publish"` to a container to enable high-contrast focus.
+//
+// **Focus Policy:**
+// - Default: Focus shows only on keyboard navigation (`:focus-visible`)
+// - `data-env-ui-focus-policy="all"`: Focus shows on all interactions (mouse + keyboard)
+//
+// **Custom Color:** Set `--env-ui-a11y-focus-color` CSS variable to override the default black color.
+//
+// Markup:
+// _a11y-focus-kss.html
+//
+// Defaultmodifier: true
+//
+// Moddescription: Buttons with different colors and shapes inside publish context. Tab through to test focus.
+//
+// New: January 2026
+//
+// Weight: 1341
+//
+// Styleguide A11y Focus
