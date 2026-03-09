@@ -10,6 +10,7 @@ import {
   UI_COLOR_DEFAULT,
   UI_COLOR_RED,
   UI_COLOR_WHITE,
+  UI_COLOR_BLACK,
 } from '../from-dictionary/color';
 import { EnvisioTooltip } from '../react_components/tooltip';
 
