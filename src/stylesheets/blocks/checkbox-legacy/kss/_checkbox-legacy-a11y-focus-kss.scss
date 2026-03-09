@@ -1,0 +1,25 @@
+// Checkbox Legacy A11y Focus Context
+//
+// Checkboxes inside `data-env-ui-context="publish"` container get WCAG 2.2 AA compliant
+// high-contrast focus styling (black 2px outline).
+//
+// **Focus Policy:**
+// - Default: Focus shows only on keyboard navigation (`:focus-visible`)
+// - `data-env-ui-focus-policy="all"`: Focus shows on all interactions
+//
+// **Custom Color:** Set `--env-ui-a11y-focus-color` CSS variable to override black.
+//
+// Markup:
+// _checkbox-legacy-a11y-focus-kss.html
+//
+// Defaultmodifier: true
+//
+// Moddescription: Legacy checkboxes (check, toggle, radio) in 3 contexts - no context (default), a11y context (keyboard focus), a11y context with focus-policy="all".
+//
+// Retired:
+//
+// New: March 2026
+//
+// Weight: 55
+//
+// Styleguide Checkbox Legacy - A11y Focus Context

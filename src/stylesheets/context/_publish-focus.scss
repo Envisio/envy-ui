@@ -34,3 +34,44 @@
     @include _button-high-contrast-focus;
   }
 }
+
+@mixin _checkbox-high-contrast-focus {
+  @include mixin.a--focus-high-contrast;
+}
+
+// Default: keyboard only (:focus-visible)
+[data-env-ui-context="publish"] {
+  // Regular checkbox: input is the styled element
+  input[type="checkbox"]:focus-visible.#{block-name.$uiCheckbox},
+  input[type="radio"]:focus-visible.#{block-name.$uiCheckbox} {
+    @include _checkbox-high-contrast-focus;
+  }
+
+  .#{block-name.$uiCheckbox}--focus {
+    @include _checkbox-high-contrast-focus;
+  }
+
+  // Legacy checkbox: input is sibling, apply to visual element
+  input[type="checkbox"]:focus-visible + .#{block-name.$uiCheckboxLegacy},
+  input[type="radio"]:focus-visible + .#{block-name.$uiCheckboxLegacy} {
+    @include _checkbox-high-contrast-focus;
+  }
+
+  .#{block-name.$uiCheckboxLegacy}--focus {
+    @include _checkbox-high-contrast-focus;
+  }
+}
+
+// Policy "all": mouse + keyboard (:focus)
+[data-env-ui-context="publish"][data-env-ui-focus-policy="all"],
+[data-env-ui-focus-policy="all"] [data-env-ui-context="publish"] {
+  input[type="checkbox"]:focus.#{block-name.$uiCheckbox},
+  input[type="radio"]:focus.#{block-name.$uiCheckbox} {
+    @include _checkbox-high-contrast-focus;
+  }
+
+  input[type="checkbox"]:focus + .#{block-name.$uiCheckboxLegacy},
+  input[type="radio"]:focus + .#{block-name.$uiCheckboxLegacy} {
+    @include _checkbox-high-contrast-focus;
+  }
+}
