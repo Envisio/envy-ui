@@ -203,7 +203,7 @@ export const rsSelect = ({
       } : {}),
       ...(udjustedLabelLength && isMulti && hasValue ? {maxWidth: `${udjustedLabelLength/getValue()?.length}px`} : {}),
     }),
-    multiValueRemove: (provided) => ({
+    multiValueRemove: (provided, { isFocused }) => ({
       ...provided,
       ...(tagStyle || statusStyle ? {
         flex: '0 0 auto',
@@ -220,6 +220,10 @@ export const rsSelect = ({
       } : {}),
       ...(a11y ? {
         color: UI_COLOR_DEFAULT,
+        ...(isFocused ? {
+          backgroundColor: UI_COLOR_RED,
+          color: UI_COLOR_WHITE,
+        } : {}),
         '&:hover': {
           color: UI_COLOR_WHITE,
           backgroundColor: UI_COLOR_RED,
