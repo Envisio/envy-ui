@@ -83,6 +83,7 @@ export const rsSelect = ({
   stackLeft = false,
   stackRight = false,
   udjustedLabelLength = 0,
+  a11y = false,
 } = {}) => ({
   styles: {
     menu: (provided) => ({
@@ -154,6 +155,12 @@ export const rsSelect = ({
       marginLeft: '6px',
       marginRight: '6px',
       padding: '0',
+      ...(a11y ? {
+        color: UI_COLOR_DEFAULT,
+        '&:hover': {
+          color: UI_COLOR_BLACK,
+        },
+      } : {}),
     }),
     // menuList: (provided) => ({
     //   ...provided,
@@ -209,6 +216,20 @@ export const rsSelect = ({
         '&:hover': {
           cursor: 'pointer',
         }
+      } : {}),
+      ...(a11y ? {
+        color: UI_COLOR_DEFAULT,
+        '&:hover': {
+          color: UI_COLOR_WHITE,
+          backgroundColor: UI_COLOR_RED,
+          cursor: 'pointer',
+        },
+        '&:focus': {
+          backgroundColor: UI_COLOR_RED,
+          color: UI_COLOR_WHITE,
+          outline: 'none',
+          boxShadow: 'none',
+        },
       } : {}),
     }),
   },
