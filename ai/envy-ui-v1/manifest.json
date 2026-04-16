@@ -1,0 +1,91 @@
+{
+  "bundleName": "envy-ui-v1",
+  "bundleVersion": "0.1.0",
+  "libraryPackage": "envy-ui",
+  "libraryMajorVersion": 1,
+  "description": "Standalone AI documentation and Copilot integration bundle for Envy UI v1.",
+  "targets": [
+    {
+      "source": "docs/consumer/overview.md",
+      "destination": "docs/envy-ui-v1/overview.md"
+    },
+    {
+      "source": "docs/consumer/getting-started.md",
+      "destination": "docs/envy-ui-v1/getting-started.md"
+    },
+    {
+      "source": "docs/consumer/public-api.md",
+      "destination": "docs/envy-ui-v1/public-api.md"
+    },
+    {
+      "source": "docs/consumer/composition-model.md",
+      "destination": "docs/envy-ui-v1/composition-model.md"
+    },
+    {
+      "source": "docs/consumer/class-fragment-dsl.md",
+      "destination": "docs/envy-ui-v1/class-fragment-dsl.md"
+    },
+    {
+      "source": "docs/consumer/utility-class-reference.md",
+      "destination": "docs/envy-ui-v1/utility-class-reference.md"
+    },
+    {
+      "source": "docs/consumer/known-limitations.md",
+      "destination": "docs/envy-ui-v1/known-limitations.md"
+    },
+    {
+      "source": "docs/consumer/tested-patterns.md",
+      "destination": "docs/envy-ui-v1/tested-patterns.md"
+    },
+    {
+      "source": "docs/consumer/deprecated-and-retired.md",
+      "destination": "docs/envy-ui-v1/deprecated-and-retired.md"
+    },
+    {
+      "source": "docs/consumer/application-conventions.md",
+      "destination": "docs/envy-ui-v1/application-conventions.md"
+    },
+    {
+      "source": "docs/consumer/supported-import-patterns.md",
+      "destination": "docs/envy-ui-v1/supported-import-patterns.md"
+    },
+    {
+      "source": "docs/consumer/usage-patterns.md",
+      "destination": "docs/envy-ui-v1/usage-patterns.md"
+    },
+    {
+      "source": "docs/consumer/guardrails.md",
+      "destination": "docs/envy-ui-v1/guardrails.md"
+    },
+    {
+      "source": "copilot/instructions/envy-ui-v1.instructions.md",
+      "destination": ".github/instructions/envy-ui-v1.instructions.md"
+    },
+    {
+      "source": "copilot/prompts/use-envy-ui-v1.prompt.md",
+      "destination": ".github/prompts/envy-ui-v1-use-components.prompt.md"
+    },
+    {
+      "source": "copilot/prompts/document-envy-ui-v1-component.prompt.md",
+      "destination": ".github/prompts/envy-ui-v1-document-component.prompt.md"
+    },
+    {
+      "source": "copilot/AGENTS.md",
+      "destination": ".github/envy-ui-v1/AGENTS.md"
+    }
+  ],
+  "syncPolicy": {
+    "mode": "additive",
+    "overwrite": false
+  },
+  "knowledgeLayers": {
+    "consumer": {
+      "exported": true,
+      "description": "Default knowledge source for downstream applications that use envy-ui v1."
+    },
+    "maintainer": {
+      "exported": false,
+      "description": "Internal library-development context for work inside the envy-ui repository."
+    }
+  }
+}
