@@ -12,6 +12,8 @@
 - Treat helper template literals as DSL expressions with semantics, not as arbitrary strings.
 - Keep helper DSL expressions simple; do not pack too many branch conditions into one literal.
 - Prefer helper shapes already covered by the current test layer.
+- Keep utility and modifier fragments non-conflicting; do not declare the same CSS intent twice in one expression.
+- Prefer block modifiers over utility overrides when changing a component's own visual semantics.
 - Treat `Legacy` and `Retired` surfaces as compatibility-only, not as defaults for new code.
 
 ## For Copilot
@@ -25,6 +27,8 @@
 - Treat common app usage as stronger guidance than low-frequency possibilities supported by the library.
 - Respect conditional and element/modifier semantics when editing existing helper literals.
 - Respect known DSL limitations and preserve narrow raw-class workarounds where they already exist.
+- Avoid overlapping utilities such as side-specific and shorthand spacing classes that compete over the same property.
+- Avoid using `uiA` to override block-owned color, state, or presentation when the block already exposes modifiers for that concern.
 - Do not suggest `Legacy` or `Retired` blocks as fresh solutions just because they remain exported or already appear in the app.
 
 ## Do Not Default To
@@ -35,6 +39,8 @@
 - maintainer workflows inside the `envy-ui` repository
 - deep imports unless maintaining an existing deep-import call site
 - invented `uiA` literals such as unsupported width, spacing, or offset values
+- overlapping `uiA` literals that set the same property twice or collide through shorthand and side-specific combinations
+- utility overrides that restyle intrinsic block behavior before the block's own modifiers were checked
 - switching to a rare layout method such as grid when the surrounding code is already flex-based
 - turning one helper literal into a dense branch-heavy expression when a simpler workaround already exists
 - `Legacy` block helpers and classes for new UI

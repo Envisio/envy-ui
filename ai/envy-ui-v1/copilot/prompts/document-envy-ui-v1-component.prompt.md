@@ -14,6 +14,7 @@ Use these references first:
 - [composition model](../../docs/envy-ui-v1/composition-model.md)
 - [class fragment DSL](../../docs/envy-ui-v1/class-fragment-dsl.md)
 - [utility class reference](../../docs/envy-ui-v1/utility-class-reference.md)
+- [modifier-first styling](../../docs/envy-ui-v1/modifier-first-styling.md)
 - [known limitations](../../docs/envy-ui-v1/known-limitations.md)
 - [tested patterns](../../docs/envy-ui-v1/tested-patterns.md)
 - [deprecated and retired surfaces](../../docs/envy-ui-v1/deprecated-and-retired.md)
@@ -32,12 +33,15 @@ One short paragraph.
 
 - Explain whether the target is used through package imports, CSS classes, wrappers, components, or a mixed approach.
 - Explain whether the target is usually part of a block-helper plus `uiA` composition.
+- Explain whether the target should be styled primarily through block modifiers rather than utility overrides.
 - Explain whether helper DSL branches or element/modifier semantics are part of the usage shape.
 
 ## Safe usage
 
 - Show the safest integration approach for an application engineer.
 - Prefer the established application pattern when one already exists.
+- Call out conflicting helper fragments if the target pattern would set the same CSS property more than once.
+- If the target already has native modifiers for the requested concern, say that utilities should not be the first choice.
 
 ## Boundaries
 

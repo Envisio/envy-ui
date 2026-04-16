@@ -6,6 +6,8 @@ The full `envy-ui` v1 utility vocabulary is larger than the subset that is commo
 
 The same is true for block helpers and wrappers: some still exist for compatibility even though they are no longer good defaults for new code.
 
+The same is also true for utility overrides: a utility may exist and compile correctly, but it may still be the wrong layer if the block already owns that concern through a modifier.
+
 For Copilot and application engineers, the preferred strategy is:
 
 - first look for an existing nearby pattern in the application
@@ -77,6 +79,12 @@ Observed signals from the application:
 - do not assume a technically valid but denser helper expression is better than an established local workaround
 - if nearby code already falls back to a raw compiled class for a known bug, preserve that choice unless the underlying library bug is fixed
 
+### Styling Delegation
+
+- use block modifiers first for component-owned styling such as button identity, badge status, card emphasis, and view-specific structure
+- use `uiA` mainly for layout, spacing, sizing, positioning, and narrow local exceptions
+- remember that `uiA` utilities are compiled with high priority and can override block styling aggressively
+
 ## Good Default Questions
 
 Before introducing a `uiA` literal, ask:
@@ -92,10 +100,17 @@ Before introducing a block helper, wrapper, or modifier, ask:
 - Is this surface listed in `deprecated-and-retired.md`?
 - Is there a nearby active pattern that avoids the retired surface entirely?
 
+Before introducing a utility override that changes a component's look, ask:
+
+- Does this concern already belong to the block's modifier system?
+- Is there an existing modifier for this color, size, state, or presentation?
+- Am I using `uiA` for layout, or am I using it to fight the block?
+
 ## Copilot Rules
 
 - Prefer the nearest existing application pattern over a newly invented but valid utility combination.
 - Treat rarely used utilities as exceptions, not defaults.
 - Prefer flexbox-oriented compositions unless the code around the task already uses another pattern.
 - If a utility is technically valid but uncommon in the app, explain that choice instead of presenting it as the normal default.
+- Prefer block modifiers over utility overrides when the concern belongs to the block's own design-system behavior.
 - Treat `Legacy` and `Retired` surfaces as compatibility-only even when they are still importable.

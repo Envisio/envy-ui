@@ -177,6 +177,7 @@ This is common in `uiA` compositions and in block-helper modifier groups.
 - prefer short local conditions over dense nested expressions
 - reuse nearby patterns from the application
 - use grouped branches when a whole class bundle should turn on or off together
+- keep each final CSS property decision non-conflicting inside one helper literal
 
 ## What To Avoid
 
@@ -184,6 +185,7 @@ This is common in `uiA` compositions and in block-helper modifier groups.
 - do not assume every interpolated fragment is safe; it still has to match the helper vocabulary
 - do not use the DSL to invent new `uiA` literals outside the precompiled vocabulary
 - do not overload one helper literal with too many conditional modifier branches
+- do not stack overlapping utility fragments such as two competing right-margin literals
 
 ## Stability Note
 

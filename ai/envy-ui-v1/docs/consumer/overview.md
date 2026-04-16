@@ -18,6 +18,7 @@ This is the external AI documentation layer for applications that use `envy-ui` 
 - How the template-literal DSL works for elements, modifiers, conditions, grouping, and interpolation.
 - Which helper DSL limits are known and when compatibility workarounds are acceptable.
 - Which helper patterns are already guaranteed by the current test layer.
+- How block modifiers should be preferred over utility overrides for intrinsic component styling.
 - Which library capabilities are actually common in the application and which are rare exceptions.
 - Which exports and class patterns exist only for compatibility and should not be used for new work.
 - How to ask Copilot for help with `envy-ui`-related tasks.
@@ -39,6 +40,7 @@ Those topics belong to the maintainer layer under `docs/maintainer/`.
 - `composition-model.md`
 - `class-fragment-dsl.md`
 - `utility-class-reference.md`
+- `modifier-first-styling.md`
 - `known-limitations.md`
 - `tested-patterns.md`
 - `deprecated-and-retired.md`

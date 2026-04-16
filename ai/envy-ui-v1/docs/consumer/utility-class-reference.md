@@ -14,10 +14,72 @@ There is a second rule as well:
 
 - even if a utility exists in compiled CSS, it should not automatically be treated as a recommended default in application code
 
+There is a third rule as well:
+
+- do not combine utility literals that set the same CSS property twice or that overlap on the same CSS property group
+
 Example:
 
 - `uiA\`w-10\`` is valid because `10` exists in the width iterator
 - `uiA\`w-29\`` is not safe because `29` is not part of the general width iterator
+
+## Conflict-Free Composition
+
+`uiA` literals should be internally consistent.
+
+Do not combine fragments that compete over the same final CSS property.
+
+This matters because many compiled utility classes have the same specificity.
+
+If two classes set the same property, the winner is often just the class that appears later in the compiled bundle.
+
+That makes the result fragile.
+
+It may look correct today and break after a rebuild or after unrelated CSS generation changes.
+
+## Unsafe Conflict Patterns
+
+Avoid exact duplicates for the same CSS intent:
+
+- `uiA\`m-right-5 m-right-15\``
+- `uiA\`w-100 w-150\``
+- `uiA\`top-5 top-10\``
+
+Avoid overlapping shorthand and side-specific combinations when they touch the same property:
+
+- `uiA\`m-x-large m-right-large\`` because both affect `margin-right`
+- `uiA\`m-10 m-left-5\`` because both affect `margin-left`
+- `uiA\`p-y-small p-top-large\`` because both affect `padding-top`
+- `uiA\`w-100% w-min-100\`` is not a conflict because `width` and `min-width` are different properties
+
+## Safe Composition Principle
+
+Within one helper expression, each final CSS property should usually be decided once.
+
+Good direction:
+
+- `uiA\`m-right-15\`` when only right margin is intended
+- `uiA\`m-x-large\`` when the same left and right margin is intended
+- `uiA\`p-y-small p-x-large\`` because vertical and horizontal padding target different property pairs
+
+If a value needs to change conditionally, prefer a single branch over two competing fragments:
+
+- prefer `uiA\`m-right-5:m-right-15:${isLarge}\``
+- avoid `uiA\`m-right-5 m-right-15:${isLarge}\``
+
+## Named Spacing Tokens
+
+Common spacing aliases are used as shorthand values:
+
+- `small` is typically `5px`
+- an omitted size in the default spacing shorthands is typically `10px`
+- `large` is typically `15px`
+
+These are still spacing values, not separate property families.
+
+That means combinations such as `m-x-large` plus `m-right-large` are still overlapping even when the numbers happen to match.
+
+The issue is not just the numeric value. The issue is declaring the same property twice.
 
 ## Size Iterator Sets
 
@@ -116,6 +178,12 @@ Examples:
 - `uiA\`p-small\`` -> default small padding token
 - `uiA\`p-y-15\`` -> vertical padding `15px`
 - `uiA\`p-none\`` -> `padding: 0`
+
+Conflict reminders:
+
+- avoid `uiA\`m-right-5 m-right-15\``
+- avoid `uiA\`m-x-large m-right-large\``
+- prefer one margin decision per side
 
 ## Positional Offsets
 
@@ -251,3 +319,5 @@ These use named color tokens, not arbitrary CSS color literals.
 - If an exact numeric value is needed, verify it against the known iterator set before suggesting it.
 - Treat `uiA` as a constrained vocabulary, not as open-ended utility CSS.
 - Treat rare but valid utilities as exceptions unless the local feature already uses them.
+- Avoid suggesting overlapping utility fragments that compete over the same CSS property.
+- Prefer one clear property decision over multiple same-specificity classes that happen to override each other.

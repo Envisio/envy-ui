@@ -30,6 +30,10 @@
       "destination": "docs/envy-ui-v1/utility-class-reference.md"
     },
     {
+      "source": "docs/consumer/modifier-first-styling.md",
+      "destination": "docs/envy-ui-v1/modifier-first-styling.md"
+    },
+    {
       "source": "docs/consumer/known-limitations.md",
       "destination": "docs/envy-ui-v1/known-limitations.md"
     },

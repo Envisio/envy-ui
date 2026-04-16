@@ -30,6 +30,8 @@ For most consumer work, the most important exports are:
 
 Together, these exports form the main composition model used by real application code.
 
+Within that model, block modifiers should be the first choice for intrinsic component styling, while `uiA` should mostly handle layout and utility concerns.
+
 ## Most Commonly Used Consumer Exports
 
 In real application code, these exports appear most often:

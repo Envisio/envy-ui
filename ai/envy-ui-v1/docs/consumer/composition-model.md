@@ -36,6 +36,8 @@ It is typically used for:
 
 It describes how the UI piece is arranged or adjusted.
 
+It should not be the default way to replace intrinsic block styling when the block already has a modifier family for that concern.
+
 ## Assembly Layer
 
 `ui(...)` is the standard assembly point used in application code.
@@ -69,6 +71,7 @@ When using `envy-ui` v1 in an application:
 - think in compositions, not in isolated components
 - treat block helpers as semantic structure
 - treat `uiA` as the utility adjustment layer
+- prefer block modifiers over utility overrides when the concern belongs to the block itself
 - treat `uiA` literals as constrained to the compiled vocabulary
 - filter candidate helpers through `deprecated-and-retired.md` before using them in new code
 - prefer extending an existing composition pattern already used in the app

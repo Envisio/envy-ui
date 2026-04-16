@@ -14,6 +14,7 @@ Assume the canonical references are:
 - `../../docs/envy-ui-v1/composition-model.md`
 - `../../docs/envy-ui-v1/class-fragment-dsl.md`
 - `../../docs/envy-ui-v1/utility-class-reference.md`
+- `../../docs/envy-ui-v1/modifier-first-styling.md`
 - `../../docs/envy-ui-v1/known-limitations.md`
 - `../../docs/envy-ui-v1/tested-patterns.md`
 - `../../docs/envy-ui-v1/deprecated-and-retired.md`
@@ -33,6 +34,8 @@ When helping inside a consumer application:
 - treat helper template literals as DSL expressions with conditional and BEM semantics
 - treat branch-heavy helper literals as risky and keep them simple
 - treat tested helper patterns as the safest baseline
+- treat overlapping utility fragments as coding errors even when the CSS might appear to work
+- treat block modifiers as the first place to look for component-owned styling
 - treat `Legacy` and `Retired` surfaces as compatibility-only
 - keep `envy-ui` guidance isolated from the application's unrelated code conventions
 - do not overwrite existing application documentation or Copilot instructions
@@ -44,7 +47,9 @@ When proposing implementation steps:
 - prefer minimal and compatibility-safe integrations
 - prefer root imports and published CSS assets for new code
 - prefer semantic block helpers for structure and `uiA` for layout and utility concerns
+- prefer native block modifiers before utility overrides for component color, size, state, and presentation
 - verify `uiA` numeric and unit literals against the known vocabulary before suggesting them
+- avoid suggesting two fragments that compete over the same final CSS property
 - prefer the nearest existing local composition before reaching for a rarer valid utility pattern
 - preserve the current DSL structure when modifying conditional helper literals
 - preserve existing raw compiled-class workarounds when they exist for known DSL bugs

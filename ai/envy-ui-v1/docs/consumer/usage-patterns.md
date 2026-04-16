@@ -53,6 +53,11 @@ The composition is often further controlled through the helper DSL:
 - grouped class bundles
 - interpolated reusable fragments
 
+The normal styling delegation is:
+
+- block helper plus modifiers for component-owned styling
+- `uiA` for layout and utility adjustments around that component
+
 ## Practical Rule of Thumb
 
 Before adding new code, decide which of these is actually needed:
@@ -76,6 +81,7 @@ Before adding new code, decide which of these is actually needed:
 - If a task needs behavior already covered by a helper or wrapper, prefer the package export over app-local duplication.
 - If the package does not expose a clean public hook for a need, keep app glue code local instead of assuming hidden internals are safe.
 - If a task needs both semantics and layout, prefer composing a block helper with `uiA` instead of overloading one helper to do both jobs.
+- If a task changes a block's intrinsic look, check that block's modifier families before reaching for `uiA` overrides.
 
 ## What To Avoid
 

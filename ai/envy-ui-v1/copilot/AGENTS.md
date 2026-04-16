@@ -16,6 +16,7 @@ These instructions apply only to work related to the exported `envy-ui` v1 docum
 - `../../docs/envy-ui-v1/composition-model.md`
 - `../../docs/envy-ui-v1/class-fragment-dsl.md`
 - `../../docs/envy-ui-v1/utility-class-reference.md`
+- `../../docs/envy-ui-v1/modifier-first-styling.md`
 - `../../docs/envy-ui-v1/known-limitations.md`
 - `../../docs/envy-ui-v1/tested-patterns.md`
 - `../../docs/envy-ui-v1/deprecated-and-retired.md`
@@ -34,6 +35,8 @@ These instructions apply only to work related to the exported `envy-ui` v1 docum
 - Prefer common local patterns over rare but valid library capabilities.
 - Treat helper template literals as a small DSL and preserve their current semantics when editing.
 - Treat dense branch-heavy helper literals as risky and preserve existing narrow workarounds for known bugs.
+- Treat overlapping utility fragments that compete over the same final CSS property as authoring mistakes.
+- Treat block modifiers as the default styling layer for component-owned appearance and state.
 - Treat the tested helper patterns as the safest baseline for new suggestions.
 - Treat `Legacy` and `Retired` surfaces as compatibility-only and avoid proposing them for new code.
 - Do not switch into maintainer-level implementation advice unless the task requires library changes.
