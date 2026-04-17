@@ -3,10 +3,15 @@
   "version": "1.0.484",
   "description": "UI Design System for Envisio Applications",
   "main": "./lib/index.js",
+  "bin": {
+    "envy-ui-sync-ai-docs": "bin/sync-ai-docs.js"
+  },
   "files": [
     "dist/js/**/*",
     "dist/css/**/*",
-    "lib/**/*"
+    "lib/**/*",
+    "ai/**/*",
+    "bin/**/*"
   ],
   "watch": {
     "run-all": {
@@ -58,7 +63,8 @@
     "backstop:reference": "backstop reference --config=\"backstop.config.js\"",
     "start:styleguide": "npm run open-styleguide",
     "open-styleguide": "concurrently \"http-server -a localhost -c-1 -p 1234\" \"open http://localhost:1234/dist/styleguide/\"",
-    "publish-staging": "npm run run-all && surge ./dist envisio-styleguide-staging.surge.sh"
+    "publish-staging": "npm run run-all && surge ./dist envisio-styleguide-staging.surge.sh",
+    "sync-ai-docs": "node ./bin/sync-ai-docs.js"
   },
   "repository": {
     "type": "git",
