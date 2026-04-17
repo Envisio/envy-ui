@@ -48,6 +48,14 @@ It combines class fragments and returns a `className` prop object.
 
 The fragments passed into block helpers and `uiA` are not plain strings. They use a small DSL for elements, modifiers, conditional branches, grouping, and interpolation.
 
+Canonical JSX assembly shape:
+
+```jsx
+<button type="button" {...ui([uiButton`--default --small`, uiA`m-right`])}>
+  <span {...ui([uiButton`__content`])}>Save</span>
+</button>
+```
+
 ## Practical Composition Pattern
 
 A common pattern is:

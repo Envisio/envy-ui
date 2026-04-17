@@ -24,6 +24,7 @@ When answering:
 - preserve the current conditional DSL style when updating helper literals
 - avoid making helper literals more branch-heavy when a simpler local workaround already exists
 - prefer helper shapes already backed by tests
+- provide helper syntax examples in JSX form with `{...ui([...])}` instead of raw HTML-like fragments
 - avoid proposing `Legacy` or `Retired` surfaces for new code
 - prefer root imports unless maintaining an established compatibility exception
 - avoid switching into library-maintainer guidance unless the task is really about changing `envy-ui`

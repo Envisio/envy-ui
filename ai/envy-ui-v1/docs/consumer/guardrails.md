@@ -14,6 +14,7 @@
 - Prefer helper shapes already covered by the current test layer.
 - Keep utility and modifier fragments non-conflicting; do not declare the same CSS intent twice in one expression.
 - Prefer block modifiers over utility overrides when changing a component's own visual semantics.
+- Use JSX-oriented examples with `{...ui([...])}` when documenting helper syntax.
 - Treat `Legacy` and `Retired` surfaces as compatibility-only, not as defaults for new code.
 
 ## For Copilot

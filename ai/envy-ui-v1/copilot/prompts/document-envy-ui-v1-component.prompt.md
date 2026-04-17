@@ -40,6 +40,7 @@ One short paragraph.
 
 - Show the safest integration approach for an application engineer.
 - Prefer the established application pattern when one already exists.
+- Show helper syntax examples as JSX with `{...ui([...])}` and canonical template-literal usage.
 - Call out conflicting helper fragments if the target pattern would set the same CSS property more than once.
 - If the target already has native modifiers for the requested concern, say that utilities should not be the first choice.
 

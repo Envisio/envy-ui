@@ -54,5 +54,6 @@ When proposing implementation steps:
 - preserve the current DSL structure when modifying conditional helper literals
 - preserve existing raw compiled-class workarounds when they exist for known DSL bugs
 - prefer examples already backed by tests when choosing helper syntax
+- prefer JSX usage examples with `{...ui([...])}` and canonical helper literals inside template strings
 - do not introduce blocks or modifiers listed in `deprecated-and-retired.md` for new work
 - only dive into package internals when consumer-facing behavior cannot be explained otherwise

@@ -6,6 +6,18 @@ These patterns are directly based on the current `getBlock` test layer.
 
 They are the safest examples to show Copilot because they are already backed by explicit expected outputs.
 
+## Context Note
+
+Examples in this file are low-level helper invocations from the test layer.
+
+In application code, these helper fragments are normally used through JSX props assembly, for example:
+
+```jsx
+<button type="button" {...ui([uiButton`--default --small`, uiA`m-right`])}>
+  <span {...ui([uiButton`__content`])}>Save</span>
+</button>
+```
+
 ## Recommendation
 
 Prefer staying close to these patterns.

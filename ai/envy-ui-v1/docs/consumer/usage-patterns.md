@@ -5,7 +5,7 @@
 An application usually uses `envy-ui` v1 in one or more of these ways:
 
 - import package exports from `envy-ui`
-- apply `envy-ui` CSS classes in markup
+- apply compiled `envy-ui` class strings through `className` in JSX/TSX markup
 - use provided React components or wrappers where they already match the app's pattern
 - combine app-specific code with `envy-ui` helpers instead of reimplementing package behavior
 
@@ -52,6 +52,8 @@ The composition is often further controlled through the helper DSL:
 - fallback branches
 - grouped class bundles
 - interpolated reusable fragments
+
+Helper-template literals belong to JS/JSX helper calls, not raw HTML authoring.
 
 The normal styling delegation is:
 

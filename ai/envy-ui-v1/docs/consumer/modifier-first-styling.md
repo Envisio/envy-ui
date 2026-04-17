@@ -59,15 +59,39 @@ Typical bad uses of `uiA`:
 
 Good:
 
-- `ui([uiButton\`--default --small\`, uiA\`m-right\`])`
-- `ui([uiButton\`--clean --content-link\`, uiA\`m-left-auto\`])`
-- `ui([uiBadge\`--warning --small\`, uiA\`m-right-small\`])`
+```jsx
+<button type="button" {...ui([uiButton`--default --small`, uiA`m-right`])}>
+  <span {...ui([uiButton`__content`])}>Save</span>
+</button>
+```
+
+```jsx
+<button type="button" {...ui([uiButton`--clean --content-link`, uiA`m-left-auto`])}>
+  <span {...ui([uiButton`__content`])}>Open</span>
+</button>
+```
+
+```jsx
+<span {...ui([uiBadge`--warning --small`, uiA`m-right-small`])}>Warning</span>
+```
 
 Bad as a default:
 
-- `ui([uiButton\`--default\`, uiA\`color-red\`])`
-- `ui([uiButton\`--mint-blue\`, uiA\`color-white color-bg-red\`])`
-- `ui([uiBadge\`--info\`, uiA\`color-orange\`])`
+```jsx
+<button type="button" {...ui([uiButton`--default`, uiA`color-red`])}>
+  <span {...ui([uiButton`__content`])}>Save</span>
+</button>
+```
+
+```jsx
+<button type="button" {...ui([uiButton`--mint-blue`, uiA`color-white color-bg-red`])}>
+  <span {...ui([uiButton`__content`])}>Save</span>
+</button>
+```
+
+```jsx
+<span {...ui([uiBadge`--info`, uiA`color-orange`])}>Info</span>
+```
 
 Those utility overrides may appear to work, but they bypass the block's own visual contract.
 

@@ -8,15 +8,31 @@ This DSL is part of the consumer-facing usage model.
 
 It is not plain free-form text.
 
+## JSX Context
+
+Block helpers and `uiA` are used from JavaScript/JSX code.
+
+They are not an HTML class-authoring syntax.
+
+Canonical shape in application code:
+
+```jsx
+<button type="button" {...ui([uiButton`--default --small`, uiA`m-right`])}>
+  <span {...ui([uiButton`__content`])}>Save</span>
+</button>
+```
+
 ## Mental Model
 
 A helper such as `uiButton`, `uiCard`, or `uiA` reads a string template and converts each fragment into one or more compiled class names.
 
 Examples:
 
-- `uiButton\`--mint-blue\``
-- `uiButton\`__content --long\``
-- `uiA\`f f-a-center w-100%\``
+```js
+uiButton`--mint-blue`
+uiButton`__content --long`
+uiA`f f-a-center w-100%`
+```
 
 ## Core Syntax
 
@@ -26,7 +42,9 @@ Fragments are separated by spaces.
 
 Example:
 
-- `uiA\`f f-a-center f-0-0-50\``
+```js
+uiA`f f-a-center f-0-0-50`
+```
 
 Result shape:
 
@@ -38,7 +56,9 @@ For block helpers, `__...` means a BEM element.
 
 Example:
 
-- `uiButton\`__content\``
+```js
+uiButton`__content`
+```
 
 Result shape:
 
@@ -50,7 +70,9 @@ For block helpers, `--...` means a BEM modifier.
 
 Example:
 
-- `uiButton\`--mint-blue --inactive\``
+```js
+uiButton`--mint-blue --inactive`
+```
 
 Result shape:
 
@@ -62,7 +84,9 @@ Important rule:
 
 Example:
 
-- `uiButton\`__content --long --disabled\``
+```js
+uiButton`__content --long --disabled`
+```
 
 Result shape:
 
@@ -74,7 +98,9 @@ For `uiA`, fragments are utility literals that receive the `env-a-` prefix when 
 
 Example:
 
-- `uiA\`f f-a-center w-100%\``
+```js
+uiA`f f-a-center w-100%`
+```
 
 Result shape:
 
@@ -95,8 +121,10 @@ Behavior:
 
 Examples:
 
-- `uiA\`f:${true}\`` -> include `f`
-- `uiA\`f:${false}\`` -> include nothing
+```js
+uiA`f:${true}`   // include f
+uiA`f:${false}`  // include nothing
+```
 
 ### True/False Branches
 
@@ -111,9 +139,11 @@ Behavior:
 
 Examples:
 
-- `uiA\`w-100%:w-50%:${true}\`` -> use `w-100%`
-- `uiA\`w-100%:w-50%:${false}\`` -> use `w-50%`
-- `uiButton\`--inactive:--disabled:${isDisabled}\`` -> choose one modifier branch
+```js
+uiA`w-100%:w-50%:${true}`      // use w-100%
+uiA`w-100%:w-50%:${false}`     // use w-50%
+uiButton`--inactive:--disabled:${isDisabled}`
+```
 
 ## Grouping
 
@@ -129,8 +159,10 @@ Behavior:
 
 Examples:
 
-- `uiA\`(f-b-30 f-s-1):f-0-0-40:${true}\``
-- `uiButton\`--ok (--mint-blue --inactive):${true}\``
+```js
+uiA`(f-b-30 f-s-1):f-0-0-40:${true}`
+uiButton`--ok (--mint-blue --inactive):${true}`
+```
 
 This is useful when one condition should enable a whole composition rather than a single class.
 
@@ -149,7 +181,10 @@ Behavior:
 
 Example:
 
-- if `colorFragment = 'color-red'`, then `uiA\`f #${colorFragment}\`` includes the compiled utility for `color-red`
+```js
+const colorFragment = 'color-red';
+uiA`f #${colorFragment}`;
+```
 
 ## Important Semantic Rules
 

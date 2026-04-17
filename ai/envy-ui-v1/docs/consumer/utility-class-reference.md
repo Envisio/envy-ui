@@ -18,10 +18,24 @@ There is a third rule as well:
 
 - do not combine utility literals that set the same CSS property twice or that overlap on the same CSS property group
 
+## JSX Usage Form
+
+`uiA` fragments are used inside JS/JSX helper composition.
+
+Canonical shape:
+
+```jsx
+<div {...ui([uiCard`--plain`, uiA`f f-column w-100% p-small`])}>
+  ...
+</div>
+```
+
+`uiA` literals are not a standalone HTML syntax and should not be documented as plain HTML classes for consumer usage.
+
 Example:
 
-- `uiA\`w-10\`` is valid because `10` exists in the width iterator
-- `uiA\`w-29\`` is not safe because `29` is not part of the general width iterator
+- `w-10` is valid because `10` exists in the width iterator
+- `w-29` is not safe because `29` is not part of the general width iterator
 
 ## Conflict-Free Composition
 
@@ -41,16 +55,16 @@ It may look correct today and break after a rebuild or after unrelated CSS gener
 
 Avoid exact duplicates for the same CSS intent:
 
-- `uiA\`m-right-5 m-right-15\``
-- `uiA\`w-100 w-150\``
-- `uiA\`top-5 top-10\``
+- `m-right-5 m-right-15`
+- `w-100 w-150`
+- `top-5 top-10`
 
 Avoid overlapping shorthand and side-specific combinations when they touch the same property:
 
-- `uiA\`m-x-large m-right-large\`` because both affect `margin-right`
-- `uiA\`m-10 m-left-5\`` because both affect `margin-left`
-- `uiA\`p-y-small p-top-large\`` because both affect `padding-top`
-- `uiA\`w-100% w-min-100\`` is not a conflict because `width` and `min-width` are different properties
+- `m-x-large m-right-large` because both affect `margin-right`
+- `m-10 m-left-5` because both affect `margin-left`
+- `p-y-small p-top-large` because both affect `padding-top`
+- `w-100% w-min-100` is not a conflict because `width` and `min-width` are different properties
 
 ## Safe Composition Principle
 
@@ -58,14 +72,14 @@ Within one helper expression, each final CSS property should usually be decided 
 
 Good direction:
 
-- `uiA\`m-right-15\`` when only right margin is intended
-- `uiA\`m-x-large\`` when the same left and right margin is intended
-- `uiA\`p-y-small p-x-large\`` because vertical and horizontal padding target different property pairs
+- `m-right-15` when only right margin is intended
+- `m-x-large` when the same left and right margin is intended
+- `p-y-small p-x-large` because vertical and horizontal padding target different property pairs
 
 If a value needs to change conditionally, prefer a single branch over two competing fragments:
 
-- prefer `uiA\`m-right-5:m-right-15:${isLarge}\``
-- avoid `uiA\`m-right-5 m-right-15:${isLarge}\``
+- prefer `m-right-5:m-right-15:${isLarge}`
+- avoid `m-right-5 m-right-15:${isLarge}`
 
 ## Named Spacing Tokens
 
@@ -139,17 +153,17 @@ Supported value shapes:
 
 Examples:
 
-- `uiA\`w-10\`` -> `width: 10px`
-- `uiA\`w-100%\`` -> `width: 100%`
-- `uiA\`w-50vw\`` -> `width: 50vw`
-- `uiA\`w-min-25\`` -> `min-width: 25px`
-- `uiA\`h-max-100vh\`` -> `max-height: 100vh`
-- `uiA\`w-auto\`` -> `width: auto`
-- `uiA\`w-max-auto\`` -> `max-width: none`
+- `w-10` -> `width: 10px`
+- `w-100%` -> `width: 100%`
+- `w-50vw` -> `width: 50vw`
+- `w-min-25` -> `min-width: 25px`
+- `h-max-100vh` -> `max-height: 100vh`
+- `w-auto` -> `width: auto`
+- `w-max-auto` -> `max-width: none`
 
 Unsafe example:
 
-- `uiA\`w-29\`` should be treated as invalid unless verified in compiled CSS
+- `w-29` should be treated as invalid unless verified in compiled CSS
 
 ## Margin and Padding
 
@@ -172,17 +186,17 @@ Negative values:
 
 Examples:
 
-- `uiA\`m-10\`` -> `margin: 10px`
-- `uiA\`m-top-5-\`` -> `margin-top: -5px`
-- `uiA\`m-x-auto\`` -> horizontal auto margins
-- `uiA\`p-small\`` -> default small padding token
-- `uiA\`p-y-15\`` -> vertical padding `15px`
-- `uiA\`p-none\`` -> `padding: 0`
+- `m-10` -> `margin: 10px`
+- `m-top-5-` -> `margin-top: -5px`
+- `m-x-auto` -> horizontal auto margins
+- `p-small` -> default small padding token
+- `p-y-15` -> vertical padding `15px`
+- `p-none` -> `padding: 0`
 
 Conflict reminders:
 
-- avoid `uiA\`m-right-5 m-right-15\``
-- avoid `uiA\`m-x-large m-right-large\``
+- avoid `m-right-5 m-right-15`
+- avoid `m-x-large m-right-large`
 - prefer one margin decision per side
 
 ## Positional Offsets
@@ -203,15 +217,15 @@ Supported value shapes:
 
 Examples:
 
-- `uiA\`top\`` -> `top: 0`
-- `uiA\`top-10\`` -> `top: 10px`
-- `uiA\`top-10-\`` -> `top: -10px`
-- `uiA\`left-50%\`` -> `left: 50%`
+- `top` -> `top: 0`
+- `top-10` -> `top: 10px`
+- `top-10-` -> `top: -10px`
+- `left-50%` -> `left: 50%`
 
 Important restriction:
 
 - negative top/right/bottom/left values are only generated for the small iterator, not the full px iterator
-- `uiA\`top-125-\`` is not safe
+- `top-125-` is not safe
 
 ## Display and Position
 
@@ -240,9 +254,9 @@ Position literals:
 
 Examples:
 
-- `uiA\`f\`` -> `display: flex`
-- `uiA\`inline-block\`` -> `display: inline-block`
-- `uiA\`absolute\`` -> `position: absolute`
+- `f` -> `display: flex`
+- `inline-block` -> `display: inline-block`
+- `absolute` -> `position: absolute`
 
 ## Flex Utilities
 
@@ -261,10 +275,10 @@ Common flex families:
 
 Examples:
 
-- `uiA\`f f-column f-gap-small\``
-- `uiA\`f-j-space-between f-a-center\``
-- `uiA\`f-1-1-auto\``
-- `uiA\`f-0-0-100%\``
+- `f f-column f-gap-small`
+- `f-j-space-between f-a-center`
+- `f-1-1-auto`
+- `f-0-0-100%`
 
 Important note:
 
@@ -281,12 +295,12 @@ Supported text families:
 
 Examples:
 
-- `uiA\`font-size-14\`` -> `font-size: 14px`
-- `uiA\`font-size-12em\`` -> `font-size: 1.2em`
-- `uiA\`font-size-95%\`` -> `font-size: 95%`
-- `uiA\`line-height-12\`` -> `line-height: 1.2`
-- `uiA\`line-height-normal\``
-- `uiA\`text-align-center\``
+- `font-size-14` -> `font-size: 14px`
+- `font-size-12em` -> `font-size: 1.2em`
+- `font-size-95%` -> `font-size: 95%`
+- `line-height-12` -> `line-height: 1.2`
+- `line-height-normal`
+- `text-align-center`
 
 Additional precompiled text helpers also exist, such as:
 

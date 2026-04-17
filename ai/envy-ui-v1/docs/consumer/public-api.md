@@ -32,6 +32,14 @@ Together, these exports form the main composition model used by real application
 
 Within that model, block modifiers should be the first choice for intrinsic component styling, while `uiA` should mostly handle layout and utility concerns.
 
+Canonical JSX usage shape:
+
+```jsx
+<button type="button" {...ui([uiButton`--default`, uiA`m-right-small`])}>
+  <span {...ui([uiButton`__content`])}>Save</span>
+</button>
+```
+
 ## Most Commonly Used Consumer Exports
 
 In real application code, these exports appear most often:
