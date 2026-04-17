@@ -22,6 +22,31 @@ Use `envy-ui` v1 as a production dependency that provides:
 - Treat export availability as a starting point, not as automatic approval for new usage
 - Check `deprecated-and-retired.md` before choosing an older-looking block or modifier pattern
 
+## AI Bundle Sync In Consumer App
+
+Install `envy-ui` as usual, then sync the AI bundle into the application repository.
+
+From the consumer app root:
+
+- `npx envy-ui-sync-ai-docs`
+
+This copies `envy-ui-v1` docs and Copilot files into namespaced destinations such as:
+
+- `docs/envy-ui-v1/*`
+- `.github/instructions/envy-ui-v1.instructions.md`
+- `.github/prompts/envy-ui-v1-*.prompt.md`
+- `.github/envy-ui-v1/AGENTS.md`
+
+Default behavior is additive and non-destructive:
+
+- existing destination files are not overwritten unless explicitly forced
+
+Useful modes:
+
+- `npx envy-ui-sync-ai-docs --check` validates whether all target files are present and up to date
+- `npx envy-ui-sync-ai-docs --dry-run` prints planned actions without writing files
+- `npx envy-ui-sync-ai-docs --force` overwrites existing destination files with the bundle versions
+
 ## What Real Applications Commonly Do
 
 In `envisio-core`, the most common pattern is:
