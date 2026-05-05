@@ -23,7 +23,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - uses: dswistowski/surge-sh-action@v1
         with:
-          domain: envisio-styleguide.surge.sh
+          domain: envisio-envy-ui.surge.sh
           project: './dist'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}

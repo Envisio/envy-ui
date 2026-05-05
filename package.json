@@ -1,5 +1,5 @@
 {
-  "name": "envy-ui",
+  "name": "@envisio/envy-ui",
   "version": "1.0.484",
   "description": "UI Design System for Envisio Applications",
   "main": "./lib/index.js",
@@ -52,13 +52,13 @@
     "specificity": "specificity-graph dist/css/ui.css --output dist/styleguide/specificity",
     "render-styleguide-homepage": "pug -O src/javascripts/from-dictionary/block_name.styleguide.js styleguide/homepage/styleguide-homepage.pug --extension md --pretty --out styleguide/",
     "render-markups": "pug --pretty -O src/javascripts/from-dictionary/block_name.styleguide.js src/stylesheets/a/kss/src/ --out src/stylesheets/a/kss/build/",
-    "deploy": "npm run specificity && surge --domain envisio-styleguide.surge.sh ./dist",
+    "deploy": "npm run specificity && surge --domain envisio-envy-ui.surge.sh ./dist",
     "js-test": "babel-tape-runner src/javascripts/ui/tests/get_block.test.js | faucet",
     "backstop:exec-test": "concurrently \"http-server -a localhost -p 5000\" \"sleepms 2000 && node backstop.exec.js test; open-cli http://localhost:5000/backstop_data/html_report/\"",
     "backstop:reference": "backstop reference --config=\"backstop.config.js\"",
     "start:styleguide": "npm run open-styleguide",
     "open-styleguide": "concurrently \"http-server -a localhost -c-1 -p 1234\" \"open http://localhost:1234/dist/styleguide/\"",
-    "publish-staging": "npm run run-all && surge ./dist envisio-styleguide-staging.surge.sh"
+    "publish-staging": "npm run run-all && surge ./dist envisio-envy-ui-staging.surge.sh"
   },
   "repository": {
     "type": "git",
