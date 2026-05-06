@@ -14,14 +14,14 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: '18.x'
+          node-version: '24'
+          package-manager-cache: false
           registry-url: https://registry.npmjs.org/
       - run: npm i --legacy-peer-deps
       - run: npm run run-all
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - run: npm publish
       - uses: dswistowski/surge-sh-action@v1
         with:
