@@ -28,7 +28,7 @@ jobs:
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
       - run: |
-          echo "current_version=$(echo $(npm view envy-ui version))" >> "$GITHUB_ENV"
+          echo "current_version=$(echo $(npm view @envisio/envy-ui version))" >> "$GITHUB_ENV"
       - run: |
           curl -X POST \
           -H 'Content-type: application/json' \
