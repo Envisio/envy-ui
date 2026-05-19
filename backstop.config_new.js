@@ -101,8 +101,8 @@ const sharedScenarioData = {
 const getURLS = ({section = ''}) => (
   {
     "url": `http://localhost:5000/dist/styleguide/${section}.html`,
-    // "url": `http://envisio-styleguide.surge.sh/styleguide/${section}.html`,
-    "referenceUrl": `http://envisio-styleguide.surge.sh/styleguide/${section}.html`,
+    // "url": `http://envisio-envy-ui.surge.sh/styleguide/${section}.html`,
+    "referenceUrl": `http://envisio-envy-ui.surge.sh/styleguide/${section}.html`,
   }
 );
 

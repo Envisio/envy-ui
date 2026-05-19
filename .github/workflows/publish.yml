@@ -6,29 +6,31 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions:
+  id-token: write  # Required for OIDC for npm Trusted Publishing
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: '18.x'
+          node-version: '24'
+          package-manager-cache: false
           registry-url: https://registry.npmjs.org/
       - run: npm i --legacy-peer-deps
       - run: npm run run-all
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - uses: dswistowski/surge-sh-action@v1
         with:
-          domain: envisio-styleguide.surge.sh
+          domain: envisio-envy-ui.surge.sh
           project: './dist'
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
       - run: |
-          echo "current_version=$(echo $(npm view envy-ui version))" >> "$GITHUB_ENV"
+          echo "current_version=$(echo $(npm view @envisio/envy-ui version))" >> "$GITHUB_ENV"
       - run: |
           curl -X POST \
           -H 'Content-type: application/json' \
